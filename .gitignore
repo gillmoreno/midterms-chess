@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.local
+meshy_output/
+output/
+.DS_Store
+scripts/payloads/
+scripts/__pycache__/
+__pycache__/

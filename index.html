@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Floor Vote — Left vs Right</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three.module.js",
+          "three/addons/": "./vendor/addons/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="file-hint" hidden>
+      <div class="file-card">
+        <h2>Serve this folder</h2>
+        <p>
+          Three.js loads as ES modules, so a raw <code>file://</code> open is a
+          black screen in most browsers.
+        </p>
+        <pre>npm start</pre>
+        <p>then open <code>http://localhost:4173</code></p>
+      </div>
+    </div>
+
+    <div id="chrome">
+      <header class="mast">
+        <div class="house left">
+          <span class="kicker">The Left</span>
+          <strong>Newsom</strong>
+          <em>AOC · Bernie · Kamala · Pete</em>
+        </div>
+        <div class="seal">
+          <span class="seal-ring">Floor Vote</span>
+          <h1>Left <i>vs</i> Right</h1>
+          <span class="sub">A 3D session of the American board</span>
+        </div>
+        <div class="house right">
+          <span class="kicker">The Right</span>
+          <strong>Trump</strong>
+          <em>Melania · McConnell · Cruz · Vance</em>
+        </div>
+      </header>
+
+      <aside class="rail left-rail">
+        <h2>Taken by the Right</h2>
+        <div id="captured-right" class="captured"></div>
+      </aside>
+
+      <main id="arena">
+        <canvas id="stage"></canvas>
+        <div id="inspect">
+          <div id="hover-card" hidden>
+            <img id="hover-img" alt="" />
+            <div>
+              <strong id="hover-name"></strong>
+              <span id="hover-role"></span>
+            </div>
+          </div>
+        </div>
+        <div id="result-card" hidden>
+          <h2 id="result-title"></h2>
+          <p id="result-body"></p>
+          <button type="button" id="btn-again">Call a new session</button>
+        </div>
+      </main>
+
+      <aside class="rail right-rail">
+        <h2>Taken by the Left</h2>
+        <div id="captured-left" class="captured"></div>
+      </aside>
+
+      <footer class="dock">
+        <div class="dock-left">
+          <span id="turn-pill" data-side="right">The Right</span>
+          <p id="status-line">Trump to move.</p>
+        </div>
+        <div id="ticker" class="ticker"></div>
+        <div class="dock-actions">
+          <button type="button" id="btn-flip">Spin the chamber</button>
+          <button type="button" id="btn-new">New session</button>
+        </div>
+      </footer>
+    </div>
+
+    <div id="promo" class="modal" hidden>
+      <div class="modal-card">
+        <h2>Promote</h2>
+        <p>The pawn reaches the far aisle. Choose a new office.</p>
+        <div id="promo-choices" class="promo-row"></div>
+      </div>
+    </div>
+
+    <script src="js/chess.js"></script>
+    <script src="js/roster.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "right-king",
+    "task_id": "01a013a7-6325-7f0b-a908-d55046ddfa79",
+    "image": "trump.jpg"
+  },
+  {
+    "name": "right-queen",
+    "task_id": "01a013a7-aac8-7193-803c-6516437c3a69",
+    "image": "melania.jpg"
+  },
+  {
+    "name": "right-rook",
+    "task_id": "01a013a7-b01c-7193-934f-72cd834820bb",
+    "image": "mcconnell.jpg"
+  },
+  {
+    "name": "right-bishop",
+    "task_id": "01a013a7-b555-7f16-b237-45ca2e0e4617",
+    "image": "cruz.jpg"
+  },
+  {
+    "name": "right-knight",
+    "task_id": "01a013a7-ba24-7f16-a2e6-dd1cab99fa30",
+    "image": "vance.jpg"
+  },
+  {
+    "name": "right-pawn",
+    "task_id": "01a013a7-bf4d-7194-bb38-8c54178bd247",
+    "image": "pawn-right.jpg"
+  },
+  {
+    "name": "left-king",
+    "task_id": "01a013a7-c43d-7b29-bc25-b3dc4dd0ed0f",
+    "image": "newsom.jpg"
+  },
+  {
+    "name": "left-queen",
+    "task_id": "01a013a7-c99b-72e3-a8dd-e8a042d9647b",
+    "image": "aoc.jpg"
+  },
+  {
+    "name": "left-rook",
+    "task_id": "01a013a7-cef6-7f1d-b2ef-d1069f8f2a91",
+    "image": "sanders.jpg"
+  },
+  {
+    "name": "left-bishop",
+    "task_id": "01a013a7-d3d1-7b2f-aafc-9f23e5a9c557",
+    "image": "harris.jpg"
+  },
+  {
+    "name": "left-knight",
+    "task_id": "01a013a7-d875-72eb-86ac-372d3a273b62",
+    "image": "buttigieg.jpg"
+  },
+  {
+    "name": "left-pawn",
+    "task_id": "01a013a7-dd59-7b30-b3ec-19fb4b2f97c5",
+    "image": "pawn-left.jpg"
+  }
+]
