@@ -50,7 +50,7 @@
       },
       p: {
         id: "maga",
-        name: "MAGA rank-and-file",
+        name: "Open-carry MAGA",
         role: "Pawn",
         model: "assets/models/right-pawn.glb",
         portrait: "assets/portraits/pawn-right.jpg",
@@ -98,7 +98,7 @@
       },
       p: {
         id: "activist",
-        name: "Field organizer",
+        name: "Blue-hair riflewoman",
         role: "Pawn",
         model: "assets/models/left-pawn.glb",
         portrait: "assets/portraits/pawn-left.jpg",

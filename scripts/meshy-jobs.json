@@ -1,62 +1,62 @@
 [
   {
     "name": "right-king",
-    "task_id": "01a013a7-6325-7f0b-a908-d55046ddfa79",
+    "task_id": "01a013bc-3c58-75d0-8c0e-f3633ce6a058",
     "image": "trump.jpg"
   },
   {
     "name": "right-queen",
-    "task_id": "01a013a7-aac8-7193-803c-6516437c3a69",
+    "task_id": "01a013bc-422e-75d1-a6e2-1226cffc749b",
     "image": "melania.jpg"
   },
   {
     "name": "right-rook",
-    "task_id": "01a013a7-b01c-7193-934f-72cd834820bb",
+    "task_id": "01a013bc-46c3-769f-bee2-dd105a35164c",
     "image": "mcconnell.jpg"
   },
   {
     "name": "right-bishop",
-    "task_id": "01a013a7-b555-7f16-b237-45ca2e0e4617",
+    "task_id": "01a013bc-4c94-7fad-81a4-01bd113abc14",
     "image": "cruz.jpg"
   },
   {
     "name": "right-knight",
-    "task_id": "01a013a7-ba24-7f16-a2e6-dd1cab99fa30",
+    "task_id": "01a013bc-5201-769f-923f-6ceabda08f61",
     "image": "vance.jpg"
   },
   {
     "name": "right-pawn",
-    "task_id": "01a013a7-bf4d-7194-bb38-8c54178bd247",
+    "task_id": "01a013bc-56cd-75d3-8b63-668f09dc65f6",
     "image": "pawn-right.jpg"
   },
   {
     "name": "left-king",
-    "task_id": "01a013a7-c43d-7b29-bc25-b3dc4dd0ed0f",
+    "task_id": "01a013bc-5c33-7078-9307-5bc05639d786",
     "image": "newsom.jpg"
   },
   {
     "name": "left-queen",
-    "task_id": "01a013a7-c99b-72e3-a8dd-e8a042d9647b",
+    "task_id": "01a013bc-6186-7078-bf9e-536f48d2bbac",
     "image": "aoc.jpg"
   },
   {
     "name": "left-rook",
-    "task_id": "01a013a7-cef6-7f1d-b2ef-d1069f8f2a91",
+    "task_id": "01a013bc-667f-75d3-a90b-a6b1a1739bf0",
     "image": "sanders.jpg"
   },
   {
     "name": "left-bishop",
-    "task_id": "01a013a7-d3d1-7b2f-aafc-9f23e5a9c557",
+    "task_id": "01a013bc-6b5a-75d5-863b-5609c7493c99",
     "image": "harris.jpg"
   },
   {
     "name": "left-knight",
-    "task_id": "01a013a7-d875-72eb-86ac-372d3a273b62",
+    "task_id": "01a013bc-70c9-75d5-9f91-7fe612040bc2",
     "image": "buttigieg.jpg"
   },
   {
     "name": "left-pawn",
-    "task_id": "01a013a7-dd59-7b30-b3ec-19fb4b2f97c5",
+    "task_id": "01a013bc-7588-7fc2-928c-bc809dca96da",
     "image": "pawn-left.jpg"
   }
 ]
