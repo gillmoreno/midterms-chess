@@ -236,6 +236,32 @@ describe("promotion", () => {
   });
 });
 
+describe("pawn capture squares", () => {
+  it("regular capture lands on the victim square", () => {
+    const g = Chess.createGame();
+    Chess.play(g, "e2", "e4");
+    Chess.play(g, "d7", "d5");
+    const r = Chess.play(g, "e4", "d5");
+    assert.equal(r.ok, true);
+    assert.ok(r.captured && r.captured.t === "p");
+    assert.equal(r.move.to, Chess.parseSquare("d5"));
+    assert.equal(!!r.move.ep, false);
+  });
+});
+
+describe("previewMoves", () => {
+  it("shows an opponent piece's options even when it is not their turn", () => {
+    const g = Chess.createGame();
+    Chess.play(g, "e2", "e4");
+    assert.equal(g.turn, "b");
+    const from = Chess.parseSquare("a2");
+    const mine = Chess.legalMovesFrom(g, from);
+    assert.equal(mine.length, 0);
+    const preview = Chess.previewMoves(g, from).map((m) => Chess.algebraic(m.to)).sort();
+    assert.deepEqual(preview, ["a3", "a4"]);
+  });
+});
+
 describe("stalemate", () => {
   it("no legal moves and not in check is stalemate", () => {
     const g = Chess.createGame();

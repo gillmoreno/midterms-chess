@@ -52,4 +52,16 @@ test("index.html is a module page with a file:// escape hatch", () => {
   assert.match(html, /js\/main\.js/);
   assert.match(html, /id="file-hint"/);
   assert.match(html, /id="stage"/);
+  assert.match(html, /id="cine"/);
+  assert.match(html, /id="cine-video"/);
+  assert.match(html, /href="scripts.html"/);
+});
+
+test("scripts.html is a writer room for who-kills-who lines", () => {
+  const html = fs.readFileSync(path.join(root, "scripts.html"), "utf8");
+  assert.match(html, /id="ledger-body"/);
+  assert.match(html, /id="line-edit"/);
+  assert.match(html, /id="hooks"/);
+  assert.match(html, /js\/scripts-page\.js/);
+  assert.match(html, /href="index.html"/);
 });

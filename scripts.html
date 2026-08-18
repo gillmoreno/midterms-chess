@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kill Cam Scripts — Floor Vote</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/scripts.css" />
+  </head>
+  <body class="scripts-room">
+    <div id="chrome">
+      <header class="mast">
+        <div class="house left">
+          <span class="kicker">The Left</span>
+          <strong>Last words</strong>
+          <em>Nine voices · nine victims each</em>
+        </div>
+        <div class="seal">
+          <span class="seal-ring">Kill Cam Bible</span>
+          <h1>Who <i>kills</i> who</h1>
+          <span class="sub">Draft the line before we film it</span>
+        </div>
+        <div class="house right">
+          <span class="kicker">The Right</span>
+          <strong>Last words</strong>
+          <em>Same vinyl cast · different punchline</em>
+        </div>
+      </header>
+
+      <aside class="rail left-rail" id="cast-left">
+        <h2>The Left</h2>
+        <div class="cast" data-house="left"></div>
+      </aside>
+
+      <main id="stage-scripts">
+        <p class="stage-hint">
+          Pick one from each house. Click TAKES to flip who speaks. Every pair
+          is a different reel.
+        </p>
+        <div class="duel">
+          <figure class="duel-card killer" id="fig-killer">
+            <img id="img-killer" alt="" />
+            <figcaption>
+              <span class="kicker" id="role-killer">Killer</span>
+              <strong id="name-killer">Choose a killer</strong>
+            </figcaption>
+          </figure>
+          <div class="duel-mid">
+            <button type="button" class="takes" title="Flip who kills">takes</button>
+          </div>
+          <figure class="duel-card victim" id="fig-victim">
+            <img id="img-victim" alt="" />
+            <figcaption>
+              <span class="kicker" id="role-victim">Victim</span>
+              <strong id="name-victim">Choose a victim</strong>
+            </figcaption>
+          </figure>
+        </div>
+
+        <section class="line-card" id="line-card" hidden>
+          <div class="line-meta">
+            <span id="line-status">Draft</span>
+            <span id="line-voice"></span>
+          </div>
+          <p class="delivery" id="line-delivery"></p>
+          <p class="hooks-label">Five hooks. Soft, sly, and hot — pick one.</p>
+          <div id="hooks" class="hooks"></div>
+          <details class="custom-line">
+            <summary>Write your own</summary>
+            <label class="sr" for="line-edit">Custom kill line</label>
+            <textarea id="line-edit" rows="2" maxlength="140"></textarea>
+            <button type="button" id="btn-save">Use this instead</button>
+          </details>
+          <div class="line-actions">
+            <button type="button" id="btn-reset">Reset to first hook</button>
+            <button type="button" id="btn-try">Try the cam</button>
+          </div>
+        </section>
+      </main>
+
+      <aside class="rail right-rail" id="cast-right">
+        <h2>The Right</h2>
+        <div class="cast" data-house="right"></div>
+      </aside>
+
+      <section id="ledger">
+        <header class="ledger-head">
+          <h2>The ledger</h2>
+          <p id="ledger-count"></p>
+          <div class="ledger-filters">
+            <button type="button" data-filter="all" class="on">All pairs</button>
+            <button type="button" data-filter="killer">This killer</button>
+            <button type="button" data-filter="filmed">Filmed</button>
+            <button type="button" data-filter="draft">Unfilmed</button>
+          </div>
+        </header>
+        <div class="ledger-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Killer</th>
+                <th></th>
+                <th>Victim</th>
+                <th>Line</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="ledger-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="dock">
+        <div class="dock-left">
+          <span id="turn-pill" data-side="">Script room</span>
+          <p id="status-line">162 matchups. Two already on film — the pawns.</p>
+        </div>
+        <div class="dock-actions">
+          <a class="btn-link" href="index.html">Back to the floor</a>
+        </div>
+      </footer>
+    </div>
+
+    <div id="cine" hidden>
+      <div class="cine-frame">
+        <span class="cine-stamp" id="try-stamp">Kill cam · draft</span>
+        <div id="try-stage">
+          <video id="cine-video" playsinline hidden></video>
+          <div id="try-stills">
+            <img id="try-killer" alt="" />
+            <img id="try-victim" alt="" />
+          </div>
+        </div>
+        <div class="cine-bar">
+          <p id="cine-line"></p>
+          <button type="button" id="cine-skip">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/roster.js"></script>
+    <script type="module" src="js/scripts-page.js"></script>
+  </body>
+</html>

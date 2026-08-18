@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { unlockFx } from "./fx.js";
 
 const Chess = window.Chess;
 const S = 1.16;
@@ -171,8 +172,10 @@ export function createBoard3D(canvas) {
   scene.background = new THREE.Color(0x070910);
   scene.fog = new THREE.Fog(0x070910, 14, 32);
 
-  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 80);
-  camera.position.set(0, 8.4, 10.6);
+  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 80);
+  const homePos = new THREE.Vector3(0, 7.2, 9.1);
+  const homeTarget = new THREE.Vector3(0, 0.45, 0);
+  camera.position.copy(homePos);
 
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -190,11 +193,11 @@ export function createBoard3D(canvas) {
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.06;
-  controls.target.set(0, 0.2, 0);
-  controls.minDistance = 6;
+  controls.target.copy(homeTarget);
+  controls.minDistance = 2.4;
   controls.maxDistance = 18;
-  controls.maxPolarAngle = Math.PI * 0.46;
-  controls.minPolarAngle = 0.35;
+  controls.maxPolarAngle = Math.PI * 0.49;
+  controls.minPolarAngle = 0.28;
   controls.enablePan = false;
 
   const hemi = new THREE.HemisphereLight(0xffe6c8, 0x0b1a3a, 0.55);
@@ -325,6 +328,18 @@ export function createBoard3D(canvas) {
     opacity: 0.4,
     depthWrite: false,
   });
+  const inspectMat = new THREE.MeshBasicMaterial({
+    color: 0x7eb6ff,
+    transparent: true,
+    opacity: 0.48,
+    depthWrite: false,
+  });
+  const inspectCapMat = new THREE.MeshBasicMaterial({
+    color: 0xc084fc,
+    transparent: true,
+    opacity: 0.42,
+    depthWrite: false,
+  });
 
   const pieceRoot = new THREE.Group();
   scene.add(pieceRoot);
@@ -360,7 +375,47 @@ export function createBoard3D(canvas) {
   const pointer = new THREE.Vector2();
   let pickHandler = null;
   let anims = [];
+  let camAnim = null;
+  let focusedSquare = null;
   let ready = false;
+
+  function faceSelected(square) {
+    focusedSquare = square;
+    pieceRoot.children.forEach((mesh) => {
+      if (square != null && mesh.userData.square === square) {
+        const dx = camera.position.x - mesh.position.x;
+        const dz = camera.position.z - mesh.position.z;
+        mesh.rotation.y = Math.atan2(dx, dz);
+      } else {
+        mesh.rotation.y = mesh.userData.color === "w" ? Math.PI : 0;
+      }
+    });
+  }
+
+  function startCamAnim(toPos, toTarget) {
+    camAnim = {
+      fromPos: camera.position.clone(),
+      toPos: toPos.clone(),
+      fromT: controls.target.clone(),
+      toT: toTarget.clone(),
+      t: 0,
+      dur: 0.42,
+    };
+  }
+
+  function focusOn(file, rank, color) {
+    if (file == null) {
+      startCamAnim(homePos, homeTarget);
+      faceSelected(null);
+      return;
+    }
+    const c = squareCenter(file, rank);
+    const toward = color === "w" ? -1 : 1;
+    const toPos = new THREE.Vector3(c.x * 0.25, 2.05, c.z + toward * 3.15);
+    const toTarget = new THREE.Vector3(c.x, 0.82, c.z);
+    startCamAnim(toPos, toTarget);
+    faceSelected(Chess.sq(file, rank));
+  }
 
   function spawnPiece(piece, file) {
     const e = window.Roster.entryFor(piece, file);
@@ -382,6 +437,9 @@ export function createBoard3D(canvas) {
       mesh.position.set(c.x, 0.21, c.z);
       mesh.rotation.y = p.c === "w" ? Math.PI : 0;
       mesh.userData = { kind: "piece", square: i, color: p.c, type: p.t };
+      mesh.traverse((o) => {
+        o.userData.pieceRoot = mesh;
+      });
       pieceRoot.add(mesh);
     }
   }
@@ -398,7 +456,7 @@ export function createBoard3D(canvas) {
     overlay.add(m);
   }
 
-  function setHighlights(selected, legal, last) {
+  function setHighlights(selected, legal, last, inspect) {
     clearOverlay();
     if (last) {
       addMarker(Chess.fileOf(last.from), Chess.rankOf(last.from), lastMat, 1);
@@ -408,39 +466,127 @@ export function createBoard3D(canvas) {
       addMarker(Chess.fileOf(selected), Chess.rankOf(selected), selectMat, 1.05);
     }
     (legal || []).forEach((mv) => {
-      const mat = mv.capturedHint ? captureMat : moveMat;
+      const mat = inspect
+        ? mv.capturedHint
+          ? inspectCapMat
+          : inspectMat
+        : mv.capturedHint
+          ? captureMat
+          : moveMat;
       addMarker(Chess.fileOf(mv.to), Chess.rankOf(mv.to), mat, mv.capturedHint ? 1 : 0.55);
     });
   }
 
-  function animateMove(from, to, onDone) {
-    const fromMesh = pieceRoot.children.find((c) => c.userData.square === from);
+  function findMesh(square) {
+    return pieceRoot.children.find((c) => c.userData.square === square);
+  }
+
+  function yawToward(fromPos, toPos) {
+    return Math.atan2(toPos.x - fromPos.x, toPos.z - fromPos.z);
+  }
+
+  function animateMove(opts, onDone) {
+    const from = opts.from;
+    const to = opts.to;
+    const fromMesh = findMesh(from);
     if (!fromMesh) {
       if (onDone) onDone();
       return;
     }
     const dest = squareCenter(Chess.fileOf(to), Chess.rankOf(to));
-    const start = fromMesh.position.clone();
+    const destPos = new THREE.Vector3(dest.x, 0.21, dest.z);
+    const victim =
+      opts.captureSquare != null ? findMesh(opts.captureSquare) : null;
+    const pawnKill = fromMesh.userData.type === "p" && victim;
+
+    if (pawnKill) {
+      anims.push({
+        kind: "pawnKill",
+        shooter: fromMesh,
+        victim: victim,
+        start: fromMesh.position.clone(),
+        dest: destPos,
+        aimYaw: yawToward(fromMesh.position, victim.position),
+        restYaw: fromMesh.rotation.y,
+        victimStart: victim.position.clone(),
+        victimYaw: victim.rotation.y,
+        t: 0,
+        shots: 0,
+        dropped: false,
+        flash: null,
+        tracer: null,
+        onDone,
+      });
+      fromMesh.userData.square = to;
+      return;
+    }
+
     const hop = fromMesh.userData.type === "n";
-    const dur = hop ? 0.38 : 0.28;
     anims.push({
+      kind: "slide",
       mesh: fromMesh,
-      start,
-      dest: new THREE.Vector3(dest.x, 0.21, dest.z),
+      start: fromMesh.position.clone(),
+      dest: destPos,
       t: 0,
-      dur,
+      dur: hop ? 0.38 : 0.28,
       hop,
       onDone,
     });
     fromMesh.userData.square = to;
   }
 
+  function spawnMuzzle(shooter, yaw) {
+    const flash = new THREE.PointLight(0xffe08a, 10, 5, 2);
+    const dir = new THREE.Vector3(Math.sin(yaw), 0, Math.cos(yaw));
+    flash.position.copy(shooter.position);
+    flash.position.y += 0.58;
+    flash.position.addScaledVector(dir, 0.42);
+    scene.add(flash);
+
+    const bolt = new THREE.Mesh(
+      new THREE.SphereGeometry(0.07, 8, 8),
+      new THREE.MeshBasicMaterial({ color: 0xfff1b0 })
+    );
+    bolt.position.copy(flash.position);
+    scene.add(bolt);
+
+    const tracerGeo = new THREE.BufferGeometry().setFromPoints([
+      flash.position.clone(),
+      flash.position.clone().addScaledVector(dir, 1.6),
+    ]);
+    const tracer = new THREE.Line(
+      tracerGeo,
+      new THREE.LineBasicMaterial({ color: 0xffdd77, transparent: true, opacity: 0.9 })
+    );
+    scene.add(tracer);
+    return { flash, bolt, tracer };
+  }
+
+  function clearMuzzle(fx) {
+    if (!fx) return;
+    scene.remove(fx.flash);
+    scene.remove(fx.bolt);
+    scene.remove(fx.tracer);
+    if (fx.bolt.geometry) fx.bolt.geometry.dispose();
+    if (fx.tracer.geometry) fx.tracer.geometry.dispose();
+  }
+
   function onPointer(ev) {
+    unlockFx();
     if (!pickHandler || anims.length) return;
     const rect = renderer.domElement.getBoundingClientRect();
     pointer.x = ((ev.clientX - rect.left) / rect.width) * 2 - 1;
     pointer.y = -((ev.clientY - rect.top) / rect.height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
+    const pieceHits = raycaster.intersectObjects(pieceRoot.children, true);
+    if (pieceHits.length) {
+      let obj = pieceHits[0].object;
+      while (obj && obj.userData.square == null && obj.parent) obj = obj.parent;
+      if (obj && obj.userData.square != null) {
+        pickHandler(Chess.fileOf(obj.userData.square), Chess.rankOf(obj.userData.square));
+        return;
+      }
+    }
     const hits = raycaster.intersectObjects(tileGroup.children, false);
     if (!hits.length) return;
     const ud = hits[0].object.userData;
@@ -458,10 +604,56 @@ export function createBoard3D(canvas) {
   window.addEventListener("resize", resize);
   resize();
 
+  function tickPawnKill(a) {
+    const t = a.t;
+    if (t < 0.22) {
+      const u = ease(t / 0.22);
+      a.shooter.rotation.y = a.restYaw + (a.aimYaw - a.restYaw) * u;
+      return;
+    }
+    const burst = [0.22, 0.3, 0.38, 0.47, 0.56];
+    if (a.shots < burst.length && t >= burst[a.shots]) {
+      a.shots += 1;
+      clearMuzzle(a.fx);
+      a.fx = spawnMuzzle(a.shooter, a.aimYaw);
+    }
+    if (a.fx && t > burst[Math.max(0, a.shots - 1)] + 0.08) {
+      clearMuzzle(a.fx);
+      a.fx = null;
+    }
+    if (t >= 0.22 && t < 0.68) {
+      const u = ease((t - 0.22) / 0.46);
+      if (!a.dropped && u > 0.35) {
+        a.dropped = true;
+      }
+      const away = new THREE.Vector3().subVectors(a.victimStart, a.start).normalize();
+      a.victim.position.x = a.victimStart.x + away.x * 0.35 * u;
+      a.victim.position.z = a.victimStart.z + away.z * 0.35 * u;
+      a.victim.position.y = 0.21 * (1 - u) + 0.04;
+      a.victim.rotation.x = u * 1.35;
+      a.victim.rotation.z = u * 0.35;
+    }
+    if (t >= 0.55) {
+      const u = ease(Math.min(1, (t - 0.55) / 0.42));
+      a.shooter.position.x = a.start.x + (a.dest.x - a.start.x) * u;
+      a.shooter.position.z = a.start.z + (a.dest.z - a.start.z) * u;
+      a.shooter.rotation.y = a.aimYaw + (a.restYaw - a.aimYaw) * u;
+    }
+  }
+
   function tick(dt) {
     const left = [];
     anims.forEach((a) => {
       a.t += dt;
+      if (a.kind === "pawnKill") {
+        tickPawnKill(a);
+        if (a.t < 1.05) left.push(a);
+        else {
+          clearMuzzle(a.fx);
+          if (a.onDone) a.onDone();
+        }
+        return;
+      }
       const u = Math.min(1, a.t / a.dur);
       const e = ease(u);
       a.mesh.position.x = a.start.x + (a.dest.x - a.start.x) * e;
@@ -472,6 +664,15 @@ export function createBoard3D(canvas) {
       else if (a.onDone) a.onDone();
     });
     anims = left;
+    if (camAnim) {
+      camAnim.t += dt;
+      const u = Math.min(1, camAnim.t / camAnim.dur);
+      const e = ease(u);
+      camera.position.lerpVectors(camAnim.fromPos, camAnim.toPos, e);
+      controls.target.lerpVectors(camAnim.fromT, camAnim.toT, e);
+      if (u >= 1) camAnim = null;
+      if (focusedSquare != null) faceSelected(focusedSquare);
+    }
     controls.update();
     renderer.render(scene, camera);
   }
@@ -500,9 +701,21 @@ export function createBoard3D(canvas) {
     },
     resize,
     busy: () => anims.length > 0,
+    cameraPos: () => ({
+      x: camera.position.x,
+      y: camera.position.y,
+      z: camera.position.z,
+    }),
+    focusOn,
     flipView: () => {
-      const p = camera.position;
-      camera.position.set(-p.x, p.y, -p.z);
+      camera.position.x *= -1;
+      camera.position.z *= -1;
+      homePos.x *= -1;
+      homePos.z *= -1;
+      controls.target.x *= -1;
+      controls.target.z *= -1;
+      homeTarget.x *= -1;
+      homeTarget.z *= -1;
       controls.update();
     },
   };

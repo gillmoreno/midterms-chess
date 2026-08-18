@@ -6,7 +6,7 @@
 (function (root) {
   "use strict";
 
-  var HEIGHTS = { k: 1.08, q: 1.02, r: 0.84, b: 0.88, n: 0.86, p: 0.7 };
+  var HEIGHTS = { k: 1.22, q: 1.16, r: 0.98, b: 1.02, n: 1.0, p: 0.82 };
 
   var ROSTER = {
     w: {

@@ -65,6 +65,7 @@
             <div>
               <strong id="hover-name"></strong>
               <span id="hover-role"></span>
+              <em id="hover-note"></em>
             </div>
           </div>
         </div>
@@ -72,6 +73,16 @@
           <h2 id="result-title"></h2>
           <p id="result-body"></p>
           <button type="button" id="btn-again">Call a new session</button>
+        </div>
+        <div id="cine" hidden>
+          <div class="cine-frame">
+            <span class="cine-stamp">Kill cam</span>
+            <video id="cine-video" playsinline></video>
+            <div class="cine-bar">
+              <p id="cine-line"></p>
+              <button type="button" id="cine-skip">Skip</button>
+            </div>
+          </div>
         </div>
       </main>
 
@@ -87,6 +98,7 @@
         </div>
         <div id="ticker" class="ticker"></div>
         <div class="dock-actions">
+          <a class="btn-link" href="scripts.html">Kill scripts</a>
           <button type="button" id="btn-flip">Spin the chamber</button>
           <button type="button" id="btn-new">New session</button>
         </div>

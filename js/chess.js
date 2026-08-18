@@ -391,6 +391,15 @@
     return { captured: captured || epCap, piece: p };
   }
 
+  function previewMoves(game, from) {
+    var p = game.board[from];
+    if (!p) return [];
+    var g2 = cloneGame(game);
+    g2.turn = p.c;
+    g2.result = null;
+    return legalMovesFrom(g2, from);
+  }
+
   function legalMovesFrom(game, from) {
     if (game.result) return [];
     var p = game.board[from];
@@ -523,6 +532,7 @@
     inCheck: inCheck,
     isSquareAttacked: isSquareAttacked,
     legalMovesFrom: legalMovesFrom,
+    previewMoves: previewMoves,
     allLegalMoves: allLegalMoves,
     makeMove: makeMove,
     play: play,

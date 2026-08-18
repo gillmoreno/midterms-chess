@@ -149,34 +149,65 @@ body {
 
 #hover-card {
   display: flex;
-  gap: 0.7rem;
+  gap: 0.75rem;
   align-items: center;
   background: var(--panel);
   border: 1px solid var(--line);
-  padding: 0.45rem 0.7rem 0.45rem 0.45rem;
+  padding: 0.5rem 0.85rem 0.5rem 0.5rem;
   backdrop-filter: blur(10px);
+  max-width: 20rem;
 }
 
 #hover-card[hidden] {
   display: none;
 }
 
+#hover-card[data-inspect="1"] {
+  border-color: rgba(126, 182, 255, 0.7);
+}
+
 #hover-card img {
-  width: 52px;
-  height: 68px;
+  width: 76px;
+  height: 76px;
   object-fit: cover;
+  object-position: 50% 12%;
   background: #222;
+  flex-shrink: 0;
+}
+
+#hover-card[data-role="rook"] img {
+  object-position: 50% 16%;
+}
+
+#hover-card[data-role="knight"] img {
+  object-position: 50% 14%;
 }
 
 #hover-card strong {
   display: block;
   font-family: var(--display);
-  font-size: 0.95rem;
+  font-size: 1.15rem;
 }
 
 #hover-card span {
-  font-size: 0.78rem;
+  display: block;
+  font-size: 0.82rem;
   color: var(--ink-dim);
+}
+
+#hover-card em {
+  display: block;
+  margin-top: 0.35rem;
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+}
+
+#hover-card[data-inspect="1"] em {
+  color: #9ec5ff;
 }
 
 #result-card {
@@ -191,6 +222,89 @@ body {
 
 #result-card[hidden] {
   display: none;
+}
+
+#cine {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  display: grid;
+  place-items: center;
+  padding: 1.1rem;
+  background: rgba(4, 6, 10, 0.82);
+  backdrop-filter: blur(6px);
+}
+
+#cine[hidden] {
+  display: none;
+}
+
+.cine-frame {
+  position: relative;
+  width: min(920px, 100%);
+  background: #05070c;
+  border: 1px solid var(--gold);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 18px 50px rgba(0, 0, 0, 0.55);
+}
+
+#cine[data-side="right"] .cine-frame {
+  border-color: #e07070;
+}
+
+#cine[data-side="left"] .cine-frame {
+  border-color: #7ea6ff;
+}
+
+#cine video {
+  display: block;
+  width: 100%;
+  max-height: min(62vh, 520px);
+  background: #000;
+  object-fit: contain;
+}
+
+.cine-stamp {
+  position: absolute;
+  top: 0.55rem;
+  left: 0.65rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+  background: rgba(5, 7, 12, 0.72);
+  border: 1px solid var(--line);
+  padding: 0.18rem 0.4rem;
+}
+
+.cine-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.55rem 0.7rem 0.6rem;
+  border-top: 1px solid var(--line);
+  background: rgba(8, 10, 16, 0.94);
+}
+
+#cine-line {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+#cine-line::before {
+  content: "“";
+}
+
+#cine-line::after {
+  content: "”";
+}
+
+#cine-skip {
+  flex-shrink: 0;
 }
 
 #result-card h2 {
@@ -295,6 +409,23 @@ body {
 .dock-actions {
   display: flex;
   gap: 0.45rem;
+}
+
+.btn-link {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  border-color: var(--gold);
+  color: var(--gold-2);
 }
 
 button {

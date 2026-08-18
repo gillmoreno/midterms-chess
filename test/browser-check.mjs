@@ -22,6 +22,7 @@ const mime = {
   ".jpeg": "image/jpeg",
   ".glb": "model/gltf-binary",
   ".json": "application/json",
+  ".mp4": "video/mp4",
 };
 
 function startServer() {
@@ -101,6 +102,33 @@ async function main() {
       log("FAIL file hint showing on http");
     }
 
+    const camHome = await page.evaluate(() => window.__floor.cam());
+    await page.evaluate(() => window.__floor.pick(3, 7));
+    const inspectAoc = await page.evaluate(() => {
+      const card = document.getElementById("hover-card");
+      return {
+        name: document.getElementById("hover-name").textContent,
+        note: document.getElementById("hover-note").textContent,
+        inspectFlag: card.dataset.inspect,
+        cam: window.__floor.cam(),
+      };
+    });
+    log("inspect " + JSON.stringify({ name: inspectAoc.name, note: inspectAoc.note, flag: inspectAoc.inspectFlag }));
+    if (inspectAoc.name !== "AOC" || inspectAoc.inspectFlag !== "1") {
+      ok = false;
+      log("FAIL inspect card did not open on the opponent queen");
+    }
+    if (
+      Math.abs(inspectAoc.cam.x - camHome.x) > 0.01 ||
+      Math.abs(inspectAoc.cam.y - camHome.y) > 0.01 ||
+      Math.abs(inspectAoc.cam.z - camHome.z) > 0.01
+    ) {
+      ok = false;
+      log("FAIL camera moved on inspect: " + JSON.stringify(inspectAoc.cam));
+    } else {
+      log("OK: inspect does not move the camera");
+    }
+
     await page.evaluate(() => window.__floor.play("e2", "e4"));
     const after = await page.evaluate(() => window.__floor.status());
     if (after.turn !== "b" || after.moveCount !== 1) {
@@ -109,6 +137,156 @@ async function main() {
     } else {
       log("OK: e2-e4 played, black to move");
     }
+
+    await page.evaluate(() => window.__floor.play("d7", "d5"));
+    const capturePending = page.evaluate(() => window.__floor.playLive("e4", "d5"));
+    try {
+      await page.waitForFunction(() => window.__floor.cine && !window.__floor.cine().hidden, {
+        timeout: 5000,
+      });
+      const cine = await page.evaluate(() => window.__floor.cine());
+      log("cine " + JSON.stringify(cine));
+      if (cine.hidden || cine.side !== "right" || cine.line.indexOf("pronouns") < 0) {
+        ok = false;
+        log("FAIL pawn-take reel did not open as MAGA kill cam");
+      } else {
+        log("OK: MAGA kill cam on e4xd5");
+      }
+      await page.screenshot({ path: path.join(scratch, "pawn-cine.png") });
+      await page.evaluate(() => window.__floor.skipCine());
+      await capturePending;
+      const cineAfter = await page.evaluate(() => window.__floor.cine());
+      if (!cineAfter.hidden) {
+        ok = false;
+        log("FAIL kill cam stayed up after skip");
+      }
+      const afterCap = await page.evaluate(() => window.__floor.status());
+      if (afterCap.turn !== "b" || afterCap.moveCount !== 3) {
+        ok = false;
+        log("FAIL after pawn take: " + JSON.stringify(afterCap));
+      } else {
+        log("OK: skip returns the board, black to move");
+      }
+
+      await page.click("#btn-new");
+      await page.evaluate(() => {
+        window.__floor.play("e2", "e4");
+        window.__floor.play("e7", "e5");
+        window.__floor.play("d2", "d4");
+      });
+      const leftCap = page.evaluate(() => window.__floor.playLive("e5", "d4"));
+      await page.waitForFunction(() => window.__floor.cine && !window.__floor.cine().hidden, {
+        timeout: 5000,
+      });
+      const leftCine = await page.evaluate(() => window.__floor.cine());
+      log("left cine " + JSON.stringify(leftCine));
+      if (leftCine.hidden || leftCine.side !== "left" || leftCine.line.indexOf("aborting") < 0) {
+        ok = false;
+        log("FAIL left pawn reel did not open");
+      } else {
+        log("OK: blue-hair kill cam on e5xd4");
+      }
+      await page.screenshot({ path: path.join(scratch, "pawn-cine-left.png") });
+      await page.evaluate(() => window.__floor.skipCine());
+      await leftCap;
+      const camAfter = await page.evaluate(() => window.__floor.cam());
+      if (
+        Math.abs(camAfter.x - camHome.x) > 0.01 ||
+        Math.abs(camAfter.y - camHome.y) > 0.01 ||
+        Math.abs(camAfter.z - camHome.z) > 0.01
+      ) {
+        ok = false;
+        log("FAIL camera moved after kill cam: " + JSON.stringify(camAfter));
+      } else {
+        log("OK: kill cam left the camera put");
+      }
+
+      await page.click("#btn-new");
+      await page.evaluate(() => {
+        window.__floor.play("e2", "e4");
+        window.__floor.play("e7", "e5");
+        window.__floor.play("g1", "f3");
+        window.__floor.play("d7", "d6");
+      });
+      const knightTake = await page.evaluate(() => window.__floor.playLive("f3", "e5"));
+      const afterKnight = await page.evaluate(() => ({
+        cine: window.__floor.cine(),
+        status: window.__floor.status(),
+      }));
+      log("knight take " + JSON.stringify({ ok: knightTake, ...afterKnight }));
+      if (!knightTake || !afterKnight.cine.hidden) {
+        ok = false;
+        log("FAIL knight capture opened a pawn kill cam");
+      } else {
+        log("OK: named-piece captures stay off the kill cam");
+      }
+
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.click("#btn-new");
+      await page.evaluate(() => {
+        window.__floor.play("e2", "e4");
+        window.__floor.play("d7", "d5");
+      });
+      const mobileCap = page.evaluate(() => window.__floor.playLive("e4", "d5"));
+      await page.waitForFunction(() => window.__floor.cine && !window.__floor.cine().hidden, {
+        timeout: 5000,
+      });
+      await page.screenshot({ path: path.join(scratch, "pawn-cine-mobile.png") });
+      await page.evaluate(() => window.__floor.skipCine());
+      await mobileCap;
+      log("OK: mobile kill cam screenshot");
+    } catch (err) {
+      ok = false;
+      log("FAIL kill cam " + err.message);
+      await capturePending.catch(() => {});
+    }
+
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto(url + "scripts.html", { waitUntil: "networkidle", timeout: 20000 });
+    await page.waitForFunction(() => window.__scripts && window.Roster, null, { timeout: 8000 });
+    const opening = await page.evaluate(() => ({
+      pair: window.__scripts.pair(),
+      line: window.__scripts.line(),
+      rows: document.querySelectorAll("#ledger-body tr").length,
+    }));
+    log("scripts " + JSON.stringify(opening));
+    if (opening.pair.killer !== "maga" || opening.pair.victim !== "activist") {
+      ok = false;
+      log("FAIL scripts room did not open on the filmed pawn pair");
+    }
+    if (!/pronouns/.test(opening.line || "")) {
+      ok = false;
+      log("FAIL filmed MAGA line missing");
+    }
+    if (opening.rows !== 162) {
+      ok = false;
+      log("FAIL expected 162 ledger rows, got " + opening.rows);
+    }
+    await page.click('.cast-card[data-id="aoc"]');
+    await page.click('.cast-card[data-id="trump"]');
+    await page.click(".takes");
+    const aocTrump = await page.evaluate(() => ({
+      pair: window.__scripts.pair(),
+      line: window.__scripts.line(),
+    }));
+    log("aoc-trump " + JSON.stringify(aocTrump));
+    if (aocTrump.pair.killer !== "aoc" || aocTrump.pair.victim !== "trump") {
+      ok = false;
+      log("FAIL could not stage AOC takes Trump");
+    }
+    if (!/billionaire/i.test(aocTrump.line || "")) {
+      ok = false;
+      log("FAIL AOC vs Trump line missing");
+    }
+    await page.screenshot({ path: path.join(scratch, "scripts-aoc-trump.png") });
+    await page.click("#btn-try");
+    const tryOpen = await page.evaluate(() => !document.getElementById("cine").hidden);
+    if (!tryOpen) {
+      ok = false;
+      log("FAIL try cam did not open");
+    }
+    await page.screenshot({ path: path.join(scratch, "scripts-try.png") });
+    await page.click("#cine-skip");
 
     const shot = path.join(scratch, "floor-vote.png");
     await page.screenshot({ path: shot, fullPage: true });

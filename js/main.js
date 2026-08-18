@@ -1,4 +1,5 @@
 import { createBoard3D } from "./board3d.js";
+import { clipFor, playCinematic, cancelCinematic, isPlaying } from "./cinematic.js";
 
 const Chess = window.Chess;
 const Roster = window.Roster;
@@ -88,38 +89,79 @@ function boot() {
   let game = Roster.stamp(Chess.createGame());
   let selected = null;
   let legal = [];
+  let inspecting = false;
+  let locked = false;
 
-  function legalFor(from) {
-    return Chess.legalMovesFrom(game, from).map((m) => {
+  function decorateMoves(moves) {
+    return moves.map((m) => {
       const occ = game.board[m.to];
       return Object.assign({}, m, { capturedHint: !!(occ || m.ep) });
     });
+  }
+
+  function legalFor(from) {
+    return decorateMoves(Chess.legalMovesFrom(game, from));
+  }
+
+  function previewFor(from) {
+    return decorateMoves(Chess.previewMoves(game, from));
+  }
+
+  function canPlay(from) {
+    const p = game.board[from];
+    return !!(p && p.c === game.turn);
+  }
+
+  function isLegalDest(from, to) {
+    return legalFor(from).some((m) => m.to === to);
+  }
+
+  function showCard(sq) {
+    const tip = $("hover-card");
+    if (sq == null || !game.board[sq]) {
+      tip.hidden = true;
+      return;
+    }
+    const p = game.board[sq];
+    const e = Roster.entryFor(p, Chess.fileOf(sq));
+    $("hover-img").src = e.portrait;
+    $("hover-name").textContent = e.name;
+    $("hover-role").textContent = e.role + " · " + Roster.ROSTER[p.c].house;
+    $("hover-note").textContent = inspecting
+      ? "Scouting — their options, not your move"
+      : "Click a lit square to move";
+    tip.hidden = false;
+    tip.dataset.inspect = inspecting ? "1" : "0";
+    tip.dataset.role = e.role.toLowerCase();
   }
 
   function paint() {
     const last = game.history.length
       ? game.history[game.history.length - 1]
       : null;
-    board.setHighlights(selected, legal, last);
+    board.setHighlights(selected, legal, last, inspecting);
     refreshHud(game);
-    const tip = $("hover-card");
-    if (selected == null || !game.board[selected]) {
-      tip.hidden = true;
-    } else {
-      const p = game.board[selected];
-      const e = Roster.entryFor(p, Chess.fileOf(selected));
-      $("hover-img").src = e.portrait;
-      $("hover-name").textContent = e.name;
-      $("hover-role").textContent = e.role + " · " + Roster.ROSTER[p.c].house;
-      tip.hidden = false;
-    }
+    showCard(selected);
+  }
+
+  function selectPiece(sq) {
+    const p = game.board[sq];
+    selected = sq;
+    inspecting = p.c !== game.turn;
+    legal = inspecting ? previewFor(sq) : legalFor(sq);
+    paint();
+  }
+
+  function clearSelect() {
+    selected = null;
+    legal = [];
+    inspecting = false;
+    paint();
   }
 
   function rebuild() {
     board.rebuildPieces(game);
-    selected = null;
-    legal = [];
-    paint();
+    clearSelect();
   }
 
   function askPromo(from, to, choices) {
@@ -157,55 +199,83 @@ function boot() {
     if (matches.length > 1 && matches.some((m) => m.promo)) {
       chosen = await askPromo(from, to, matches);
     }
+    const attacker = game.board[chosen.from];
+    const victimSq = chosen.ep
+      ? Chess.sq(Chess.fileOf(chosen.to), Chess.rankOf(chosen.from))
+      : chosen.to;
+    const victim = game.board[victimSq];
+    const clip = clipFor(attacker, victim);
     const before = { from: chosen.from, to: chosen.to };
     const r = Chess.makeMove(game, chosen);
     if (!r.ok) return false;
     if (chosen.promo) Roster.stampPromo(game.board[chosen.to], Chess.fileOf(chosen.to));
     selected = null;
     legal = [];
+    inspecting = false;
     board.setHighlights(null, [], r.move);
-    await new Promise((res) => board.animateMove(before.from, before.to, res));
-    board.rebuildPieces(game);
-    paint();
+    refreshHud(game);
+    const capSq = r.captured
+      ? r.move.ep
+        ? Chess.sq(Chess.fileOf(r.move.to), Chess.rankOf(r.move.from))
+        : r.move.to
+      : null;
+    locked = true;
+    try {
+      const animDone = new Promise((res) =>
+        board.animateMove(
+          {
+            from: before.from,
+            to: before.to,
+            captureSquare: capSq,
+          },
+          res
+        )
+      );
+      await Promise.all([animDone, clip ? playCinematic(clip) : Promise.resolve()]);
+      board.rebuildPieces(game);
+      paint();
+    } finally {
+      locked = false;
+    }
     return true;
   }
 
   board.onPick((file, rank) => {
-    if (game.result || board.busy()) return;
+    if (game.result || board.busy() || locked || isPlaying()) return;
     const sq = Chess.sq(file, rank);
     const piece = game.board[sq];
-    if (selected == null) {
-      if (piece && piece.c === game.turn) {
-        selected = sq;
-        legal = legalFor(sq);
-        paint();
-      }
+    if (selected != null && !inspecting && canPlay(selected) && isLegalDest(selected, sq)) {
+      tryMove(selected, sq);
       return;
     }
-    if (piece && piece.c === game.turn) {
-      selected = sq;
-      legal = legalFor(sq);
-      paint();
+    if (piece) {
+      if (selected === sq) {
+        clearSelect();
+        return;
+      }
+      selectPiece(sq);
       return;
     }
-    tryMove(selected, sq).then((ok) => {
-      if (!ok) {
-        selected = null;
-        legal = [];
-        paint();
-      }
-    });
+    clearSelect();
   });
 
-  $("btn-new").addEventListener("click", () => {
+  function newSession() {
+    cancelCinematic();
+    locked = false;
     game = Roster.stamp(Chess.createGame());
     rebuild();
-  });
-  $("btn-again").addEventListener("click", () => {
-    game = Roster.stamp(Chess.createGame());
-    rebuild();
-  });
+  }
+
+  $("btn-new").addEventListener("click", newSession);
+  $("btn-again").addEventListener("click", newSession);
   $("btn-flip").addEventListener("click", () => board.flipView());
+  $("cine-skip").addEventListener("click", (e) => {
+    e.stopPropagation();
+    cancelCinematic();
+  });
+  $("cine").addEventListener("click", (e) => {
+    if (e.target.id === "cine" || e.target.id === "cine-video") cancelCinematic();
+  });
 
   window.__floor = {
     play: (a, b, promo) => {
@@ -217,19 +287,28 @@ function boot() {
       paint();
       return r;
     },
+    playLive: (a, b) => {
+      const from = Chess.parseSquare(a);
+      const to = Chess.parseSquare(b);
+      return tryMove(from, to);
+    },
     pick: (file, rank) => {
       const sq = Chess.sq(file, rank);
       const piece = game.board[sq];
-      if (piece && piece.c === game.turn) {
-        selected = sq;
-        legal = legalFor(sq);
-        paint();
-        return { selected: true, legal: legal.length };
-      }
-      return { selected: false };
+      if (!piece) return { selected: false };
+      selectPiece(sq);
+      return { selected: true, legal: legal.length, inspect: inspecting };
     },
     status: () => Chess.status(game),
     history: () => game.history.slice(),
+    cine: () => ({
+      hidden: $("cine").hidden,
+      line: $("cine-line").textContent,
+      side: $("cine").dataset.side || "",
+    }),
+    skipCine: () => cancelCinematic(),
+    ready: () => board.isReady(),
+    cam: () => board.cameraPos(),
   };
 
   board.readyPromise.then(rebuild);
