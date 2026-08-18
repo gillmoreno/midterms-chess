@@ -18,3 +18,14 @@ Official public-domain photographs used as likeness references for Imagine edits
 Pawn figurines are invented characters, not likenesses of real people.
 
 Exact download URLs are in `SOURCES.jsonl`.
+
+## Kingside wing (role-pieces)
+
+| File | Commons title |
+|---|---|
+| `rubio.jpg` | Official portrait of Secretary Marco Rubio.jpg |
+| `graham.jpg` | Lindsey Graham official photo.jpg |
+| `desantis.jpg` | Ron DeSantis, Official Portrait, 113th Congress.jpg |
+| `schumer.jpg` | Chuck Schumer official photo.jpg |
+| `warren.jpg` | Elizabeth Warren, official portrait, 114th Congress.jpg |
+| `booker.jpg` | Cory Booker, official portrait, 114th Congress.jpg |

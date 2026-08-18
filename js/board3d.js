@@ -331,31 +331,27 @@ export function createBoard3D(canvas) {
 
   const templates = {};
   const loader = new GLTFLoader();
-  const loaders = [];
-  ["w", "b"].forEach((color) => {
-    ["k", "q", "r", "b", "n", "p"].forEach((type) => {
-      const entry = window.Roster.entry(color, type);
-      const key = color + type;
-      loaders.push(
-        new Promise((resolve) => {
-          loader.load(
-            entry.model,
-            (gltf) => {
-              const fitted = normalizeModel(
-                gltf.scene,
-                window.Roster.heightFor(type),
-                false
-              );
-              templates[key] = { kind: "glb", object: fitted };
-              resolve();
-            },
-            undefined,
-            () => {
-              templates[key] = { kind: "fallback" };
-              resolve();
-            }
-          );
-        })
+  const loaders = window.Roster.allEntries().map(({ type, entry }) => {
+    const key = entry.id;
+    return new Promise((resolve) => {
+      loader.load(
+        entry.model,
+        (gltf) => {
+          templates[key] = {
+            kind: "glb",
+            object: normalizeModel(
+              gltf.scene,
+              window.Roster.heightFor(type),
+              false
+            ),
+          };
+          resolve();
+        },
+        undefined,
+        () => {
+          templates[key] = { kind: "fallback", type: type };
+          resolve();
+        }
       );
     });
   });
@@ -366,11 +362,12 @@ export function createBoard3D(canvas) {
   let anims = [];
   let ready = false;
 
-  function spawnPiece(color, type) {
-    const key = color + type;
-    const t = templates[key];
+  function spawnPiece(piece, file) {
+    const e = window.Roster.entryFor(piece, file);
+    const key = e && e.id;
+    const t = key && templates[key];
     if (t && t.kind === "glb") return t.object.clone(true);
-    return stauntonMesh(type, color);
+    return stauntonMesh(piece.t, piece.c);
   }
 
   function rebuildPieces(game) {
@@ -380,7 +377,7 @@ export function createBoard3D(canvas) {
       if (!p) continue;
       const f = Chess.fileOf(i);
       const r = Chess.rankOf(i);
-      const mesh = spawnPiece(p.c, p.t);
+      const mesh = spawnPiece(p, f);
       const c = squareCenter(f, r);
       mesh.position.set(c.x, 0.21, c.z);
       mesh.rotation.y = p.c === "w" ? Math.PI : 0;

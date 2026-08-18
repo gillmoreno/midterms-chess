@@ -87,7 +87,10 @@
   }
 
   function clonePiece(p) {
-    return p ? { t: p.t, c: p.c } : null;
+    if (!p) return null;
+    var o = { t: p.t, c: p.c };
+    if (p.id) o.id = p.id;
+    return o;
   }
 
   function cloneBoard(board) {
@@ -340,14 +343,18 @@
     }
     if (move.castle === "K") {
       var rK = rankOf(move.from);
+      var rookK = board[sq(7, rK)];
       board[sq(7, rK)] = null;
-      board[sq(5, rK)] = { t: "r", c: p.c };
+      board[sq(5, rK)] = clonePiece(rookK) || { t: "r", c: p.c };
     } else if (move.castle === "Q") {
       var rQ = rankOf(move.from);
+      var rookQ = board[sq(0, rQ)];
       board[sq(0, rQ)] = null;
-      board[sq(3, rQ)] = { t: "r", c: p.c };
+      board[sq(3, rQ)] = clonePiece(rookQ) || { t: "r", c: p.c };
     }
-    board[move.to] = { t: move.promo || p.t, c: p.c };
+    var placed = { t: move.promo || p.t, c: p.c };
+    if (!move.promo && p.id) placed.id = p.id;
+    board[move.to] = placed;
 
     if (p.t === "k") {
       if (p.c === WHITE) {
@@ -471,7 +478,7 @@
       ep: !!found.ep,
       san: san,
       captured: info.captured
-        ? { t: info.captured.t, c: info.captured.c }
+        ? { t: info.captured.t, c: info.captured.c, id: info.captured.id || null }
         : null,
     });
     return { ok: true, move: found, captured: info.captured, san: san };

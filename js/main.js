@@ -11,11 +11,6 @@ function showFileHintIfNeeded() {
   return true;
 }
 
-function pieceLabel(color, type) {
-  const e = Roster.entry(color, type);
-  return e ? e.name : type;
-}
-
 function renderCaptured(game) {
   const left = $("captured-left");
   const right = $("captured-right");
@@ -24,7 +19,7 @@ function renderCaptured(game) {
   game.history.forEach((h) => {
     if (!h.captured) return;
     const img = document.createElement("img");
-    const e = Roster.entry(h.captured.c, h.captured.t);
+    const e = Roster.entryFor(h.captured);
     img.src = e.portrait;
     img.alt = e.name;
     img.title = e.name;
@@ -90,7 +85,7 @@ function boot() {
 
   const canvas = $("stage");
   const board = createBoard3D(canvas);
-  let game = Chess.createGame();
+  let game = Roster.stamp(Chess.createGame());
   let selected = null;
   let legal = [];
 
@@ -112,7 +107,7 @@ function boot() {
       tip.hidden = true;
     } else {
       const p = game.board[selected];
-      const e = Roster.entry(p.c, p.t);
+      const e = Roster.entryFor(p, Chess.fileOf(selected));
       $("hover-img").src = e.portrait;
       $("hover-name").textContent = e.name;
       $("hover-role").textContent = e.role + " · " + Roster.ROSTER[p.c].house;
@@ -134,7 +129,7 @@ function boot() {
       row.innerHTML = "";
       modal.hidden = false;
       choices.forEach((mv) => {
-        const e = Roster.entry(game.turn, mv.promo);
+        const e = Roster.entry(game.turn, mv.promo, Chess.fileOf(to));
         const btn = document.createElement("button");
         btn.type = "button";
         btn.innerHTML =
@@ -165,6 +160,7 @@ function boot() {
     const before = { from: chosen.from, to: chosen.to };
     const r = Chess.makeMove(game, chosen);
     if (!r.ok) return false;
+    if (chosen.promo) Roster.stampPromo(game.board[chosen.to], Chess.fileOf(chosen.to));
     selected = null;
     legal = [];
     board.setHighlights(null, [], r.move);
@@ -202,11 +198,11 @@ function boot() {
   });
 
   $("btn-new").addEventListener("click", () => {
-    game = Chess.createGame();
+    game = Roster.stamp(Chess.createGame());
     rebuild();
   });
   $("btn-again").addEventListener("click", () => {
-    game = Chess.createGame();
+    game = Roster.stamp(Chess.createGame());
     rebuild();
   });
   $("btn-flip").addEventListener("click", () => board.flipView());
@@ -214,7 +210,10 @@ function boot() {
   window.__floor = {
     play: (a, b, promo) => {
       const r = Chess.play(game, a, b, promo);
-      if (r.ok) board.rebuildPieces(game);
+      if (r.ok) {
+        if (promo) Roster.stampPromo(game.board[r.move.to], Chess.fileOf(r.move.to));
+        board.rebuildPieces(game);
+      }
       paint();
       return r;
     },

@@ -32,6 +32,18 @@ test("roster.js names the required kings and AOC as left queen", () => {
   assert.equal(s.Roster.entry("w", "k").name, "Donald Trump");
   assert.equal(s.Roster.entry("b", "k").name, "Gavin Newsom");
   assert.equal(s.Roster.entry("b", "q").name, "AOC");
+  assert.equal(s.Roster.entry("w", "r", 0).name, "Mitch McConnell");
+  assert.equal(s.Roster.entry("w", "r", 7).name, "Marco Rubio");
+});
+
+test("roster stamp gives each wing rook its own identity", () => {
+  const chess = loadClassic("js/chess.js");
+  const roster = loadClassic("js/roster.js");
+  const g = roster.Roster.stamp(chess.Chess.createGame());
+  assert.equal(g.board[chess.Chess.parseSquare("a1")].id, "mcconnell");
+  assert.equal(g.board[chess.Chess.parseSquare("h1")].id, "rubio");
+  assert.equal(g.board[chess.Chess.parseSquare("a8")].id, "sanders");
+  assert.equal(g.board[chess.Chess.parseSquare("h8")].id, "schumer");
 });
 
 test("index.html is a module page with a file:// escape hatch", () => {

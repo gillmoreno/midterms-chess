@@ -1,0 +1,32 @@
+[
+  {
+    "name": "right-rook-ks",
+    "task_id": "01a013c8-0afb-7855-be6e-33b3e2d66b7c",
+    "image": "rubio.jpg"
+  },
+  {
+    "name": "right-bishop-ks",
+    "task_id": "01a013c8-1063-724c-96d7-3d012c43d92d",
+    "image": "graham.jpg"
+  },
+  {
+    "name": "right-knight-ks",
+    "task_id": "01a013c8-152e-72e1-ad45-5a29b94b4448",
+    "image": "desantis.jpg"
+  },
+  {
+    "name": "left-rook-ks",
+    "task_id": "01a013c8-1ba1-724d-8935-066e6f84de1b",
+    "image": "schumer.jpg"
+  },
+  {
+    "name": "left-bishop-ks",
+    "task_id": "01a013c8-20eb-7923-ac03-9924a5481be6",
+    "image": "warren.jpg"
+  },
+  {
+    "name": "left-knight-ks",
+    "task_id": "01a013c8-25ac-724d-9491-efa2c5e9915d",
+    "image": "booker.jpg"
+  }
+]
