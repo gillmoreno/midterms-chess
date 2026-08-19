@@ -109,11 +109,13 @@
 }
 
 .duel-card img {
+  display: block;
   width: 100%;
-  height: 148px;
-  object-fit: cover;
-  object-position: 50% 10%;
-  background: #12161e;
+  height: min(52vh, 420px);
+  object-fit: contain;
+  object-position: center center;
+  background:
+    radial-gradient(ellipse at 50% 70%, #2a3140 0%, #12161e 70%);
 }
 
 .duel-card.killer {
@@ -511,7 +513,7 @@
     order: 3;
   }
   .duel-card img {
-    height: 160px;
+    height: min(48vh, 360px);
   }
   .stage-hint {
     white-space: normal;

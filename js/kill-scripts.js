@@ -23,7 +23,7 @@ export const VOICES = {
   warren: { id: "celeste", label: "Celeste — schoolteacher with a plan" },
   buttigieg: { id: "helix", label: "Helix — calm, municipal, deadly" },
   booker: { id: "helios", label: "Helios — warm, then Spartacus" },
-  activist: { id: "eve", label: "Eve — shout the line, then the gun" },
+  activist: { id: "iris", label: "Iris — California, shout the line, then the rifle" },
 };
 
 export const DELIVERY = {
@@ -44,7 +44,7 @@ export const DELIVERY = {
   warren: "Announces the plan. Step two is the trigger.",
   buttigieg: "Calm briefing voice. Then infrastructure of lead.",
   booker: "Warm, then Spartacus, then the shot.",
-  activist: "Says the line, then the machine gun.",
+  activist: "Says the line, then the rifle.",
 };
 
 function H(a, b, c, d, e) {
