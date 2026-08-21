@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gag picks — Floor Vote</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/picks.css" />
+  </head>
+  <body class="picks-room">
+    <div id="chrome">
+      <header class="mast">
+        <div class="house left">
+          <span class="kicker">The Left</span>
+          <strong>Costume shop</strong>
+          <em>Three gags each · pick before Meshy</em>
+        </div>
+        <div class="seal">
+          <span class="seal-ring">Gag reel</span>
+          <h1>Pick a <i>toy</i></h1>
+          <span class="sub">Click the still. We remesh after you choose.</span>
+        </div>
+        <div class="house right">
+          <span class="kicker">Locked</span>
+          <strong>Already funny</strong>
+          <em>Pocahontas · Comrade Zohran</em>
+        </div>
+      </header>
+
+      <main id="picks">
+        <p class="stage-hint" id="picks-status">Click a still to lock it. Nothing goes to 3D until you say so.</p>
+      </main>
+
+      <footer class="dock">
+        <div class="dock-left">
+          <span id="turn-pill" data-side="left">Gag shop</span>
+          <p id="status-line">Six lefties. Three stills each.</p>
+        </div>
+        <div class="dock-actions">
+          <a class="btn-link" href="index.html">Back to the floor</a>
+          <a class="btn-link" href="scripts.html">Kill scripts</a>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="js/picks-page.js"></script>
+  </body>
+</html>

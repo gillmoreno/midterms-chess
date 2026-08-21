@@ -1,7 +1,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { unlockFx } from "./fx.js";
+import { unlockFx, playMove, playCapture } from "./fx.js";
+import { dressArena, tickArena } from "./backdrops.js";
 
 const Chess = window.Chess;
 const S = 1.16;
@@ -172,8 +173,8 @@ export function createBoard3D(canvas) {
   scene.background = new THREE.Color(0x070910);
   scene.fog = new THREE.Fog(0x070910, 14, 32);
 
-  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 80);
-  const homePos = new THREE.Vector3(0, 7.2, 9.1);
+  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 90);
+  const homePos = new THREE.Vector3(0, 7.85, 10.35);
   const homeTarget = new THREE.Vector3(0, 0.45, 0);
   camera.position.copy(homePos);
 
@@ -195,7 +196,7 @@ export function createBoard3D(canvas) {
   controls.dampingFactor = 0.06;
   controls.target.copy(homeTarget);
   controls.minDistance = 2.4;
-  controls.maxDistance = 18;
+  controls.maxDistance = 24;
   controls.maxPolarAngle = Math.PI * 0.49;
   controls.minPolarAngle = 0.28;
   controls.enablePan = false;
@@ -298,6 +299,27 @@ export function createBoard3D(canvas) {
   };
   felt(4.85, 0x8b1e2d);
   felt(-4.85, 0x163a7a);
+
+  const backdropRoot = new THREE.Group();
+  backdropRoot.name = "backdrop";
+  scene.add(backdropRoot);
+
+  const stage = {
+    scene,
+    camera,
+    renderer,
+    controls,
+    floor,
+    dais,
+    goldRing,
+    hemi,
+    key,
+    fill,
+    rim,
+    backdropRoot,
+    dress: null,
+  };
+  dressArena(stage);
 
   const fileLabels = new THREE.Group();
   scene.add(fileLabels);
@@ -500,6 +522,7 @@ export function createBoard3D(canvas) {
     const pawnKill = fromMesh.userData.type === "p" && victim;
 
     if (pawnKill) {
+      playCapture();
       anims.push({
         kind: "pawnKill",
         shooter: fromMesh,
@@ -530,6 +553,8 @@ export function createBoard3D(canvas) {
       t: 0,
       dur: hop ? 0.38 : 0.28,
       hop,
+      capture: !!victim,
+      landed: false,
       onDone,
     });
     fromMesh.userData.square = to;
@@ -660,6 +685,11 @@ export function createBoard3D(canvas) {
       a.mesh.position.z = a.start.z + (a.dest.z - a.start.z) * e;
       const hop = a.hop ? Math.sin(u * Math.PI) * 0.55 : 0;
       a.mesh.position.y = 0.21 + hop;
+      if (!a.landed && u >= 0.88) {
+        a.landed = true;
+        if (a.capture) playCapture();
+        else playMove();
+      }
       if (u < 1) left.push(a);
       else if (a.onDone) a.onDone();
     });
@@ -674,6 +704,7 @@ export function createBoard3D(canvas) {
       if (focusedSquare != null) faceSelected(focusedSquare);
     }
     controls.update();
+    tickArena(dt, stage);
     renderer.render(scene, camera);
   }
 

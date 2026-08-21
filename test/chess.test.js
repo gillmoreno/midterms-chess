@@ -249,6 +249,25 @@ describe("pawn capture squares", () => {
   });
 });
 
+describe("FEN", () => {
+  it("emits the standard starting position", () => {
+    const g = Chess.createGame();
+    assert.equal(
+      Chess.toFen(g),
+      "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+    );
+  });
+
+  it("records e4 and the ep square", () => {
+    const g = Chess.createGame();
+    Chess.play(g, "e2", "e4");
+    assert.equal(
+      Chess.toFen(g),
+      "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1"
+    );
+  });
+});
+
 describe("previewMoves", () => {
   it("shows an opponent piece's options even when it is not their turn", () => {
     const g = Chess.createGame();

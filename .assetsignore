@@ -1,0 +1,14 @@
+node_modules/
+.git/
+.grok/
+meshy_output/
+output/
+scripts/
+test/
+.env
+.env.local
+.DS_Store
+*.md
+assets/references/
+assets/portraits/_style-bible.jpg
+package-lock.json

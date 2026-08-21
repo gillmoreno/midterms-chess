@@ -1,0 +1,4 @@
+Stockfish.js 18 lite single-thread (WASM), GPLv3.
+https://github.com/nmrugg/stockfish.js
+Based on Stockfish. See COPYING in this folder.
+The engine downloads to the player's browser and never runs on a server.

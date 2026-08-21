@@ -1,0 +1,117 @@
+.picks-room #chrome {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "mast"
+    "picks"
+    "dock";
+}
+
+#picks {
+  grid-area: picks;
+  overflow: auto;
+  padding: 1rem 1.4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+#picks .stage-hint {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.pick-person {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 0.9rem 1rem 1.1rem;
+}
+
+.pick-person header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45rem 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.pick-person h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.pick-person .aka {
+  color: var(--ink-dim);
+  font-size: 0.85rem;
+}
+
+.pick-person .nick {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+}
+
+.gag-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.gag-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  text-align: left;
+  padding: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0c1018;
+  cursor: pointer;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.gag-card img {
+  display: block;
+  width: 100%;
+  height: min(48vh, 380px);
+  object-fit: contain;
+  object-position: center;
+  background: radial-gradient(ellipse at 50% 70%, #2a3140 0%, #12161e 70%);
+}
+
+.gag-card span {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-dim);
+}
+
+.gag-card[data-on="1"] {
+  border-color: var(--gold);
+}
+
+.gag-card[data-on="1"] span {
+  color: var(--gold-2);
+}
+
+.gag-card:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .gag-row {
+    grid-template-columns: 1fr;
+  }
+  .gag-card img {
+    height: min(70vh, 420px);
+  }
+}

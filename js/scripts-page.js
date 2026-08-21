@@ -102,7 +102,11 @@ function fillFigure(prefix, id, emptyRole) {
   }
   img.src = row.entry.portrait;
   name.textContent = row.entry.name;
-  role.textContent = row.entry.role + " · " + Roster.ROSTER[row.color].house;
+  role.textContent =
+    (row.entry.aka ? row.entry.aka + " · " : "") +
+    row.entry.role +
+    " · " +
+    Roster.ROSTER[row.color].house;
 }
 
 function paintStage() {

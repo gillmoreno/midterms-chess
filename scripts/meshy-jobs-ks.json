@@ -6,8 +6,8 @@
   },
   {
     "name": "right-bishop-ks",
-    "task_id": "01a013c8-1063-724c-96d7-3d012c43d92d",
-    "image": "graham.jpg"
+    "task_id": "01a0230a-df8d-7b5d-ab77-0119b3b9809e",
+    "image": "rfk.jpg"
   },
   {
     "name": "right-knight-ks",
@@ -16,17 +16,17 @@
   },
   {
     "name": "left-rook-ks",
-    "task_id": "01a013c8-1ba1-724d-8935-066e6f84de1b",
+    "task_id": "01a01e73-9965-7cd7-bfbb-f86a76a8c25c",
     "image": "schumer.jpg"
   },
   {
     "name": "left-bishop-ks",
-    "task_id": "01a013c8-20eb-7923-ac03-9924a5481be6",
+    "task_id": "01a01a2a-df6d-7af8-aece-1ca813780c4a",
     "image": "warren.jpg"
   },
   {
     "name": "left-knight-ks",
-    "task_id": "01a013c8-25ac-724d-9491-efa2c5e9915d",
-    "image": "booker.jpg"
+    "task_id": "01a01a1d-f40a-7986-9607-9164d49d7ea3",
+    "image": "mamdani.jpg"
   }
 ]

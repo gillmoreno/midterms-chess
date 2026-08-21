@@ -53,11 +53,12 @@
           portrait: "assets/portraits/cruz.jpg",
         },
         {
-          id: "graham",
-          name: "Lindsey Graham",
+          id: "rfk",
+          name: "RFK Jr.",
+          aka: "Robert F. Kennedy Jr.",
           role: "Bishop",
           model: "assets/models/right-bishop-ks.glb",
-          portrait: "assets/portraits/graham.jpg",
+          portrait: "assets/portraits/rfk.jpg",
         },
       ],
       n: [
@@ -87,11 +88,12 @@
     b: {
       side: "left",
       house: "The Left",
-      slogan: "The Resistance",
-      kingName: "Gavin Newsom",
+      slogan: "Our Democracy™",
+      kingName: "Newscum",
       k: {
         id: "newsom",
-        name: "Gavin Newsom",
+        name: "Newscum",
+        aka: "Gavin Newsom",
         role: "King",
         model: "assets/models/left-king.glb",
         portrait: "assets/portraits/newsom.jpg",
@@ -99,6 +101,7 @@
       q: {
         id: "aoc",
         name: "AOC",
+        aka: "Alexandria Ocasio-Cortez",
         role: "Queen",
         model: "assets/models/left-queen.glb",
         portrait: "assets/portraits/aoc.jpg",
@@ -106,14 +109,16 @@
       r: [
         {
           id: "sanders",
-          name: "Bernie Sanders",
+          name: "Commie Bernie",
+          aka: "Bernie Sanders",
           role: "Rook",
           model: "assets/models/left-rook.glb",
           portrait: "assets/portraits/sanders.jpg",
         },
         {
           id: "schumer",
-          name: "Chuck Schumer",
+          name: "Chuck-U",
+          aka: "Chuck Schumer",
           role: "Rook",
           model: "assets/models/left-rook-ks.glb",
           portrait: "assets/portraits/schumer.jpg",
@@ -122,14 +127,16 @@
       b: [
         {
           id: "harris",
-          name: "Kamala Harris",
+          name: "Comrade Kamala",
+          aka: "Kamala Harris",
           role: "Bishop",
           model: "assets/models/left-bishop.glb",
           portrait: "assets/portraits/harris.jpg",
         },
         {
           id: "warren",
-          name: "Elizabeth Warren",
+          name: "Pocahontas",
+          aka: "Elizabeth Warren",
           role: "Bishop",
           model: "assets/models/left-bishop-ks.glb",
           portrait: "assets/portraits/warren.jpg",
@@ -138,22 +145,25 @@
       n: [
         {
           id: "buttigieg",
-          name: "Pete Buttigieg",
+          name: "Mayor Pete",
+          aka: "Pete Buttigieg",
           role: "Knight",
           model: "assets/models/left-knight.glb",
           portrait: "assets/portraits/buttigieg.jpg",
         },
         {
-          id: "booker",
-          name: "Cory Booker",
+          id: "mamdani",
+          name: "Comrade Zohran",
+          aka: "Zohran Mamdani",
           role: "Knight",
           model: "assets/models/left-knight-ks.glb",
-          portrait: "assets/portraits/booker.jpg",
+          portrait: "assets/portraits/mamdani.jpg",
         },
       ],
       p: {
         id: "activist",
-        name: "Blue-hair riflewoman",
+        name: "They/Them Rifle",
+        aka: "Blue-hair riflewoman",
         role: "Pawn",
         model: "assets/models/left-pawn.glb",
         portrait: "assets/portraits/pawn-left.jpg",

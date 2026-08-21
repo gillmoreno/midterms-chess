@@ -23,6 +23,7 @@ const mime = {
   ".glb": "model/gltf-binary",
   ".json": "application/json",
   ".mp4": "video/mp4",
+  ".mp3": "audio/mpeg",
 };
 
 function startServer() {
@@ -100,6 +101,12 @@ async function main() {
     if (!info.hintHidden) {
       ok = false;
       log("FAIL file hint showing on http");
+    }
+
+    const hasPicker = await page.evaluate(() => !!document.getElementById("backdrops"));
+    if (hasPicker) {
+      ok = false;
+      log("FAIL chamber picker should be gone");
     }
 
     const camHome = await page.evaluate(() => window.__floor.cam());
@@ -220,6 +227,52 @@ async function main() {
       } else {
         log("OK: named-piece captures stay off the kill cam");
       }
+
+      await page.click("#btn-new");
+      await page.evaluate(() => {
+        window.__floor.play("e2", "e4");
+        window.__floor.play("e7", "e5");
+        window.__floor.play("d1", "h5");
+        window.__floor.play("b8", "c6");
+      });
+      const checkPending = page.evaluate(() => window.__floor.playLive("h5", "e5"));
+      await page.waitForFunction(() => window.__floor.taunt && !window.__floor.taunt().hidden, {
+        timeout: 8000,
+      });
+      const taunt = await page.evaluate(() => window.__floor.taunt());
+      log("taunt " + JSON.stringify(taunt));
+      if (taunt.hidden || taunt.who !== "Trump" || taunt.kicker !== "Check" || !taunt.line) {
+        ok = false;
+        log("FAIL Trump check taunt did not show");
+      } else {
+        log("OK: Trump check taunt");
+      }
+      await page.screenshot({ path: path.join(scratch, "taunt-check.png") });
+      await checkPending;
+
+      await page.click("#btn-new");
+      await page.evaluate(() => {
+        window.__floor.play("e2", "e4");
+        window.__floor.play("e7", "e5");
+        window.__floor.play("g1", "f3");
+        window.__floor.play("b8", "c6");
+        window.__floor.play("f1", "b5");
+        window.__floor.play("a7", "a6");
+      });
+      const takePending = page.evaluate(() => window.__floor.playLive("b5", "c6"));
+      await page.waitForFunction(() => window.__floor.taunt && !window.__floor.taunt().hidden, {
+        timeout: 8000,
+      });
+      const taken = await page.evaluate(() => window.__floor.taunt());
+      log("capture taunt " + JSON.stringify(taken));
+      if (taken.hidden || taken.who !== "Trump" || taken.kicker !== "Taken" || !taken.line) {
+        ok = false;
+        log("FAIL Trump capture taunt did not show");
+      } else {
+        log("OK: Trump capture taunt");
+      }
+      await page.screenshot({ path: path.join(scratch, "taunt-capture.png") });
+      await takePending;
 
       await page.setViewportSize({ width: 390, height: 844 });
       await page.click("#btn-new");

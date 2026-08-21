@@ -11,7 +11,7 @@ export const VOICES = {
   mcconnell: { id: "helix", label: "Helix — slow, dry, procedural" },
   rubio: { id: "leo", label: "Leo — bright, a little breathless" },
   cruz: { id: "kepler", label: "Kepler — preacher, nasal, delighted" },
-  graham: { id: "orion", label: "Orion — syrupy, bless-your-heart" },
+  rfk: { id: "orion", label: "Orion — hoarse, earnest, a little cracked" },
   vance: { id: "lux", label: "Lux — flat, mean, essay-voice" },
   desantis: { id: "atlas", label: "Atlas — clipped, gubernatorial" },
   maga: { id: "rex", label: "Rex — loud, laughing, dump the drum" },
@@ -22,7 +22,7 @@ export const VOICES = {
   harris: { id: "luna", label: "Luna — prosecutor, then a laugh" },
   warren: { id: "celeste", label: "Celeste — schoolteacher with a plan" },
   buttigieg: { id: "helix", label: "Helix — calm, municipal, deadly" },
-  booker: { id: "helios", label: "Helios — warm, then Spartacus" },
+  mamdani: { id: "cosmo", label: "Cosmo — bright, City Hall, then the lance" },
   activist: { id: "iris", label: "Iris — California, shout the line, then the rifle" },
 };
 
@@ -32,7 +32,7 @@ export const DELIVERY = {
   mcconnell: "Mutters it like a ruling. Then the gavel is a gun.",
   rubio: "Speaks too fast, catches himself, then dumps the clip.",
   cruz: "Preaches the line, finger in the air, then the rifle.",
-  graham: "Bless-your-heart smile. Then South Carolina steel.",
+  rfk: "Hoarse town-hall cadence. Then the shot.",
   vance: "Deadpan, one breath, then a short burst.",
   desantis: "Reads it like a statute. Then Florida opens fire.",
   maga: "Says the line, laughs, then dumps the drum.",
@@ -43,7 +43,7 @@ export const DELIVERY = {
   harris: "Prosecutor cadence. Case closed. Then the gun.",
   warren: "Announces the plan. Step two is the trigger.",
   buttigieg: "Calm briefing voice. Then infrastructure of lead.",
-  booker: "Warm, then Spartacus, then the shot.",
+  mamdani: "Smiles it like a subway ad, then the lance.",
   activist: "Says the line, then the rifle.",
 };
 
@@ -106,12 +106,12 @@ export const LINES = {
         L("South Bend called. They want a quieter mayor.", "sly"),
         L("Navy taught you honor. I taught you chess.", "hot")
       ),
-      booker: H(
-        L("Spartacus sat down.", "hot"),
-        L("The hug is over, Cory.", "sly"),
-        L("Nice speech. No encore.", "soft"),
-        L("Newark just outgrew you.", "sly"),
-        L("I object to your entire vibe.", "hot")
+      mamdani: H(
+        L("Mayor of a city I just took.", "hot"),
+        L("Nice scarf. Wrong country.", "sly"),
+        L("Kid, go run a bus.", "soft"),
+        L("Pride flag, city hall, no square.", "sly"),
+        L("Free buses. Expensive ending.", "hot")
       ),
       activist: H(
         L("Your pronouns are: you, former.", "hot"),
@@ -173,12 +173,12 @@ export const LINES = {
         L("Translate this: goodbye.", "sly"),
         L("South Bend cannot see you from here.", "soft")
       ),
-      booker: H(
-        L("Sit down, senator.", "hot"),
-        L("The hug was never for me.", "sly"),
-        L("Spartacus should have stayed standing.", "sly"),
-        L("Warm. Finished.", "soft"),
-        L("I do not do group photos with the fallen.", "hot")
+      mamdani: H(
+        L("Sit down, mayor.", "hot"),
+        L("The subway was never for me.", "sly"),
+        L("City Hall should have stayed standing.", "sly"),
+        L("Young. Finished.", "soft"),
+        L("I do not do photo ops with the fallen.", "hot")
       ),
       activist: H(
         L("That hair. That ending.", "sly"),
@@ -240,12 +240,12 @@ export const LINES = {
         L("Infrastructure week is cancelled.", "sly"),
         L("The trains do not run through my floor.", "hot")
       ),
-      booker: H(
+      mamdani: H(
         L("The Senate will come to order. Without you.", "hot"),
-        L("Spartacus is out of order.", "sly"),
-        L("The senator from New Jersey yields.", "soft"),
-        L("Warm speeches do not survive my gavel.", "sly"),
-        L("I have buried louder men.", "hot")
+        L("The mayor is out of order.", "sly"),
+        L("The gentleman from Queens yields.", "soft"),
+        L("Campaign clips do not survive my gavel.", "sly"),
+        L("I have buried louder socialists.", "hot")
       ),
       activist: H(
         L("No demonstration on my floor.", "hot"),
@@ -307,12 +307,12 @@ export const LINES = {
         L("South Bend is not a foreign policy.", "sly"),
         L("Little Pete just met a bigger Marco.", "hot")
       ),
-      booker: H(
-        L("Newark called. They want the speech back.", "sly"),
-        L("Spartacus, the uprising is over.", "hot"),
-        L("Cory, we can hug later. We won't.", "soft"),
-        L("I object — to you still being up.", "sly"),
-        L("New Jersey just got out-Florida'd.", "hot")
+      mamdani: H(
+        L("Queens called. They want the speech back.", "sly"),
+        L("Mayor, the uprising is over.", "hot"),
+        L("Zohran, drink water. Then sit.", "soft"),
+        L("Little mayor, big Florida.", "sly"),
+        L("New York just got out-Florida'd.", "hot")
       ),
       activist: H(
         L("Drink water. Then sit down.", "soft"),
@@ -374,12 +374,12 @@ export const LINES = {
         L("I debate in complete sentences. You just ended.", "sly"),
         L("South Bend, Texas just annexed you.", "hot")
       ),
-      booker: H(
+      mamdani: H(
         L("I object. Sustained. Dead.", "hot"),
-        L("Spartacus vs. the Constitution. Guess who won.", "sly"),
-        L("The senator will take his seat. Permanently.", "sly"),
-        L("Warm feelings are not case law.", "soft"),
-        L("Newark, your appeal is denied.", "hot")
+        L("Socialism vs. the Constitution. Guess who won.", "sly"),
+        L("The mayor will take his seat. Permanently.", "sly"),
+        L("Free buses are not case law.", "soft"),
+        L("Queens, your appeal is denied.", "hot")
       ),
       activist: H(
         L("Facts don't care about your beanie.", "hot"),
@@ -390,70 +390,70 @@ export const LINES = {
       ),
     },
   },
-  graham: {
+  rfk: {
     vs: {
       newsom: H(
-        L("South Carolina just redistricted you off the map.", "hot"),
-        L("Bless your hair, Gavin.", "sly"),
-        L("Sugar, this isn't Hollywood.", "soft"),
-        L("I used to like governors. Then I met you.", "sly"),
-        L("California, y'all have a nice funeral.", "hot")
+        L("Gavin, your state is the experiment. It failed.", "hot"),
+        L("I studied your water. Then I ended you.", "sly"),
+        L("Governor, sit. The chronic is over.", "soft"),
+        L("California's the control group. You're the casualty.", "sly"),
+        L("Hair-gel isn't a health plan.", "hot")
       ),
       aoc: H(
-        L("Young lady, this is not TikTok.", "hot"),
-        L("Bless your heart, congresswoman.", "sly"),
-        L("That's enough now.", "soft"),
-        L("The squad needs adult supervision. I provided an ending.", "sly"),
-        L("Honey, the internet can't save you.", "hot")
+        L("The squad just got a diagnosis.", "hot"),
+        L("Congresswoman, I left your party. Then I left you.", "sly"),
+        L("That's enough TikTok medicine.", "soft"),
+        L("Tax the rich. I taxed the square.", "sly"),
+        L("Green New Deal, meet an old Kennedy with a gun.", "hot")
       ),
       sanders: H(
-        L("Bernie, you're too old for this square.", "hot"),
-        L("I like Bernie. I like him better horizontal.", "sly"),
-        L("Sit down, you sweet revolutionary.", "soft"),
-        L("The mittens were the peak. This is the valley.", "sly"),
-        L("Socialism, bless its heart.", "hot")
+        L("Bernie, I used to knock doors with you. Not anymore.", "hot"),
+        L("The revolution needed a doctor. I'm the autopsy.", "sly"),
+        L("Sit down, senator. The vitamins kicked in.", "soft"),
+        L("I am once again asking you to fall over.", "hot"),
+        L("Socialism's a comorbidity.", "sly")
       ),
       schumer: H(
-        L("Chuck and I were friends. Past tense.", "hot"),
-        L("I can work with anyone. I just didn't.", "sly"),
-        L("Old pal, that's the bell.", "soft"),
-        L("Bipartisan means I win and you clap. You're late.", "sly"),
-        L("Leader Schumer, consider this my RSVP: no.", "hot")
+        L("Chuck, New York's my name too. I kept it.", "hot"),
+        L("I can work with anyone. I just wouldn't.", "sly"),
+        L("Leader, yield the floor. And the pulse.", "soft"),
+        L("Majority of one: me.", "sly"),
+        L("The machine just met a Kennedy who didn't play.", "hot")
       ),
       harris: H(
-        L("I liked you better on the ticket that lost.", "hot"),
-        L("Kamala, that laugh just found the exit.", "sly"),
-        L("Sweetheart, the camera's off.", "soft"),
-        L("I'm speaking too, sugar. Louder.", "sly"),
-        L("Prosecutor, the jury's in. It's me.", "hot")
+        L("Kamala, that laugh is a symptom.", "sly"),
+        L("I unburdened you. Permanently.", "hot"),
+        L("Prosecutor, the case is closed. So are you.", "sly"),
+        L("Madam, drink water. From a clean glass. In the past.", "soft"),
+        L("The ticket lost. This is the recount.", "hot")
       ),
       warren: H(
-        L("Liz, I used to golf with better news.", "sly"),
-        L("Bless your twelve-point plan.", "soft"),
-        L("Nevertheless, South Carolina.", "hot"),
-        L("I persist in not reading the memo.", "sly"),
-        L("Two cents won't cover the funeral.", "hot")
+        L("Liz, I have a plan for you. It's short.", "hot"),
+        L("Nevertheless, she persisted. Until she didn't.", "sly"),
+        L("Senator, that's enough worksheets.", "soft"),
+        L("Two cents. One shot.", "sly"),
+        L("The plan had twelve points. This is the last.", "hot")
       ),
       buttigieg: H(
-        L("Pete, go inspect a pothole.", "sly"),
-        L("Mayor, you're a lovely young man. Were.", "soft"),
-        L("The trains don't stop in my state. Or for you.", "hot"),
-        L("I have ended politer briefings.", "sly"),
-        L("South Bend, pack it up.", "hot")
+        L("Pete, the airports were the least of it.", "sly"),
+        L("Mayor, go inspect a closed case.", "hot"),
+        L("South Bend, this is a recall.", "sly"),
+        L("Lovely briefing. Terminal.", "soft"),
+        L("Infrastructure of lead. You're the pothole.", "hot")
       ),
-      booker: H(
-        L("Cory, the hug is over.", "sly"),
-        L("Spartacus, honey, sit.", "soft"),
-        L("I like a warm speech. I like a cold square more.", "hot"),
-        L("New Jersey, send flowers.", "sly"),
-        L("We can disagree. I just ended the conversation.", "hot")
+      mamdani: H(
+        L("Zohran, free buses don't outrun a Kennedy.", "hot"),
+        L("Mayor, the city already had one of me. I'm the sequel.", "sly"),
+        L("Queens, sit. The ad is over.", "soft"),
+        L("I know your side. I left it. Then I ended it.", "sly"),
+        L("Socialism, meet a name older than your subway.", "hot")
       ),
       activist: H(
-        L("Sweetheart, this is a funeral.", "hot"),
-        L("Bless that beanie.", "sly"),
-        L("Child, go on now.", "soft"),
-        L("The protest ends at my state line.", "sly"),
-        L("Y'all tried. That's adorable.", "soft")
+        L("Kid, I protested before your beanie was born.", "hot"),
+        L("The sign is a toxin. So was standing there.", "sly"),
+        L("Go home. Hydrate. Stay gone.", "soft"),
+        L("That's not medicine. That's a loss.", "sly"),
+        L("The comment section isn't a clinic.", "hot")
       ),
     },
   },
@@ -508,12 +508,12 @@ export const LINES = {
         L("We both speak consultant. I speak last.", "sly"),
         L("South Bend is a suburb of this loss.", "hot")
       ),
-      booker: H(
-        L("The pops weren't enough.", "sly"),
-        L("Spartacus, the plant closed.", "hot"),
-        L("Cory, save the hug for Newark.", "soft"),
-        L("Warmth is not a jobs program.", "sly"),
-        L("New Jersey soul, Ohio ending.", "hot")
+      mamdani: H(
+        L("The rent freeze wasn't enough.", "sly"),
+        L("Mayor, the plant closed.", "hot"),
+        L("Zohran, save the clip for Queens.", "soft"),
+        L("Affordability is not a jobs program.", "sly"),
+        L("New York soul, Ohio ending.", "hot")
       ),
       activist: H(
         L("Go back to the dorm.", "soft"),
@@ -575,11 +575,11 @@ export const LINES = {
         L("Infrastructure week, Florida edition: you're the pothole.", "sly"),
         L("South Bend is not a coastal power.", "hot")
       ),
-      booker: H(
-        L("Keep New Jersey.", "soft"),
-        L("Spartacus, the theme parks are closed to you.", "sly"),
-        L("Cory, I don't do hugs. I do statutes.", "hot"),
-        L("Warmth melts down here.", "sly"),
+      mamdani: H(
+        L("Keep Queens.", "soft"),
+        L("Mayor, the theme parks are closed to you.", "sly"),
+        L("Zohran, I don't do rent freezes. I do statutes.", "hot"),
+        L("Socialism melts down here.", "sly"),
         L("The uprising ends at the state line.", "hot")
       ),
       activist: H(
@@ -642,11 +642,11 @@ export const LINES = {
         L("Maltese won't save you.", "sly"),
         L("South Bend, this is a real town now.", "hot")
       ),
-      booker: H(
-        L("Spartacus who?", "hot"),
-        L("The hug bounced off the hat.", "sly"),
-        L("Cory, save it for the cameras that left.", "soft"),
-        L("Newark soul, rally ending.", "sly"),
+      mamdani: H(
+        L("Mayor who?", "hot"),
+        L("The metrocard bounced off the hat.", "sly"),
+        L("Zohran, save it for the cameras that left.", "soft"),
+        L("Queens soul, rally ending.", "sly"),
         L("I object to your existence on my square.", "hot")
       ),
       activist: H(
@@ -695,12 +695,12 @@ export const LINES = {
         L("Zodiac says: stay home.", "sly"),
         L("Texas energy, California close.", "hot")
       ),
-      graham: H(
-        L("Lindsey, pick a side. Too late.", "hot"),
-        L("Bless your flexibility.", "sly"),
-        L("Senator, that's enough charm.", "soft"),
-        L("South Carolina, the cameras moved west.", "sly"),
-        L("I don't do bless-your-heart. I do checkmate.", "hot")
+      rfk: H(
+        L("Bobby, the worm can't save this square.", "hot"),
+        L("I kept the name. You rented it.", "sly"),
+        L("Secretary, that's enough raw milk.", "soft"),
+        L("The dynasty just got a Hollywood ending.", "sly"),
+        L("Make America Healthy. Starting with your absence.", "hot")
       ),
       vance: H(
         L("Ohio can keep the couch.", "sly"),
@@ -762,12 +762,12 @@ export const LINES = {
         L("That's enough originalism for one day.", "soft"),
         L("Facts care. They say you lost.", "hot")
       ),
-      graham: H(
-        L("Lindsey, your friend can't save you.", "hot"),
-        L("Bless your flip-flops.", "sly"),
-        L("Senator, take a seat in the past.", "soft"),
-        L("Bipartisan? I brought one party: mine.", "sly"),
-        L("South Carolina, the squad just gerrymandered you out.", "hot")
+      rfk: H(
+        L("Bobby, the squad doesn't take medical advice from you.", "hot"),
+        L("The worm voted. It voted no.", "sly"),
+        L("Secretary, sit. The clinic is closed.", "soft"),
+        L("You left the party. We kept the square.", "sly"),
+        L("Tax this, doctor.", "hot")
       ),
       vance: H(
         L("Weird. And done.", "hot"),
@@ -829,12 +829,12 @@ export const LINES = {
         L("The zodiac did not see the working class coming.", "sly"),
         L("Filibuster this.", "hot")
       ),
-      graham: H(
-        L("I am once again asking you to sit down.", "hot"),
-        L("Lindsey, pick the people. Too late.", "sly"),
-        L("Bless your heart, senator. Then leave.", "soft"),
-        L("Bipartisan used to mean something. Now it means this.", "sly"),
-        L("South Carolina, the movement landed.", "hot")
+      rfk: H(
+        L("I am once again asking you to sit down, Bobby.", "hot"),
+        L("You used to knock doors with me. Then you knocked us.", "sly"),
+        L("Kid, I was in this fight before your frog slides.", "soft"),
+        L("The movement doesn't need a cabinet skeptic.", "sly"),
+        L("Vermont just outlived a Kennedy. That's new.", "hot")
       ),
       vance: H(
         L("Venture capital won't save you.", "hot"),
@@ -896,12 +896,12 @@ export const LINES = {
         L("The Constitution is not a boarding pass.", "sly"),
         L("Filibuster over. Schumer still talking. You're not.", "hot")
       ),
-      graham: H(
-        L("Old friend. New vacancy.", "sly"),
-        L("Lindsey, I can work with anyone. I just ended you.", "hot"),
-        L("That's enough charm, senator.", "soft"),
-        L("Bipartisan means I write the statement. Alone.", "sly"),
-        L("South Carolina, New York sends condolences.", "hot")
+      rfk: H(
+        L("Bobby, New York remembers the name. Not the turn.", "hot"),
+        L("You took the cabinet. I took the square.", "sly"),
+        L("That's enough lectures, secretary.", "soft"),
+        L("The machine doesn't do MAHA. It does endings.", "sly"),
+        L("Hyannis is a long way from this board.", "hot")
       ),
       vance: H(
         L("The Senate just got younger. And emptier.", "sly"),
@@ -963,12 +963,12 @@ export const LINES = {
         L("Originalism is not an alibi.", "sly"),
         L("The jury of this board just convicted.", "hot")
       ),
-      graham: H(
-        L("I know it was you, Lindsey.", "hot"),
-        L("Bless your heart. Here's the charge.", "sly"),
-        L("Senator, that's a wrap on the charm.", "soft"),
-        L("I can work with anyone. I just booked you.", "sly"),
-        L("South Carolina, the DA is in.", "hot")
+      rfk: H(
+        L("Bobby, I know a bad diagnosis when I see one.", "hot"),
+        L("The worm is not a character witness.", "sly"),
+        L("Secretary, that's a wrap on the hearings.", "soft"),
+        L("I'm speaking. You're a footnote in HHS.", "sly"),
+        L("Unburdened by RFK. Finally.", "hot")
       ),
       vance: H(
         L("What can be, unburdened by Vance.", "sly"),
@@ -1030,12 +1030,12 @@ export const LINES = {
         L("Originalism isn't a loophole here.", "sly"),
         L("Nevertheless, the statute wins.", "hot")
       ),
-      graham: H(
-        L("I will persist. You will not.", "hot"),
-        L("Bless your heart. Here's the plan.", "sly"),
-        L("Lindsey, that's enough.", "soft"),
-        L("Bipartisan? I brought a worksheet.", "sly"),
-        L("South Carolina, consider this enforcement.", "hot")
+      rfk: H(
+        L("I will persist. Your worm will not.", "hot"),
+        L("Bobby, I have a plan. Step one is you gone.", "sly"),
+        L("Secretary, that's enough Facebook science.", "soft"),
+        L("Nevertheless, she booked the Kennedy.", "sly"),
+        L("Two cents. Zero secretaries left.", "hot")
       ),
       vance: H(
         L("Yale taught us both. I passed.", "hot"),
@@ -1097,12 +1097,12 @@ export const LINES = {
         L("The Constitution is not a timetable.", "sly"),
         L("Filibuster delayed. I arrived.", "hot")
       ),
-      graham: H(
-        L("South Carolina, this exit.", "sly"),
-        L("Lindsey, that's a wrong turn.", "soft"),
-        L("Bless your heart. Here's a detour.", "sly"),
-        L("I inspect charm. It failed.", "hot"),
-        L("Bipartisan infrastructure: I stay. You go.", "hot")
+      rfk: H(
+        L("Bobby, this exit. No layover.", "sly"),
+        L("Secretary, that's a wrong turn at HHS.", "soft"),
+        L("I inspect wellness. Yours failed.", "hot"),
+        L("The airports were easier than you.", "sly"),
+        L("Infrastructure of a dynasty, demolished.", "hot")
       ),
       vance: H(
         L("Ohio, your senator is delayed.", "sly"),
@@ -1127,70 +1127,70 @@ export const LINES = {
       ),
     },
   },
-  booker: {
+  mamdani: {
     vs: {
       trump: H(
-        L("Newark just outclassed Fifth Avenue.", "hot"),
-        L("Spartacus stands. You don't.", "hot"),
+        L("Queens just outclassed Fifth Avenue.", "hot"),
+        L("The rent is frozen. You aren't.", "hot"),
         L("Donald, that's enough noise.", "soft"),
-        L("I hug my city. Not you.", "sly"),
-        L("The love is gone. So are you.", "sly")
+        L("I take the subway. You take the L.", "sly"),
+        L("City Hall stands. You don't.", "sly")
       ),
       melania: H(
-        L("I hug my friends. Not you.", "sly"),
         L("The castle just met a city that works.", "hot"),
         L("Ma'am, that's a wrap on the ice.", "soft"),
-        L("Warmth wins. Cold exits.", "sly"),
-        L("Spartacus doesn't bow to balconies.", "hot")
+        L("I run a city. You run a balcony.", "sly"),
+        L("Public housing just evicted a palace.", "hot"),
+        L("Cold luxury, warm ending.", "sly")
       ),
       mcconnell: H(
-        L("The turtle crossed. Didn't make it.", "hot"),
+        L("The turtle missed the last train.", "hot"),
         L("I object to thirty years of this.", "sly"),
         L("Mitch, sit with me. Then sit down.", "soft"),
-        L("The Senate just got a soul. Lost a turtle.", "sly"),
-        L("Spartacus vs. the gavel. Guess who stood.", "hot")
+        L("The Senate just got a subway. Lost a turtle.", "sly"),
+        L("City Hall vs. the gavel. Guess who stood.", "hot")
       ),
       rubio: H(
         L("Brother Marco, this is the end.", "sly"),
         L("Drink water. Drink this loss.", "soft"),
-        L("Little Marco, big Newark.", "hot"),
-        L("I speak love. You speak humidity.", "sly"),
-        L("Florida man, New Jersey soul.", "hot")
+        L("Little Marco, big Queens.", "hot"),
+        L("I speak buses. You speak humidity.", "sly"),
+        L("Florida man, New York soul.", "hot")
       ),
       cruz: H(
         L("I object to your existence on this square.", "hot"),
         L("Ted, Cancun is not a community.", "sly"),
         L("Senator, that's enough law-talk.", "soft"),
         L("The Constitution is not a beach towel.", "sly"),
-        L("Spartacus overruled Texas.", "hot")
+        L("Queens overruled Texas.", "hot")
       ),
-      graham: H(
-        L("We can disagree. Not anymore.", "hot"),
-        L("Lindsey, the hug expired.", "sly"),
-        L("Bless your heart, then go.", "soft"),
-        L("Bipartisan used to mean dinner. Now it means this.", "sly"),
-        L("South Carolina, Newark sends love. And an ending.", "hot")
+      rfk: H(
+        L("We can disagree. Not with a Kennedy who switched.", "hot"),
+        L("Bobby, the clip expired. So did the brand.", "sly"),
+        L("Secretary, sit. Queens is speaking.", "soft"),
+        L("I kept the left. You rented the right. Neither saved you.", "sly"),
+        L("Free buses. Toll booth for dynasties.", "hot")
       ),
       vance: H(
         L("Couch to coast. Out.", "sly"),
         L("J.D., I did the city. You did the book.", "hot"),
         L("That's enough elegy, senator.", "soft"),
-        L("Yale boys can sit. This one stands.", "sly"),
-        L("Ohio, your freshman met a mayor of souls.", "hot")
+        L("Yale boys can sit. This one takes the 7.", "sly"),
+        L("Ohio, your freshman met a mayor of five boroughs.", "hot")
       ),
       desantis: H(
-        L("Florida, New Jersey sends a message.", "hot"),
+        L("Florida, New York sends a message.", "hot"),
         L("Ron, I don't ban books. I end chapters.", "sly"),
         L("Governor, that's enough statute.", "soft"),
-        L("Woke? I call it love. You just lost to it.", "sly"),
-        L("Spartacus vs. Tallahassee. Easy.", "hot")
+        L("Woke? I call it a city. You just lost to it.", "sly"),
+        L("City Hall vs. Tallahassee. Easy.", "hot")
       ),
       maga: H(
-        L("The love is gone. So are you.", "hot"),
-        L("The hat is not a neighborhood.", "sly"),
+        L("The hat is not a metrocard.", "hot"),
+        L("Open carry, closed station.", "sly"),
         L("Brother, you can do better. You didn't.", "soft"),
-        L("Open carry, closed heart.", "sly"),
-        L("Spartacus just took the rally.", "hot")
+        L("This city just cancelled the rally.", "sly"),
+        L("Queens just took the square.", "hot")
       ),
     },
   },
@@ -1231,12 +1231,12 @@ export const LINES = {
         L("Facts don't care about your boarding pass.", "sly"),
         L("The Constitution is not your Uber to safety.", "hot")
       ),
-      graham: H(
-        L("Pick a side. I picked you off.", "hot"),
-        L("Bless your flip-flops.", "sly"),
-        L("That's enough, uncle.", "soft"),
-        L("Bipartisan? I brought a crowd.", "sly"),
-        L("South Carolina, the comments are in.", "hot")
+      rfk: H(
+        L("Pick a side. You picked wrong, uncle.", "hot"),
+        L("The worm is in the comments. They're mean.", "sly"),
+        L("That's enough, Bobby.", "soft"),
+        L("Raw milk, raw L.", "sly"),
+        L("The protest brought a doctor. Then fired him.", "hot")
       ),
       vance: H(
         L("Weird is not a strategy.", "hot"),

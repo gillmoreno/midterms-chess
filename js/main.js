@@ -1,5 +1,8 @@
 import { createBoard3D } from "./board3d.js";
 import { clipFor, playCinematic, cancelCinematic, isPlaying } from "./cinematic.js";
+import { createEngine } from "./engine.js";
+import { playSelect, playClip, stopClip, isMuted, setMuted } from "./fx.js";
+import { tauntFor, tauntHoldMs } from "./taunts.js";
 
 const Chess = window.Chess;
 const Roster = window.Roster;
@@ -81,6 +84,33 @@ function refreshHud(game) {
   renderCaptured(game);
 }
 
+function renderMini(game, selected) {
+  const root = $("miniboard");
+  if (!root) return;
+  root.innerHTML = "";
+  for (let rank = 7; rank >= 0; rank--) {
+    for (let file = 0; file < 8; file++) {
+      const sq = Chess.sq(file, rank);
+      const cell = document.createElement("button");
+      cell.type = "button";
+      cell.dataset.lite = (file + rank) % 2 === 1 ? "1" : "0";
+      cell.dataset.on = selected === sq ? "1" : "0";
+      cell.dataset.file = String(file);
+      cell.dataset.rank = String(rank);
+      const p = game.board[sq];
+      if (p) {
+        const e = Roster.entryFor(p, file);
+        const img = document.createElement("img");
+        img.src = "assets/ui/staunton/" + p.c + p.t.toUpperCase() + ".svg";
+        img.alt = e.name;
+        img.title = e.name;
+        cell.appendChild(img);
+      }
+      root.appendChild(cell);
+    }
+  }
+}
+
 function boot() {
   if (showFileHintIfNeeded()) return;
 
@@ -91,6 +121,9 @@ function boot() {
   let legal = [];
   let inspecting = false;
   let locked = false;
+  let cpuBusy = false;
+  let cpuGen = 0;
+  const engine = createEngine();
 
   function decorateMoves(moves) {
     return moves.map((m) => {
@@ -126,7 +159,7 @@ function boot() {
     const e = Roster.entryFor(p, Chess.fileOf(sq));
     $("hover-img").src = e.portrait;
     $("hover-name").textContent = e.name;
-    $("hover-role").textContent = e.role + " · " + Roster.ROSTER[p.c].house;
+    $("hover-role").textContent = (e.aka ? e.aka + " · " : "") + e.role + " · " + Roster.ROSTER[p.c].house;
     $("hover-note").textContent = inspecting
       ? "Scouting — their options, not your move"
       : "Click a lit square to move";
@@ -141,6 +174,7 @@ function boot() {
       : null;
     board.setHighlights(selected, legal, last, inspecting);
     refreshHud(game);
+    renderMini(game, selected);
     showCard(selected);
   }
 
@@ -149,6 +183,7 @@ function boot() {
     selected = sq;
     inspecting = p.c !== game.turn;
     legal = inspecting ? previewFor(sq) : legalFor(sq);
+    playSelect();
     paint();
   }
 
@@ -192,12 +227,14 @@ function boot() {
     });
   }
 
-  async function tryMove(from, to) {
+  async function tryMove(from, to, promo) {
     const matches = Chess.legalMovesFrom(game, from).filter((m) => m.to === to);
     if (!matches.length) return false;
     let chosen = matches[0];
     if (matches.length > 1 && matches.some((m) => m.promo)) {
-      chosen = await askPromo(from, to, matches);
+      chosen = promo
+        ? matches.find((m) => m.promo === promo) || matches[0]
+        : await askPromo(from, to, matches);
     }
     const attacker = game.board[chosen.from];
     const victimSq = chosen.ep
@@ -214,11 +251,22 @@ function boot() {
     inspecting = false;
     board.setHighlights(null, [], r.move);
     refreshHud(game);
+    renderMini(game, null);
     const capSq = r.captured
       ? r.move.ep
         ? Chess.sq(Chess.fileOf(r.move.to), Chess.rankOf(r.move.from))
         : r.move.to
       : null;
+    const st = Chess.status(game);
+    const tauntKind =
+      st.result === "checkmate"
+        ? "mate"
+        : st.inCheck
+          ? "check"
+          : r.captured && r.captured.t !== "p"
+            ? "capture"
+            : null;
+    const taunt = tauntKind ? tauntFor(tauntKind, attacker.c) : null;
     locked = true;
     try {
       const animDone = new Promise((res) =>
@@ -234,14 +282,17 @@ function boot() {
       await Promise.all([animDone, clip ? playCinematic(clip) : Promise.resolve()]);
       board.rebuildPieces(game);
       paint();
+      if (taunt && !clip) announceTaunt(tauntKind, taunt);
     } finally {
       locked = false;
     }
+    scheduleCpu();
     return true;
   }
 
   board.onPick((file, rank) => {
-    if (game.result || board.busy() || locked || isPlaying()) return;
+    if (game.result || board.busy() || locked || cpuBusy || isPlaying()) return;
+    if (cpuColor() && game.turn === cpuColor()) return;
     const sq = Chess.sq(file, rank);
     const piece = game.board[sq];
     if (selected != null && !inspecting && canPlay(selected) && isLegalDest(selected, sq)) {
@@ -259,12 +310,146 @@ function boot() {
     clearSelect();
   });
 
+  let tauntTimer = 0;
+  function announceTaunt(kind, taunt) {
+    playClip(taunt.src);
+    const box = $("taunt");
+    $("taunt-kicker").textContent =
+      kind === "mate" ? "Checkmate" : kind === "capture" ? "Taken" : "Check";
+    $("taunt-who").textContent = taunt.who;
+    $("taunt-line").textContent = taunt.line;
+    box.hidden = false;
+    clearTimeout(tauntTimer);
+    tauntTimer = setTimeout(() => {
+      box.hidden = true;
+    }, tauntHoldMs(kind));
+  }
+
+  function cpuColor() {
+    const mode = $("opp-mode").value;
+    if (mode === "cpu-b") return "b";
+    if (mode === "cpu-w") return "w";
+    return null;
+  }
+
+  function cpuLevel() {
+    return Number($("opp-level").value) || 10;
+  }
+
+  function paintOpp() {
+    $("opp-level-wrap").hidden = !$("opp-mode").value.startsWith("cpu");
+  }
+
+  function scheduleCpu() {
+    const color = cpuColor();
+    if (!color || game.result || cpuBusy || locked || isPlaying()) return;
+    if (game.turn !== color) return;
+    runCpu();
+  }
+
+  async function runCpu() {
+    const my = ++cpuGen;
+    cpuBusy = true;
+    const house = game.turn === "w" ? "The Right" : "The Left";
+    $("status-line").textContent = house + " is thinking…";
+    try {
+      await engine.ready();
+      if (my !== cpuGen) return;
+      const mv = await engine.go(Chess.toFen(game), cpuLevel());
+      if (my !== cpuGen || !mv) return;
+      const from = Chess.parseSquare(mv.from);
+      const to = Chess.parseSquare(mv.to);
+      if (from < 0 || to < 0) return;
+      await tryMove(from, to, mv.promo);
+    } catch (err) {
+      if (my === cpuGen) {
+        $("status-line").textContent = "Engine failed. Try Two humans, or refresh.";
+        console.warn(err);
+      }
+    } finally {
+      if (my === cpuGen) cpuBusy = false;
+    }
+  }
+
   function newSession() {
     cancelCinematic();
+    stopClip();
     locked = false;
+    cpuBusy = false;
+    cpuGen += 1;
+    engine.stop();
+    $("taunt").hidden = true;
     game = Roster.stamp(Chess.createGame());
     rebuild();
+    scheduleCpu();
   }
+
+  const MINI_KEY = "floor-vote-mini-size";
+  const wrap = $("miniboard-wrap");
+  function setMiniSize(size) {
+    wrap.dataset.size = size === "sm" ? "sm" : "lg";
+    $("miniboard-size").textContent = wrap.dataset.size === "lg" ? "Smaller" : "Bigger";
+    try {
+      localStorage.setItem(MINI_KEY, wrap.dataset.size);
+    } catch (_) {}
+  }
+  try {
+    const saved = localStorage.getItem(MINI_KEY);
+    setMiniSize(saved === "lg" ? "lg" : "sm");
+  } catch (_) {
+    setMiniSize("sm");
+  }
+  $("miniboard-size").addEventListener("click", (e) => {
+    e.stopPropagation();
+    setMiniSize(wrap.dataset.size === "lg" ? "sm" : "lg");
+  });
+
+  $("miniboard").addEventListener("click", (e) => {
+    const cell = e.target.closest("button");
+    if (!cell || locked || cpuBusy) return;
+    if (cpuColor() && game.turn === cpuColor()) return;
+    const file = Number(cell.dataset.file);
+    const rank = Number(cell.dataset.rank);
+    if (!Number.isFinite(file) || !Number.isFinite(rank)) return;
+    const sq = Chess.sq(file, rank);
+    const piece = game.board[sq];
+    if (selected != null && !inspecting && canPlay(selected) && isLegalDest(selected, sq)) {
+      tryMove(selected, sq);
+      return;
+    }
+    if (piece) {
+      if (selected === sq) {
+        clearSelect();
+        return;
+      }
+      selectPiece(sq);
+      return;
+    }
+    clearSelect();
+  });
+
+  $("opp-mode").addEventListener("change", () => {
+    paintOpp();
+    scheduleCpu();
+  });
+  $("opp-level").addEventListener("change", () => {
+    if (cpuBusy) {
+      cpuGen += 1;
+      engine.stop();
+      cpuBusy = false;
+    }
+    scheduleCpu();
+  });
+  paintOpp();
+
+  function paintSound() {
+    $("btn-sound").textContent = isMuted() ? "Sound off" : "Sound on";
+  }
+  paintSound();
+  $("btn-sound").addEventListener("click", () => {
+    setMuted(!isMuted());
+    paintSound();
+  });
 
   $("btn-new").addEventListener("click", newSession);
   $("btn-again").addEventListener("click", newSession);
@@ -306,9 +491,24 @@ function boot() {
       line: $("cine-line").textContent,
       side: $("cine").dataset.side || "",
     }),
+    taunt: () => ({
+      hidden: $("taunt").hidden,
+      kicker: $("taunt-kicker").textContent,
+      who: $("taunt-who").textContent,
+      line: $("taunt-line").textContent,
+    }),
     skipCine: () => cancelCinematic(),
     ready: () => board.isReady(),
     cam: () => board.cameraPos(),
+    fen: () => Chess.toFen(game),
+    opp: () => ({ mode: $("opp-mode").value, level: cpuLevel() }),
+    mini: () =>
+      [...$("miniboard").querySelectorAll("button")].map((cell) => ({
+        file: Number(cell.dataset.file),
+        rank: Number(cell.dataset.rank),
+        on: cell.dataset.on,
+        piece: cell.querySelector("img") ? cell.querySelector("img").alt : "",
+      })),
   };
 
   board.readyPromise.then(rebuild);

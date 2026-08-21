@@ -17,7 +17,7 @@ PIECES = [
     ("right-rook", "mcconnell.jpg"),
     ("right-rook-ks", "rubio.jpg"),
     ("right-bishop", "cruz.jpg"),
-    ("right-bishop-ks", "graham.jpg"),
+    ("right-bishop-ks", "rfk.jpg"),
     ("right-knight", "vance.jpg"),
     ("right-knight-ks", "desantis.jpg"),
     ("right-pawn", "pawn-right.jpg"),
@@ -28,7 +28,7 @@ PIECES = [
     ("left-bishop", "harris.jpg"),
     ("left-bishop-ks", "warren.jpg"),
     ("left-knight", "buttigieg.jpg"),
-    ("left-knight-ks", "booker.jpg"),
+    ("left-knight-ks", "mamdani.jpg"),
     ("left-pawn", "pawn-left.jpg"),
 ]
 

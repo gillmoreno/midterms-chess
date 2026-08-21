@@ -507,6 +507,49 @@
     });
   }
 
+  function toFen(game) {
+    var ranks = [];
+    var r, f, empty, p, ch, row;
+    for (r = 7; r >= 0; r--) {
+      row = "";
+      empty = 0;
+      for (f = 0; f < 8; f++) {
+        p = game.board[sq(f, r)];
+        if (!p) empty += 1;
+        else {
+          if (empty) {
+            row += String(empty);
+            empty = 0;
+          }
+          ch = p.t === "n" ? "n" : p.t;
+          row += p.c === WHITE ? ch.toUpperCase() : ch;
+        }
+      }
+      if (empty) row += String(empty);
+      ranks.push(row);
+    }
+    var castle = "";
+    if (game.castling.wK) castle += "K";
+    if (game.castling.wQ) castle += "Q";
+    if (game.castling.bK) castle += "k";
+    if (game.castling.bQ) castle += "q";
+    if (!castle) castle = "-";
+    var ep = game.ep == null ? "-" : alg(game.ep);
+    return (
+      ranks.join("/") +
+      " " +
+      game.turn +
+      " " +
+      castle +
+      " " +
+      ep +
+      " " +
+      game.halfmove +
+      " " +
+      game.fullmove
+    );
+  }
+
   function status(game) {
     return {
       turn: game.turn,
@@ -536,6 +579,7 @@
     allLegalMoves: allLegalMoves,
     makeMove: makeMove,
     play: play,
+    toFen: toFen,
     status: status,
     kingIndex: function (g, c) {
       return kingIndex(g.board, c);

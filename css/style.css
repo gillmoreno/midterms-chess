@@ -140,22 +140,130 @@ body {
   cursor: pointer;
 }
 
+#miniboard-wrap {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+#miniboard-wrap[data-size="sm"] #miniboard {
+  width: 176px;
+}
+
+#miniboard-wrap[data-size="lg"] #miniboard {
+  width: min(360px, 42vw);
+}
+
+#miniboard-size {
+  padding: 0.28rem 0.5rem;
+  font-size: 0.58rem;
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+}
+
+#miniboard {
+  width: min(360px, 42vw);
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+  background: #1a140f;
+}
+
+#miniboard button {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  letter-spacing: 0;
+  display: grid;
+  place-items: center;
+}
+
+#miniboard button[data-lite="1"] {
+  background: #efe4cf;
+}
+
+#miniboard button[data-lite="0"] {
+  background: #2a211c;
+}
+
+#miniboard button[data-on="1"] {
+  box-shadow: inset 0 0 0 2px var(--gold);
+}
+
+#miniboard img {
+  width: 86%;
+  height: 86%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+#taunt {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
+  min-width: 14rem;
+  max-width: min(28rem, 70%);
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--gold);
+  padding: 0.55rem 0.9rem 0.7rem;
+  backdrop-filter: blur(10px);
+}
+
+#taunt[hidden] {
+  display: none;
+}
+
+#taunt-kicker {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+}
+
+#taunt-who {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  margin-top: 0.15rem;
+}
+
+#taunt-line {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+}
+
 #inspect {
   position: absolute;
   left: 12px;
   bottom: 12px;
   pointer-events: none;
+  z-index: 2;
 }
 
 #hover-card {
   display: flex;
-  gap: 0.75rem;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: stretch;
   background: var(--panel);
   border: 1px solid var(--line);
-  padding: 0.5rem 0.85rem 0.5rem 0.5rem;
+  padding: 0.4rem 0.45rem 0.55rem;
   backdrop-filter: blur(10px);
-  max-width: 20rem;
+  width: min(10.2rem, 28vw);
 }
 
 #hover-card[hidden] {
@@ -167,20 +275,12 @@ body {
 }
 
 #hover-card img {
-  width: 76px;
-  height: 76px;
-  object-fit: cover;
-  object-position: 50% 12%;
-  background: #222;
-  flex-shrink: 0;
-}
-
-#hover-card[data-role="rook"] img {
-  object-position: 50% 16%;
-}
-
-#hover-card[data-role="knight"] img {
-  object-position: 50% 14%;
+  display: block;
+  width: 100%;
+  height: min(24vh, 200px);
+  object-fit: contain;
+  object-position: center center;
+  background: radial-gradient(ellipse at 50% 70%, #2a3140 0%, #12161e 70%);
 }
 
 #hover-card strong {
@@ -359,10 +459,40 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+.opp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+  margin-top: 0.35rem;
+  align-items: center;
+}
+
+.opp label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.opp select {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--ink);
+  background: #12161e;
+  border: 1px solid var(--line);
+  padding: 0.22rem 0.35rem;
+}
+
 .dock {
   grid-area: dock;
   display: grid;
-  grid-template-columns: minmax(14rem, 1fr) 2fr auto;
+  grid-template-columns: minmax(16rem, 1.2fr) 2fr auto;
   gap: 1rem;
   align-items: center;
   padding: 0.65rem 1rem 0.8rem;
@@ -525,6 +655,15 @@ button:hover {
 }
 
 @media (max-width: 860px) {
+  #miniboard-wrap[data-size="lg"] #miniboard {
+    width: min(240px, 58vw);
+  }
+  #hover-card {
+    width: min(8.6rem, 36vw);
+  }
+  #hover-card img {
+    height: min(20vh, 150px);
+  }
   #chrome {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto auto;

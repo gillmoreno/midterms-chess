@@ -37,8 +37,8 @@
       <header class="mast">
         <div class="house left">
           <span class="kicker">The Left</span>
-          <strong>Newsom</strong>
-          <em>AOC · Bernie · Schumer · Kamala · Warren · Pete · Booker</em>
+          <strong>Newscum</strong>
+          <em>AOC · Commie Bernie · Chuck-U · Comrade Kamala · Pocahontas · Mayor Pete · Zohran</em>
         </div>
         <div class="seal">
           <span class="seal-ring">Floor Vote</span>
@@ -48,7 +48,7 @@
         <div class="house right">
           <span class="kicker">The Right</span>
           <strong>Trump</strong>
-          <em>Melania · McConnell · Rubio · Cruz · Graham · Vance · DeSantis</em>
+          <em>Melania · McConnell · Rubio · Cruz · RFK Jr. · Vance · DeSantis</em>
         </div>
       </header>
 
@@ -59,6 +59,15 @@
 
       <main id="arena">
         <canvas id="stage"></canvas>
+        <div id="miniboard-wrap" data-size="sm">
+          <button type="button" id="miniboard-size">Bigger</button>
+          <div id="miniboard" aria-label="2D board"></div>
+        </div>
+        <div id="taunt" hidden>
+          <span id="taunt-kicker">Check</span>
+          <strong id="taunt-who"></strong>
+          <p id="taunt-line"></p>
+        </div>
         <div id="inspect">
           <div id="hover-card" hidden>
             <img id="hover-img" alt="" />
@@ -95,10 +104,37 @@
         <div class="dock-left">
           <span id="turn-pill" data-side="right">The Right</span>
           <p id="status-line">Trump to move.</p>
+          <div class="opp">
+            <label>
+              Play
+              <select id="opp-mode">
+                <option value="human">Two humans</option>
+                <option value="cpu-b">You Right · CPU Left</option>
+                <option value="cpu-w">You Left · CPU Right</option>
+              </select>
+            </label>
+            <label id="opp-level-wrap" hidden>
+              Level
+              <select id="opp-level">
+                <option value="1">1 Novice</option>
+                <option value="2">2 Beginner</option>
+                <option value="3">3 Casual</option>
+                <option value="4" selected>4 Club</option>
+                <option value="5">5 Solid</option>
+                <option value="6">6 Sharp</option>
+                <option value="7">7 Strong</option>
+                <option value="8">8 Expert</option>
+                <option value="9">9 Master</option>
+                <option value="10">10 Brutal</option>
+              </select>
+            </label>
+          </div>
         </div>
         <div id="ticker" class="ticker"></div>
         <div class="dock-actions">
+          <a class="btn-link" href="picks.html">Gag shop</a>
           <a class="btn-link" href="scripts.html">Kill scripts</a>
+          <button type="button" id="btn-sound">Sound on</button>
           <button type="button" id="btn-flip">Spin the chamber</button>
           <button type="button" id="btn-new">New session</button>
         </div>

@@ -17,6 +17,10 @@ Official public-domain photographs used as likeness references for Imagine edits
 
 Pawn figurines are invented characters, not likenesses of real people.
 
+2D mini-board pieces are Colin M.L. Burnett's public-domain Staunton SVGs (`assets/ui/staunton/`).
+
+The in-browser engine is Stockfish 18 lite single-thread WASM (`vendor/stockfish/`), GPLv3, running entirely on the client.
+
 Exact download URLs are in `SOURCES.jsonl`.
 
 ## Kingside wing (role-pieces)
@@ -24,8 +28,12 @@ Exact download URLs are in `SOURCES.jsonl`.
 | File | Commons title |
 |---|---|
 | `rubio.jpg` | Official portrait of Secretary Marco Rubio.jpg |
-| `graham.jpg` | Lindsey Graham official photo.jpg |
+| `rfk.jpg` | Robert F. Kennedy Jr., official portrait (2025).jpg |
 | `desantis.jpg` | Ron DeSantis, Official Portrait, 113th Congress.jpg |
 | `schumer.jpg` | Chuck Schumer official photo.jpg |
 | `warren.jpg` | Elizabeth Warren, official portrait, 114th Congress.jpg |
-| `booker.jpg` | Cory Booker, official portrait, 114th Congress.jpg |
+| `mamdani.jpg` | Zohran Mamdani 05.25.25 (3x4 cropped b).jpg |
+
+## Taunt audio
+
+Trump house lines (`assets/sfx/djt-*.mp3`) are short cuts from [Donald Trump Funny Moments — Ultimate Compilation](https://www.youtube.com/watch?v=dDmb4pd3VNQ) (2015 campaign trail and TV appearances).

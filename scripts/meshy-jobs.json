@@ -31,27 +31,27 @@
   },
   {
     "name": "left-king",
-    "task_id": "01a013bc-5c33-7078-9307-5bc05639d786",
+    "task_id": "01a01e09-32d4-78fd-abe3-b89157bb388a",
     "image": "newsom.jpg"
   },
   {
     "name": "left-queen",
-    "task_id": "01a013bc-6186-7078-bf9e-536f48d2bbac",
+    "task_id": "01a01e70-3d9b-7a37-a4d5-060ab0d4e625",
     "image": "aoc.jpg"
   },
   {
     "name": "left-rook",
-    "task_id": "01a013bc-667f-75d3-a90b-a6b1a1739bf0",
+    "task_id": "01a01e73-9371-7b04-ab53-8e82eee63431",
     "image": "sanders.jpg"
   },
   {
     "name": "left-bishop",
-    "task_id": "01a013bc-6b5a-75d5-863b-5609c7493c99",
+    "task_id": "01a01bdd-98f3-791c-aeaf-a44cb3546a99",
     "image": "harris.jpg"
   },
   {
     "name": "left-knight",
-    "task_id": "01a013bc-70c9-75d5-9f91-7fe612040bc2",
+    "task_id": "01a01bdd-9e74-754b-b78c-7c6d918cd230",
     "image": "buttigieg.jpg"
   },
   {
