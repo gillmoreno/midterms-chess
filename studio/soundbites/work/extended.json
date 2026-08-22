@@ -236,12 +236,14 @@
   "bernie-youre-wrong": {
     "extended": "extended/bernie-youre-wrong.mp3",
     "duration": 35.422,
-    "sel_start": 15.0,
-    "sel_end": 20.39,
+    "sel_start": 18.642,
+    "sel_end": 20.616,
     "pad_before": 15.0,
     "pad_after": 15.032,
     "via": "source",
-    "url": "https://www.youtube.com/watch?v=jrh1C0HSRhM"
+    "url": "https://www.youtube.com/watch?v=jrh1C0HSRhM",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 20.39
   },
   "bernie-not-me-us": {
     "extended": "extended/bernie-not-me-us.mp3",
@@ -256,12 +258,14 @@
   "schumer-whirlwind": {
     "extended": "extended/schumer-whirlwind.mp3",
     "duration": 33.358,
-    "sel_start": 15.0,
-    "sel_end": 18.32,
+    "sel_start": 15.883,
+    "sel_end": 21.508,
     "pad_before": 15.0,
     "pad_after": 15.038,
     "via": "source",
-    "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE"
+    "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 18.32
   },
   "schumer-pay-the-price": {
     "extended": "extended/schumer-pay-the-price.mp3",
@@ -286,22 +290,26 @@
   "schumer-gone-november": {
     "extended": "extended/schumer-gone-november.mp3",
     "duration": 31.582,
-    "sel_start": 15.0,
-    "sel_end": 16.53,
+    "sel_start": 14.545,
+    "sel_end": 16.358,
     "pad_before": 15.0,
     "pad_after": 15.052,
     "via": "source",
-    "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE"
+    "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 16.53
   },
   "schumer-not-on-our-watch": {
     "extended": "extended/schumer-not-on-our-watch.mp3",
     "duration": 33.123,
-    "sel_start": 15.0,
-    "sel_end": 18.09,
+    "sel_start": 13.545,
+    "sel_end": 17.657,
     "pad_before": 15.0,
     "pad_after": 15.033,
     "via": "source",
-    "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE"
+    "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 18.09
   },
   "kamala-im-speaking": {
     "extended": "extended/kamala-im-speaking.mp3",
@@ -316,22 +324,26 @@
   "kamala-we-did-it": {
     "extended": "extended/kamala-we-did-it.mp3",
     "duration": 15.047,
-    "sel_start": 2.73,
-    "sel_end": 4.72,
+    "sel_start": 0.816,
+    "sel_end": 9.131,
     "pad_before": 2.73,
     "pad_after": 10.327,
     "via": "download",
-    "url": "https://www.youtube.com/watch?v=H3lpFE19T78"
+    "url": "https://www.youtube.com/watch?v=H3lpFE19T78",
+    "orig_sel_start": 2.73,
+    "orig_sel_end": 4.72
   },
   "kamala-coconut": {
     "extended": "extended/kamala-coconut.mp3",
     "duration": 34.56,
-    "sel_start": 15.0,
-    "sel_end": 19.53,
+    "sel_start": 14.675,
+    "sel_end": 21.514,
     "pad_before": 15.0,
     "pad_after": 15.03,
     "via": "source",
-    "url": "https://www.youtube.com/watch?v=0bSTqokjNEE"
+    "url": "https://www.youtube.com/watch?v=0bSTqokjNEE",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 19.53
   },
   "warren-plan": {
     "extended": "extended/warren-plan.mp3",
@@ -377,11 +389,13 @@
     "extended": "extended/pete-data.mp3",
     "duration": 34.22,
     "sel_start": 15.0,
-    "sel_end": 19.19,
+    "sel_end": 19.15,
     "pad_before": 15.0,
     "pad_after": 15.03,
     "via": "source",
-    "url": "https://www.youtube.com/watch?v=QzGEotTYsCE"
+    "url": "https://www.youtube.com/watch?v=QzGEotTYsCE",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 19.19
   },
   "mamdani-volume": {
     "extended": "extended/mamdani-volume.mp3",
@@ -416,12 +430,14 @@
   "mamdani-his-name": {
     "extended": "extended/mamdani-his-name.mp3",
     "duration": 33.463,
-    "sel_start": 15.0,
-    "sel_end": 18.43,
+    "sel_start": 12.798,
+    "sel_end": 16.637,
     "pad_before": 15.0,
     "pad_after": 15.033,
     "via": "download",
-    "url": "https://www.youtube.com/watch?v=hFH2dYwH3rI"
+    "url": "https://www.youtube.com/watch?v=hFH2dYwH3rI",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 18.43
   },
   "trump-fired": {
     "extended": "extended/trump-fired.mp3",
@@ -456,12 +472,14 @@
   "trump-alone-fix": {
     "extended": "extended/trump-alone-fix.mp3",
     "duration": 19.043,
-    "sel_start": 0.0,
-    "sel_end": 17.44,
+    "sel_start": 1.874,
+    "sel_end": 4.221,
     "pad_before": 0.0,
     "pad_after": 1.603,
     "via": "download",
-    "url": "https://www.youtube.com/watch?v=QctsdtGEttY"
+    "url": "https://www.youtube.com/watch?v=QctsdtGEttY",
+    "orig_sel_start": 0.0,
+    "orig_sel_end": 17.44
   },
   "trump-your-voice": {
     "extended": "extended/trump-your-voice.mp3",
@@ -707,11 +725,13 @@
     "extended": "extended/vance-trash.mp3",
     "duration": 31.295,
     "sel_start": 15.0,
-    "sel_end": 16.26,
+    "sel_end": 20.119,
     "pad_before": 15.0,
     "pad_after": 15.035,
     "via": "source",
-    "url": "https://www.youtube.com/watch?v=nZkJJNtlr0o"
+    "url": "https://www.youtube.com/watch?v=nZkJJNtlr0o",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 16.26
   },
   "vance-future": {
     "extended": "extended/vance-future.mp3",
@@ -746,12 +766,14 @@
   "desantis-never-surrender": {
     "extended": "extended/desantis-never-surrender.mp3",
     "duration": 33.28,
-    "sel_start": 15.0,
-    "sel_end": 18.23,
+    "sel_start": 15.075,
+    "sel_end": 18.608,
     "pad_before": 15.0,
     "pad_after": 15.05,
     "via": "source",
-    "url": "https://www.youtube.com/watch?v=xfmrQOXk9bM"
+    "url": "https://www.youtube.com/watch?v=xfmrQOXk9bM",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 18.23
   },
   "desantis-begun-to-fight": {
     "extended": "extended/desantis-begun-to-fight.mp3",

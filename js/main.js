@@ -1,7 +1,7 @@
 import { createBoard3D } from "./board3d.js";
 import { clipFor, playCinematic, cancelCinematic, isPlaying } from "./cinematic.js";
 import { createEngine } from "./engine.js";
-import { playSelect, playClip, stopClip, isMuted, setMuted } from "./fx.js";
+import { playSelect, playClip, playBark, stopClip, isMuted, setMuted } from "./fx.js";
 import { tauntFor, tauntHoldMs } from "./taunts.js";
 import { barkFor } from "./barks.js";
 
@@ -184,9 +184,9 @@ function boot() {
     selected = sq;
     inspecting = p.c !== game.turn;
     legal = inspecting ? previewFor(sq) : legalFor(sq);
-    playSelect();
     const bark = barkFor(p.id);
-    if (bark) playClip(bark.src);
+    if (bark) playBark(bark.src);
+    else playSelect();
     paint();
   }
 

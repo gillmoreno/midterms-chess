@@ -253,6 +253,7 @@
     </span>
     <button class="save" id="saveCut" disabled>Save cut</button>
     <button class="ghost" id="resetCut">Reset</button>
+    <button class="ghost" id="previewBark">Preview bark</button>
     <button class="save" id="saveBark">Save as click bark</button>
     <button class="ghost" id="dropBark" hidden>Remove bark</button>
     <span id="cutStatus"></span>
@@ -690,6 +691,64 @@
     document.getElementById("dropBark").hidden = !data.clip.bark;
     document.getElementById("saveBark").textContent = data.clip.bark ? "Update click bark" : "Save as click bark";
   }
+
+  let barkPrev = null;
+  function stopBarkPreview() {
+    if (!barkPrev) return;
+    barkPrev.nodes.forEach((n) => { try { n.stop(); } catch (_) {} });
+    barkPrev = null;
+  }
+
+  document.getElementById("previewBark").onclick = async () => {
+    const c = currentClip();
+    if (!c || !(c.extended || c.src)) return;
+    player.pause();
+    stopBarkPreview();
+    try {
+      if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+      if (actx.state === "suspended") await actx.resume();
+      const srcUrl = asset(c.extended || c.src);
+      const buf = await actx.decodeAudioData((await (await fetch(srcUrl)).arrayBuffer()).slice(0));
+      const t = actx.currentTime;
+      const lead = 0.5;
+      const dur = Math.max(0.2, state.selEnd - state.selStart);
+      const start = Math.max(0, state.selStart);
+      const fadeIn = Math.min(0.35, Math.max(0.06, dur * 0.22));
+      const fadeOut = Math.min(0.42, Math.max(0.08, dur * 0.28));
+      function knock(at) {
+        const osc = actx.createOscillator();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(92, at);
+        osc.frequency.exponentialRampToValueAtTime(40, at + 0.12);
+        const g = actx.createGain();
+        g.gain.setValueAtTime(0.0001, at);
+        g.gain.exponentialRampToValueAtTime(0.18, at + 0.012);
+        g.gain.exponentialRampToValueAtTime(0.0001, at + 0.12);
+        osc.connect(g);
+        g.connect(actx.destination);
+        osc.start(at);
+        osc.stop(at + 0.14);
+      }
+      knock(t);
+      const voice = actx.createBufferSource();
+      voice.buffer = buf;
+      const vg = actx.createGain();
+      const voiceAt = t + lead;
+      vg.gain.setValueAtTime(0.0001, voiceAt);
+      vg.gain.linearRampToValueAtTime(0.9, voiceAt + fadeIn);
+      const fadeOutAt = voiceAt + Math.max(fadeIn + 0.05, dur - fadeOut);
+      vg.gain.setValueAtTime(0.9, fadeOutAt);
+      vg.gain.linearRampToValueAtTime(0.0001, voiceAt + dur);
+      voice.connect(vg);
+      vg.connect(actx.destination);
+      voice.start(voiceAt, start, dur);
+      knock(voiceAt + dur + 0.08);
+      barkPrev = { nodes: [voice] };
+      setStatus("Gavel in · voice · gavel out");
+    } catch (err) {
+      setStatus(err.message, true);
+    }
+  };
 
   document.getElementById("saveBark").onclick = async () => {
     const c = currentClip();

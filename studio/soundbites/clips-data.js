@@ -18,7 +18,9 @@ window.CLIPS = [
     "selStart": 15.7,
     "selEnd": 16.271,
     "padBefore": 15.0,
-    "padAfter": 8.883
+    "padAfter": 8.883,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "tate-mate-in-two",
@@ -39,7 +41,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 17.38,
     "padBefore": 15.0,
-    "padAfter": 9.108
+    "padAfter": 9.108,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "tate-check-mate",
@@ -60,7 +64,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 22.53,
     "padBefore": 15.0,
-    "padAfter": 14.224
+    "padAfter": 14.224,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "tate-good-game",
@@ -81,7 +87,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 18.96,
     "padBefore": 15.0,
-    "padAfter": 4.89
+    "padAfter": 4.89,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "tate-everything-your-fault",
@@ -102,7 +110,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 17.04,
     "padBefore": 15.0,
-    "padAfter": 15.038
+    "padAfter": 15.038,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "tate-no-luck",
@@ -123,7 +133,9 @@ window.CLIPS = [
     "selStart": 9.752,
     "selEnd": 15.75,
     "padBefore": 15.0,
-    "padAfter": 15.048
+    "padAfter": 15.048,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "tate-never-give-up",
@@ -144,7 +156,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 15.62,
     "padBefore": 15.0,
-    "padAfter": 15.043
+    "padAfter": 15.043,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "tate-chessboard",
@@ -165,7 +179,9 @@ window.CLIPS = [
     "selStart": 15.372,
     "selEnd": 17.532,
     "padBefore": 15.0,
-    "padAfter": 15.042
+    "padAfter": 15.042,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "tate-bugatti",
@@ -186,7 +202,9 @@ window.CLIPS = [
     "selStart": 0.0,
     "selEnd": 4.0,
     "padBefore": 0.0,
-    "padAfter": 8.042
+    "padAfter": 8.042,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "tate-fuck-off",
@@ -207,7 +225,9 @@ window.CLIPS = [
     "selStart": 7.13,
     "selEnd": 12.0,
     "padBefore": 7.13,
-    "padAfter": 0.042
+    "padAfter": 0.042,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "tate-shit-together",
@@ -228,7 +248,9 @@ window.CLIPS = [
     "selStart": 1.04,
     "selEnd": 3.04,
     "padBefore": 1.04,
-    "padAfter": 13.548
+    "padAfter": 13.548,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "tate-you-are-losing",
@@ -249,7 +271,9 @@ window.CLIPS = [
     "selStart": 0.0,
     "selEnd": 30.041,
     "padBefore": 0.0,
-    "padAfter": 0.0
+    "padAfter": 0.0,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "rogan-its-over",
@@ -270,7 +294,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "rogan-he-is-out",
@@ -291,7 +317,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "rogan-comeback",
@@ -312,7 +340,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "rogan-so-clean",
@@ -333,7 +363,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "rogan-dariush",
@@ -354,7 +386,9 @@ window.CLIPS = [
     "selStart": 0.0,
     "selEnd": 10.971,
     "padBefore": 0.0,
-    "padAfter": 0.0
+    "padAfter": 0.0,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "rogan-omg",
@@ -375,7 +409,9 @@ window.CLIPS = [
     "selStart": 0.0,
     "selEnd": 10.0,
     "padBefore": 0.0,
-    "padAfter": 0.971
+    "padAfter": 0.971,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "rogan-crazy",
@@ -396,7 +432,9 @@ window.CLIPS = [
     "selStart": 5.0,
     "selEnd": 9.0,
     "padBefore": 5.0,
-    "padAfter": 15.059
+    "padAfter": 15.059,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "rogan-jamie",
@@ -417,7 +455,9 @@ window.CLIPS = [
     "selStart": 2.0,
     "selEnd": 6.0,
     "padBefore": 2.0,
-    "padAfter": 7.035
+    "padAfter": 7.035,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "rogan-bananas",
@@ -438,7 +478,9 @@ window.CLIPS = [
     "selStart": 0.0,
     "selEnd": 13.035,
     "padBefore": 0.0,
-    "padAfter": 0.0
+    "padAfter": 0.0,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "rogan-shocker",
@@ -459,7 +501,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": null,
+    "bark": false
   },
   {
     "id": "newsom-hows-that",
@@ -480,7 +524,9 @@ window.CLIPS = [
     "selStart": 14.583,
     "selEnd": 16.428,
     "padBefore": 15.0,
-    "padAfter": 15.044
+    "padAfter": 15.044,
+    "pieceId": "newsom",
+    "bark": false
   },
   {
     "id": "newsom-bully",
@@ -501,7 +547,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "newsom",
+    "bark": false
   },
   {
     "id": "newsom-relax",
@@ -522,7 +570,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "newsom",
+    "bark": false
   },
   {
     "id": "newsom-used-to-bullying",
@@ -543,7 +593,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "newsom",
+    "bark": false
   },
   {
     "id": "newsom-spare-me",
@@ -564,7 +616,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "newsom",
+    "bark": false
   },
   {
     "id": "newsom-fire",
@@ -585,7 +639,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "newsom",
+    "bark": false
   },
   {
     "id": "aoc-lied-to",
@@ -606,7 +662,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 19.0,
     "padBefore": 15.0,
-    "padAfter": 15.038
+    "padAfter": 15.038,
+    "pieceId": "aoc",
+    "bark": false
   },
   {
     "id": "aoc-lying",
@@ -627,7 +685,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "aoc",
+    "bark": false
   },
   {
     "id": "aoc-devil",
@@ -648,7 +708,9 @@ window.CLIPS = [
     "selStart": 16.725,
     "selEnd": 20.722,
     "padBefore": 15.0,
-    "padAfter": 15.049
+    "padAfter": 15.049,
+    "pieceId": "aoc",
+    "bark": true
   },
   {
     "id": "aoc-beat-them",
@@ -669,7 +731,9 @@ window.CLIPS = [
     "selStart": 15.359,
     "selEnd": 18.362,
     "padBefore": 15.0,
-    "padAfter": 15.047
+    "padAfter": 15.047,
+    "pieceId": "aoc",
+    "bark": true
   },
   {
     "id": "bernie-damn-bill",
@@ -690,7 +754,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 17.28,
     "padBefore": 15.0,
-    "padAfter": 1.345
+    "padAfter": 1.345,
+    "pieceId": "sanders",
+    "bark": false
   },
   {
     "id": "bernie-youre-wrong",
@@ -704,14 +770,16 @@ window.CLIPS = [
     "handful": false,
     "src": "clips/left/bernie/bernie-youre-wrong.mp3",
     "url": "https://www.youtube.com/watch?v=jrh1C0HSRhM",
-    "duration": 5.39,
+    "duration": 1.974,
     "error": null,
     "extended": "extended/bernie-youre-wrong.mp3",
     "extDuration": 35.422,
-    "selStart": 15.0,
-    "selEnd": 20.39,
+    "selStart": 18.642,
+    "selEnd": 20.616,
     "padBefore": 15.0,
-    "padAfter": 15.032
+    "padAfter": 15.032,
+    "pieceId": "sanders",
+    "bark": true
   },
   {
     "id": "bernie-not-me-us",
@@ -732,7 +800,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 17.89,
     "padBefore": 15.0,
-    "padAfter": 15.05
+    "padAfter": 15.05,
+    "pieceId": "sanders",
+    "bark": false
   },
   {
     "id": "schumer-whirlwind",
@@ -746,14 +816,16 @@ window.CLIPS = [
     "handful": false,
     "src": "clips/left/schumer/schumer-whirlwind.mp3",
     "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE",
-    "duration": 3.32,
+    "duration": 5.625,
     "error": null,
     "extended": "extended/schumer-whirlwind.mp3",
     "extDuration": 33.358,
-    "selStart": 15.0,
-    "selEnd": 18.32,
+    "selStart": 15.883,
+    "selEnd": 21.508,
     "padBefore": 15.0,
-    "padAfter": 15.038
+    "padAfter": 15.038,
+    "pieceId": "schumer",
+    "bark": true
   },
   {
     "id": "schumer-pay-the-price",
@@ -774,7 +846,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 20.96,
     "padBefore": 15.0,
-    "padAfter": 15.037
+    "padAfter": 15.037,
+    "pieceId": "schumer",
+    "bark": false
   },
   {
     "id": "schumer-what-hit-you",
@@ -795,7 +869,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 22.0,
     "padBefore": 15.0,
-    "padAfter": 15.042
+    "padAfter": 15.042,
+    "pieceId": "schumer",
+    "bark": false
   },
   {
     "id": "schumer-gone-november",
@@ -809,14 +885,16 @@ window.CLIPS = [
     "handful": false,
     "src": "clips/left/schumer/schumer-gone-november.mp3",
     "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE",
-    "duration": 1.53,
+    "duration": 1.813,
     "error": null,
     "extended": "extended/schumer-gone-november.mp3",
     "extDuration": 31.582,
-    "selStart": 15.0,
-    "selEnd": 16.53,
+    "selStart": 14.545,
+    "selEnd": 16.358,
     "padBefore": 15.0,
-    "padAfter": 15.052
+    "padAfter": 15.052,
+    "pieceId": "schumer",
+    "bark": true
   },
   {
     "id": "schumer-not-on-our-watch",
@@ -830,14 +908,16 @@ window.CLIPS = [
     "handful": false,
     "src": "clips/left/schumer/schumer-not-on-our-watch.mp3",
     "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE",
-    "duration": 3.09,
+    "duration": 4.112,
     "error": null,
     "extended": "extended/schumer-not-on-our-watch.mp3",
     "extDuration": 33.123,
-    "selStart": 15.0,
-    "selEnd": 18.09,
+    "selStart": 13.545,
+    "selEnd": 17.657,
     "padBefore": 15.0,
-    "padAfter": 15.033
+    "padAfter": 15.033,
+    "pieceId": "schumer",
+    "bark": true
   },
   {
     "id": "schumer-brooklyn",
@@ -858,7 +938,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "schumer",
+    "bark": false
   },
   {
     "id": "kamala-im-speaking",
@@ -879,7 +961,9 @@ window.CLIPS = [
     "selStart": 8.38,
     "selEnd": 9.85,
     "padBefore": 8.38,
-    "padAfter": 15.045
+    "padAfter": 15.045,
+    "pieceId": "harris",
+    "bark": false
   },
   {
     "id": "kamala-we-did-it",
@@ -893,14 +977,16 @@ window.CLIPS = [
     "handful": true,
     "src": "clips/left/kamala/kamala-we-did-it.mp3",
     "url": "https://www.youtube.com/watch?v=H3lpFE19T78",
-    "duration": 1.99,
+    "duration": 8.315,
     "error": null,
     "extended": "extended/kamala-we-did-it.mp3",
     "extDuration": 15.047,
-    "selStart": 2.73,
-    "selEnd": 4.72,
+    "selStart": 0.816,
+    "selEnd": 9.131,
     "padBefore": 2.73,
-    "padAfter": 10.327
+    "padAfter": 10.327,
+    "pieceId": "harris",
+    "bark": false
   },
   {
     "id": "kamala-running-against-me",
@@ -921,7 +1007,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "harris",
+    "bark": false
   },
   {
     "id": "kamala-not-going-back",
@@ -942,7 +1030,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "harris",
+    "bark": false
   },
   {
     "id": "kamala-coconut",
@@ -956,14 +1046,16 @@ window.CLIPS = [
     "handful": true,
     "src": "clips/left/kamala/kamala-coconut.mp3",
     "url": "https://www.youtube.com/watch?v=0bSTqokjNEE",
-    "duration": 4.53,
+    "duration": 6.839,
     "error": null,
     "extended": "extended/kamala-coconut.mp3",
     "extDuration": 34.56,
-    "selStart": 15.0,
-    "selEnd": 19.53,
+    "selStart": 14.675,
+    "selEnd": 21.514,
     "padBefore": 15.0,
-    "padAfter": 15.03
+    "padAfter": 15.03,
+    "pieceId": "harris",
+    "bark": true
   },
   {
     "id": "warren-plan",
@@ -984,7 +1076,9 @@ window.CLIPS = [
     "selStart": 8.72,
     "selEnd": 21.3,
     "padBefore": 8.72,
-    "padAfter": 15.036
+    "padAfter": 15.036,
+    "pieceId": "warren",
+    "bark": false
   },
   {
     "id": "warren-bloomberg",
@@ -1005,7 +1099,9 @@ window.CLIPS = [
     "selStart": 10.6,
     "selEnd": 12.52,
     "padBefore": 10.6,
-    "padAfter": 15.039
+    "padAfter": 15.039,
+    "pieceId": "warren",
+    "bark": false
   },
   {
     "id": "warren-wine-caves",
@@ -1026,7 +1122,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 17.88,
     "padBefore": 15.0,
-    "padAfter": 15.034
+    "padAfter": 15.034,
+    "pieceId": "warren",
+    "bark": false
   },
   {
     "id": "warren-not-silent",
@@ -1047,7 +1145,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "warren",
+    "bark": false
   },
   {
     "id": "pete-bait",
@@ -1068,7 +1168,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "buttigieg",
+    "bark": false
   },
   {
     "id": "pete-quarrel",
@@ -1089,7 +1191,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 18.88,
     "padBefore": 15.0,
-    "padAfter": 15.027
+    "padAfter": 15.027,
+    "pieceId": "buttigieg",
+    "bark": false
   },
   {
     "id": "pete-data",
@@ -1103,14 +1207,16 @@ window.CLIPS = [
     "handful": false,
     "src": "clips/left/buttigieg/pete-data.mp3",
     "url": "https://www.youtube.com/watch?v=QzGEotTYsCE",
-    "duration": 4.19,
+    "duration": 4.15,
     "error": null,
     "extended": "extended/pete-data.mp3",
     "extDuration": 34.22,
     "selStart": 15.0,
-    "selEnd": 19.19,
+    "selEnd": 19.15,
     "padBefore": 15.0,
-    "padAfter": 15.03
+    "padAfter": 15.03,
+    "pieceId": "buttigieg",
+    "bark": true
   },
   {
     "id": "pete-literally",
@@ -1131,7 +1237,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "buttigieg",
+    "bark": false
   },
   {
     "id": "mamdani-volume",
@@ -1152,7 +1260,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 39.28,
     "padBefore": 15.0,
-    "padAfter": 14.48
+    "padAfter": 14.48,
+    "pieceId": "mamdani",
+    "bark": false
   },
   {
     "id": "mamdani-get-through",
@@ -1173,7 +1283,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 20.33,
     "padBefore": 15.0,
-    "padAfter": 15.04
+    "padAfter": 15.04,
+    "pieceId": "mamdani",
+    "bark": false
   },
   {
     "id": "mamdani-dynasty",
@@ -1194,7 +1306,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 22.07,
     "padBefore": 15.0,
-    "padAfter": 15.05
+    "padAfter": 15.05,
+    "pieceId": "mamdani",
+    "bark": false
   },
   {
     "id": "mamdani-his-name",
@@ -1208,14 +1322,16 @@ window.CLIPS = [
     "handful": false,
     "src": "clips/left/mamdani/mamdani-his-name.mp3",
     "url": "https://www.youtube.com/watch?v=hFH2dYwH3rI",
-    "duration": 3.43,
+    "duration": 3.839,
     "error": null,
     "extended": "extended/mamdani-his-name.mp3",
     "extDuration": 33.463,
-    "selStart": 15.0,
-    "selEnd": 18.43,
+    "selStart": 12.798,
+    "selEnd": 16.637,
     "padBefore": 15.0,
-    "padAfter": 15.033
+    "padAfter": 15.033,
+    "pieceId": "mamdani",
+    "bark": true
   },
   {
     "id": "trump-fired",
@@ -1236,7 +1352,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 20.27,
     "padBefore": 15.0,
-    "padAfter": 6.166
+    "padAfter": 6.166,
+    "pieceId": "trump",
+    "bark": false
   },
   {
     "id": "trump-jail",
@@ -1257,7 +1375,9 @@ window.CLIPS = [
     "selStart": 3.93,
     "selEnd": 8.48,
     "padBefore": 3.93,
-    "padAfter": 5.365
+    "padAfter": 5.365,
+    "pieceId": "trump",
+    "bark": false
   },
   {
     "id": "trump-nasty-woman",
@@ -1278,7 +1398,9 @@ window.CLIPS = [
     "selStart": 0.0,
     "selEnd": 29.0,
     "padBefore": 0.0,
-    "padAfter": 0.048
+    "padAfter": 0.048,
+    "pieceId": "trump",
+    "bark": false
   },
   {
     "id": "trump-alone-fix",
@@ -1292,14 +1414,16 @@ window.CLIPS = [
     "handful": false,
     "src": "clips/right/trump/trump-alone-fix.mp3",
     "url": "https://www.youtube.com/watch?v=QctsdtGEttY",
-    "duration": 17.44,
+    "duration": 2.347,
     "error": null,
     "extended": "extended/trump-alone-fix.mp3",
     "extDuration": 19.043,
-    "selStart": 0.0,
-    "selEnd": 17.44,
+    "selStart": 1.874,
+    "selEnd": 4.221,
     "padBefore": 0.0,
-    "padAfter": 1.603
+    "padAfter": 1.603,
+    "pieceId": "trump",
+    "bark": true
   },
   {
     "id": "trump-your-voice",
@@ -1320,7 +1444,9 @@ window.CLIPS = [
     "selStart": 0.0,
     "selEnd": 19.043,
     "padBefore": 0.0,
-    "padAfter": 0.0
+    "padAfter": 0.0,
+    "pieceId": "trump",
+    "bark": false
   },
   {
     "id": "trump-win-so-much",
@@ -1341,7 +1467,9 @@ window.CLIPS = [
     "selStart": 0.0,
     "selEnd": 13.0,
     "padBefore": 0.0,
-    "padAfter": 0.035
+    "padAfter": 0.035,
+    "pieceId": "trump",
+    "bark": false
   },
   {
     "id": "trump-best-words",
@@ -1362,7 +1490,9 @@ window.CLIPS = [
     "selStart": 2.74,
     "selEnd": 4.65,
     "padBefore": 2.74,
-    "padAfter": 15.046
+    "padAfter": 15.046,
+    "pieceId": "trump",
+    "bark": false
   },
   {
     "id": "trump-pwmc",
@@ -1383,7 +1513,9 @@ window.CLIPS = [
     "selStart": 12.37,
     "selEnd": 18.13,
     "padBefore": 12.37,
-    "padAfter": 15.046
+    "padAfter": 15.046,
+    "pieceId": "trump",
+    "bark": false
   },
   {
     "id": "trump-dogs",
@@ -1404,7 +1536,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 32.36,
     "padBefore": 15.0,
-    "padAfter": 15.026
+    "padAfter": 15.026,
+    "pieceId": "trump",
+    "bark": false
   },
   {
     "id": "trump-little-marco",
@@ -1425,7 +1559,9 @@ window.CLIPS = [
     "selStart": 6.09,
     "selEnd": 8.86,
     "padBefore": 6.09,
-    "padAfter": 15.042
+    "padAfter": 15.042,
+    "pieceId": "trump",
+    "bark": false
   },
   {
     "id": "melania-dont-care",
@@ -1446,7 +1582,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 17.23,
     "padBefore": 15.0,
-    "padAfter": 15.031
+    "padAfter": 15.031,
+    "pieceId": "melania",
+    "bark": false
   },
   {
     "id": "melania-wont-stop-me",
@@ -1467,7 +1605,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 20.94,
     "padBefore": 15.0,
-    "padAfter": 15.031
+    "padAfter": 15.031,
+    "pieceId": "melania",
+    "bark": false
   },
   {
     "id": "melania-wont-be-close",
@@ -1488,7 +1628,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "melania",
+    "bark": false
   },
   {
     "id": "melania-bullied",
@@ -1509,7 +1651,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 18.38,
     "padBefore": 15.0,
-    "padAfter": 15.031
+    "padAfter": 15.031,
+    "pieceId": "melania",
+    "bark": false
   },
   {
     "id": "mcconnell-reaper",
@@ -1530,7 +1674,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 18.14,
     "padBefore": 15.0,
-    "padAfter": 15.036
+    "padAfter": 15.036,
+    "pieceId": "mcconnell",
+    "bark": false
   },
   {
     "id": "mcconnell-going-anywhere",
@@ -1551,7 +1697,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 22.33,
     "padBefore": 15.0,
-    "padAfter": 15.051
+    "padAfter": 15.051,
+    "pieceId": "mcconnell",
+    "bark": false
   },
   {
     "id": "mcconnell-vacancy",
@@ -1572,7 +1720,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "mcconnell",
+    "bark": false
   },
   {
     "id": "mcconnell-let-me-finish",
@@ -1593,7 +1743,9 @@ window.CLIPS = [
     "selStart": 0.0,
     "selEnd": 42.527,
     "padBefore": 0.0,
-    "padAfter": 0.0
+    "padAfter": 0.0,
+    "pieceId": "mcconnell",
+    "bark": false
   },
   {
     "id": "rubio-dispel",
@@ -1614,7 +1766,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 16.22,
     "padBefore": 15.0,
-    "padAfter": 15.049
+    "padAfter": 15.049,
+    "pieceId": "rubio",
+    "bark": false
   },
   {
     "id": "rubio-knows-exactly",
@@ -1635,7 +1789,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 17.17,
     "padBefore": 15.0,
-    "padAfter": 15.039
+    "padAfter": 15.039,
+    "pieceId": "rubio",
+    "bark": false
   },
   {
     "id": "rubio-trump-steaks",
@@ -1656,7 +1812,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "rubio",
+    "bark": false
   },
   {
     "id": "rubio-steaks-gone",
@@ -1677,7 +1835,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "rubio",
+    "bark": false
   },
   {
     "id": "rubio-big-donald",
@@ -1698,7 +1858,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "rubio",
+    "bark": false
   },
   {
     "id": "rubio-yoga",
@@ -1719,7 +1881,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "rubio",
+    "bark": false
   },
   {
     "id": "cruz-coward",
@@ -1740,7 +1904,9 @@ window.CLIPS = [
     "selStart": 10.08,
     "selEnd": 12.15,
     "padBefore": 10.08,
-    "padAfter": 15.043
+    "padAfter": 15.043,
+    "pieceId": "cruz",
+    "bark": false
   },
   {
     "id": "cruz-heidi",
@@ -1761,7 +1927,9 @@ window.CLIPS = [
     "selStart": 12.22,
     "selEnd": 13.23,
     "padBefore": 12.22,
-    "padAfter": 15.034
+    "padAfter": 15.034,
+    "pieceId": "cruz",
+    "bark": false
   },
   {
     "id": "cruz-breathe",
@@ -1782,7 +1950,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 16.28,
     "padBefore": 15.0,
-    "padAfter": 15.041
+    "padAfter": 15.041,
+    "pieceId": "cruz",
+    "bark": false
   },
   {
     "id": "cruz-carpet-bomb",
@@ -1803,7 +1973,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 19.58,
     "padBefore": 15.0,
-    "padAfter": 15.032
+    "padAfter": 15.032,
+    "pieceId": "cruz",
+    "bark": false
   },
   {
     "id": "cruz-conscience",
@@ -1824,7 +1996,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 16.95,
     "padBefore": 15.0,
-    "padAfter": 15.05
+    "padAfter": 15.05,
+    "pieceId": "cruz",
+    "bark": false
   },
   {
     "id": "cruz-chump",
@@ -1845,7 +2019,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 21.0,
     "padBefore": 15.0,
-    "padAfter": 15.049
+    "padAfter": 15.049,
+    "pieceId": "cruz",
+    "bark": false
   },
   {
     "id": "rfk-lied-to",
@@ -1866,7 +2042,9 @@ window.CLIPS = [
     "selStart": 4.84,
     "selEnd": 12.36,
     "padBefore": 4.84,
-    "padAfter": 15.042
+    "padAfter": 15.042,
+    "pieceId": "rfk",
+    "bark": false
   },
   {
     "id": "rfk-experts",
@@ -1887,7 +2065,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "rfk",
+    "bark": false
   },
   {
     "id": "rfk-both-right",
@@ -1908,7 +2088,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 21.52,
     "padBefore": 15.0,
-    "padAfter": 15.051
+    "padAfter": 15.051,
+    "pieceId": "rfk",
+    "bark": false
   },
   {
     "id": "rfk-not-ideal",
@@ -1929,7 +2111,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 17.2,
     "padBefore": 15.0,
-    "padAfter": 15.035
+    "padAfter": 15.035,
+    "pieceId": "rfk",
+    "bark": false
   },
   {
     "id": "vance-cat-ladies",
@@ -1950,7 +2134,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 18.91,
     "padBefore": 15.0,
-    "padAfter": 15.049
+    "padAfter": 15.049,
+    "pieceId": "vance",
+    "bark": false
   },
   {
     "id": "vance-trash",
@@ -1964,14 +2150,16 @@ window.CLIPS = [
     "handful": false,
     "src": "clips/right/vance/vance-trash.mp3",
     "url": "https://www.youtube.com/watch?v=nZkJJNtlr0o",
-    "duration": 1.26,
+    "duration": 5.119,
     "error": null,
     "extended": "extended/vance-trash.mp3",
     "extDuration": 31.295,
     "selStart": 15.0,
-    "selEnd": 16.26,
+    "selEnd": 20.119,
     "padBefore": 15.0,
-    "padAfter": 15.035
+    "padAfter": 15.035,
+    "pieceId": "vance",
+    "bark": true
   },
   {
     "id": "vance-future",
@@ -1992,7 +2180,9 @@ window.CLIPS = [
     "selStart": 0.0,
     "selEnd": 43.52,
     "padBefore": 0.0,
-    "padAfter": 0.0
+    "padAfter": 0.0,
+    "pieceId": "vance",
+    "bark": false
   },
   {
     "id": "vance-boneheaded",
@@ -2013,7 +2203,9 @@ window.CLIPS = [
     "selStart": 10.4,
     "selEnd": 18.56,
     "padBefore": 10.4,
-    "padAfter": 15.033
+    "padAfter": 15.033,
+    "pieceId": "vance",
+    "bark": false
   },
   {
     "id": "desantis-woke-dies",
@@ -2034,7 +2226,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 23.35,
     "padBefore": 15.0,
-    "padAfter": 15.05
+    "padAfter": 15.05,
+    "pieceId": "desantis",
+    "bark": false
   },
   {
     "id": "desantis-never-surrender",
@@ -2048,14 +2242,16 @@ window.CLIPS = [
     "handful": false,
     "src": "clips/right/desantis/desantis-never-surrender.mp3",
     "url": "https://www.youtube.com/watch?v=xfmrQOXk9bM",
-    "duration": 3.23,
+    "duration": 3.533,
     "error": null,
     "extended": "extended/desantis-never-surrender.mp3",
     "extDuration": 33.28,
-    "selStart": 15.0,
-    "selEnd": 18.23,
+    "selStart": 15.075,
+    "selEnd": 18.608,
     "padBefore": 15.0,
-    "padAfter": 15.05
+    "padAfter": 15.05,
+    "pieceId": "desantis",
+    "bark": true
   },
   {
     "id": "desantis-begun-to-fight",
@@ -2076,7 +2272,9 @@ window.CLIPS = [
     "selStart": 15.0,
     "selEnd": 17.25,
     "padBefore": 15.0,
-    "padAfter": 15.037
+    "padAfter": 15.037,
+    "pieceId": "desantis",
+    "bark": false
   },
   {
     "id": "desantis-recovery",
@@ -2097,7 +2295,9 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "desantis",
+    "bark": false
   },
   {
     "id": "desantis-end-zone",
@@ -2118,6 +2318,8 @@ window.CLIPS = [
     "selStart": null,
     "selEnd": null,
     "padBefore": null,
-    "padAfter": null
+    "padAfter": null,
+    "pieceId": "desantis",
+    "bark": false
   }
 ];

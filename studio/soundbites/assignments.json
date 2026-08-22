@@ -1,1 +1,80 @@
-{}
+{
+  "harris": [
+    {
+      "id": "kamala-coconut",
+      "line": "You think you just fell out of a coconut tree?",
+      "src": "assets/sfx/barks/kamala-coconut.mp3"
+    }
+  ],
+  "schumer": [
+    {
+      "id": "schumer-whirlwind",
+      "line": "You have released the whirlwind.",
+      "src": "assets/sfx/barks/schumer-whirlwind.mp3"
+    },
+    {
+      "id": "schumer-gone-november",
+      "line": "You're gone in November.",
+      "src": "assets/sfx/barks/schumer-gone-november.mp3"
+    },
+    {
+      "id": "schumer-not-on-our-watch",
+      "line": "Not on our watch.",
+      "src": "assets/sfx/barks/schumer-not-on-our-watch.mp3"
+    }
+  ],
+  "aoc": [
+    {
+      "id": "aoc-devil",
+      "line": "This bill is a deal with the devil.",
+      "src": "assets/sfx/barks/aoc-devil.mp3"
+    },
+    {
+      "id": "aoc-beat-them",
+      "line": "We are going to beat them.",
+      "src": "assets/sfx/barks/aoc-beat-them.mp3"
+    }
+  ],
+  "sanders": [
+    {
+      "id": "bernie-youre-wrong",
+      "line": "You're wrong.",
+      "src": "assets/sfx/barks/bernie-youre-wrong.mp3"
+    }
+  ],
+  "buttigieg": [
+    {
+      "id": "pete-data",
+      "line": "Do yourself a favor and look up the data.",
+      "src": "assets/sfx/barks/pete-data.mp3"
+    }
+  ],
+  "mamdani": [
+    {
+      "id": "mamdani-his-name",
+      "line": "Let tonight be the final time I utter his name.",
+      "src": "assets/sfx/barks/mamdani-his-name.mp3"
+    }
+  ],
+  "trump": [
+    {
+      "id": "trump-alone-fix",
+      "line": "I alone can fix it.",
+      "src": "assets/sfx/barks/trump-alone-fix.mp3"
+    }
+  ],
+  "vance": [
+    {
+      "id": "vance-trash",
+      "line": "We're going to take out the trash\u2026 and the trash is named Kamala Harris.",
+      "src": "assets/sfx/barks/vance-trash.mp3"
+    }
+  ],
+  "desantis": [
+    {
+      "id": "desantis-never-surrender",
+      "line": "We will never, ever surrender to the woke mob.",
+      "src": "assets/sfx/barks/desantis-never-surrender.mp3"
+    }
+  ]
+}

@@ -7,10 +7,12 @@ A **bark** is a short line a piece says when you click it on the board. **Taunts
 ## Open
 
 ```
-python3 studio/soundbites/server.py
+just soundbites
 ```
 
-or double-click `Open Soundbites.command`. Then http://127.0.0.1:8765/
+That kills anything already on port 8765, starts the studio, and opens http://127.0.0.1:8765/
+
+Or: `python3 studio/soundbites/server.py` / double-click `Open Soundbites.command`.
 
 ## Workflow
 

@@ -34,6 +34,13 @@ test("pickBark skips the previous src when there is another", () => {
   assert.equal(seen.has("b.mp3"), true);
 });
 
+test("click barks use a shared gavel bed and half-second lead", () => {
+  const src = fs.readFileSync(path.join(root, "js", "fx.js"), "utf8");
+  assert.match(src, /export function playBark/);
+  assert.match(src, /lead = 0\.5/);
+  assert.match(src, /function gavel/);
+});
+
 test("every assigned bark file is on disk", () => {
   Object.values(BARKS).forEach((list) => {
     list.forEach((b) => {

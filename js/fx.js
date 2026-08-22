@@ -166,10 +166,102 @@ export function playCheck() {
 }
 
 let clipEl = null;
+let barkCtl = null;
+const barkBufs = new Map();
+
+/** Same wood knock for every bark — like the chair recognized you on the floor. */
+function gavel(ctx, t) {
+  burst(ctx, t, {
+    freq: 92,
+    drop: 0.42,
+    dur: 0.12,
+    toneGain: 0.17,
+    noiseHz: 780,
+    noiseGain: 0.13,
+    noiseDur: 0.055,
+    q: 1.05,
+    wave: "sine",
+  });
+  burst(ctx, t + 0.016, {
+    freq: 210,
+    drop: 0.38,
+    dur: 0.07,
+    toneGain: 0.05,
+    noiseHz: 2100,
+    noiseGain: 0.055,
+    noiseDur: 0.03,
+    q: 2.6,
+    wave: "triangle",
+  });
+}
+
+function stopBark() {
+  if (!barkCtl) return;
+  barkCtl.nodes.forEach((n) => {
+    try {
+      n.stop();
+    } catch (_) {}
+  });
+  barkCtl = null;
+}
+
+function barkBuffer(src) {
+  if (barkBufs.has(src)) return Promise.resolve(barkBufs.get(src));
+  return fetch(src)
+    .then((r) => r.arrayBuffer())
+    .then((raw) => ac().decodeAudioData(raw.slice(0)))
+    .then((buf) => {
+      barkBufs.set(src, buf);
+      return buf;
+    });
+}
+
+/**
+ * Click-bark bed: gavel in, ~0.5s of air, voice fades in, fades out, gavel out.
+ * Same sting on every piece so they all feel like the same chamber mic.
+ */
+export function playBark(src) {
+  if (muted || !src) return;
+  const ctx = ac();
+  stopBark();
+  if (clipEl) {
+    clipEl.pause();
+    clipEl.removeAttribute("src");
+  }
+  barkBuffer(src)
+    .then((buf) => {
+      const t = ctx.currentTime;
+      const lead = 0.5;
+      const dur = buf.duration;
+      const fadeIn = Math.min(0.35, Math.max(0.06, dur * 0.22));
+      const fadeOut = Math.min(0.42, Math.max(0.08, dur * 0.28));
+      gavel(ctx, t);
+      const voice = ctx.createBufferSource();
+      voice.buffer = buf;
+      const g = ctx.createGain();
+      const voiceAt = t + lead;
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.setValueAtTime(0.0001, voiceAt);
+      g.gain.linearRampToValueAtTime(0.9, voiceAt + fadeIn);
+      const fadeOutAt = voiceAt + Math.max(fadeIn + 0.05, dur - fadeOut);
+      g.gain.setValueAtTime(0.9, fadeOutAt);
+      g.gain.linearRampToValueAtTime(0.0001, voiceAt + dur);
+      voice.connect(g);
+      g.connect(ctx.destination);
+      voice.start(voiceAt);
+      gavel(ctx, voiceAt + dur + 0.08);
+      barkCtl = { nodes: [voice] };
+      voice.onended = () => {
+        if (barkCtl && barkCtl.nodes[0] === voice) barkCtl = null;
+      };
+    })
+    .catch(() => {});
+}
 
 export function playClip(src) {
   if (muted || !src) return;
   ac();
+  stopBark();
   if (!clipEl) clipEl = new Audio();
   clipEl.pause();
   clipEl.src = src;
@@ -180,6 +272,7 @@ export function playClip(src) {
 }
 
 export function stopClip() {
+  stopBark();
   if (!clipEl) return;
   clipEl.pause();
   clipEl.removeAttribute("src");
