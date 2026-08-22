@@ -7,3 +7,8 @@ output/
 scripts/payloads/
 scripts/__pycache__/
 __pycache__/
+studio/soundbites/sources/
+studio/soundbites/work/logs/
+studio/soundbites/work/subs/
+studio/soundbites/work/whisper/
+studio/soundbites/__pycache__/

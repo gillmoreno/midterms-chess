@@ -1,0 +1,766 @@
+{
+  "tate-check": {
+    "extended": "extended/tate-check.mp3",
+    "duration": 26.593,
+    "sel_start": 15.7,
+    "sel_end": 16.271,
+    "pad_before": 15.0,
+    "pad_after": 8.883,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=NCeAeMJUXqg",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 17.71
+  },
+  "tate-mate-in-two": {
+    "extended": "extended/tate-mate-in-two.mp3",
+    "duration": 26.488,
+    "sel_start": 15.0,
+    "sel_end": 17.38,
+    "pad_before": 15.0,
+    "pad_after": 9.108,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=NCeAeMJUXqg"
+  },
+  "tate-check-mate": {
+    "extended": "extended/tate-check-mate.mp3",
+    "duration": 36.754,
+    "sel_start": 15.0,
+    "sel_end": 22.53,
+    "pad_before": 15.0,
+    "pad_after": 14.224,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=NCeAeMJUXqg"
+  },
+  "tate-good-game": {
+    "extended": "extended/tate-good-game.mp3",
+    "duration": 23.85,
+    "sel_start": 15.0,
+    "sel_end": 18.96,
+    "pad_before": 15.0,
+    "pad_after": 4.89,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=NCeAeMJUXqg"
+  },
+  "tate-everything-your-fault": {
+    "extended": "extended/tate-everything-your-fault.mp3",
+    "duration": 32.078,
+    "sel_start": 15.0,
+    "sel_end": 17.04,
+    "pad_before": 15.0,
+    "pad_after": 15.038,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=zgzF2Nx9DKk"
+  },
+  "tate-no-luck": {
+    "extended": "extended/tate-no-luck.mp3",
+    "duration": 30.798,
+    "sel_start": 9.752,
+    "sel_end": 15.75,
+    "pad_before": 15.0,
+    "pad_after": 15.048,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=NCeAeMJUXqg",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 15.75
+  },
+  "tate-never-give-up": {
+    "extended": "extended/tate-never-give-up.mp3",
+    "duration": 30.563,
+    "sel_start": 15.0,
+    "sel_end": 15.62,
+    "pad_before": 15.0,
+    "pad_after": 15.043,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=NCeAeMJUXqg",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 15.52
+  },
+  "tate-chessboard": {
+    "extended": "extended/tate-chessboard.mp3",
+    "duration": 31.922,
+    "sel_start": 15.372,
+    "sel_end": 17.532,
+    "pad_before": 15.0,
+    "pad_after": 15.042,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=NCeAeMJUXqg",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 16.88
+  },
+  "tate-bugatti": {
+    "extended": "extended/tate-bugatti.mp3",
+    "duration": 12.042,
+    "sel_start": 0.0,
+    "sel_end": 4.0,
+    "pad_before": 0.0,
+    "pad_after": 8.042,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=jUXGN-ffKlk"
+  },
+  "tate-fuck-off": {
+    "extended": "extended/tate-fuck-off.mp3",
+    "duration": 12.042,
+    "sel_start": 7.13,
+    "sel_end": 12.0,
+    "pad_before": 7.13,
+    "pad_after": 0.042,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=jUXGN-ffKlk"
+  },
+  "tate-shit-together": {
+    "extended": "extended/tate-shit-together.mp3",
+    "duration": 16.588,
+    "sel_start": 1.04,
+    "sel_end": 3.04,
+    "pad_before": 1.04,
+    "pad_after": 13.548,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=hoBGD8Vq3jI"
+  },
+  "tate-you-are-losing": {
+    "extended": "extended/tate-you-are-losing.mp3",
+    "duration": 30.041,
+    "sel_start": 0.0,
+    "sel_end": 30.041,
+    "pad_before": 0.0,
+    "pad_after": 0.0,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=O6IYkROsMRg"
+  },
+  "rogan-dariush": {
+    "extended": "extended/rogan-dariush.mp3",
+    "duration": 10.971,
+    "sel_start": 0.0,
+    "sel_end": 10.971,
+    "pad_before": 0.0,
+    "pad_after": 0.0,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=62no1FlWb2o"
+  },
+  "rogan-omg": {
+    "extended": "extended/rogan-omg.mp3",
+    "duration": 10.971,
+    "sel_start": 0.0,
+    "sel_end": 10.0,
+    "pad_before": 0.0,
+    "pad_after": 0.971,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=62no1FlWb2o"
+  },
+  "rogan-crazy": {
+    "extended": "extended/rogan-crazy.mp3",
+    "duration": 24.059,
+    "sel_start": 5.0,
+    "sel_end": 9.0,
+    "pad_before": 5.0,
+    "pad_after": 15.059,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=64V0TKZVUK4"
+  },
+  "rogan-jamie": {
+    "extended": "extended/rogan-jamie.mp3",
+    "duration": 13.035,
+    "sel_start": 2.0,
+    "sel_end": 6.0,
+    "pad_before": 2.0,
+    "pad_after": 7.035,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=SRgct4c5T5U"
+  },
+  "rogan-bananas": {
+    "extended": "extended/rogan-bananas.mp3",
+    "duration": 13.035,
+    "sel_start": 0.0,
+    "sel_end": 13.035,
+    "pad_before": 0.0,
+    "pad_after": 0.0,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=Up3_ORIeUrk"
+  },
+  "newsom-hows-that": {
+    "extended": "extended/newsom-hows-that.mp3",
+    "duration": 32.444,
+    "sel_start": 14.583,
+    "sel_end": 16.428,
+    "pad_before": 15.0,
+    "pad_after": 15.044,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=COzAPK5XQG4",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 17.4
+  },
+  "aoc-lied-to": {
+    "extended": "extended/aoc-lied-to.mp3",
+    "duration": 34.038,
+    "sel_start": 15.0,
+    "sel_end": 19.0,
+    "pad_before": 15.0,
+    "pad_after": 15.038,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=rcgw7Nt4L9M"
+  },
+  "aoc-devil": {
+    "extended": "extended/aoc-devil.mp3",
+    "duration": 36.049,
+    "sel_start": 16.725,
+    "sel_end": 20.722,
+    "pad_before": 15.0,
+    "pad_after": 15.049,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=rcgw7Nt4L9M",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 21.0
+  },
+  "aoc-beat-them": {
+    "extended": "extended/aoc-beat-them.mp3",
+    "duration": 33.567,
+    "sel_start": 15.359,
+    "sel_end": 18.362,
+    "pad_before": 15.0,
+    "pad_after": 15.047,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=C232Zq_MUFA",
+    "orig_sel_start": 15.0,
+    "orig_sel_end": 18.52
+  },
+  "bernie-damn-bill": {
+    "extended": "extended/bernie-damn-bill.mp3",
+    "duration": 18.625,
+    "sel_start": 15.0,
+    "sel_end": 17.28,
+    "pad_before": 15.0,
+    "pad_after": 1.345,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=vuroOJWk3DI"
+  },
+  "bernie-youre-wrong": {
+    "extended": "extended/bernie-youre-wrong.mp3",
+    "duration": 35.422,
+    "sel_start": 15.0,
+    "sel_end": 20.39,
+    "pad_before": 15.0,
+    "pad_after": 15.032,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=jrh1C0HSRhM"
+  },
+  "bernie-not-me-us": {
+    "extended": "extended/bernie-not-me-us.mp3",
+    "duration": 32.94,
+    "sel_start": 15.0,
+    "sel_end": 17.89,
+    "pad_before": 15.0,
+    "pad_after": 15.05,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=OADlaeggv14"
+  },
+  "schumer-whirlwind": {
+    "extended": "extended/schumer-whirlwind.mp3",
+    "duration": 33.358,
+    "sel_start": 15.0,
+    "sel_end": 18.32,
+    "pad_before": 15.0,
+    "pad_after": 15.038,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE"
+  },
+  "schumer-pay-the-price": {
+    "extended": "extended/schumer-pay-the-price.mp3",
+    "duration": 35.997,
+    "sel_start": 15.0,
+    "sel_end": 20.96,
+    "pad_before": 15.0,
+    "pad_after": 15.037,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE"
+  },
+  "schumer-what-hit-you": {
+    "extended": "extended/schumer-what-hit-you.mp3",
+    "duration": 37.042,
+    "sel_start": 15.0,
+    "sel_end": 22.0,
+    "pad_before": 15.0,
+    "pad_after": 15.042,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE"
+  },
+  "schumer-gone-november": {
+    "extended": "extended/schumer-gone-november.mp3",
+    "duration": 31.582,
+    "sel_start": 15.0,
+    "sel_end": 16.53,
+    "pad_before": 15.0,
+    "pad_after": 15.052,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE"
+  },
+  "schumer-not-on-our-watch": {
+    "extended": "extended/schumer-not-on-our-watch.mp3",
+    "duration": 33.123,
+    "sel_start": 15.0,
+    "sel_end": 18.09,
+    "pad_before": 15.0,
+    "pad_after": 15.033,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=qHGrzoS9AbE"
+  },
+  "kamala-im-speaking": {
+    "extended": "extended/kamala-im-speaking.mp3",
+    "duration": 24.895,
+    "sel_start": 8.38,
+    "sel_end": 9.85,
+    "pad_before": 8.38,
+    "pad_after": 15.045,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=tXFqTGBty1w"
+  },
+  "kamala-we-did-it": {
+    "extended": "extended/kamala-we-did-it.mp3",
+    "duration": 15.047,
+    "sel_start": 2.73,
+    "sel_end": 4.72,
+    "pad_before": 2.73,
+    "pad_after": 10.327,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=H3lpFE19T78"
+  },
+  "kamala-coconut": {
+    "extended": "extended/kamala-coconut.mp3",
+    "duration": 34.56,
+    "sel_start": 15.0,
+    "sel_end": 19.53,
+    "pad_before": 15.0,
+    "pad_after": 15.03,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=0bSTqokjNEE"
+  },
+  "warren-plan": {
+    "extended": "extended/warren-plan.mp3",
+    "duration": 36.336,
+    "sel_start": 8.72,
+    "sel_end": 21.3,
+    "pad_before": 8.72,
+    "pad_after": 15.036,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=o7y35Jb9cP8"
+  },
+  "warren-bloomberg": {
+    "extended": "extended/warren-bloomberg.mp3",
+    "duration": 27.559,
+    "sel_start": 10.6,
+    "sel_end": 12.52,
+    "pad_before": 10.6,
+    "pad_after": 15.039,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=QD4csGWPo6o"
+  },
+  "warren-wine-caves": {
+    "extended": "extended/warren-wine-caves.mp3",
+    "duration": 32.914,
+    "sel_start": 15.0,
+    "sel_end": 17.88,
+    "pad_before": 15.0,
+    "pad_after": 15.034,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=CMgQu1GjSmk"
+  },
+  "pete-quarrel": {
+    "extended": "extended/pete-quarrel.mp3",
+    "duration": 33.907,
+    "sel_start": 15.0,
+    "sel_end": 18.88,
+    "pad_before": 15.0,
+    "pad_after": 15.027,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=hViAbRitbmw"
+  },
+  "pete-data": {
+    "extended": "extended/pete-data.mp3",
+    "duration": 34.22,
+    "sel_start": 15.0,
+    "sel_end": 19.19,
+    "pad_before": 15.0,
+    "pad_after": 15.03,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=QzGEotTYsCE"
+  },
+  "mamdani-volume": {
+    "extended": "extended/mamdani-volume.mp3",
+    "duration": 53.76,
+    "sel_start": 15.0,
+    "sel_end": 39.28,
+    "pad_before": 15.0,
+    "pad_after": 14.48,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=NoyVRSeh_4o"
+  },
+  "mamdani-get-through": {
+    "extended": "extended/mamdani-get-through.mp3",
+    "duration": 35.37,
+    "sel_start": 15.0,
+    "sel_end": 20.33,
+    "pad_before": 15.0,
+    "pad_after": 15.04,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=hFH2dYwH3rI"
+  },
+  "mamdani-dynasty": {
+    "extended": "extended/mamdani-dynasty.mp3",
+    "duration": 37.12,
+    "sel_start": 15.0,
+    "sel_end": 22.07,
+    "pad_before": 15.0,
+    "pad_after": 15.05,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=GDXky5HLHos"
+  },
+  "mamdani-his-name": {
+    "extended": "extended/mamdani-his-name.mp3",
+    "duration": 33.463,
+    "sel_start": 15.0,
+    "sel_end": 18.43,
+    "pad_before": 15.0,
+    "pad_after": 15.033,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=hFH2dYwH3rI"
+  },
+  "trump-fired": {
+    "extended": "extended/trump-fired.mp3",
+    "duration": 26.436,
+    "sel_start": 15.0,
+    "sel_end": 20.27,
+    "pad_before": 15.0,
+    "pad_after": 6.166,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=8TBkt7os9EY"
+  },
+  "trump-jail": {
+    "extended": "extended/trump-jail.mp3",
+    "duration": 13.845,
+    "sel_start": 3.93,
+    "sel_end": 8.48,
+    "pad_before": 3.93,
+    "pad_after": 5.365,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=_XzL1sQWRd4"
+  },
+  "trump-nasty-woman": {
+    "extended": "extended/trump-nasty-woman.mp3",
+    "duration": 29.048,
+    "sel_start": 0.0,
+    "sel_end": 29.0,
+    "pad_before": 0.0,
+    "pad_after": 0.048,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=B2dXhjNRwpE"
+  },
+  "trump-alone-fix": {
+    "extended": "extended/trump-alone-fix.mp3",
+    "duration": 19.043,
+    "sel_start": 0.0,
+    "sel_end": 17.44,
+    "pad_before": 0.0,
+    "pad_after": 1.603,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=QctsdtGEttY"
+  },
+  "trump-your-voice": {
+    "extended": "extended/trump-your-voice.mp3",
+    "duration": 19.043,
+    "sel_start": 0.0,
+    "sel_end": 19.043,
+    "pad_before": 0.0,
+    "pad_after": 0.0,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=QctsdtGEttY"
+  },
+  "trump-win-so-much": {
+    "extended": "extended/trump-win-so-much.mp3",
+    "duration": 13.035,
+    "sel_start": 0.0,
+    "sel_end": 13.0,
+    "pad_before": 0.0,
+    "pad_after": 0.035,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=nOMPk1N2RiY"
+  },
+  "trump-best-words": {
+    "extended": "extended/trump-best-words.mp3",
+    "duration": 19.696,
+    "sel_start": 2.74,
+    "sel_end": 4.65,
+    "pad_before": 2.74,
+    "pad_after": 15.046,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=IIVtO5UmQZQ"
+  },
+  "trump-pwmc": {
+    "extended": "extended/trump-pwmc.mp3",
+    "duration": 33.176,
+    "sel_start": 12.37,
+    "sel_end": 18.13,
+    "pad_before": 12.37,
+    "pad_after": 15.046,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=1S2J9AN2AFo"
+  },
+  "trump-dogs": {
+    "extended": "extended/trump-dogs.mp3",
+    "duration": 47.386,
+    "sel_start": 15.0,
+    "sel_end": 32.36,
+    "pad_before": 15.0,
+    "pad_after": 15.026,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=MBJX7aRG5NI"
+  },
+  "trump-little-marco": {
+    "extended": "extended/trump-little-marco.mp3",
+    "duration": 23.902,
+    "sel_start": 6.09,
+    "sel_end": 8.86,
+    "pad_before": 6.09,
+    "pad_after": 15.042,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=7p_ltuXcOH4"
+  },
+  "melania-dont-care": {
+    "extended": "extended/melania-dont-care.mp3",
+    "duration": 32.261,
+    "sel_start": 15.0,
+    "sel_end": 17.23,
+    "pad_before": 15.0,
+    "pad_after": 15.031,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=MmQ-i6xYmuo"
+  },
+  "melania-wont-stop-me": {
+    "extended": "extended/melania-wont-stop-me.mp3",
+    "duration": 35.971,
+    "sel_start": 15.0,
+    "sel_end": 20.94,
+    "pad_before": 15.0,
+    "pad_after": 15.031,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=_igQrYQdTVQ"
+  },
+  "melania-bullied": {
+    "extended": "extended/melania-bullied.mp3",
+    "duration": 33.411,
+    "sel_start": 15.0,
+    "sel_end": 18.38,
+    "pad_before": 15.0,
+    "pad_after": 15.031,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=MmQ-i6xYmuo"
+  },
+  "mcconnell-reaper": {
+    "extended": "extended/mcconnell-reaper.mp3",
+    "duration": 33.176,
+    "sel_start": 15.0,
+    "sel_end": 18.14,
+    "pad_before": 15.0,
+    "pad_after": 15.036,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=w5vIJPSN4zw"
+  },
+  "mcconnell-going-anywhere": {
+    "extended": "extended/mcconnell-going-anywhere.mp3",
+    "duration": 37.381,
+    "sel_start": 15.0,
+    "sel_end": 22.33,
+    "pad_before": 15.0,
+    "pad_after": 15.051,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=w5vIJPSN4zw"
+  },
+  "mcconnell-let-me-finish": {
+    "extended": "extended/mcconnell-let-me-finish.mp3",
+    "duration": 42.527,
+    "sel_start": 0.0,
+    "sel_end": 42.527,
+    "pad_before": 0.0,
+    "pad_after": 0.0,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=YKp6k46CJ7o"
+  },
+  "rubio-dispel": {
+    "extended": "extended/rubio-dispel.mp3",
+    "duration": 31.269,
+    "sel_start": 15.0,
+    "sel_end": 16.22,
+    "pad_before": 15.0,
+    "pad_after": 15.049,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=CkdpzRDxTXU"
+  },
+  "rubio-knows-exactly": {
+    "extended": "extended/rubio-knows-exactly.mp3",
+    "duration": 32.209,
+    "sel_start": 15.0,
+    "sel_end": 17.17,
+    "pad_before": 15.0,
+    "pad_after": 15.039,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=CkdpzRDxTXU"
+  },
+  "cruz-coward": {
+    "extended": "extended/cruz-coward.mp3",
+    "duration": 27.193,
+    "sel_start": 10.08,
+    "sel_end": 12.15,
+    "pad_before": 10.08,
+    "pad_after": 15.043,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=p_qBjmvywYs"
+  },
+  "cruz-heidi": {
+    "extended": "extended/cruz-heidi.mp3",
+    "duration": 28.264,
+    "sel_start": 12.22,
+    "sel_end": 13.23,
+    "pad_before": 12.22,
+    "pad_after": 15.034,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=p_qBjmvywYs"
+  },
+  "cruz-breathe": {
+    "extended": "extended/cruz-breathe.mp3",
+    "duration": 31.321,
+    "sel_start": 15.0,
+    "sel_end": 16.28,
+    "pad_before": 15.0,
+    "pad_after": 15.041,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=vJpmEeIrFzw"
+  },
+  "cruz-carpet-bomb": {
+    "extended": "extended/cruz-carpet-bomb.mp3",
+    "duration": 34.612,
+    "sel_start": 15.0,
+    "sel_end": 19.58,
+    "pad_before": 15.0,
+    "pad_after": 15.032,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=XFMCdevBznQ"
+  },
+  "cruz-conscience": {
+    "extended": "extended/cruz-conscience.mp3",
+    "duration": 32.0,
+    "sel_start": 15.0,
+    "sel_end": 16.95,
+    "pad_before": 15.0,
+    "pad_after": 15.05,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=orX-rWiMPCE"
+  },
+  "cruz-chump": {
+    "extended": "extended/cruz-chump.mp3",
+    "duration": 36.049,
+    "sel_start": 15.0,
+    "sel_end": 21.0,
+    "pad_before": 15.0,
+    "pad_after": 15.049,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=5osvk4lMQFQ"
+  },
+  "rfk-lied-to": {
+    "extended": "extended/rfk-lied-to.mp3",
+    "duration": 27.402,
+    "sel_start": 4.84,
+    "sel_end": 12.36,
+    "pad_before": 4.84,
+    "pad_after": 15.042,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=OBpVLYmYLso"
+  },
+  "rfk-both-right": {
+    "extended": "extended/rfk-both-right.mp3",
+    "duration": 36.571,
+    "sel_start": 15.0,
+    "sel_end": 21.52,
+    "pad_before": 15.0,
+    "pad_after": 15.051,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=0WiyWQoHi94"
+  },
+  "rfk-not-ideal": {
+    "extended": "extended/rfk-not-ideal.mp3",
+    "duration": 32.235,
+    "sel_start": 15.0,
+    "sel_end": 17.2,
+    "pad_before": 15.0,
+    "pad_after": 15.035,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=RTRBVh045m8"
+  },
+  "vance-cat-ladies": {
+    "extended": "extended/vance-cat-ladies.mp3",
+    "duration": 33.959,
+    "sel_start": 15.0,
+    "sel_end": 18.91,
+    "pad_before": 15.0,
+    "pad_after": 15.049,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=Ba8_gHiByQY"
+  },
+  "vance-trash": {
+    "extended": "extended/vance-trash.mp3",
+    "duration": 31.295,
+    "sel_start": 15.0,
+    "sel_end": 16.26,
+    "pad_before": 15.0,
+    "pad_after": 15.035,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=nZkJJNtlr0o"
+  },
+  "vance-future": {
+    "extended": "extended/vance-future.mp3",
+    "duration": 43.52,
+    "sel_start": 0.0,
+    "sel_end": 43.52,
+    "pad_before": 0.0,
+    "pad_after": 0.0,
+    "via": "download",
+    "url": "https://www.youtube.com/watch?v=tpj163BPdWA"
+  },
+  "vance-boneheaded": {
+    "extended": "extended/vance-boneheaded.mp3",
+    "duration": 33.593,
+    "sel_start": 10.4,
+    "sel_end": 18.56,
+    "pad_before": 10.4,
+    "pad_after": 15.033,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=lZSAop2-UH8"
+  },
+  "desantis-woke-dies": {
+    "extended": "extended/desantis-woke-dies.mp3",
+    "duration": 38.4,
+    "sel_start": 15.0,
+    "sel_end": 23.35,
+    "pad_before": 15.0,
+    "pad_after": 15.05,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=xfmrQOXk9bM"
+  },
+  "desantis-never-surrender": {
+    "extended": "extended/desantis-never-surrender.mp3",
+    "duration": 33.28,
+    "sel_start": 15.0,
+    "sel_end": 18.23,
+    "pad_before": 15.0,
+    "pad_after": 15.05,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=xfmrQOXk9bM"
+  },
+  "desantis-begun-to-fight": {
+    "extended": "extended/desantis-begun-to-fight.mp3",
+    "duration": 32.287,
+    "sel_start": 15.0,
+    "sel_end": 17.25,
+    "pad_before": 15.0,
+    "pad_after": 15.037,
+    "via": "source",
+    "url": "https://www.youtube.com/watch?v=xfmrQOXk9bM"
+  }
+}

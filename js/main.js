@@ -3,6 +3,7 @@ import { clipFor, playCinematic, cancelCinematic, isPlaying } from "./cinematic.
 import { createEngine } from "./engine.js";
 import { playSelect, playClip, stopClip, isMuted, setMuted } from "./fx.js";
 import { tauntFor, tauntHoldMs } from "./taunts.js";
+import { barkFor } from "./barks.js";
 
 const Chess = window.Chess;
 const Roster = window.Roster;
@@ -184,6 +185,8 @@ function boot() {
     inspecting = p.c !== game.turn;
     legal = inspecting ? previewFor(sq) : legalFor(sq);
     playSelect();
+    const bark = barkFor(p.id);
+    if (bark) playClip(bark.src);
     paint();
   }
 

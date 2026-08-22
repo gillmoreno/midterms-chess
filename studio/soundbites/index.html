@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floor Vote — Soundbites</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #f3ead8;
+    --muted: #b7aa90;
+    --gold: #d4a85a;
+    --gold-2: #f0d08a;
+    --ink: #12100c;
+    --panel: #1b1812;
+    --line: #3a3428;
+    --left: #6ea0ff;
+    --right: #ff6b5a;
+    --booth: #e0c070;
+    --keep: #7dba7a;
+    --skip: #c45b4a;
+    --ok: #8fbf7a;
+    --miss: #8a7d6c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--ink); color: var(--ivory); }
+  body {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    min-height: 100vh;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(110,160,255,.08), transparent 50%),
+      radial-gradient(900px 500px at 110% 0%, rgba(255,107,90,.08), transparent 46%),
+      repeating-conic-gradient(from 0deg at 0 0, #14120e 0 90deg, #16130f 0 180deg);
+    background-size: auto, auto, 28px 28px;
+    padding-bottom: 300px;
+  }
+  header {
+    position: sticky; top: 0; z-index: 20;
+    backdrop-filter: blur(14px);
+    background: linear-gradient(180deg, rgba(18,16,12,.94), rgba(18,16,12,.78));
+    border-bottom: 1px solid var(--line);
+    padding: 18px 22px 14px;
+  }
+  .mast {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  }
+  h1 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700; letter-spacing: .14em;
+    font-size: clamp(28px, 4vw, 42px);
+    margin: 0; text-transform: uppercase;
+  }
+  h1 span { color: var(--gold); }
+  .count { color: var(--muted); font-size: 12px; letter-spacing: .04em; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; align-items: center; }
+  input[type="search"] {
+    background: #0e0c09; color: var(--ivory);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 8px 14px; min-width: min(100%, 240px);
+    font: inherit; outline: none;
+  }
+  input[type="search"]:focus { border-color: var(--gold); }
+  .chip, .tab {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    font-size: 13px; border: 1px solid var(--line);
+    background: transparent; color: var(--muted);
+    padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  }
+  .chip.on, .tab.on { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
+  .tab.left.on { background: var(--left); color: #0b1220; border-color: var(--left); }
+  .tab.right.on { background: var(--right); color: #2a0908; border-color: var(--right); }
+  .tab.booth.on { background: var(--booth); color: #1a1508; border-color: var(--booth); }
+  main { max-width: 1100px; margin: 0 auto; padding: 22px 18px 40px; }
+  .speaker {
+    margin: 28px 0 10px;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    border-bottom: 1px solid var(--line); padding-bottom: 6px;
+  }
+  .speaker h2 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 22px; letter-spacing: .16em; text-transform: uppercase; margin: 0;
+  }
+  .speaker .n { color: var(--muted); font-size: 11px; }
+  .house-left h2 { color: var(--left); }
+  .house-right h2 { color: var(--right); }
+  .house-commentators h2 { color: var(--booth); }
+  .list { display: flex; flex-direction: column; gap: 8px; }
+  .card {
+    display: grid;
+    grid-template-columns: 52px 1fr auto;
+    gap: 12px; align-items: center;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 10px 12px;
+    cursor: pointer;
+    scroll-margin-top: 140px;
+    transition: border-color .15s, transform .12s, background .15s;
+  }
+  .card:hover { border-color: var(--gold); transform: translateY(-1px); }
+  .card.playing {
+    border-color: var(--gold-2);
+    background: linear-gradient(90deg, rgba(212,168,90,.12), var(--panel) 42%);
+    box-shadow: 0 0 0 1px rgba(212,168,90,.25);
+  }
+  .card.missing { opacity: .45; cursor: default; }
+  .card.missing:hover { transform: none; border-color: var(--line); }
+  .card.keep { border-left: 4px solid var(--keep); }
+  .card.skip { border-left: 4px solid var(--skip); opacity: .7; }
+  .playbtn {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid var(--gold);
+    background: #0e0c09; color: var(--gold-2);
+    display: grid; place-items: center;
+    font-size: 16px; pointer-events: none;
+  }
+  .card.playing .playbtn { background: var(--gold); color: var(--ink); animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 50% { transform: scale(1.06); } }
+  .quote {
+    font-family: "Fraunces", Georgia, serif;
+    font-optical-sizing: auto;
+    font-size: clamp(17px, 2.2vw, 22px);
+    font-weight: 500; line-height: 1.25; margin: 0;
+  }
+  .meta { color: var(--muted); font-size: 11px; margin-top: 4px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .pill {
+    font-family: "Barlow Condensed", sans-serif;
+    letter-spacing: .08em; text-transform: uppercase; font-size: 11px;
+    border: 1px solid var(--line); padding: 1px 7px; border-radius: 999px;
+  }
+  .pill.hand { color: var(--gold); border-color: var(--gold); }
+  .actions { display: flex; gap: 6px; }
+  .stamp {
+    font-family: "Barlow Condensed", sans-serif;
+    letter-spacing: .1em; text-transform: uppercase; font-size: 11px;
+    background: transparent; color: var(--muted);
+    border: 1px dashed var(--line); border-radius: 6px;
+    padding: 6px 8px; cursor: pointer;
+  }
+  .stamp.keep.on { color: var(--keep); border-color: var(--keep); border-style: solid; }
+  .stamp.skip.on { color: var(--skip); border-color: var(--skip); border-style: solid; }
+  .empty { color: var(--muted); padding: 40px 8px; text-align: center; }
+  #dock {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+    background: #0c0b09;
+    border-top: 1px solid var(--gold);
+    padding: 10px 18px 12px;
+    display: grid; gap: 8px;
+  }
+  #dock .who { font-family: "Barlow Condensed", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-size: 12px; }
+  #dock .nowq { font-family: "Fraunces", serif; font-size: 18px; margin: 2px 0 0; }
+  .dock-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+  .sel-meta { color: var(--muted); font-size: 11px; text-align: right; }
+  .sel-meta b { color: var(--gold-2); font-weight: 500; }
+  #waveWrap {
+    position: relative; height: 96px; border: 1px solid var(--line);
+    border-radius: 10px; overflow: hidden; background: #14110c; cursor: ew-resize;
+    touch-action: none;
+  }
+  #wave { display: block; width: 100%; height: 96px; }
+  #waveHint {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    color: var(--muted); font-size: 12px; pointer-events: none;
+  }
+  .dock-btns { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .dock-btns button, .nudge {
+    font-family: "Barlow Condensed", sans-serif; letter-spacing: .08em; text-transform: uppercase;
+    background: var(--ivory); color: var(--ink); border: 0; border-radius: 999px;
+    padding: 8px 14px; cursor: pointer; font-weight: 700;
+  }
+  .dock-btns button.ghost, .nudge { background: transparent; color: var(--ivory); border: 1px solid var(--line); }
+  .dock-btns button.save { background: var(--gold); color: var(--ink); }
+  .dock-btns button.save:disabled { opacity: .4; cursor: default; }
+  .nudge { padding: 6px 9px; font-size: 12px; }
+  .nudge-group { display: flex; gap: 4px; align-items: center; color: var(--muted); font-size: 11px; }
+  a.src { color: var(--gold); text-decoration: none; }
+  a.src:hover { text-decoration: underline; }
+  #cutStatus { color: var(--keep); font-size: 12px; min-height: 1em; }
+  #cutStatus.err { color: var(--skip); }
+  @media (max-width: 720px) {
+    header { padding: 12px 12px 10px; }
+    h1 { font-size: 26px; letter-spacing: .1em; }
+    .controls {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+    }
+    .controls::-webkit-scrollbar { display: none; }
+    input[type="search"] { min-width: 170px; flex: 0 0 auto; }
+    .chip, .tab { flex: 0 0 auto; }
+    .card { grid-template-columns: 40px 1fr 48px; scroll-margin-top: 120px; }
+    .actions { flex-direction: column; }
+    body { padding-bottom: 340px; }
+    #waveWrap, #wave { height: 80px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="mast">
+    <h1>Floor Vote <span>Soundbites</span></h1>
+    <div class="count" id="stats"></div>
+  </div>
+  <div class="controls">
+    <input type="search" id="q" placeholder="Search quote or name…" autocomplete="off">
+    <button class="tab on" data-house="all">All</button>
+    <button class="tab booth" data-house="commentators">Booth</button>
+    <button class="tab left" data-house="left">Left</button>
+    <button class="tab right" data-house="right">Right</button>
+    <button class="chip on" data-trig="all">Any beat</button>
+    <button class="chip" data-trig="check">Check</button>
+    <button class="chip" data-trig="capture">Capture</button>
+    <button class="chip" data-trig="mate">Mate</button>
+    <button class="chip" data-trig="blunder">Blunder</button>
+    <button class="chip" data-trig="trash talk">Trash</button>
+    <button class="chip" data-trig="hype">Hype</button>
+    <button class="chip" data-trig="got captured">Got captured</button>
+    <button class="chip on" id="readyOnly">Ready only</button>
+    <button class="chip" id="keptOnly">Kept</button>
+    <button class="chip" id="playVisible">Play visible</button>
+  </div>
+</header>
+<main id="board"></main>
+<div id="dock">
+  <div class="dock-top">
+    <div>
+      <div class="who" id="nowWho">Click a line</div>
+      <div class="nowq" id="nowQuote">Nothing playing</div>
+    </div>
+    <div class="sel-meta" id="selMeta">Drag the gold region to trim. Edges cut, middle slides.</div>
+  </div>
+  <div id="waveWrap">
+    <canvas id="wave"></canvas>
+    <div id="waveHint">Pick a bite to load ~15s of pad on each side</div>
+  </div>
+  <div class="dock-btns">
+    <button class="ghost" id="prev">Prev</button>
+    <button id="replay">Play cut</button>
+    <button class="ghost" id="next">Next</button>
+    <button class="ghost" id="loopBtn">Loop on</button>
+    <span class="nudge-group">In
+      <button class="nudge" data-edge="in" data-d="-0.1">−0.1</button>
+      <button class="nudge" data-edge="in" data-d="0.1">+0.1</button>
+    </span>
+    <span class="nudge-group">Out
+      <button class="nudge" data-edge="out" data-d="-0.1">−0.1</button>
+      <button class="nudge" data-edge="out" data-d="0.1">+0.1</button>
+    </span>
+    <button class="save" id="saveCut" disabled>Save cut</button>
+    <button class="ghost" id="resetCut">Reset</button>
+    <button class="save" id="saveBark">Save as click bark</button>
+    <button class="ghost" id="dropBark" hidden>Remove bark</button>
+    <span id="cutStatus"></span>
+  </div>
+</div>
+<audio id="player" preload="auto"></audio>
+<script src="clips-data.js"></script>
+<script>
+(function () {
+  const API = (location.protocol === "file:") ? "http://127.0.0.1:8765" : "";
+  const clips = window.CLIPS || [];
+  const player = document.getElementById("player");
+  const board = document.getElementById("board");
+  const canvas = document.getElementById("wave");
+  const wrap = document.getElementById("waveWrap");
+  const hint = document.getElementById("waveHint");
+  const KEY = "fv-soundbites-marks";
+  const marks = JSON.parse(localStorage.getItem(KEY) || "{}");
+  const state = {
+    house: "all", trig: "all", q: "", readyOnly: true, keptOnly: false,
+    current: null, queue: [], loop: true,
+    selStart: 0, selEnd: 0, origStart: 0, origEnd: 0, extDur: 0,
+    peaks: null, drag: null
+  };
+  const waves = new Map();
+  let actx = null;
+
+  const saveMarks = () => localStorage.setItem(KEY, JSON.stringify(marks));
+  const fmt = (n) => (n == null || isNaN(n) ? "—" : (n < 10 ? n.toFixed(2) : n.toFixed(1)) + "s");
+  const dur = (n) => n == null ? "" : (n < 10 ? n.toFixed(1) + "s" : Math.round(n) + "s");
+  const MIN = 0.25;
+
+  function visible() {
+    const q = state.q.trim().toLowerCase();
+    return clips.filter((c) => {
+      if (state.house !== "all" && c.group !== state.house) return false;
+      if (state.trig !== "all" && c.trigger !== state.trig) return false;
+      if (state.readyOnly && !c.src) return false;
+      if (state.keptOnly && marks[c.id] !== "keep") return false;
+      if (q && !((c.quote + " " + c.name + " " + c.id).toLowerCase().includes(q))) return false;
+      return true;
+    });
+  }
+
+  function render() {
+    const rows = visible();
+    state.queue = rows.filter((c) => c.src).map((c) => c.id);
+    const ready = clips.filter((c) => c.src).length;
+    const kept = Object.values(marks).filter((v) => v === "keep").length;
+    document.getElementById("stats").textContent =
+      ready + " / " + clips.length + " ready · " + kept + " kept · " + rows.length + " showing";
+    if (!rows.length) {
+      board.innerHTML = '<p class="empty">Nothing in this filter.</p>';
+      return;
+    }
+    const groups = [];
+    rows.forEach((c) => {
+      const last = groups[groups.length - 1];
+      if (!last || last.speaker !== c.speaker) groups.push({ speaker: c.speaker, name: c.name, group: c.group, items: [c] });
+      else last.items.push(c);
+    });
+    board.innerHTML = groups.map((g) => {
+      const nReady = g.items.filter((c) => c.src).length;
+      return `<section class="house-${g.group}">
+        <div class="speaker"><h2>${g.name}</h2><span class="n">${nReady}/${g.items.length}</span></div>
+        <div class="list">${g.items.map(card).join("")}</div>
+      </section>`;
+    }).join("");
+    board.querySelectorAll(".card[data-id]").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        if (e.target.closest(".stamp") || e.target.closest("a")) return;
+        const id = el.dataset.id;
+        const c = clips.find((x) => x.id === id);
+        if (c && c.src) play(id);
+      });
+    });
+    board.querySelectorAll(".stamp").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const cardEl = el.closest(".card");
+        const id = cardEl.dataset.id;
+        const kind = el.dataset.mark;
+        marks[id] = marks[id] === kind ? null : kind;
+        if (!marks[id]) delete marks[id];
+        saveMarks();
+        cardEl.classList.toggle("keep", marks[id] === "keep");
+        cardEl.classList.toggle("skip", marks[id] === "skip");
+        cardEl.querySelectorAll(".stamp").forEach((s) => {
+          s.classList.toggle("on", marks[id] === s.dataset.mark);
+        });
+        const ready = clips.filter((c) => c.src).length;
+        const kept = Object.values(marks).filter((v) => v === "keep").length;
+        document.getElementById("stats").textContent =
+          ready + " / " + clips.length + " ready · " + kept + " kept · " + visible().length + " showing";
+      });
+    });
+    highlight();
+  }
+
+  function card(c) {
+    const mk = marks[c.id];
+    const cls = ["card", c.src ? "" : "missing", mk || "", state.current === c.id ? "playing" : ""]
+      .filter(Boolean).join(" ");
+    const src = c.url ? `<a class="src" href="${c.url}" target="_blank" rel="noreferrer">source</a>` : "";
+    return `<article class="${cls}" data-id="${c.id}">
+      <div class="playbtn">${c.src ? (state.current === c.id && !player.paused ? "❚❚" : "▶") : "–"}</div>
+      <div>
+        <p class="quote">“${esc(c.quote)}”</p>
+        <div class="meta">
+          <span class="pill">${esc(c.trigger)}</span>
+          ${c.handful ? '<span class="pill hand">priority</span>' : ""}
+          ${c.bark ? '<span class="pill hand bark-flag">bark</span>' : ""}
+          <span class="dur">${dur(c.duration)}</span>
+          ${src}
+          ${c.src ? "" : `<span>${esc(c.error || "missing")}</span>`}
+        </div>
+      </div>
+      <div class="actions">
+        <button class="stamp keep ${mk === "keep" ? "on" : ""}" data-mark="keep">Keep</button>
+        <button class="stamp skip ${mk === "skip" ? "on" : ""}" data-mark="skip">Skip</button>
+      </div>
+    </article>`;
+  }
+
+  function esc(s) {
+    return String(s || "").replace(/[&<>"']/g, (ch) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    }[ch]));
+  }
+
+  function currentClip() {
+    return clips.find((x) => x.id === state.current);
+  }
+
+  function isDirty() {
+    return Math.abs(state.selStart - state.origStart) > 0.02 || Math.abs(state.selEnd - state.origEnd) > 0.02;
+  }
+
+  function selMeta() {
+    const c = currentClip();
+    if (!c) return;
+    const pad = (c.padBefore != null)
+      ? `pad ${fmt(c.padBefore)} / ${fmt(c.padAfter)}`
+      : "tight clip (no pad file yet)";
+    document.getElementById("selMeta").innerHTML =
+      `In <b>${fmt(state.selStart)}</b> · Out <b>${fmt(state.selEnd)}</b> · Cut <b>${fmt(state.selEnd - state.selStart)}</b><br>${pad}`;
+    document.getElementById("saveCut").disabled = !c.extended || !isDirty();
+  }
+
+  function play(id) {
+    const c = clips.find((x) => x.id === id);
+    if (!c || !c.src) return;
+    if (state.current === id) {
+      if (player.paused) {
+        if (player.currentTime < state.selStart || player.currentTime >= state.selEnd - 0.03)
+          player.currentTime = state.selStart;
+        player.play().catch(() => {});
+      } else player.pause();
+      highlight();
+      return;
+    }
+    state.current = id;
+    state.extDur = c.extDuration || c.duration || 0;
+    state.selStart = c.selStart != null ? c.selStart : 0;
+    state.selEnd = c.selEnd != null ? c.selEnd : (c.duration || state.extDur || 1);
+    state.origStart = state.selStart;
+    state.origEnd = state.selEnd;
+    state.peaks = waves.get(id) || null;
+    const src = asset(c.extended || c.src);
+    player.src = src;
+    player.onloadedmetadata = () => {
+      if (player.duration && isFinite(player.duration)) state.extDur = player.duration;
+      if (state.selEnd > state.extDur) state.selEnd = state.extDur;
+      player.currentTime = state.selStart;
+      player.play().catch(() => {});
+      draw();
+      selMeta();
+    };
+    document.getElementById("nowWho").textContent = c.name + " · " + c.trigger;
+    document.getElementById("nowQuote").textContent = "“" + c.quote + "”";
+    document.getElementById("cutStatus").textContent = "";
+    const canBark = !!c.pieceId;
+    document.getElementById("saveBark").hidden = !canBark;
+    document.getElementById("dropBark").hidden = !c.bark;
+    document.getElementById("saveBark").textContent = c.bark ? "Update click bark" : "Save as click bark";
+    hint.style.display = "none";
+    selMeta();
+    highlight();
+    draw();
+    loadWave(id, src);
+  }
+
+  async function loadWave(id, src) {
+    if (waves.has(id)) { state.peaks = waves.get(id); draw(); return; }
+    try {
+      if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+      if (actx.state === "suspended") await actx.resume();
+      const buf = await (await fetch(src)).arrayBuffer();
+      const audio = await actx.decodeAudioData(buf.slice(0));
+      const data = audio.getChannelData(0);
+      const buckets = 900;
+      const peaks = new Float32Array(buckets);
+      const spb = Math.max(1, Math.floor(data.length / buckets));
+      for (let i = 0; i < buckets; i++) {
+        let m = 0;
+        const a = i * spb;
+        for (let j = 0; j < spb; j += 4) {
+          const v = Math.abs(data[a + j] || 0);
+          if (v > m) m = v;
+        }
+        peaks[i] = m;
+      }
+      waves.set(id, peaks);
+      if (state.current === id) { state.peaks = peaks; draw(); }
+    } catch (err) {
+      console.warn("wave", err);
+    }
+  }
+
+  function xToT(x) {
+    const r = wrap.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (x - r.left) / r.width));
+    return p * (state.extDur || 1);
+  }
+  function tToX(t) {
+    const r = wrap.getBoundingClientRect();
+    return (t / (state.extDur || 1)) * r.width;
+  }
+
+  function draw() {
+    const dpr = window.devicePixelRatio || 1;
+    const w = wrap.clientWidth || 600;
+    const h = wrap.clientHeight || 96;
+    if (canvas.width !== Math.floor(w * dpr) || canvas.height !== Math.floor(h * dpr)) {
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      canvas.style.width = w + "px";
+      canvas.style.height = h + "px";
+    }
+    const ctx = canvas.getContext("2d");
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    const durT = state.extDur || 1;
+    const inX = (state.selStart / durT) * w;
+    const outX = (state.selEnd / durT) * w;
+    ctx.fillStyle = "#1a1712";
+    ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = "rgba(212,168,90,0.16)";
+    ctx.fillRect(inX, 0, Math.max(2, outX - inX), h);
+    if (state.peaks) {
+      const n = state.peaks.length;
+      const mid = h / 2;
+      for (let i = 0; i < n; i++) {
+        const x = (i / n) * w;
+        const amp = state.peaks[i] * (h * 0.42);
+        const inside = x >= inX && x <= outX;
+        ctx.fillStyle = inside ? "#f0d08a" : "#5a5346";
+        ctx.fillRect(x, mid - amp, Math.max(1, w / n - 0.3), amp * 2);
+      }
+    }
+    ctx.fillStyle = "#d4a85a";
+    ctx.fillRect(inX - 2, 0, 4, h);
+    ctx.fillRect(outX - 2, 0, 4, h);
+    ctx.beginPath();
+    ctx.moveTo(inX + 2, 10); ctx.lineTo(inX + 10, 18); ctx.lineTo(inX + 2, 26);
+    ctx.moveTo(outX - 2, 10); ctx.lineTo(outX - 10, 18); ctx.lineTo(outX - 2, 26);
+    ctx.fill();
+    if (!player.paused || player.currentTime > 0) {
+      const px = (player.currentTime / durT) * w;
+      ctx.fillStyle = "#fff6d8";
+      ctx.fillRect(px, 0, 1.5, h);
+    }
+  }
+
+  function clampSel() {
+    const d = state.extDur || 1;
+    state.selStart = Math.max(0, Math.min(state.selStart, d - MIN));
+    state.selEnd = Math.max(state.selStart + MIN, Math.min(state.selEnd, d));
+  }
+
+  wrap.addEventListener("pointerdown", (e) => {
+    if (!state.current || !state.extDur) return;
+    wrap.setPointerCapture(e.pointerId);
+    const t = xToT(e.clientX);
+    const inX = tToX(state.selStart);
+    const outX = tToX(state.selEnd);
+    const x = e.clientX - wrap.getBoundingClientRect().left;
+    if (Math.abs(x - inX) < 14) state.drag = { kind: "in" };
+    else if (Math.abs(x - outX) < 14) state.drag = { kind: "out" };
+    else if (t > state.selStart && t < state.selEnd) state.drag = { kind: "slip", at: t, in0: state.selStart, out0: state.selEnd };
+    else if (t < state.selStart) { state.selStart = t; clampSel(); }
+    else { state.selEnd = t; clampSel(); }
+    selMeta();
+    draw();
+  });
+  wrap.addEventListener("pointermove", (e) => {
+    if (!state.drag) return;
+    const t = xToT(e.clientX);
+    if (state.drag.kind === "in") state.selStart = Math.min(t, state.selEnd - MIN);
+    else if (state.drag.kind === "out") state.selEnd = Math.max(t, state.selStart + MIN);
+    else if (state.drag.kind === "slip") {
+      const delta = t - state.drag.at;
+      const span = state.drag.out0 - state.drag.in0;
+      let ns = state.drag.in0 + delta;
+      ns = Math.max(0, Math.min(ns, (state.extDur || 1) - span));
+      state.selStart = ns;
+      state.selEnd = ns + span;
+    }
+    clampSel();
+    selMeta();
+    draw();
+  });
+  wrap.addEventListener("pointerup", () => { state.drag = null; });
+  wrap.addEventListener("pointercancel", () => { state.drag = null; });
+
+  function highlight() {
+    document.querySelectorAll(".card").forEach((el) => {
+      el.classList.toggle("playing", el.dataset.id === state.current);
+      const c = clips.find((x) => x.id === el.dataset.id);
+      const btn = el.querySelector(".playbtn");
+      if (btn && c && c.src) btn.textContent = (el.dataset.id === state.current && !player.paused) ? "❚❚" : "▶";
+    });
+  }
+
+  function step(dir) {
+    const q = state.queue;
+    if (!q.length) return;
+    let i = q.indexOf(state.current);
+    if (i < 0) i = dir > 0 ? -1 : 0;
+    const n = q[(i + dir + q.length) % q.length];
+    play(n);
+    const el = document.querySelector('.card[data-id="' + n + '"]');
+    if (el) el.scrollIntoView({ block: "center", behavior: "smooth" });
+  }
+
+  function playCut() {
+    if (!state.current) {
+      if (state.queue[0]) play(state.queue[0]);
+      return;
+    }
+    player.currentTime = state.selStart;
+    player.play().catch(() => {});
+  }
+
+  player.addEventListener("timeupdate", () => {
+    if (state.extDur && player.currentTime >= state.selEnd - 0.02) {
+      if (state.loop) player.currentTime = state.selStart;
+      else player.pause();
+    }
+    draw();
+  });
+  player.addEventListener("ended", () => {
+    if (state.loop) playCut();
+  });
+  player.addEventListener("play", highlight);
+  player.addEventListener("pause", highlight);
+
+  document.getElementById("replay").onclick = playCut;
+  document.getElementById("prev").onclick = () => step(-1);
+  document.getElementById("next").onclick = () => step(1);
+  document.getElementById("playVisible").onclick = () => {
+    if (state.queue[0]) play(state.queue[0]);
+  };
+  document.getElementById("loopBtn").onclick = function () {
+    state.loop = !state.loop;
+    this.textContent = state.loop ? "Loop on" : "Loop off";
+    this.classList.toggle("on", state.loop);
+  };
+  document.querySelectorAll(".nudge").forEach((b) => {
+    b.onclick = () => {
+      const d = parseFloat(b.dataset.d);
+      if (b.dataset.edge === "in") state.selStart += d;
+      else state.selEnd += d;
+      clampSel();
+      selMeta();
+      draw();
+    };
+  });
+  document.getElementById("saveCut").onclick = async () => {
+    const c = currentClip();
+    if (!c || !c.extended) {
+      setStatus("No padded file to cut from. Run the local server after building extended audio.", true);
+      return;
+    }
+    setStatus("Saving…");
+    try {
+      const res = await fetch(API + "/api/cut", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: c.id, start: state.selStart, end: state.selEnd })
+      });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || "save failed");
+      const i = clips.findIndex((x) => x.id === c.id);
+      clips[i] = Object.assign(clips[i], data.clip);
+      state.origStart = state.selStart;
+      state.origEnd = state.selEnd;
+      selMeta();
+      const durEl = document.querySelector('.card[data-id="' + c.id + '"] .dur');
+      if (durEl) durEl.textContent = dur(data.clip.duration);
+      setStatus("Saved " + fmt(data.clip.duration) + " clip");
+    } catch (err) {
+      setStatus("Can't reach the recut server. Open http://127.0.0.1:8765/  (double-click Open Soundbites.command)", true);
+    }
+  };
+  async function postJson(path, body) {
+    const res = await fetch(API + path, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || "request failed");
+    return data;
+  }
+
+  function applyClip(data) {
+    if (!data.clip) return;
+    const i = clips.findIndex((x) => x.id === data.clip.id);
+    if (i >= 0) clips[i] = Object.assign(clips[i], data.clip);
+    const durEl = document.querySelector('.card[data-id="' + data.clip.id + '"] .dur');
+    if (durEl && data.clip.duration != null) durEl.textContent = dur(data.clip.duration);
+    const cardEl = document.querySelector('.card[data-id="' + data.clip.id + '"]');
+    if (cardEl) {
+      const meta = cardEl.querySelector(".meta");
+      let pill = meta && meta.querySelector(".pill.bark-flag");
+      if (data.clip.bark && meta && !pill) {
+        const s = document.createElement("span");
+        s.className = "pill hand bark-flag";
+        s.textContent = "bark";
+        meta.appendChild(s);
+      }
+      if (!data.clip.bark && pill) pill.remove();
+    }
+    document.getElementById("dropBark").hidden = !data.clip.bark;
+    document.getElementById("saveBark").textContent = data.clip.bark ? "Update click bark" : "Save as click bark";
+  }
+
+  document.getElementById("saveBark").onclick = async () => {
+    const c = currentClip();
+    if (!c || !c.pieceId) {
+      setStatus("Commentators don't sit on the board — pick a piece.", true);
+      return;
+    }
+    if (isDirty() && c.extended) {
+      try {
+        const cut = await postJson("/api/cut", { id: c.id, start: state.selStart, end: state.selEnd });
+        applyClip(cut);
+        state.origStart = state.selStart;
+        state.origEnd = state.selEnd;
+        selMeta();
+      } catch (err) {
+        setStatus(err.message, true);
+        return;
+      }
+    }
+    setStatus("Saving bark…");
+    try {
+      const data = await postJson("/api/bark", { id: c.id });
+      applyClip(data);
+      setStatus("Click bark for " + (data.clip && data.clip.name) + " — plays when you click the piece");
+    } catch (err) {
+      setStatus(err.message, true);
+    }
+  };
+  document.getElementById("dropBark").onclick = async () => {
+    const c = currentClip();
+    if (!c) return;
+    try {
+      const data = await postJson("/api/unbark", { id: c.id });
+      applyClip(data);
+      setStatus("Removed click bark");
+    } catch (err) {
+      setStatus(err.message, true);
+    }
+  };
+
+  document.getElementById("resetCut").onclick = async () => {
+    const c = currentClip();
+    if (!c) return;
+    try {
+      const res = await fetch(API + "/api/reset", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: c.id })
+      });
+      const data = await res.json();
+      if (data.ok) {
+        const i = clips.findIndex((x) => x.id === c.id);
+        clips[i] = Object.assign(clips[i], data.clip);
+        c = clips[i];
+      }
+    } catch (_) {}
+    state.selStart = c.selStart != null ? c.selStart : state.origStart;
+    state.selEnd = c.selEnd != null ? c.selEnd : state.origEnd;
+    state.origStart = state.selStart;
+    state.origEnd = state.selEnd;
+    clampSel();
+    selMeta();
+    draw();
+    playCut();
+  };
+
+  function setStatus(msg, err) {
+    const el = document.getElementById("cutStatus");
+    el.textContent = msg;
+    el.className = err ? "err" : "";
+  }
+
+  document.querySelectorAll(".tab").forEach((b) => b.onclick = () => {
+    document.querySelectorAll(".tab").forEach((x) => x.classList.remove("on"));
+    b.classList.add("on");
+    state.house = b.dataset.house;
+    render();
+  });
+  document.querySelectorAll(".chip[data-trig]").forEach((b) => b.onclick = () => {
+    document.querySelectorAll(".chip[data-trig]").forEach((x) => x.classList.remove("on"));
+    b.classList.add("on");
+    state.trig = b.dataset.trig;
+    render();
+  });
+  document.getElementById("readyOnly").onclick = function () {
+    state.readyOnly = !state.readyOnly;
+    this.classList.toggle("on", state.readyOnly);
+    render();
+  };
+  document.getElementById("keptOnly").onclick = function () {
+    state.keptOnly = !state.keptOnly;
+    this.classList.toggle("on", state.keptOnly);
+    render();
+  };
+  document.getElementById("q").addEventListener("input", (e) => {
+    state.q = e.target.value;
+    render();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.target.matches("input")) return;
+    if (e.code === "Space") { e.preventDefault(); playCut(); }
+    if (e.key === "j" || e.key === "ArrowDown") { e.preventDefault(); step(1); }
+    if (e.key === "k" || e.key === "ArrowUp") { e.preventDefault(); step(-1); }
+    if (e.key === "[") { state.selStart -= e.shiftKey ? 0.5 : 0.05; clampSel(); selMeta(); draw(); }
+    if (e.key === "]") { state.selStart += e.shiftKey ? 0.5 : 0.05; clampSel(); selMeta(); draw(); }
+    if (e.key === "-") { state.selEnd -= e.shiftKey ? 0.5 : 0.05; clampSel(); selMeta(); draw(); }
+    if (e.key === "=" || e.key === "+") { state.selEnd += e.shiftKey ? 0.5 : 0.05; clampSel(); selMeta(); draw(); }
+  });
+  window.addEventListener("resize", draw);
+
+  function asset(path) {
+    if (!path) return path;
+    if (/^https?:/i.test(path)) return path;
+    return API + "/" + path.replace(/^\//, "");
+  }
+
+  fetch(API + "/api/clips", { cache: "no-store" }).then((r) => {
+    if (!r.ok) throw new Error("down");
+    if (location.protocol === "file:") location.replace("http://127.0.0.1:8765/");
+  }).catch(() => {
+    setStatus("Open http://127.0.0.1:8765/ to save cuts — or double-click Open Soundbites.command", true);
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
+

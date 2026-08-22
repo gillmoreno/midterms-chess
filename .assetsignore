@@ -5,6 +5,7 @@ meshy_output/
 output/
 scripts/
 test/
+studio/
 .env
 .env.local
 .DS_Store
