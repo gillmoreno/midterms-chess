@@ -16,29 +16,33 @@
       kingName: "Donald Trump",
       k: {
         id: "trump",
-        name: "Donald Trump",
+        name: "The Peacemaker",
+        aka: "Donald Trump",
         role: "King",
         model: "assets/models/right-king.glb",
         portrait: "assets/portraits/trump.jpg",
       },
       q: {
-        id: "melania",
-        name: "Melania Trump",
+        id: "leavitt",
+        name: "Karoline",
+        aka: "Karoline Leavitt",
         role: "Queen",
-        model: "assets/models/right-queen.glb",
-        portrait: "assets/portraits/melania.jpg",
+        model: "assets/models/right-queen-leavitt.glb",
+        portrait: "assets/portraits/leavitt.jpg",
       },
       r: [
         {
-          id: "mcconnell",
-          name: "Mitch McConnell",
+          id: "paul",
+          name: "Dr. Rand",
+          aka: "Rand Paul",
           role: "Rook",
-          model: "assets/models/right-rook.glb",
-          portrait: "assets/portraits/mcconnell.jpg",
+          model: "assets/models/right-rook-paul.glb",
+          portrait: "assets/portraits/paul.jpg",
         },
         {
           id: "rubio",
-          name: "Marco Rubio",
+          name: "Little Marco",
+          aka: "Marco Rubio",
           role: "Rook",
           model: "assets/models/right-rook-ks.glb",
           portrait: "assets/portraits/rubio.jpg",
@@ -47,15 +51,16 @@
       b: [
         {
           id: "cruz",
-          name: "Ted Cruz",
+          name: "Cancun Cruz",
+          aka: "Ted Cruz",
           role: "Bishop",
           model: "assets/models/right-bishop.glb",
           portrait: "assets/portraits/cruz.jpg",
         },
         {
           id: "rfk",
-          name: "RFK Jr.",
-          aka: "Robert F. Kennedy Jr.",
+          name: "Bobby",
+          aka: "RFK Jr.",
           role: "Bishop",
           model: "assets/models/right-bishop-ks.glb",
           portrait: "assets/portraits/rfk.jpg",
@@ -64,14 +69,16 @@
       n: [
         {
           id: "vance",
-          name: "JD Vance",
+          name: "JD",
+          aka: "JD Vance",
           role: "Knight",
           model: "assets/models/right-knight.glb",
           portrait: "assets/portraits/vance.jpg",
         },
         {
           id: "desantis",
-          name: "Ron DeSantis",
+          name: "Ron",
+          aka: "Ron DeSantis",
           role: "Knight",
           model: "assets/models/right-knight-ks.glb",
           portrait: "assets/portraits/desantis.jpg",
@@ -116,12 +123,12 @@
           portrait: "assets/portraits/sanders.jpg",
         },
         {
-          id: "schumer",
-          name: "Chuck-U",
-          aka: "Chuck Schumer",
+          id: "warren",
+          name: "Pocahontas",
+          aka: "Elizabeth Warren",
           role: "Rook",
-          model: "assets/models/left-rook-ks.glb",
-          portrait: "assets/portraits/schumer.jpg",
+          model: "assets/models/left-rook-warren.glb",
+          portrait: "assets/portraits/warren.jpg",
         },
       ],
       b: [
@@ -134,12 +141,12 @@
           portrait: "assets/portraits/harris.jpg",
         },
         {
-          id: "warren",
-          name: "Pocahontas",
-          aka: "Elizabeth Warren",
+          id: "schumer",
+          name: "Chuck-U",
+          aka: "Chuck Schumer",
           role: "Bishop",
-          model: "assets/models/left-bishop-ks.glb",
-          portrait: "assets/portraits/warren.jpg",
+          model: "assets/models/left-bishop-schumer.glb",
+          portrait: "assets/portraits/schumer.jpg",
         },
       ],
       n: [
@@ -169,6 +176,29 @@
         portrait: "assets/portraits/pawn-left.jpg",
       },
     },
+  };
+
+  /** Starters sit in ROSTER. Everyone else waits here — assets stay, they just don't start. */
+  var BENCH = {
+    w: [
+      {
+        id: "mcconnell",
+        name: "Moscow Mitch",
+        aka: "Mitch McConnell",
+        role: "Rook",
+        model: "assets/models/right-rook.glb",
+        portrait: "assets/portraits/mcconnell.jpg",
+      },
+      {
+        id: "melania",
+        name: "Melania",
+        aka: "Melania Trump",
+        role: "Queen",
+        model: "assets/models/right-queen.glb",
+        portrait: "assets/portraits/melania.jpg",
+      },
+    ],
+    b: [],
   };
 
   function wingIndex(file) {
@@ -254,6 +284,7 @@
 
   var api = {
     ROSTER: ROSTER,
+    BENCH: BENCH,
     HEIGHTS: HEIGHTS,
     entry: entry,
     entryFor: entryFor,

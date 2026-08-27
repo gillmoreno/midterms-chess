@@ -1,9 +1,11 @@
 import { createBoard3D } from "./board3d.js";
 import { clipFor, playCinematic, cancelCinematic, isPlaying } from "./cinematic.js";
 import { createEngine } from "./engine.js";
-import { playSelect, playClip, playBark, stopClip, isMuted, setMuted } from "./fx.js";
+import { playClip, playBark, stopClip, isMuted, setMuted } from "./fx.js";
 import { tauntFor, tauntHoldMs } from "./taunts.js";
-import { barkFor } from "./barks.js";
+import { barkFor, linesFor } from "./barks.js";
+import { lastWordFor, fateKicker, loseReelFor } from "./last-words.js";
+import { orderFor } from "./orders.js";
 
 const Chess = window.Chess;
 const Roster = window.Roster;
@@ -161,11 +163,21 @@ function boot() {
     $("hover-img").src = e.portrait;
     $("hover-name").textContent = e.name;
     $("hover-role").textContent = (e.aka ? e.aka + " · " : "") + e.role + " · " + Roster.ROSTER[p.c].house;
+    const n = linesFor(e.id).length;
+    const barkEl = $("hover-bark");
+    if (barkEl) {
+      barkEl.textContent = n
+        ? n === 1
+          ? "1 click bark"
+          : n + " click barks"
+        : "No click bark yet";
+    }
     $("hover-note").textContent = inspecting
       ? "Scouting — their options, not your move"
       : "Click a lit square to move";
     tip.hidden = false;
     tip.dataset.inspect = inspecting ? "1" : "0";
+    tip.dataset.bark = n ? "has" : "none";
     tip.dataset.role = e.role.toLowerCase();
   }
 
@@ -186,7 +198,6 @@ function boot() {
     legal = inspecting ? previewFor(sq) : legalFor(sq);
     const bark = barkFor(p.id);
     if (bark) playBark(bark.src);
-    else playSelect();
     paint();
   }
 
@@ -244,7 +255,12 @@ function boot() {
       ? Chess.sq(Chess.fileOf(chosen.to), Chess.rankOf(chosen.from))
       : chosen.to;
     const victim = game.board[victimSq];
-    const clip = clipFor(attacker, victim);
+    let clip = clipFor(attacker, victim);
+    const order = victim ? orderFor(attacker.id, victim.id) : null;
+    if (clip && order) {
+      clip = Object.assign({}, clip, { audio: order.src });
+      if (!clip.lines) clip.line = order.line;
+    }
     const before = { from: chosen.from, to: chosen.to };
     const r = Chess.makeMove(game, chosen);
     if (!r.ok) return false;
@@ -270,6 +286,30 @@ function boot() {
             ? "capture"
             : null;
     const taunt = tauntKind ? tauntFor(tauntKind, attacker.c) : null;
+    const victimEntry = r.captured ? Roster.entryFor(r.captured) : null;
+    const lastWord =
+      r.captured && r.captured.t !== "p" && victimEntry
+        ? lastWordFor(victimEntry.id, { reel: true })
+        : null;
+    const lose = victimEntry ? loseReelFor(victimEntry.id) : null;
+    if (!clip && lose) {
+      clip = {
+        src: lose.src,
+        poster: lose.poster || "",
+        line: lastWord ? lastWord.line : "",
+        audio: lose.baked ? null : lastWord && lastWord.src,
+        side: r.captured.c === "w" ? "right" : "left",
+        stamp: fateKicker(lastWord && lastWord.fate),
+      };
+    } else if (!clip && lastWord && lastWord.reel) {
+      clip = {
+        src: lastWord.reel,
+        poster: lastWord.poster || "",
+        line: lastWord.line,
+        side: r.captured.c === "w" ? "right" : "left",
+        stamp: fateKicker(lastWord.fate),
+      };
+    }
     locked = true;
     try {
       const animDone = new Promise((res) =>
@@ -285,7 +325,10 @@ function boot() {
       await Promise.all([animDone, clip ? playCinematic(clip) : Promise.resolve()]);
       board.rebuildPieces(game);
       paint();
-      if (taunt && !clip) announceTaunt(tauntKind, taunt);
+      if (!clip) {
+        if (lastWord) announceLastWord(lastWord, victimEntry);
+        else if (taunt) announceTaunt(tauntKind, taunt);
+      }
     } finally {
       locked = false;
     }
@@ -326,6 +369,19 @@ function boot() {
     tauntTimer = setTimeout(() => {
       box.hidden = true;
     }, tauntHoldMs(kind));
+  }
+
+  function announceLastWord(word, entry) {
+    playClip(word.src);
+    const box = $("taunt");
+    $("taunt-kicker").textContent = fateKicker(word.fate);
+    $("taunt-who").textContent = entry && entry.name ? entry.name : "Taken";
+    $("taunt-line").textContent = word.line;
+    box.hidden = false;
+    clearTimeout(tauntTimer);
+    tauntTimer = setTimeout(() => {
+      box.hidden = true;
+    }, tauntHoldMs("capture"));
   }
 
   function cpuColor() {
@@ -405,6 +461,26 @@ function boot() {
   $("miniboard-size").addEventListener("click", (e) => {
     e.stopPropagation();
     setMiniSize(wrap.dataset.size === "lg" ? "sm" : "lg");
+  });
+
+  const CARD_KEY = "floor-vote-card-size";
+  const cardEl = $("hover-card");
+  function setCardSize(size) {
+    cardEl.dataset.size = size === "sm" ? "sm" : "lg";
+    $("hover-size").textContent = cardEl.dataset.size === "lg" ? "Smaller" : "Bigger";
+    try {
+      localStorage.setItem(CARD_KEY, cardEl.dataset.size);
+    } catch (_) {}
+  }
+  try {
+    const savedCard = localStorage.getItem(CARD_KEY);
+    setCardSize(savedCard === "sm" ? "sm" : "lg");
+  } catch (_) {
+    setCardSize("lg");
+  }
+  $("hover-size").addEventListener("click", (e) => {
+    e.stopPropagation();
+    setCardSize(cardEl.dataset.size === "lg" ? "sm" : "lg");
   });
 
   $("miniboard").addEventListener("click", (e) => {
@@ -493,7 +569,11 @@ function boot() {
       hidden: $("cine").hidden,
       line: $("cine-line").textContent,
       side: $("cine").dataset.side || "",
+      stamp: ($("cine-stamp") && $("cine-stamp").textContent) || "",
+      src: $("cine-video").currentSrc || $("cine-video").src || "",
     }),
+    clipFor,
+    playCine: (clip) => playCinematic(clip),
     taunt: () => ({
       hidden: $("taunt").hidden,
       kicker: $("taunt-kicker").textContent,
@@ -512,6 +592,13 @@ function boot() {
         on: cell.dataset.on,
         piece: cell.querySelector("img") ? cell.querySelector("img").alt : "",
       })),
+    card: () => ({
+      hidden: $("hover-card").hidden,
+      size: $("hover-card").dataset.size,
+      name: $("hover-name").textContent,
+      role: $("hover-role").textContent,
+      btn: $("hover-size").textContent,
+    }),
   };
 
   board.readyPromise.then(rebuild);

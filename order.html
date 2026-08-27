@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Order beds — The Midterms</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/order.css" />
+  </head>
+  <body class="order-room">
+    <div id="chrome">
+      <header class="mast">
+        <div class="house left">
+          <span class="kicker">The Left</span>
+          <strong>Newscum orders</strong>
+          <em>Teal cape · eight receivers · mute</em>
+        </div>
+        <div class="seal">
+          <span class="seal-ring">Capture order</span>
+          <h1>King <i>says</i> jump</h1>
+          <span class="sub">Click a still. No sound yet — we overlay the bite later.</span>
+        </div>
+        <div class="house right">
+          <span class="kicker">The Right</span>
+          <strong>Trump orders</strong>
+          <em>Red cape · eight receivers · mute</em>
+        </div>
+      </header>
+
+      <main id="orders">
+        <p class="stage-hint" id="orders-status">Loading mute beds…</p>
+        <div class="order-houses">
+          <section class="order-house" data-side="right">
+            <h2>The Right</h2>
+            <div class="order-grid" id="grid-right"></div>
+          </section>
+          <section class="order-house" data-side="left">
+            <h2>The Left</h2>
+            <div class="order-grid" id="grid-left"></div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="dock">
+        <div class="dock-left">
+          <span id="turn-pill" data-side="">Order beds</span>
+          <p id="status-line">Sixteen mute six-second takes. Sound comes later.</p>
+        </div>
+        <div class="dock-actions">
+          <a class="btn-link" href="index.html">Back to the floor</a>
+          <a class="btn-link" href="picks.html">Gag shop</a>
+          <a class="btn-link" href="barks.html">Barks</a>
+          <a class="btn-link" href="defeated.html">Defeated</a>
+          <a class="btn-link" href="scripts.html">Kill scripts</a>
+        </div>
+      </footer>
+    </div>
+
+    <div id="cine" hidden>
+      <div class="cine-frame">
+        <span class="cine-stamp" id="cine-stamp">Order · mute</span>
+        <video id="cine-video" playsinline muted></video>
+        <div class="cine-bar">
+          <p id="cine-line"></p>
+          <button type="button" id="cine-skip">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/roster.js"></script>
+    <script type="module" src="js/order-page.js"></script>
+  </body>
+</html>

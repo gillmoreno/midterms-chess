@@ -105,7 +105,7 @@ function matTex() {
       ctx.fillStyle = "#d4af37";
       ctx.font = "700 42px Times New Roman, serif";
       ctx.textAlign = "center";
-      ctx.fillText("FLOOR VOTE", cx, cy + w * 0.4);
+      ctx.fillText("THE MIDTERMS", cx, cy + w * 0.4);
     })
   );
 }
@@ -229,7 +229,7 @@ function fighterCard(title, house, color, portrait) {
     ctx.fillStyle = "#fff4e8";
     ctx.font = "700 42px Times New Roman, serif";
     ctx.textAlign = "center";
-    ctx.fillText("FLOOR VOTE", 256, 50);
+    ctx.fillText("THE MIDTERMS", 256, 50);
     ctx.fillStyle = "#16161c";
     ctx.fillRect(36, 92, 440, 420);
     if (img) ctx.drawImage(img, 36, 92, 440, 420);

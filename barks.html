@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Click barks — The Midterms</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/barks.css" />
+  </head>
+  <body class="barks-room">
+    <div id="chrome">
+      <header class="mast">
+        <div class="house left">
+          <span class="kicker">The Left</span>
+          <strong>Click barks</strong>
+          <em>What they say when you tap them</em>
+        </div>
+        <div class="seal">
+          <span class="seal-ring">The Midterms</span>
+          <h1>Click <i>barks</i></h1>
+          <span class="sub">One line minimum. Extra lines rotate. Missing stays red until filled.</span>
+        </div>
+        <div class="house right">
+          <span class="kicker">The Right</span>
+          <strong>Click barks</strong>
+          <em>Same pool the board plays</em>
+        </div>
+      </header>
+
+      <main id="barks">
+        <p class="stage-hint" id="barks-status">Loading click barks…</p>
+        <div class="barks-houses">
+          <section class="barks-house" data-side="right">
+            <h2>The Right</h2>
+            <div class="barks-grid" id="grid-right"></div>
+          </section>
+          <section class="barks-house" data-side="left">
+            <h2>The Left</h2>
+            <div class="barks-grid" id="grid-left"></div>
+          </section>
+        </div>
+        <section class="barks-bench" id="bench-wrap" hidden>
+          <h2>Bench</h2>
+          <div class="barks-grid" id="grid-bench"></div>
+        </section>
+      </main>
+
+      <footer class="dock">
+        <div class="dock-left">
+          <span id="turn-pill" data-side="">Click barks</span>
+          <p id="status-line">Who talks when you click them.</p>
+        </div>
+        <div class="dock-actions">
+          <a class="btn-link" href="index.html">Back to the floor</a>
+          <a class="btn-link" href="order.html">Orders</a>
+          <a class="btn-link" href="defeated.html">Defeated</a>
+          <a class="btn-link" href="scripts.html">Kill scripts</a>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/roster.js"></script>
+    <script type="module" src="js/barks-page.js"></script>
+  </body>
+</html>

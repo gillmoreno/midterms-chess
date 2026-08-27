@@ -2,9 +2,9 @@
   "name": "3d-chess",
   "version": "1.0.0",
   "private": true,
-  "description": "Left vs Right 3D political chess (Three.js + Meshy pieces)",
+  "description": "The Midterms — Left vs Right 3D political chess (Three.js + Meshy pieces)",
   "scripts": {
-    "test": "node --test test/chess.test.js test/script-load.mjs test/cinematic.test.mjs test/kill-scripts.test.mjs test/barks.test.mjs",
+    "test": "node --test test/chess.test.js test/script-load.mjs test/cinematic.test.mjs test/kill-scripts.test.mjs test/barks.test.mjs test/last-words.test.mjs test/orders.test.mjs",
     "test:browser": "node test/browser-check.mjs",
     "start": "npx --yes serve -l 4173 .",
     "deploy": "wrangler pages deploy . --project-name=floor-vote --branch=main --commit-dirty=true"

@@ -11,7 +11,7 @@
   },
   {
     "name": "right-knight-ks",
-    "task_id": "01a013c8-152e-72e1-ad45-5a29b94b4448",
+    "task_id": "01a0348d-cd20-7655-9212-c0d97492184a",
     "image": "desantis.jpg"
   },
   {
@@ -28,5 +28,15 @@
     "name": "left-knight-ks",
     "task_id": "01a01a1d-f40a-7986-9607-9164d49d7ea3",
     "image": "mamdani.jpg"
+  },
+  {
+    "name": "left-bishop-schumer",
+    "task_id": "01a03812-773c-7685-b198-0c9cf110371d",
+    "image": "schumer.jpg"
+  },
+  {
+    "name": "left-rook-warren",
+    "task_id": "01a03814-0006-774c-80db-d6340011007f",
+    "image": "warren.jpg"
   }
 ]

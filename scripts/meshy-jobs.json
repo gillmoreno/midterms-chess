@@ -15,13 +15,18 @@
     "image": "mcconnell.jpg"
   },
   {
+    "name": "right-rook-paul",
+    "task_id": "01a0348e-ffe6-7b6d-a77d-ef41e6b275e9",
+    "image": "paul.jpg"
+  },
+  {
     "name": "right-bishop",
-    "task_id": "01a013bc-4c94-7fad-81a4-01bd113abc14",
+    "task_id": "01a034a8-5e65-73bd-ba03-e5c3b2317586",
     "image": "cruz.jpg"
   },
   {
     "name": "right-knight",
-    "task_id": "01a013bc-5201-769f-923f-6ceabda08f61",
+    "task_id": "01a032bc-24e5-79c8-9538-28e93d0a09e9",
     "image": "vance.jpg"
   },
   {
@@ -46,7 +51,7 @@
   },
   {
     "name": "left-bishop",
-    "task_id": "01a01bdd-98f3-791c-aeaf-a44cb3546a99",
+    "task_id": "01a03809-26c2-7693-89d3-cb8459265d54",
     "image": "harris.jpg"
   },
   {
@@ -58,5 +63,15 @@
     "name": "left-pawn",
     "task_id": "01a013bc-7588-7fc2-928c-bc809dca96da",
     "image": "pawn-left.jpg"
+  },
+  {
+    "name": "right-queen-leavitt",
+    "task_id": "01a0382a-4282-7d24-88ff-467be4b41d80",
+    "image": "leavitt.jpg"
+  },
+  {
+    "name": "left-queen-tax",
+    "task_id": "01a03843-52aa-736b-b13b-474f6abf6379",
+    "image": "aoc.jpg"
   }
 ]

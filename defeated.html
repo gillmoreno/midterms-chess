@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Defeated — The Midterms</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/defeated.css" />
+  </head>
+  <body class="defeated-room">
+    <div id="chrome">
+      <header class="mast">
+        <div class="house left">
+          <span class="kicker">The Left</span>
+          <strong>Last words</strong>
+          <em>Taken · hop off the board</em>
+        </div>
+        <div class="seal">
+          <span class="seal-ring">Defeated</span>
+          <h1>Last <i>words</i></h1>
+          <span class="sub">The lose bed. Random bite on top when they have more than one.</span>
+        </div>
+        <div class="house right">
+          <span class="kicker">The Right</span>
+          <strong>Last words</strong>
+          <em>Same bed · different line</em>
+        </div>
+      </header>
+
+      <aside class="rail left-rail">
+        <h2>The Left</h2>
+        <div class="cast" data-house="left"></div>
+      </aside>
+
+      <main id="stage-defeated">
+        <p class="stage-hint" id="defeated-hint">
+          Pick a piece. If they have a lose reel, play it. Lines marked for the
+          reel shuffle at random.
+        </p>
+        <div class="defeated-hero" id="hero" hidden>
+          <figure>
+            <img id="hero-poster" alt="" />
+            <figcaption>
+              <span class="kicker" id="hero-status">Audio only</span>
+              <strong id="hero-name"></strong>
+              <small id="hero-role"></small>
+            </figcaption>
+          </figure>
+          <div class="defeated-lines">
+            <p class="hooks-label">Last words. Gold ones ride the reel.</p>
+            <div id="lines"></div>
+            <div class="line-actions">
+              <button type="button" id="btn-play" hidden>Play random</button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <aside class="rail right-rail">
+        <h2>The Right</h2>
+        <div class="cast" data-house="right"></div>
+      </aside>
+
+      <footer class="dock">
+        <div class="dock-left">
+          <span id="turn-pill" data-side="">Defeated</span>
+          <p id="status-line">Last words when a piece is taken.</p>
+        </div>
+        <div class="dock-actions">
+          <a class="btn-link" href="index.html">Back to the floor</a>
+          <a class="btn-link" href="barks.html">Barks</a>
+          <a class="btn-link" href="order.html">Orders</a>
+          <a class="btn-link" href="scripts.html">Kill scripts</a>
+        </div>
+      </footer>
+    </div>
+
+    <div id="cine" hidden>
+      <div class="cine-frame">
+        <span class="cine-stamp" id="cine-stamp">Taken</span>
+        <video id="cine-video" playsinline></video>
+        <div class="cine-bar">
+          <p id="cine-line"></p>
+          <button type="button" id="cine-skip">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/roster.js"></script>
+    <script type="module" src="js/defeated-page.js"></script>
+  </body>
+</html>

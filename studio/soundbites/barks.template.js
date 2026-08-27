@@ -3,7 +3,7 @@
  * Distinct from taunts, which fire on check / capture / mate.
  *
  * Generated from studio/soundbites/assignments.json — edit there, or
- * hit "Save as click bark" in the studio player.
+ * hit Click on a card in the studio player.
  */
 
 export const BARKS = {
@@ -23,4 +23,8 @@ export function barkFor(pieceId) {
   const { bark, lastSrc: next } = pickBark(BARKS[pieceId], lastSrc);
   lastSrc = next;
   return bark;
+}
+
+export function linesFor(pieceId) {
+  return (BARKS[pieceId] || []).slice();
 }

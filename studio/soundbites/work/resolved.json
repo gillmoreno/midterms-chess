@@ -214,5 +214,187 @@
     "duration": 44.0,
     "title": "Here's what the VP candidates are saying after the VP debate | Election 2024",
     "resolved_for": "vance-future"
+  },
+  "aoc-bartender": {
+    "id": "43sh0TySHHE",
+    "url": "https://www.youtube.com/watch?v=43sh0TySHHE",
+    "duration": 37.0,
+    "title": "Ocasio-Cortez: \"I'm proud to be a bartender. Ain't nothing wrong with that\"",
+    "resolved_for": "aoc-bartender"
+  },
+  "bernie-once-again": {
+    "id": "c_OfMjvQ2-M",
+    "url": "https://www.youtube.com/watch?v=c_OfMjvQ2-M",
+    "duration": 526.0,
+    "title": "Bernie Sanders \u2018begs for donations\u2019 while \u2018crying about Trump and Musk\u2019",
+    "resolved_for": "bernie-once-again"
+  },
+  "newsom-french-laundry": {
+    "id": "Ox-X2Mfy5aY",
+    "url": "https://www.youtube.com/watch?v=Ox-X2Mfy5aY",
+    "duration": 173.0,
+    "title": "Governor Newsom apologizes for attending large gathering in Napa",
+    "resolved_for": "newsom-french-laundry"
+  },
+  "cruz-cancun": {
+    "id": "RjOwFadA6wg",
+    "url": "https://www.youtube.com/watch?v=RjOwFadA6wg",
+    "duration": 86.0,
+    "title": "Texas Sen. Ted Cruz Says Cancun Trip 'Was Obviously a Mistake'",
+    "resolved_for": "cruz-cancun"
+  },
+  "desantis-suspend": {
+    "id": "MHhoX8kMH1o",
+    "url": "https://www.youtube.com/watch?v=MHhoX8kMH1o",
+    "duration": 43.0,
+    "title": "Ron DeSantis ends presidential campaign",
+    "resolved_for": "desantis-suspend"
+  },
+  "mcconnell-last-term": {
+    "id": "lw0s3AT6zjE",
+    "url": "https://www.youtube.com/watch?v=lw0s3AT6zjE",
+    "duration": 59.0,
+    "title": "Senate Majority Leader Mitch McConnell says he won't seek reelection",
+    "resolved_for": "mcconnell-last-term"
+  },
+  "trump-no-responsibility": {
+    "id": "5Cs_1iYWIhI",
+    "url": "https://www.youtube.com/watch?v=5Cs_1iYWIhI",
+    "duration": 44.0,
+    "title": "President Trump says he doesn't take responsibility for coronavirus testing lag",
+    "resolved_for": "trump-no-responsibility"
+  },
+  "kamala-unburdened": {
+    "id": "x3fCeabLoO4",
+    "url": "https://www.youtube.com/watch?v=x3fCeabLoO4",
+    "duration": 81.0,
+    "title": "Unburdened",
+    "resolved_for": "kamala-unburdened"
+  },
+  "schumer-wrong-words": {
+    "id": "M_iz56p8eP0",
+    "url": "https://www.youtube.com/watch?v=M_iz56p8eP0",
+    "duration": 15.0,
+    "title": "Can Somebody Check On Tom Cotton? He Looks Awful (Tom Cotton Reads Chuck Schumer's Words Verbatim)",
+    "resolved_for": "schumer-wrong-words"
+  },
+  "trump-pocahontas": {
+    "id": "YAP9vWl0mAk",
+    "url": "https://www.youtube.com/watch?v=YAP9vWl0mAk",
+    "duration": 242.0,
+    "title": "Trump makes Pocahontas crack at Navajo code talkers event",
+    "resolved_for": "trump-pocahontas"
+  },
+  "trump-comrade-kamala": {
+    "id": "JWOmA_SoyZA",
+    "url": "https://www.youtube.com/watch?v=JWOmA_SoyZA",
+    "duration": 142.0,
+    "title": "Trump Rails Against \u2018Comrade\u2019 Kamala\u2019s Debate Performance During NV Rally: \u2018Showed Up Spewing Lies\u2019",
+    "resolved_for": "trump-comrade-kamala"
+  },
+  "trump-mamdani-communist": {
+    "id": "Pxw8TdxleDk",
+    "url": "https://www.youtube.com/watch?v=Pxw8TdxleDk",
+    "duration": 164.0,
+    "title": "\"Trump RAGES at Zohran Mamdani, NYC Mayor Candidate: 'He's a Communist!'\"",
+    "resolved_for": "trump-mamdani-communist"
+  },
+  "trump-crazy-bernie": {
+    "id": "7dqootql9t8",
+    "url": "https://www.youtube.com/watch?v=7dqootql9t8",
+    "duration": 394.0,
+    "title": "Trump Castigates 'Radical Left Person From San Francisco' Harris At Madison Square Garden Rally",
+    "resolved_for": "trump-crazy-bernie"
+  },
+  "newsom-outtrump-short": {
+    "id": "EEI6YTu_YeU",
+    "url": "https://www.youtube.com/watch?v=EEI6YTu_YeU",
+    "duration": 60.0,
+    "title": "The DeSantis and Newsom debate on Fox News, in less than 60 seconds",
+    "resolved_for": "newsom-outtrump-short"
+  },
+  "newsom-knees": {
+    "id": "kCvVOOHaJKg",
+    "url": "https://www.youtube.com/watch?v=kCvVOOHaJKg",
+    "duration": 1481.0,
+    "title": "Governor Newsom hosts press event to discuss the economic advancement of California communities",
+    "resolved_for": "newsom-knees"
+  },
+  "trump-msg-lunatic": {
+    "id": "7dqootql9t8",
+    "url": "https://www.youtube.com/watch?v=7dqootql9t8",
+    "duration": 394.0,
+    "title": "Trump Castigates 'Radical Left Person From San Francisco' Harris At Madison Square Garden Rally",
+    "resolved_for": "trump-msg-lunatic"
+  },
+  "trump-aoc-plus": {
+    "id": "XpaQrcl4D-Y",
+    "url": "https://www.youtube.com/watch?v=XpaQrcl4D-Y",
+    "duration": 377.0,
+    "title": "Trump Slams 'AOC Plus 3' At Michigan Rally",
+    "resolved_for": "trump-aoc-plus"
+  },
+  "trump-lyin-kamala": {
+    "id": "7m4VNYxjNV0",
+    "url": "https://www.youtube.com/watch?v=7m4VNYxjNV0",
+    "duration": 58.0,
+    "title": "\u2018Worst U.S. President Defeated\u2019: #Trump Boasts At Rally, Jabs \u2018LYIN\u2019 #kamalaharris",
+    "resolved_for": "trump-lyin-kamala"
+  },
+  "trump-vegas-2020": {
+    "id": "ZsyCQTX0UfE",
+    "url": "https://www.youtube.com/watch?v=ZsyCQTX0UfE",
+    "duration": 199.0,
+    "title": "Trump ridicules Democrat opponents at Vegas rally",
+    "resolved_for": "trump-vegas-2020"
+  },
+  "trump-cryin-chuck": {
+    "id": "TiHBXhFSX1U",
+    "url": "https://www.youtube.com/watch?v=TiHBXhFSX1U",
+    "duration": 582.0,
+    "title": "Trump Unloads On Senator Schumer; \u2018HIS FAKE TEARS CAN\u2019T\u2026\u2019: WH Correspondent's Dinner Drama",
+    "resolved_for": "trump-cryin-chuck"
+  },
+  "newsom-phonies": {
+    "id": "J-lGBaOj5m0",
+    "url": "https://www.youtube.com/watch?v=J-lGBaOj5m0",
+    "duration": 490.0,
+    "title": "Scarier than Trump? Gavin Newsom on why JD Vance is so DANGEROUS",
+    "resolved_for": "newsom-phonies"
+  },
+  "jre-2461": {
+    "id": "wk7DQom821s",
+    "url": "https://www.youtube.com/watch?v=wk7DQom821s",
+    "duration": 8777.56,
+    "title": "Joe Rogan Experience #2461 - Robert F. Kennedy, Jr.",
+    "resolved_for": "jre-2461"
+  },
+  "paul-fauci": {
+    "id": "4bC-rF2ymK0",
+    "url": "https://www.youtube.com/watch?v=4bC-rF2ymK0",
+    "duration": 748.0,
+    "title": "WATCH: Sen. Paul makes opening statement in Fauci hearing",
+    "resolved_for": "paul-fauci"
+  },
+  "leavitt-protests": {
+    "id": "YlgLM_ggoio",
+    "url": "https://www.youtube.com/watch?v=YlgLM_ggoio",
+    "duration": 297.0,
+    "title": "Karoline Leavitt's 10 most BIZARRE moments as White House press secretary",
+    "resolved_for": "leavitt-protests"
+  },
+  "rubio-diplomacy": {
+    "id": "mV5cXhdNw3U",
+    "url": "https://www.youtube.com/watch?v=mV5cXhdNw3U",
+    "duration": 2234.0,
+    "title": "Marco Rubio's HEATED moments with Senate on Iran, outbreaks, missing funds | MS NOW Highlights",
+    "resolved_for": "rubio-diplomacy"
+  },
+  "newsom-davos": {
+    "id": "DcESKAYTzng",
+    "url": "https://www.youtube.com/watch?v=DcESKAYTzng",
+    "duration": 252.0,
+    "title": "Newsom says he should have brought 'knee pads' to Davos over leaders' 'pathetic' response to Trump",
+    "resolved_for": "newsom-davos"
   }
 }

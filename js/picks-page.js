@@ -8,7 +8,7 @@ const PEOPLE = [
     aka: "Kamala Harris",
     nick: "Comrade Kamala",
     shipped: "comrade",
-    gags: [{ id: "comrade", label: "Locked · Commissar cap", file: "harris-2-comrade.jpg" }],
+    gags: [{ id: "comrade", label: "Locked · Mao suit, bishop mitre", file: "harris-4-mao.jpg" }],
   },
   {
     id: "newsom",
@@ -38,9 +38,9 @@ const PEOPLE = [
     id: "schumer",
     name: "Chuck-U",
     aka: "Chuck Schumer",
-    nick: "Cryin' Chuck — one tear",
+    nick: "Cryin' Chuck — hanky bishop",
     shipped: "tear",
-    gags: [{ id: "tear", label: "Locked · One tear", file: "schumer-4-tear.jpg" }],
+    gags: [{ id: "tear", label: "Locked · Hanky, small mitre", file: "schumer-4-tear.jpg" }],
   },
   {
     id: "pete",

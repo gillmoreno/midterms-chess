@@ -1,0 +1,227 @@
+{
+  "trump": [
+    {
+      "id": "trump-pwmc",
+      "line": "Person. Woman. Man. Camera. TV.",
+      "src": "assets/sfx/last-words/trump-pwmc.mp3",
+      "fate": "captured"
+    },
+    {
+      "id": "trump-no-responsibility",
+      "line": "I don't take responsibility at all.",
+      "src": "assets/sfx/last-words/trump-no-responsibility.mp3",
+      "fate": "fired"
+    }
+  ],
+  "melania": [
+    {
+      "id": "melania-dont-care",
+      "line": "I want to show them that I don't care.",
+      "src": "assets/sfx/last-words/melania-dont-care.mp3",
+      "fate": "captured"
+    }
+  ],
+  "mcconnell": [
+    {
+      "id": "mcconnell-let-me-finish",
+      "line": "Let me finish.",
+      "src": "assets/sfx/last-words/mcconnell-let-me-finish.mp3",
+      "fate": "captured"
+    },
+    {
+      "id": "mcconnell-eighth-time",
+      "line": "I will not seek this honor an eighth time.",
+      "src": "assets/sfx/last-words/mcconnell-eighth-time.mp3",
+      "fate": "captured"
+    }
+  ],
+  "rubio": [
+    {
+      "id": "rubio-dispel",
+      "line": "Let's dispel with this fiction\u2026",
+      "src": "assets/sfx/last-words/rubio-dispel.mp3",
+      "fate": "captured"
+    }
+  ],
+  "cruz": [
+    {
+      "id": "cruz-breathe",
+      "line": "Breathe, breathe, breathe.",
+      "src": "assets/sfx/last-words/cruz-breathe.mp3",
+      "fate": "captured"
+    },
+    {
+      "id": "cruz-cancun",
+      "line": "It was obviously a mistake.",
+      "src": "assets/sfx/last-words/cruz-cancun.mp3",
+      "fate": "cancun"
+    }
+  ],
+  "rfk": [
+    {
+      "id": "rfk-not-ideal",
+      "line": "I am not an ideal presidential candidate.",
+      "src": "assets/sfx/last-words/rfk-not-ideal.mp3",
+      "fate": "captured"
+    }
+  ],
+  "vance": [
+    {
+      "id": "vance-boneheaded",
+      "line": "Oh man, my most boneheaded comment.",
+      "src": "assets/sfx/last-words/vance-boneheaded.mp3",
+      "fate": "captured"
+    }
+  ],
+  "desantis": [
+    {
+      "id": "desantis-never-surrender",
+      "line": "We will never, ever surrender to the woke mob.",
+      "src": "assets/sfx/last-words/desantis-never-surrender.mp3",
+      "fate": "captured"
+    },
+    {
+      "id": "desantis-suspending",
+      "line": "I am today suspending my campaign.",
+      "src": "assets/sfx/last-words/desantis-suspending.mp3",
+      "fate": "captured"
+    }
+  ],
+  "sanders": [
+    {
+      "id": "bernie-not-me-us",
+      "line": "Not me. Us.",
+      "src": "assets/sfx/last-words/bernie-not-me-us.mp3",
+      "fate": "captured"
+    },
+    {
+      "id": "bernie-once-again",
+      "line": "I am once again asking for your financial support.",
+      "src": "assets/sfx/last-words/bernie-once-again.mp3",
+      "fate": "captured"
+    }
+  ],
+  "schumer": [
+    {
+      "id": "schumer-not-on-our-watch",
+      "line": "Not on our watch.",
+      "src": "assets/sfx/last-words/schumer-not-on-our-watch.mp3",
+      "fate": "captured"
+    },
+    {
+      "id": "schumer-wrong-words",
+      "line": "I should not have used the words I used.",
+      "src": "assets/sfx/last-words/schumer-wrong-words.mp3",
+      "fate": "captured"
+    }
+  ],
+  "harris": [
+    {
+      "id": "kamala-im-speaking",
+      "line": "I'm speaking. / Mr. Vice President, I'm speaking.",
+      "src": "assets/sfx/last-words/kamala-im-speaking.mp3",
+      "fate": "captured"
+    },
+    {
+      "id": "kamala-coconut",
+      "line": "You think you just fell out of a coconut tree?",
+      "src": "assets/sfx/last-words/kamala-coconut.mp3",
+      "fate": "captured"
+    },
+    {
+      "id": "kamala-unburdened",
+      "line": "What can be, unburdened by what has been.",
+      "src": "assets/sfx/last-words/kamala-unburdened.mp3",
+      "fate": "captured"
+    },
+    {
+      "id": "kamala-doac-troubling",
+      "line": "It's a troubling time.",
+      "src": "assets/sfx/last-words/kamala-doac-troubling.mp3",
+      "fate": "captured",
+      "onReel": true
+    },
+    {
+      "id": "kamala-doac-worse",
+      "line": "It may get worse before it gets better.",
+      "src": "assets/sfx/last-words/kamala-doac-worse.mp3",
+      "fate": "captured",
+      "onReel": true
+    },
+    {
+      "id": "kamala-doac-different",
+      "line": "I do think about how different it could have been.",
+      "src": "assets/sfx/last-words/kamala-doac-different.mp3",
+      "fate": "captured",
+      "onReel": true
+    },
+    {
+      "id": "kamala-doac-shock",
+      "line": "I was in a state of shock.",
+      "src": "assets/sfx/last-words/kamala-doac-shock.mp3",
+      "fate": "captured"
+    },
+    {
+      "id": "kamala-doac-my-god",
+      "line": "My God, my God, my God.",
+      "src": "assets/sfx/last-words/kamala-doac-my-god.mp3",
+      "fate": "captured"
+    },
+    {
+      "id": "kamala-doac-more-time",
+      "line": "I wish we had more time.",
+      "src": "assets/sfx/last-words/kamala-doac-more-time.mp3",
+      "fate": "captured",
+      "onReel": true
+    }
+  ],
+  "warren": [
+    {
+      "id": "warren-plan",
+      "line": "I have a plan for that.",
+      "src": "assets/sfx/last-words/warren-plan.mp3",
+      "fate": "captured"
+    }
+  ],
+  "buttigieg": [
+    {
+      "id": "pete-quarrel",
+      "line": "Your quarrel, sir, is with my creator.",
+      "src": "assets/sfx/last-words/pete-quarrel.mp3",
+      "fate": "captured"
+    }
+  ],
+  "mamdani": [
+    {
+      "id": "mamdani-volume",
+      "line": "Turn the volume up.",
+      "src": "assets/sfx/last-words/mamdani-volume.mp3",
+      "fate": "captured"
+    },
+    {
+      "id": "mamdani-no-apology",
+      "line": "I refuse to apologize.",
+      "src": "assets/sfx/last-words/mamdani-no-apology.mp3",
+      "fate": "captured"
+    }
+  ],
+  "newsom": [
+    {
+      "id": "newsom-bad-mistake",
+      "line": "I made a bad mistake.",
+      "src": "assets/sfx/last-words/newsom-bad-mistake.mp3",
+      "fate": "captured"
+    }
+  ],
+  "aoc": [
+    {
+      "id": "aoc-bartender",
+      "line": "I'm proud to be a bartender. Ain't nothing wrong with that.",
+      "src": "assets/sfx/last-words/aoc-bartender.mp3",
+      "fate": "fired",
+      "reel": "assets/cinematics/aoc-bartender.mp4",
+      "poster": "assets/cinematics/aoc-bartender.jpg",
+      "onReel": true
+    }
+  ]
+}

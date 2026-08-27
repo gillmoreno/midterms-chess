@@ -263,7 +263,23 @@ body {
   border: 1px solid var(--line);
   padding: 0.4rem 0.45rem 0.55rem;
   backdrop-filter: blur(10px);
+}
+
+#hover-card[data-size="sm"] {
   width: min(10.2rem, 28vw);
+}
+
+#hover-card[data-size="lg"] {
+  width: min(15.3rem, 42vw);
+}
+
+#hover-size {
+  align-self: flex-start;
+  pointer-events: auto;
+  padding: 0.28rem 0.5rem;
+  font-size: 0.58rem;
+  background: var(--panel);
+  backdrop-filter: blur(8px);
 }
 
 #hover-card[hidden] {
@@ -277,10 +293,17 @@ body {
 #hover-card img {
   display: block;
   width: 100%;
-  height: min(24vh, 200px);
   object-fit: contain;
   object-position: center center;
   background: radial-gradient(ellipse at 50% 70%, #2a3140 0%, #12161e 70%);
+}
+
+#hover-card[data-size="sm"] img {
+  height: min(24vh, 200px);
+}
+
+#hover-card[data-size="lg"] img {
+  height: min(36vh, 300px);
 }
 
 #hover-card strong {
@@ -293,6 +316,20 @@ body {
   display: block;
   font-size: 0.82rem;
   color: var(--ink-dim);
+}
+
+#hover-bark {
+  display: block;
+  margin-top: 0.28rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+}
+
+#hover-card[data-bark="none"] #hover-bark {
+  color: #e08a8a;
 }
 
 #hover-card em {
@@ -658,11 +695,17 @@ button:hover {
   #miniboard-wrap[data-size="lg"] #miniboard {
     width: min(240px, 58vw);
   }
-  #hover-card {
+  #hover-card[data-size="sm"] {
     width: min(8.6rem, 36vw);
   }
-  #hover-card img {
+  #hover-card[data-size="lg"] {
+    width: min(12.9rem, 54vw);
+  }
+  #hover-card[data-size="sm"] img {
     height: min(20vh, 150px);
+  }
+  #hover-card[data-size="lg"] img {
+    height: min(30vh, 225px);
   }
   #chrome {
     grid-template-columns: 1fr;

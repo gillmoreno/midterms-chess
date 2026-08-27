@@ -12,6 +12,8 @@ description: >
 Approved reels (copy this beat, do not stitch):
 - MAGA: session `videos/13.mp4` → `assets/cinematics/right-kills.mp4`
 - Blue-hair: session `videos/15.mp4` → `assets/cinematics/left-kills.mp4` (Iris, California; not Eve)
+- Left queen: throw `videos/2.mp4` + receive `videos/1.mp4` → `assets/cinematics/left-queen-kills.mp4` (Iris; Hadouken split, no two-person take)
+- RFK: throw `videos/5.mp4` + receive `videos/3.mp4` → `assets/cinematics/rfk-kills.mp4` (Lux, a bit robotic; 25 lb plate frisbee split)
 
 ## Cadence (6s, one take)
 

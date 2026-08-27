@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Floor Vote — Soundbites</title>
+<title>The Midterms — Soundbites</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
     --booth: #e0c070;
     --keep: #7dba7a;
     --skip: #c45b4a;
+    --used: #d4a85a;
     --ok: #8fbf7a;
     --miss: #8a7d6c;
   }
@@ -108,8 +109,7 @@
   }
   .card.missing { opacity: .45; cursor: default; }
   .card.missing:hover { transform: none; border-color: var(--line); }
-  .card.keep { border-left: 4px solid var(--keep); }
-  .card.skip { border-left: 4px solid var(--skip); opacity: .7; }
+  .card.used { border-left: 4px solid var(--used); }
   .playbtn {
     width: 44px; height: 44px; border-radius: 50%;
     border: 1px solid var(--gold);
@@ -132,16 +132,38 @@
     border: 1px solid var(--line); padding: 1px 7px; border-radius: 999px;
   }
   .pill.hand { color: var(--gold); border-color: var(--gold); }
-  .actions { display: flex; gap: 6px; }
-  .stamp {
+  .actions { display: flex; flex-direction: column; gap: 4px; min-width: 88px; }
+  .use {
     font-family: "Barlow Condensed", sans-serif;
-    letter-spacing: .1em; text-transform: uppercase; font-size: 11px;
+    letter-spacing: .08em; text-transform: uppercase; font-size: 11px;
     background: transparent; color: var(--muted);
     border: 1px dashed var(--line); border-radius: 6px;
-    padding: 6px 8px; cursor: pointer;
+    padding: 5px 8px; cursor: pointer; text-align: center;
   }
-  .stamp.keep.on { color: var(--keep); border-color: var(--keep); border-style: solid; }
-  .stamp.skip.on { color: var(--skip); border-color: var(--skip); border-style: solid; }
+  .use.on { color: var(--gold); border-color: var(--gold); border-style: solid; background: rgba(212,168,90,.14); }
+  .use:disabled { opacity: .35; cursor: default; }
+  .use.filmed { color: var(--gold-2); border-color: var(--gold-2); border-style: solid; }
+  #reelBox {
+    display: none; position: fixed; inset: 0; z-index: 40;
+    background: rgba(8,7,5,.82); align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  #reelBox.on { display: flex; }
+  #reelBox video {
+    width: min(960px, 92vw); max-height: 70vh;
+    aspect-ratio: 16 / 9; border-radius: 12px;
+    border: 1px solid var(--gold); background: #000; object-fit: contain;
+  }
+  #reelBox .reel-cap {
+    position: absolute; bottom: 28px; left: 0; right: 0;
+    text-align: center; color: var(--ivory); font-family: Fraunces, serif; font-size: 18px;
+  }
+  #reelClose {
+    position: absolute; top: 18px; right: 18px;
+    font-family: "Barlow Condensed", sans-serif; letter-spacing: .08em; text-transform: uppercase;
+    background: var(--ivory); color: var(--ink); border: 0; border-radius: 999px;
+    padding: 8px 14px; cursor: pointer; font-weight: 700;
+  }
   .empty { color: var(--muted); padding: 40px 8px; text-align: center; }
   #dock {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
@@ -193,7 +215,7 @@
     .controls::-webkit-scrollbar { display: none; }
     input[type="search"] { min-width: 170px; flex: 0 0 auto; }
     .chip, .tab { flex: 0 0 auto; }
-    .card { grid-template-columns: 40px 1fr 48px; scroll-margin-top: 120px; }
+    .card { grid-template-columns: 40px 1fr auto; scroll-margin-top: 120px; }
     .actions { flex-direction: column; }
     body { padding-bottom: 340px; }
     #waveWrap, #wave { height: 80px; }
@@ -203,7 +225,7 @@
 <body>
 <header>
   <div class="mast">
-    <h1>Floor Vote <span>Soundbites</span></h1>
+    <h1>The Midterms <span>Soundbites</span></h1>
     <div class="count" id="stats"></div>
   </div>
   <div class="controls">
@@ -220,8 +242,11 @@
     <button class="chip" data-trig="trash talk">Trash</button>
     <button class="chip" data-trig="hype">Hype</button>
     <button class="chip" data-trig="got captured">Got captured</button>
+    <button class="chip" data-trig="captures">Captures</button>
     <button class="chip on" id="readyOnly">Ready only</button>
-    <button class="chip" id="keptOnly">Kept</button>
+    <button class="chip" data-use="click">On click</button>
+    <button class="chip" data-use="captured">On capture</button>
+    <button class="chip" data-use="order">On order</button>
     <button class="chip" id="playVisible">Play visible</button>
   </div>
 </header>
@@ -232,7 +257,7 @@
       <div class="who" id="nowWho">Click a line</div>
       <div class="nowq" id="nowQuote">Nothing playing</div>
     </div>
-    <div class="sel-meta" id="selMeta">Drag the gold region to trim. Edges cut, middle slides.</div>
+    <div class="sel-meta" id="selMeta">Trim the gold region. Click / Captured / Order on a card is where it plays.</div>
   </div>
   <div id="waveWrap">
     <canvas id="wave"></canvas>
@@ -254,26 +279,27 @@
     <button class="save" id="saveCut" disabled>Save cut</button>
     <button class="ghost" id="resetCut">Reset</button>
     <button class="ghost" id="previewBark">Preview bark</button>
-    <button class="save" id="saveBark">Save as click bark</button>
-    <button class="ghost" id="dropBark" hidden>Remove bark</button>
     <span id="cutStatus"></span>
   </div>
 </div>
 <audio id="player" preload="auto"></audio>
-<script src="clips-data.js"></script>
+<div id="reelBox">
+  <button type="button" id="reelClose">Close</button>
+  <video id="reelVideo" controls playsinline></video>
+  <div class="reel-cap" id="reelCap"></div>
+</div>
+<script src="clips-data.js?v=newsom-davos-1"></script>
 <script>
 (function () {
   const API = (location.protocol === "file:") ? "http://127.0.0.1:8765" : "";
-  const clips = window.CLIPS || [];
+  let clips = window.CLIPS || [];
   const player = document.getElementById("player");
   const board = document.getElementById("board");
   const canvas = document.getElementById("wave");
   const wrap = document.getElementById("waveWrap");
   const hint = document.getElementById("waveHint");
-  const KEY = "fv-soundbites-marks";
-  const marks = JSON.parse(localStorage.getItem(KEY) || "{}");
   const state = {
-    house: "all", trig: "all", q: "", readyOnly: true, keptOnly: false,
+    house: "all", trig: "all", use: "all", q: "", readyOnly: true,
     current: null, queue: [], loop: true,
     selStart: 0, selEnd: 0, origStart: 0, origEnd: 0, extDur: 0,
     peaks: null, drag: null
@@ -281,7 +307,6 @@
   const waves = new Map();
   let actx = null;
 
-  const saveMarks = () => localStorage.setItem(KEY, JSON.stringify(marks));
   const fmt = (n) => (n == null || isNaN(n) ? "—" : (n < 10 ? n.toFixed(2) : n.toFixed(1)) + "s");
   const dur = (n) => n == null ? "" : (n < 10 ? n.toFixed(1) + "s" : Math.round(n) + "s");
   const MIN = 0.25;
@@ -290,21 +315,33 @@
     const q = state.q.trim().toLowerCase();
     return clips.filter((c) => {
       if (state.house !== "all" && c.group !== state.house) return false;
-      if (state.trig !== "all" && c.trigger !== state.trig) return false;
+      if (state.trig === "captures") {
+        if (!c.target) return false;
+      } else if (state.trig !== "all" && c.trigger !== state.trig) return false;
       if (state.readyOnly && !c.src) return false;
-      if (state.keptOnly && marks[c.id] !== "keep") return false;
-      if (q && !((c.quote + " " + c.name + " " + c.id).toLowerCase().includes(q))) return false;
+      if (state.use === "click" && !c.bark) return false;
+      if (state.use === "captured" && !c.lastWord) return false;
+      if (state.use === "order" && !c.order) return false;
+      if (q && !((c.quote + " " + c.name + " " + c.id + " " + (c.targetName || "")).toLowerCase().includes(q))) return false;
       return true;
     });
   }
 
   function render() {
-    const rows = visible();
+    let rows = visible();
+    if (state.trig === "captures") {
+      const cap = (c) => (c.speaker === "trump" ? 0 : 1);
+      rows = rows.slice().sort((a, b) => cap(a) - cap(b) || String(a.target).localeCompare(String(b.target)) || a.id.localeCompare(b.id));
+    }
     state.queue = rows.filter((c) => c.src).map((c) => c.id);
     const ready = clips.filter((c) => c.src).length;
-    const kept = Object.values(marks).filter((v) => v === "keep").length;
+    const nClick = clips.filter((c) => c.bark).length;
+    const nCap = clips.filter((c) => c.lastWord).length;
+    const nOrd = clips.filter((c) => c.order).length;
     document.getElementById("stats").textContent =
-      ready + " / " + clips.length + " ready · " + kept + " kept · " + rows.length + " showing";
+      ready + " / " + clips.length + " ready · " +
+      nClick + " click · " + nCap + " captured · " + nOrd + " order · " +
+      rows.length + " showing";
     if (!rows.length) {
       board.innerHTML = '<p class="empty">Nothing in this filter.</p>';
       return;
@@ -312,7 +349,11 @@
     const groups = [];
     rows.forEach((c) => {
       const last = groups[groups.length - 1];
-      if (!last || last.speaker !== c.speaker) groups.push({ speaker: c.speaker, name: c.name, group: c.group, items: [c] });
+      const capName = state.trig === "captures" && c.target
+        ? (c.name + " → " + (c.targetName || c.target))
+        : c.name;
+      const capKey = state.trig === "captures" ? (c.speaker + ":" + c.target) : c.speaker;
+      if (!last || last.key !== capKey) groups.push({ key: capKey, speaker: c.speaker, name: capName, group: c.group, items: [c] });
       else last.items.push(c);
     });
     board.innerHTML = groups.map((g) => {
@@ -324,56 +365,53 @@
     }).join("");
     board.querySelectorAll(".card[data-id]").forEach((el) => {
       el.addEventListener("click", (e) => {
-        if (e.target.closest(".stamp") || e.target.closest("a")) return;
+        if (e.target.closest(".use") || e.target.closest("a") || e.target.closest("#reelBox")) return;
         const id = el.dataset.id;
         const c = clips.find((x) => x.id === id);
         if (c && c.src) play(id);
       });
     });
-    board.querySelectorAll(".stamp").forEach((el) => {
+    board.querySelectorAll(".use").forEach((el) => {
       el.addEventListener("click", (e) => {
         e.stopPropagation();
-        const cardEl = el.closest(".card");
-        const id = cardEl.dataset.id;
-        const kind = el.dataset.mark;
-        marks[id] = marks[id] === kind ? null : kind;
-        if (!marks[id]) delete marks[id];
-        saveMarks();
-        cardEl.classList.toggle("keep", marks[id] === "keep");
-        cardEl.classList.toggle("skip", marks[id] === "skip");
-        cardEl.querySelectorAll(".stamp").forEach((s) => {
-          s.classList.toggle("on", marks[id] === s.dataset.mark);
-        });
-        const ready = clips.filter((c) => c.src).length;
-        const kept = Object.values(marks).filter((v) => v === "keep").length;
-        document.getElementById("stats").textContent =
-          ready + " / " + clips.length + " ready · " + kept + " kept · " + visible().length + " showing";
+        if (el.disabled) return;
+        const id = el.closest(".card").dataset.id;
+        if (el.dataset.use === "reel") {
+          openReel(id);
+          return;
+        }
+        toggleUse(id, el.dataset.use);
       });
     });
     highlight();
   }
 
   function card(c) {
-    const mk = marks[c.id];
-    const cls = ["card", c.src ? "" : "missing", mk || "", state.current === c.id ? "playing" : ""]
+    const used = c.bark || c.lastWord || c.order;
+    const cls = ["card", c.src ? "" : "missing", used ? "used" : "", state.current === c.id ? "playing" : ""]
       .filter(Boolean).join(" ");
     const src = c.url ? `<a class="src" href="${c.url}" target="_blank" rel="noreferrer">source</a>` : "";
+    const pieceOk = !!(c.pieceId && c.src);
+    const orderOk = !!(c.target && c.src);
     return `<article class="${cls}" data-id="${c.id}">
       <div class="playbtn">${c.src ? (state.current === c.id && !player.paused ? "❚❚" : "▶") : "–"}</div>
       <div>
         <p class="quote">“${esc(c.quote)}”</p>
         <div class="meta">
           <span class="pill">${esc(c.trigger)}</span>
+          ${c.targetName ? `<span class="pill hand">vs ${esc(c.targetName)}</span>` : ""}
+          ${c.fate ? `<span class="pill hand">${esc(c.fate)}</span>` : ""}
           ${c.handful ? '<span class="pill hand">priority</span>' : ""}
-          ${c.bark ? '<span class="pill hand bark-flag">bark</span>' : ""}
           <span class="dur">${dur(c.duration)}</span>
           ${src}
           ${c.src ? "" : `<span>${esc(c.error || "missing")}</span>`}
         </div>
       </div>
-      <div class="actions">
-        <button class="stamp keep ${mk === "keep" ? "on" : ""}" data-mark="keep">Keep</button>
-        <button class="stamp skip ${mk === "skip" ? "on" : ""}" data-mark="skip">Skip</button>
+      <div class="actions" role="group" aria-label="Where this plays">
+        <button class="use ${c.bark ? "on" : ""}" data-use="click" ${pieceOk ? "" : "disabled"} title="When you click this piece">Click</button>
+        <button class="use ${c.lastWord ? "on" : ""}" data-use="captured" ${pieceOk ? "" : "disabled"} title="When this piece is taken">Captured</button>
+        <button class="use ${c.order ? "on" : ""}" data-use="order" ${orderOk ? "" : "disabled"} title="When the king orders this capture">Order</button>
+        <button class="use ${c.reel ? "filmed" : ""}" data-use="reel" ${c.src ? "" : "disabled"} title="${c.reel ? "Play the defeated reel" : "Build the defeated reel if a mute bed exists"}">${c.reel ? "Reel" : "Film"}</button>
       </div>
     </article>`;
   }
@@ -435,10 +473,6 @@
     document.getElementById("nowWho").textContent = c.name + " · " + c.trigger;
     document.getElementById("nowQuote").textContent = "“" + c.quote + "”";
     document.getElementById("cutStatus").textContent = "";
-    const canBark = !!c.pieceId;
-    document.getElementById("saveBark").hidden = !canBark;
-    document.getElementById("dropBark").hidden = !c.bark;
-    document.getElementById("saveBark").textContent = c.bark ? "Update click bark" : "Save as click bark";
     hint.style.display = "none";
     selMeta();
     highlight();
@@ -646,7 +680,7 @@
         body: JSON.stringify({ id: c.id, start: state.selStart, end: state.selEnd })
       });
       const data = await res.json();
-      if (!data.ok) throw new Error(data.error || "save failed");
+      if (!res.ok || !data.ok) throw new Error((data && data.error) || ("save failed (" + res.status + ")"));
       const i = clips.findIndex((x) => x.id === c.id);
       clips[i] = Object.assign(clips[i], data.clip);
       state.origStart = state.selStart;
@@ -656,7 +690,12 @@
       if (durEl) durEl.textContent = dur(data.clip.duration);
       setStatus("Saved " + fmt(data.clip.duration) + " clip");
     } catch (err) {
-      setStatus("Can't reach the recut server. Open http://127.0.0.1:8765/  (double-click Open Soundbites.command)", true);
+      const msg = (err && err.message) || "";
+      if (/failed to fetch|networkerror|load failed/i.test(msg) || msg === "") {
+        setStatus("Can't reach the recut server. Open http://127.0.0.1:8765/  (double-click Open Soundbites.command)", true);
+      } else {
+        setStatus(msg, true);
+      }
     }
   };
   async function postJson(path, body) {
@@ -674,22 +713,103 @@
     if (!data.clip) return;
     const i = clips.findIndex((x) => x.id === data.clip.id);
     if (i >= 0) clips[i] = Object.assign(clips[i], data.clip);
-    const durEl = document.querySelector('.card[data-id="' + data.clip.id + '"] .dur');
-    if (durEl && data.clip.duration != null) durEl.textContent = dur(data.clip.duration);
-    const cardEl = document.querySelector('.card[data-id="' + data.clip.id + '"]');
+    const c = data.clip;
+    const durEl = document.querySelector('.card[data-id="' + c.id + '"] .dur');
+    if (durEl && c.duration != null) durEl.textContent = dur(c.duration);
+    const cardEl = document.querySelector('.card[data-id="' + c.id + '"]');
     if (cardEl) {
-      const meta = cardEl.querySelector(".meta");
-      let pill = meta && meta.querySelector(".pill.bark-flag");
-      if (data.clip.bark && meta && !pill) {
-        const s = document.createElement("span");
-        s.className = "pill hand bark-flag";
-        s.textContent = "bark";
-        meta.appendChild(s);
-      }
-      if (!data.clip.bark && pill) pill.remove();
+      cardEl.classList.toggle("used", !!(c.bark || c.lastWord || c.order));
+      cardEl.querySelectorAll(".use").forEach((btn) => {
+        const slot = btn.dataset.use;
+        if (slot === "reel") {
+          btn.classList.toggle("filmed", !!c.reel);
+          btn.textContent = c.reel ? "Reel" : "Film";
+          btn.title = c.reel ? "Play the defeated reel" : "Build the defeated reel if a mute bed exists";
+          return;
+        }
+        btn.classList.toggle("on", slot === "click" ? !!c.bark : slot === "captured" ? !!c.lastWord : !!c.order);
+      });
     }
-    document.getElementById("dropBark").hidden = !data.clip.bark;
-    document.getElementById("saveBark").textContent = data.clip.bark ? "Update click bark" : "Save as click bark";
+    const ready = clips.filter((x) => x.src).length;
+    document.getElementById("stats").textContent =
+      ready + " / " + clips.length + " ready · " +
+      clips.filter((x) => x.bark).length + " click · " +
+      clips.filter((x) => x.lastWord).length + " captured · " +
+      clips.filter((x) => x.order).length + " order · " +
+      visible().length + " showing";
+  }
+
+  const USE_MSG = {
+    click: ["Click bark — plays when you click the piece", "Removed click bark"],
+    captured: ["Last word — plays when they get taken", "Removed last word"],
+    order: ["Capture order — plays when the king orders this take", "Removed capture order"]
+  };
+
+  function closeReel() {
+    const box = document.getElementById("reelBox");
+    const vid = document.getElementById("reelVideo");
+    box.classList.remove("on");
+    vid.pause();
+    vid.removeAttribute("src");
+    vid.load();
+  }
+
+  function showReel(src, quote, poster) {
+    const box = document.getElementById("reelBox");
+    const vid = document.getElementById("reelVideo");
+    player.pause();
+    document.getElementById("reelCap").textContent = quote ? "“" + quote + "”" : "";
+    if (poster) vid.poster = asset(poster);
+    else vid.removeAttribute("poster");
+    vid.src = asset(src);
+    box.classList.add("on");
+    vid.play().catch(() => {});
+  }
+
+  async function openReel(id) {
+    const c = clips.find((x) => x.id === id);
+    if (!c) return;
+    if (c.reel) {
+      showReel(c.reel, c.quote, c.poster);
+      return;
+    }
+    setStatus("Building defeated reel…");
+    try {
+      const data = await postJson("/api/reel", { id: c.id });
+      applyClip(data);
+      if (data.clip && data.clip.reel) {
+        showReel(data.clip.reel, data.clip.quote, data.clip.poster);
+        setStatus("Defeated reel ready");
+      }
+    } catch (err) {
+      setStatus(err.message || "no defeated reel filmed yet", true);
+    }
+  }
+
+  async function toggleUse(id, slot) {
+    const c = clips.find((x) => x.id === id);
+    if (!c || !c.src) return;
+    const on = slot === "click" ? !c.bark : slot === "captured" ? !c.lastWord : !c.order;
+    if (on && state.current === id && isDirty() && c.extended) {
+      try {
+        const cut = await postJson("/api/cut", { id: c.id, start: state.selStart, end: state.selEnd });
+        applyClip(cut);
+        state.origStart = state.selStart;
+        state.origEnd = state.selEnd;
+        selMeta();
+      } catch (err) {
+        setStatus(err.message, true);
+        return;
+      }
+    }
+    setStatus(on ? "Saving…" : "Removing…");
+    try {
+      const data = await postJson("/api/use", { id: c.id, slot: slot, on: on });
+      applyClip(data);
+      setStatus(USE_MSG[slot][on ? 0 : 1]);
+    } catch (err) {
+      setStatus(err.message, true);
+    }
   }
 
   let barkPrev = null;
@@ -750,45 +870,6 @@
     }
   };
 
-  document.getElementById("saveBark").onclick = async () => {
-    const c = currentClip();
-    if (!c || !c.pieceId) {
-      setStatus("Commentators don't sit on the board — pick a piece.", true);
-      return;
-    }
-    if (isDirty() && c.extended) {
-      try {
-        const cut = await postJson("/api/cut", { id: c.id, start: state.selStart, end: state.selEnd });
-        applyClip(cut);
-        state.origStart = state.selStart;
-        state.origEnd = state.selEnd;
-        selMeta();
-      } catch (err) {
-        setStatus(err.message, true);
-        return;
-      }
-    }
-    setStatus("Saving bark…");
-    try {
-      const data = await postJson("/api/bark", { id: c.id });
-      applyClip(data);
-      setStatus("Click bark for " + (data.clip && data.clip.name) + " — plays when you click the piece");
-    } catch (err) {
-      setStatus(err.message, true);
-    }
-  };
-  document.getElementById("dropBark").onclick = async () => {
-    const c = currentClip();
-    if (!c) return;
-    try {
-      const data = await postJson("/api/unbark", { id: c.id });
-      applyClip(data);
-      setStatus("Removed click bark");
-    } catch (err) {
-      setStatus(err.message, true);
-    }
-  };
-
   document.getElementById("resetCut").onclick = async () => {
     const c = currentClip();
     if (!c) return;
@@ -831,6 +912,10 @@
     document.querySelectorAll(".chip[data-trig]").forEach((x) => x.classList.remove("on"));
     b.classList.add("on");
     state.trig = b.dataset.trig;
+    if (state.trig === "captures") {
+      state.readyOnly = false;
+      document.getElementById("readyOnly").classList.toggle("on", false);
+    }
     render();
   });
   document.getElementById("readyOnly").onclick = function () {
@@ -838,11 +923,23 @@
     this.classList.toggle("on", state.readyOnly);
     render();
   };
-  document.getElementById("keptOnly").onclick = function () {
-    state.keptOnly = !state.keptOnly;
-    this.classList.toggle("on", state.keptOnly);
+  document.querySelectorAll(".chip[data-use]").forEach((b) => b.onclick = () => {
+    const next = b.dataset.use;
+    const off = state.use === next;
+    state.use = off ? "all" : next;
+    document.querySelectorAll(".chip[data-use]").forEach((x) => x.classList.toggle("on", x.dataset.use === state.use));
     render();
-  };
+  });
+  document.getElementById("reelClose").onclick = closeReel;
+  document.getElementById("reelBox").addEventListener("click", (e) => {
+    if (e.target.id === "reelBox") closeReel();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && document.getElementById("reelBox").classList.contains("on")) {
+      e.preventDefault();
+      closeReel();
+    }
+  });
   document.getElementById("q").addEventListener("input", (e) => {
     state.q = e.target.value;
     render();
@@ -868,6 +965,13 @@
   fetch(API + "/api/clips", { cache: "no-store" }).then((r) => {
     if (!r.ok) throw new Error("down");
     if (location.protocol === "file:") location.replace("http://127.0.0.1:8765/");
+    return r.json();
+  }).then((d) => {
+    if (d && Array.isArray(d.clips) && d.clips.length) {
+      clips = d.clips;
+      window.CLIPS = clips;
+      render();
+    }
   }).catch(() => {
     setStatus("Open http://127.0.0.1:8765/ to save cuts — or double-click Open Soundbites.command", true);
   });

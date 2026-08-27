@@ -61,6 +61,11 @@
       "id": "trump-alone-fix",
       "line": "I alone can fix it.",
       "src": "assets/sfx/barks/trump-alone-fix.mp3"
+    },
+    {
+      "id": "trump-obliterated",
+      "line": "Obliterated. The air force is gone. The navy is gone.",
+      "src": "assets/sfx/barks/trump-obliterated.mp3"
     }
   ],
   "vance": [
@@ -75,6 +80,58 @@
       "id": "desantis-never-surrender",
       "line": "We will never, ever surrender to the woke mob.",
       "src": "assets/sfx/barks/desantis-never-surrender.mp3"
+    }
+  ],
+  "cruz": [
+    {
+      "id": "cruz-cancun",
+      "line": "It was obviously a mistake.",
+      "src": "assets/sfx/barks/cruz-cancun.mp3"
+    }
+  ],
+  "rubio": [
+    {
+      "id": "rubio-yoga",
+      "line": "When they're done with the yoga, can I answer a question?",
+      "src": "assets/sfx/barks/rubio-yoga.mp3"
+    },
+    {
+      "id": "rubio-diplomacy",
+      "line": "We're carrying out diplomacy all over the world constantly and very successfully.",
+      "src": "assets/sfx/barks/rubio-diplomacy.mp3"
+    }
+  ],
+  "rfk": [
+    {
+      "id": "rfk-adhd-focus",
+      "line": "I have ADHD. I had 11 siblings and I have seven kids. So I can work. I can focus.",
+      "src": "assets/sfx/barks/rfk-adhd-focus.mp3"
+    }
+  ],
+  "paul": [
+    {
+      "id": "paul-deserve-apology",
+      "line": "Frankly, the American people deserve an apology.",
+      "src": "assets/sfx/barks/paul-deserve-apology.mp3"
+    }
+  ],
+  "leavitt": [
+    {
+      "id": "leavitt-stupid-question",
+      "line": "Of course the president supports peaceful protests. What a stupid question.",
+      "src": "assets/sfx/barks/leavitt-stupid-question.mp3"
+    }
+  ],
+  "newsom": [
+    {
+      "id": "newsom-vs-maga-knee",
+      "line": "New knee pads that I'll be sending out for all these CEOs for bending their knee.",
+      "src": "assets/sfx/barks/newsom-vs-maga-knee.mp3"
+    },
+    {
+      "id": "newsom-trex",
+      "line": "He's a T-Rex. You mate with him or he devours you.",
+      "src": "assets/sfx/barks/newsom-trex.mp3"
     }
   ]
 }

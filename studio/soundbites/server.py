@@ -2,6 +2,7 @@
 """Local player + recut API. Serves this folder. POST /api/cut to save a trim."""
 from __future__ import annotations
 
+import importlib
 import json
 import shutil
 import subprocess
@@ -9,20 +10,31 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
 
-from catalog import CLIPS
+import catalog
 from data import (
     ROOT,
     add_bark,
+    add_last_word,
     clip_path,
     load_assignments,
     load_extended,
+    load_last_words,
+    load_orders,
+    overlay_reel,
     remove_bark,
+    remove_last_word,
+    set_use,
     write_clips_js,
 )
 
 PORT = 8765
 ORIG = ROOT / "work" / "clip-originals"
 ORIG.mkdir(parents=True, exist_ok=True)
+
+
+def clips_now():
+    importlib.reload(catalog)
+    return catalog.CLIPS
 
 
 def ffmpeg_cut(src: Path, dest: Path, start: float, end: float):
@@ -77,10 +89,19 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         path = urlparse(self.path).path
         if path == "/api/clips":
-            self._json(200, {"clips": write_clips_js(), "assignments": load_assignments()})
+            self._json(200, {
+                "clips": write_clips_js(),
+                "assignments": load_assignments(),
+                "lastWords": load_last_words(),
+                "orders": load_orders(),
+            })
             return
         if path == "/api/assignments":
-            self._json(200, {"assignments": load_assignments()})
+            self._json(200, {
+                "assignments": load_assignments(),
+                "lastWords": load_last_words(),
+                "orders": load_orders(),
+            })
             return
         if path in ("/", "/index.html"):
             self.path = "/index.html"
@@ -101,6 +122,14 @@ class Handler(SimpleHTTPRequestHandler):
             return self.save_bark(body)
         if path == "/api/unbark":
             return self.drop_bark(body)
+        if path == "/api/last-word":
+            return self.save_last_word(body)
+        if path == "/api/unlast-word":
+            return self.drop_last_word(body)
+        if path == "/api/use":
+            return self.save_use(body)
+        if path == "/api/reel":
+            return self.save_reel(body)
         self._json(404, {"ok": False, "error": "unknown"})
 
     def save_cut(self, body):
@@ -114,7 +143,7 @@ class Handler(SimpleHTTPRequestHandler):
             return self._json(400, {"ok": False, "error": "selection too short"})
         if end - start > 60:
             return self._json(400, {"ok": False, "error": "selection too long (60s max)"})
-        clip = next((c for c in CLIPS if c["id"] == cid), None)
+        clip = next((c for c in clips_now() if c["id"] == cid), None)
         if not clip:
             return self._json(404, {"ok": False, "error": "unknown clip"})
         ext_map = load_extended()
@@ -143,7 +172,7 @@ class Handler(SimpleHTTPRequestHandler):
 
     def reset_cut(self, body):
         cid = body.get("id")
-        clip = next((c for c in CLIPS if c["id"] == cid), None)
+        clip = next((c for c in clips_now() if c["id"] == cid), None)
         ext_map = load_extended()
         ex = ext_map.get(cid) or {}
         src = ROOT / (ex.get("extended") or "")
@@ -185,6 +214,55 @@ class Handler(SimpleHTTPRequestHandler):
         clips = write_clips_js()
         row = next((x for x in clips if x["id"] == cid), None)
         return self._json(200, {"ok": True, "clip": row, "assignments": assignments})
+
+    def save_last_word(self, body):
+        cid = body.get("id")
+        assignments, err = add_last_word(cid)
+        if err:
+            return self._json(400, {"ok": False, "error": err})
+        clips = write_clips_js()
+        row = next((x for x in clips if x["id"] == cid), None)
+        print(f"last-word {cid}", flush=True)
+        return self._json(200, {"ok": True, "clip": row, "lastWords": assignments})
+
+    def drop_last_word(self, body):
+        cid = body.get("id")
+        assignments, err = remove_last_word(cid)
+        if err:
+            return self._json(400, {"ok": False, "error": err})
+        clips = write_clips_js()
+        row = next((x for x in clips if x["id"] == cid), None)
+        return self._json(200, {"ok": True, "clip": row, "lastWords": assignments})
+
+    def save_use(self, body):
+        cid = body.get("id")
+        slot = body.get("slot")
+        on = body.get("on")
+        if on is None:
+            return self._json(400, {"ok": False, "error": "on required"})
+        assignments, err = set_use(cid, slot, bool(on))
+        if err:
+            return self._json(400, {"ok": False, "error": err})
+        clips = write_clips_js()
+        row = next((x for x in clips if x["id"] == cid), None)
+        print(f"use {cid} {slot}={'on' if on else 'off'}", flush=True)
+        return self._json(200, {
+            "ok": True,
+            "clip": row,
+            "assignments": load_assignments(),
+            "lastWords": load_last_words(),
+            "orders": load_orders(),
+        })
+
+    def save_reel(self, body):
+        cid = body.get("id")
+        rel, err = overlay_reel(cid)
+        if err:
+            return self._json(400, {"ok": False, "error": err})
+        clips = write_clips_js()
+        row = next((x for x in clips if x["id"] == cid), None)
+        print(f"reel {cid} {rel}", flush=True)
+        return self._json(200, {"ok": True, "clip": row, "reel": rel})
 
 
 def main():

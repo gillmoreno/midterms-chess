@@ -1,4 +1,4 @@
-# Chess soundbites — 75/101 extracted
+# Chess soundbites — 104/131 extracted
 
 - [OK] tate-check: Check. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/commentators/tate/tate-check.mp3
 - [OK] tate-mate-in-two: Mate in two, Piers. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/commentators/tate/tate-mate-in-two.mp3
@@ -28,24 +28,35 @@
 - [MISS] newsom-used-to-bullying: I'm used to bullying. — quote not found in captions/audio
 - [MISS] newsom-spare-me: Spare me this notion of freedom. — quote not found in captions/audio
 - [MISS] newsom-fire: Fight fire with fire. — quote not found in captions/audio
+- [OK] newsom-bad-mistake: I made a bad mistake. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/newsom/newsom-bad-mistake.mp3
 - [OK] aoc-lied-to: It doesn't take a smart person to know if you're being lied to. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/aoc/aoc-lied-to.mp3
 - [MISS] aoc-lying: You're either being lied to or you are lying. — quote not found in captions/audio
 - [OK] aoc-devil: This bill is a deal with the devil. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/aoc/aoc-devil.mp3
 - [OK] aoc-beat-them: We are going to beat them. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/aoc/aoc-beat-them.mp3
+- [OK] aoc-bartender: I'm proud to be a bartender. Ain't nothing wrong with that. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/aoc/aoc-bartender.mp3
 - [OK] bernie-damn-bill: I wrote the damn bill. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/bernie/bernie-damn-bill.mp3
 - [OK] bernie-youre-wrong: You're wrong. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/bernie/bernie-youre-wrong.mp3
 - [OK] bernie-not-me-us: Not me. Us. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/bernie/bernie-not-me-us.mp3
+- [OK] bernie-once-again: I am once again asking for your financial support. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/bernie/bernie-once-again.mp3
 - [OK] schumer-whirlwind: You have released the whirlwind. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/schumer/schumer-whirlwind.mp3
 - [OK] schumer-pay-the-price: You will pay the price. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/schumer/schumer-pay-the-price.mp3
 - [OK] schumer-what-hit-you: You won't know what hit you. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/schumer/schumer-what-hit-you.mp3
 - [OK] schumer-gone-november: You're gone in November. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/schumer/schumer-gone-november.mp3
 - [OK] schumer-not-on-our-watch: Not on our watch. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/schumer/schumer-not-on-our-watch.mp3
 - [MISS] schumer-brooklyn: I'm from Brooklyn. We speak in strong language. — quote not found in captions/audio
+- [OK] schumer-wrong-words: I should not have used the words I used. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/schumer/schumer-wrong-words.mp3
 - [OK] kamala-im-speaking: I'm speaking. / Mr. Vice President, I'm speaking. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/kamala/kamala-im-speaking.mp3
 - [OK] kamala-we-did-it: We did it, Joe. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/kamala/kamala-we-did-it.mp3
 - [MISS] kamala-running-against-me: You're running against me. — quote not found in captions/audio
 - [MISS] kamala-not-going-back: We're not going back. — quote not found in captions/audio
 - [OK] kamala-coconut: You think you just fell out of a coconut tree? — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/kamala/kamala-coconut.mp3
+- [OK] kamala-unburdened: What can be, unburdened by what has been. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-unburdened.mp3
+- [OK] kamala-doac-troubling: It's a troubling time. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-doac-troubling.mp3
+- [OK] kamala-doac-worse: It may get worse before it gets better. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-doac-worse.mp3
+- [OK] kamala-doac-different: I do think about how different it could have been. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-doac-different.mp3
+- [OK] kamala-doac-shock: I was in a state of shock. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-doac-shock.mp3
+- [OK] kamala-doac-my-god: My God, my God, my God. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-doac-my-god.mp3
+- [OK] kamala-doac-more-time: I wish we had more time. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-doac-more-time.mp3
 - [OK] warren-plan: I have a plan for that. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/warren/warren-plan.mp3
 - [OK] warren-bloomberg: No, I'm not talking about Donald Trump. I'm talking about Mayor Bloomberg. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/warren/warren-bloomberg.mp3
 - [OK] warren-wine-caves: Billionaires in wine caves should not pick the next president. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/warren/warren-wine-caves.mp3
@@ -58,9 +69,11 @@
 - [OK] mamdani-get-through: To get to any of us, you will have to get through all of us. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/mamdani/mamdani-get-through.mp3
 - [OK] mamdani-dynasty: We have toppled a political dynasty. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/mamdani/mamdani-dynasty.mp3
 - [OK] mamdani-his-name: Let tonight be the final time I utter his name. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/left/mamdani/mamdani-his-name.mp3
-- [OK] trump-fired: You are fired. Get out. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/trump/trump-fired.mp3
+- [OK] mamdani-no-apology: I refuse to apologize. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/mamdani/mamdani-no-apology.mp3
+- [OK] trump-fired: You are fired. Get out. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-fired.mp3
 - [OK] trump-jail: Because you'd be in jail. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/trump/trump-jail.mp3
 - [OK] trump-nasty-woman: Such a nasty woman. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/trump/trump-nasty-woman.mp3
+- [OK] trump-obliterated: Obliterated. The air force is gone. The navy is gone. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-obliterated.mp3
 - [OK] trump-alone-fix: I alone can fix it. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/trump/trump-alone-fix.mp3
 - [OK] trump-your-voice: I am your voice. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/trump/trump-your-voice.mp3
 - [OK] trump-win-so-much: We're going to win so much. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/trump/trump-win-so-much.mp3
@@ -68,6 +81,7 @@
 - [OK] trump-pwmc: Person. Woman. Man. Camera. TV. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/trump/trump-pwmc.mp3
 - [OK] trump-dogs: They're eating the dogs… they're eating the cats. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/trump/trump-dogs.mp3
 - [OK] trump-little-marco: Don't worry about it, Little Marco. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/trump/trump-little-marco.mp3
+- [OK] trump-no-responsibility: I don't take responsibility at all. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-no-responsibility.mp3
 - [OK] melania-dont-care: I want to show them that I don't care. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/melania/melania-dont-care.mp3
 - [OK] melania-wont-stop-me: It will not stop me to do what I feel is right. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/melania/melania-wont-stop-me.mp3
 - [MISS] melania-wont-be-close: And it won't even be close. — quote not found in captions/audio
@@ -76,15 +90,18 @@
 - [OK] mcconnell-going-anywhere: None of that stuff is going anywhere. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/mcconnell/mcconnell-going-anywhere.mp3
 - [MISS] mcconnell-vacancy: Mr. President, you will not fill this Supreme Court vacancy. — quote not found in captions/audio
 - [OK] mcconnell-let-me-finish: Let me finish. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/mcconnell/mcconnell-let-me-finish.mp3
+- [OK] mcconnell-eighth-time: I will not seek this honor an eighth time. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/mcconnell/mcconnell-eighth-time.mp3
 - [OK] rubio-dispel: Let's dispel with this fiction… — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/rubio/rubio-dispel.mp3
 - [OK] rubio-knows-exactly: He knows exactly what he's doing. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/rubio/rubio-knows-exactly.mp3
 - [MISS] rubio-trump-steaks: You ever heard of Trump Steaks? — quote not found in captions/audio
 - [MISS] rubio-steaks-gone: Trump Steaks is gone. — quote not found in captions/audio
 - [MISS] rubio-big-donald: Let's hear it, big Donald. — quote not found in captions/audio
-- [MISS] rubio-yoga: When they're done with the yoga, can I answer a question? — quote not found in captions/audio
+- [OK] rubio-yoga: When they're done with the yoga, can I answer a question? — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/rubio/rubio-yoga.mp3
+- [OK] rubio-flexible: Well, he's very flexible, so you never know. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/rubio/rubio-flexible.mp3
 - [OK] cruz-coward: Donald, you're a sniveling coward. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/cruz/cruz-coward.mp3
 - [OK] cruz-heidi: Leave Heidi the hell alone. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/cruz/cruz-heidi.mp3
 - [OK] cruz-breathe: Breathe, breathe, breathe. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/cruz/cruz-breathe.mp3
+- [OK] cruz-cancun: It was obviously a mistake. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/cruz/cruz-cancun.mp3
 - [OK] cruz-carpet-bomb: We will carpet bomb them into oblivion. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/cruz/cruz-carpet-bomb.mp3
 - [OK] cruz-conscience: Vote your conscience. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/cruz/cruz-conscience.mp3
 - [OK] cruz-chump: He is playing you for a chump. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/cruz/cruz-chump.mp3
@@ -98,6 +115,21 @@
 - [OK] vance-boneheaded: Oh man, my most boneheaded comment. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/vance/vance-boneheaded.mp3
 - [OK] desantis-woke-dies: Florida is where woke goes to die. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/desantis/desantis-woke-dies.mp3
 - [OK] desantis-never-surrender: We will never, ever surrender to the woke mob. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/desantis/desantis-never-surrender.mp3
+- [OK] desantis-suspending: I am today suspending my campaign. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/desantis/desantis-suspending.mp3
 - [OK] desantis-begun-to-fight: I have only begun to fight. — /Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/desantis/desantis-begun-to-fight.mp3
 - [MISS] desantis-recovery: I wish the United States of America a speedy recovery from Biden. — could not resolve source
 - [MISS] desantis-end-zone: It's to put the ball in the end zone. — could not resolve source
+- [OK] trump-vs-harris-comrade: Comrade Kamala Harris. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-harris-comrade.mp3
+- [OK] trump-vs-harris-lyin: Lyin' Kamala Harris. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-harris-lyin.mp3
+- [OK] trump-vs-aoc-stupid: AOC Plus 3. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-aoc-stupid.mp3
+- [OK] trump-vs-sanders-crazy: Crazy Bernie. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-sanders-crazy.mp3
+- [OK] trump-vs-schumer-cryin: Chuck Schumer, crying Chuck. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-schumer-cryin.mp3
+- [OK] trump-vs-warren-pocahontas: They call her Pocahontas. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-warren-pocahontas.mp3
+- [OK] trump-vs-pete-alfred: Ladies and gentlemen, introducing President Alfred E. Neuman. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-pete-alfred.mp3
+- [OK] trump-vs-mamdani-communist: This guy is a communist at the highest level. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-mamdani-communist.mp3
+- [OK] trump-vs-activist-lunatics: Radical left lunatic. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-activist-lunatics.mp3
+- [OK] newsom-vs-desantis-outtrump: So you can out-Trump Trump. And by the way, how's that going for you, Ron? — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/newsom/newsom-vs-desantis-outtrump.mp3
+- [OK] newsom-vs-vance-phonies: What frauds. What phonies. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/newsom/newsom-vs-vance-phonies.mp3
+- [OK] newsom-vs-rubio-phonies: JD Vance and Marco Rubio were two of the most effective critics of Donald Trump. What frauds. What phonies. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/newsom/newsom-vs-rubio-phonies.mp3
+- [OK] newsom-vs-maga-knee: New knee pads that I'll be sending out for all these CEOs for bending their knee. — /Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/newsom/newsom-vs-maga-knee.mp3
+- [MISS] newsom-vs-cruz-cancun: Cancun Cruz. — 

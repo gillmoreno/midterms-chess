@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Floor Vote — Left vs Right</title>
+    <title>The Midterms — Left vs Right</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -41,14 +41,14 @@
           <em>AOC · Commie Bernie · Chuck-U · Comrade Kamala · Pocahontas · Mayor Pete · Zohran</em>
         </div>
         <div class="seal">
-          <span class="seal-ring">Floor Vote</span>
+          <span class="seal-ring">The Midterms</span>
           <h1>Left <i>vs</i> Right</h1>
           <span class="sub">A 3D session of the American board</span>
         </div>
         <div class="house right">
           <span class="kicker">The Right</span>
           <strong>Trump</strong>
-          <em>Melania · McConnell · Rubio · Cruz · RFK Jr. · Vance · DeSantis</em>
+          <em>Karoline · Dr. Rand · Little Marco · Cancun Cruz · Bobby · JD · Ron</em>
         </div>
       </header>
 
@@ -69,11 +69,13 @@
           <p id="taunt-line"></p>
         </div>
         <div id="inspect">
-          <div id="hover-card" hidden>
+          <div id="hover-card" hidden data-size="lg">
+            <button type="button" id="hover-size">Smaller</button>
             <img id="hover-img" alt="" />
             <div>
               <strong id="hover-name"></strong>
               <span id="hover-role"></span>
+              <small id="hover-bark"></small>
               <em id="hover-note"></em>
             </div>
           </div>
@@ -85,7 +87,7 @@
         </div>
         <div id="cine" hidden>
           <div class="cine-frame">
-            <span class="cine-stamp">Kill cam</span>
+            <span class="cine-stamp" id="cine-stamp">Kill cam</span>
             <video id="cine-video" playsinline></video>
             <div class="cine-bar">
               <p id="cine-line"></p>
@@ -133,6 +135,9 @@
         <div id="ticker" class="ticker"></div>
         <div class="dock-actions">
           <a class="btn-link" href="picks.html">Gag shop</a>
+          <a class="btn-link" href="barks.html">Barks</a>
+          <a class="btn-link" href="order.html">Orders</a>
+          <a class="btn-link" href="defeated.html">Defeated</a>
           <a class="btn-link" href="scripts.html">Kill scripts</a>
           <button type="button" id="btn-sound">Sound on</button>
           <button type="button" id="btn-flip">Spin the chamber</button>

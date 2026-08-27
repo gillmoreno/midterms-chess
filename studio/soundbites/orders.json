@@ -1,0 +1,11 @@
+{
+  "trump:harris": [
+    {
+      "id": "trump-fired",
+      "line": "You are fired. Get out.",
+      "src": "assets/sfx/orders/trump-fired.mp3",
+      "speaker": "trump",
+      "target": "harris"
+    }
+  ]
+}

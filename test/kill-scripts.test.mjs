@@ -51,7 +51,11 @@ test("every cross-house pair has five distinct hooks of mixed heat", () => {
 test("filmed pawn lines stay the spoken ones", () => {
   assert.equal(isFilmed("maga", "activist"), true);
   assert.equal(isFilmed("activist", "maga"), true);
+  assert.equal(isFilmed("aoc", "maga"), true);
+  assert.equal(isFilmed("rfk", "activist"), true);
   assert.equal(isFilmed("trump", "aoc"), false);
   assert.equal(lineFor("maga", "activist"), "You're pronouns are: You, dead!");
   assert.equal(lineFor("activist", "maga"), "I am aborting you now!");
+  assert.equal(lineFor("aoc", "maga"), "This will go viral, you are not");
+  assert.equal(lineFor("rfk", "activist"), "I'll get rid of seed oils, and you");
 });

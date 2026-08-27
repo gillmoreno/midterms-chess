@@ -3,20 +3,24 @@
 export const FILMED = {
   "maga:activist": true,
   "activist:maga": true,
+  "aoc:maga": true,
+  "rfk:activist": true,
 };
 
 export const VOICES = {
   trump: { id: "rex", label: "Rex — bombastic, laughing" },
   melania: { id: "ara", label: "Ara — cool, almost a whisper" },
+  leavitt: { id: "ara", label: "Ara — briefing, sharp, fast" },
   mcconnell: { id: "helix", label: "Helix — slow, dry, procedural" },
+  paul: { id: "leo", label: "Leo — Kentucky, questioning, will not yield" },
   rubio: { id: "leo", label: "Leo — bright, a little breathless" },
   cruz: { id: "kepler", label: "Kepler — preacher, nasal, delighted" },
-  rfk: { id: "orion", label: "Orion — hoarse, earnest, a little cracked" },
+  rfk: { id: "lux", label: "Lux — flat, a bit robotic, then the plate" },
   vance: { id: "lux", label: "Lux — flat, mean, essay-voice" },
   desantis: { id: "atlas", label: "Atlas — clipped, gubernatorial" },
   maga: { id: "rex", label: "Rex — loud, laughing, dump the drum" },
   newsom: { id: "sirius", label: "Sirius — slick, hair-gel confident" },
-  aoc: { id: "eve", label: "Eve — sharp, smiling, then the shot" },
+  aoc: { id: "iris", label: "Iris — California, this will go viral, then the Hadouken" },
   sanders: { id: "perseus", label: "Perseus — gravel, pointing" },
   schumer: { id: "lumen", label: "Lumen — majority-leader, no rush" },
   harris: { id: "luna", label: "Luna — prosecutor, then a laugh" },
@@ -29,15 +33,17 @@ export const VOICES = {
 export const DELIVERY = {
   trump: "Shouts the line, points, laughs, then fires.",
   melania: "Almost whispers it. One clean shot. Does not blink.",
+  leavitt: "Hits the line like a briefing. Then the shot.",
   mcconnell: "Mutters it like a ruling. Then the gavel is a gun.",
+  paul: "Holds both hands up, makes the point, then the tower fires.",
   rubio: "Speaks too fast, catches himself, then dumps the clip.",
   cruz: "Preaches the line, finger in the air, then the rifle.",
-  rfk: "Hoarse town-hall cadence. Then the shot.",
+  rfk: "Flat robotic line, then a 25-pound plate like a frisbee.",
   vance: "Deadpan, one breath, then a short burst.",
   desantis: "Reads it like a statute. Then Florida opens fire.",
   maga: "Says the line, laughs, then dumps the drum.",
   newsom: "Slicks it out, poses, then a clean burst.",
-  aoc: "Smiles the line into the camera, then shoots.",
+  aoc: "Smiles the line, then a Hadouken.",
   sanders: "Points, repeats the last three words, then fires.",
   schumer: "Has the floor. Yields nothing. Then the shot.",
   harris: "Prosecutor cadence. Case closed. Then the gun.",
@@ -256,6 +262,73 @@ export const LINES = {
       ),
     },
   },
+  paul: {
+    vs: {
+      newsom: H(
+        L("California's mandate just got filibustered.", "hot"),
+        L("Gavin, I will not yield the floor. Or the square.", "sly"),
+        L("Lockdown's over. So are you.", "soft"),
+        L("The hair couldn't survive a point of order.", "sly"),
+        L("I audited California. It failed.", "hot")
+      ),
+      aoc: H(
+        L("The Green New Deal is out of order.", "hot"),
+        L("Congresswoman, I have questions. You have none left.", "sly"),
+        L("I will not yield. Sit.", "soft"),
+        L("Tax this. Audit that. Gone.", "sly"),
+        L("The squad just met a doctor with a gavel.", "hot")
+      ),
+      sanders: H(
+        L("Socialism fails the audit.", "hot"),
+        L("Bernie, the Fed isn't printing you a square.", "sly"),
+        L("The revolution is out of order.", "soft"),
+        L("I am once again asking you to yield.", "sly"),
+        L("Thirty years of shouting. One Kentucky no.", "hot")
+      ),
+      schumer: H(
+        L("Leader, I do not yield.", "hot"),
+        L("Chuck, the floor is a filibuster now.", "sly"),
+        L("We can do this all night. I have.", "soft"),
+        L("Cloture needs sixty. You have zero.", "sly"),
+        L("The majority leader just got a doctor's note. Sit.", "hot")
+      ),
+      harris: H(
+        L("Prosecutor, the Constitution objects.", "hot"),
+        L("I'm speaking. For thirteen hours if I have to.", "sly"),
+        L("Madam Vice President, that's a no.", "soft"),
+        L("The laugh just got a point of order.", "sly"),
+        L("Unburdened by warrants. Burdened by you.", "hot")
+      ),
+      warren: H(
+        L("I have a plan. It's called no.", "hot"),
+        L("The CFPB cannot regulate this square.", "sly"),
+        L("Senator, that's enough government.", "soft"),
+        L("Nevertheless, the motion fails.", "sly"),
+        L("Two cents on the dollar. Zero on the Fed.", "hot")
+      ),
+      buttigieg: H(
+        L("Transportation is out of jurisdiction.", "hot"),
+        L("Mayor, I have some questions about the trains.", "sly"),
+        L("Pete, that's a no on the mandate.", "soft"),
+        L("South Bend is not a federal case.", "sly"),
+        L("I filibustered drones. You're easier.", "hot")
+      ),
+      mamdani: H(
+        L("Free buses. Expensive Constitution.", "hot"),
+        L("Mayor, I object to the whole platform.", "sly"),
+        L("Zohran, that's a no from Kentucky.", "soft"),
+        L("City Hall is not the Fed. I audit both.", "sly"),
+        L("The uprising just got a point of order.", "hot")
+      ),
+      activist: H(
+        L("Your pronouns are: you, out of order.", "hot"),
+        L("Kid, this is a hearing. You're the exhibit.", "sly"),
+        L("That's enough. Sit.", "soft"),
+        L("I don't tread. I filibuster.", "sly"),
+        L("The mandate just failed cloture.", "hot")
+      ),
+    },
+  },
   rubio: {
     vs: {
       newsom: H(
@@ -449,7 +522,7 @@ export const LINES = {
         L("Socialism, meet a name older than your subway.", "hot")
       ),
       activist: H(
-        L("Kid, I protested before your beanie was born.", "hot"),
+        L("I'll get rid of seed oils, and you", "sly"),
         L("The sign is a toxin. So was standing there.", "sly"),
         L("Go home. Hydrate. Stay gone.", "soft"),
         L("That's not medicine. That's a loss.", "sly"),
@@ -681,6 +754,13 @@ export const LINES = {
         L("Cloture on the 20th century.", "sly"),
         L("Your gavel is a museum piece.", "hot")
       ),
+      paul: H(
+        L("Kentucky, California doesn't filibuster. It wins.", "hot"),
+        L("Doctor, the hair is the diagnosis.", "sly"),
+        L("Rand, that's enough hands.", "soft"),
+        L("Audit this L.", "sly"),
+        L("The libertarian just met a state with a coastline.", "hot")
+      ),
       rubio: H(
         L("Little Marco. Big L.", "hot"),
         L("Drink water. You'll need it in defeat.", "sly"),
@@ -748,6 +828,13 @@ export const LINES = {
         L("I have one minute. I only needed ten seconds.", "sly"),
         L("Your obstruction just got green-new-dealt.", "hot")
       ),
+      paul: H(
+        L("I will not yield. I will take the square.", "hot"),
+        L("The gentleman's hands are a whole speech.", "sly"),
+        L("Senator, that's a wrap on the lecture.", "soft"),
+        L("Audit the Fed. Ignore the freshman. Mistake.", "sly"),
+        L("Your filibuster just got green-new-dealt.", "hot")
+      ),
       rubio: H(
         L("The water boy ran dry.", "sly"),
         L("Little Marco, big public option: goodbye.", "hot"),
@@ -784,7 +871,7 @@ export const LINES = {
         L("Woke isn't dead. Your position is.", "hot")
       ),
       maga: H(
-        L("Your hat clashed with the future.", "sly"),
+        L("This will go viral, you are not", "sly"),
         L("The base just got taxed.", "hot"),
         L("Sir, the rally's that way. The exit's this way.", "soft"),
         L("Open carry, closed argument.", "sly"),
@@ -814,6 +901,13 @@ export const LINES = {
         L("Mitch, the people have spoken. Loudly.", "soft"),
         L("Your gavel is not bigger than this room.", "sly"),
         L("I have been waiting since the 70s. Worth it.", "hot")
+      ),
+      paul: H(
+        L("The people, not the filibuster.", "hot"),
+        L("Kentucky, the movement doesn't yield either.", "sly"),
+        L("Rand, sit. The shouting is mine.", "soft"),
+        L("Audit the billionaires. Starting with your square.", "sly"),
+        L("Thirteen hours. I have forty years.", "hot")
       ),
       rubio: H(
         L("The young people are with me. You aren't.", "sly"),
@@ -882,6 +976,13 @@ export const LINES = {
         L("Cloture. On the turtle.", "sly"),
         L("Thirty years. One New Yorker. Done.", "hot")
       ),
+      paul: H(
+        L("I have the floor. You had a filibuster.", "hot"),
+        L("Rand, the majority doesn't need your hands.", "sly"),
+        L("Doctor, the Senate just moved on.", "soft"),
+        L("Cloture on Kentucky.", "sly"),
+        L("Yield, senator. Permanently.", "hot")
+      ),
       rubio: H(
         L("Marco, the majority just moved.", "sly"),
         L("Little Marco, big apple ending.", "hot"),
@@ -948,6 +1049,13 @@ export const LINES = {
         L("Senator, the people have been.", "soft"),
         L("Cloture? Conviction.", "sly"),
         L("Thirty years is a long rap sheet.", "hot")
+      ),
+      paul: H(
+        L("I was a prosecutor. You're a lecture.", "hot"),
+        L("The gentleman will answer the question. Or not.", "sly"),
+        L("Senator, I'm speaking.", "soft"),
+        L("Thirteen hours and still no case.", "sly"),
+        L("Unburdened by the filibuster.", "hot")
       ),
       rubio: H(
         L("Unburdened by what has been. You.", "sly"),
@@ -1016,6 +1124,13 @@ export const LINES = {
         L("Nevertheless, the turtle loses.", "sly"),
         L("Thirty years is a predatory practice.", "hot")
       ),
+      paul: H(
+        L("I have a plan for libertarians. It's short.", "hot"),
+        L("The Fed is fine. You're not.", "sly"),
+        L("Rand, that's enough theory.", "soft"),
+        L("Nevertheless, Kentucky loses.", "sly"),
+        L("Audit this: you lost.", "hot")
+      ),
       rubio: H(
         L("I have a plan for Marco. It's short.", "sly"),
         L("Little Marco, big fine print.", "hot"),
@@ -1082,6 +1197,13 @@ export const LINES = {
         L("Senator, that's a delay I can live with. You can't.", "soft"),
         L("Infrastructure week just paved you over.", "sly"),
         L("Thirty years of potholes. I filled the last one.", "hot")
+      ),
+      paul: H(
+        L("The trains run. The filibuster doesn't.", "hot"),
+        L("Doctor, that's a delay I can schedule around.", "sly"),
+        L("Senator, infrastructure doesn't yield.", "soft"),
+        L("Kentucky, the briefing is over.", "sly"),
+        L("I translated your no into a concession.", "hot")
       ),
       rubio: H(
         L("Spanish is fine. Your position isn't.", "sly"),
@@ -1150,6 +1272,13 @@ export const LINES = {
         L("The Senate just got a subway. Lost a turtle.", "sly"),
         L("City Hall vs. the gavel. Guess who stood.", "hot")
       ),
+      paul: H(
+        L("The subway doesn't filibuster.", "hot"),
+        L("Kentucky, this is Queens. We don't yield.", "sly"),
+        L("Rand, sit. The city has the floor.", "soft"),
+        L("Audit the rent. Not my square.", "sly"),
+        L("City Hall vs. the hands. City Hall.", "hot")
+      ),
       rubio: H(
         L("Brother Marco, this is the end.", "sly"),
         L("Drink water. Drink this loss.", "soft"),
@@ -1217,6 +1346,13 @@ export const LINES = {
         L("Your gavel is a relic. So are you.", "sly"),
         L("The gallery just rushed the floor.", "hot")
       ),
+      paul: H(
+        L("OK boomer. Filibuster edition.", "hot"),
+        L("Those hands are a whole TED talk.", "sly"),
+        L("Sit down, senator.", "soft"),
+        L("Your Constitution is a costume. This is a protest.", "sly"),
+        L("The gallery just ended the hearing.", "hot")
+      ),
       rubio: H(
         L("Drink water. Choke on it.", "hot"),
         L("Little Marco, big protest.", "sly"),
@@ -1262,6 +1398,13 @@ export const LINES = {
     },
   },
 };
+
+LINES.leavitt = { vs: LINES.melania.vs };
+["newsom", "aoc", "sanders", "schumer", "harris", "warren", "buttigieg", "mamdani", "activist"].forEach(function (id) {
+  if (LINES[id] && LINES[id].vs && LINES[id].vs.melania) {
+    LINES[id].vs.leavitt = LINES[id].vs.melania;
+  }
+});
 
 const EDIT_KEY = "floor-vote-kill-lines-v2";
 

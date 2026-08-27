@@ -35,18 +35,32 @@ clips/commentators/rogan/rogan-jamie.mp3
 clips/commentators/rogan/rogan-bananas.mp3
 #EXTINF:-1,newsom — How's that going for you, Ron?
 clips/left/newsom/newsom-hows-that.mp3
+#EXTINF:-1,newsom — I made a bad mistake.
+clips/left/newsom/newsom-bad-mistake.mp3
+#EXTINF:-1,newsom — So you can out-Trump Trump. And by the way, how's that going for you, Ron?
+clips/left/newsom/newsom-vs-desantis-outtrump.mp3
+#EXTINF:-1,newsom — What frauds. What phonies.
+clips/left/newsom/newsom-vs-vance-phonies.mp3
+#EXTINF:-1,newsom — JD Vance and Marco Rubio were two of the most effective critics of Donald Trump. What frauds. What phonies.
+clips/left/newsom/newsom-vs-rubio-phonies.mp3
+#EXTINF:-1,newsom — New knee pads that I'll be sending out for all these CEOs for bending their knee.
+clips/left/newsom/newsom-vs-maga-knee.mp3
 #EXTINF:-1,aoc — It doesn't take a smart person to know if you're being lied to.
 clips/left/aoc/aoc-lied-to.mp3
 #EXTINF:-1,aoc — This bill is a deal with the devil.
 clips/left/aoc/aoc-devil.mp3
 #EXTINF:-1,aoc — We are going to beat them.
 clips/left/aoc/aoc-beat-them.mp3
+#EXTINF:-1,aoc — I'm proud to be a bartender. Ain't nothing wrong with that.
+clips/left/aoc/aoc-bartender.mp3
 #EXTINF:-1,bernie — I wrote the damn bill.
 clips/left/bernie/bernie-damn-bill.mp3
 #EXTINF:-1,bernie — You're wrong.
 clips/left/bernie/bernie-youre-wrong.mp3
 #EXTINF:-1,bernie — Not me. Us.
 clips/left/bernie/bernie-not-me-us.mp3
+#EXTINF:-1,bernie — I am once again asking for your financial support.
+clips/left/bernie/bernie-once-again.mp3
 #EXTINF:-1,schumer — You have released the whirlwind.
 clips/left/schumer/schumer-whirlwind.mp3
 #EXTINF:-1,schumer — You will pay the price.
@@ -57,12 +71,28 @@ clips/left/schumer/schumer-what-hit-you.mp3
 clips/left/schumer/schumer-gone-november.mp3
 #EXTINF:-1,schumer — Not on our watch.
 clips/left/schumer/schumer-not-on-our-watch.mp3
+#EXTINF:-1,schumer — I should not have used the words I used.
+clips/left/schumer/schumer-wrong-words.mp3
 #EXTINF:-1,kamala — I'm speaking. / Mr. Vice President, I'm speaking.
 clips/left/kamala/kamala-im-speaking.mp3
 #EXTINF:-1,kamala — We did it, Joe.
 clips/left/kamala/kamala-we-did-it.mp3
 #EXTINF:-1,kamala — You think you just fell out of a coconut tree?
 clips/left/kamala/kamala-coconut.mp3
+#EXTINF:-1,kamala — What can be, unburdened by what has been.
+clips/left/kamala/kamala-unburdened.mp3
+#EXTINF:-1,kamala — It's a troubling time.
+clips/left/kamala/kamala-doac-troubling.mp3
+#EXTINF:-1,kamala — It may get worse before it gets better.
+clips/left/kamala/kamala-doac-worse.mp3
+#EXTINF:-1,kamala — I do think about how different it could have been.
+clips/left/kamala/kamala-doac-different.mp3
+#EXTINF:-1,kamala — I was in a state of shock.
+clips/left/kamala/kamala-doac-shock.mp3
+#EXTINF:-1,kamala — My God, my God, my God.
+clips/left/kamala/kamala-doac-my-god.mp3
+#EXTINF:-1,kamala — I wish we had more time.
+clips/left/kamala/kamala-doac-more-time.mp3
 #EXTINF:-1,warren — I have a plan for that.
 clips/left/warren/warren-plan.mp3
 #EXTINF:-1,warren — No, I'm not talking about Donald Trump. I'm talking about Mayor Bloomberg.
@@ -81,6 +111,8 @@ clips/left/mamdani/mamdani-get-through.mp3
 clips/left/mamdani/mamdani-dynasty.mp3
 #EXTINF:-1,mamdani — Let tonight be the final time I utter his name.
 clips/left/mamdani/mamdani-his-name.mp3
+#EXTINF:-1,mamdani — I refuse to apologize.
+clips/left/mamdani/mamdani-no-apology.mp3
 #EXTINF:-1,trump — You are fired. Get out.
 clips/right/trump/trump-fired.mp3
 #EXTINF:-1,trump — Because you'd be in jail.
@@ -101,6 +133,26 @@ clips/right/trump/trump-pwmc.mp3
 clips/right/trump/trump-dogs.mp3
 #EXTINF:-1,trump — Don't worry about it, Little Marco.
 clips/right/trump/trump-little-marco.mp3
+#EXTINF:-1,trump — I don't take responsibility at all.
+clips/right/trump/trump-no-responsibility.mp3
+#EXTINF:-1,trump — Comrade Kamala Harris.
+clips/right/trump/trump-vs-harris-comrade.mp3
+#EXTINF:-1,trump — Lyin' Kamala Harris.
+clips/right/trump/trump-vs-harris-lyin.mp3
+#EXTINF:-1,trump — AOC Plus 3.
+clips/right/trump/trump-vs-aoc-stupid.mp3
+#EXTINF:-1,trump — Crazy Bernie.
+clips/right/trump/trump-vs-sanders-crazy.mp3
+#EXTINF:-1,trump — Chuck Schumer, crying Chuck.
+clips/right/trump/trump-vs-schumer-cryin.mp3
+#EXTINF:-1,trump — They call her Pocahontas.
+clips/right/trump/trump-vs-warren-pocahontas.mp3
+#EXTINF:-1,trump — Ladies and gentlemen, introducing President Alfred E. Neuman.
+clips/right/trump/trump-vs-pete-alfred.mp3
+#EXTINF:-1,trump — This guy is a communist at the highest level.
+clips/right/trump/trump-vs-mamdani-communist.mp3
+#EXTINF:-1,trump — Radical left lunatic.
+clips/right/trump/trump-vs-activist-lunatics.mp3
 #EXTINF:-1,melania — I want to show them that I don't care.
 clips/right/melania/melania-dont-care.mp3
 #EXTINF:-1,melania — It will not stop me to do what I feel is right.
@@ -113,6 +165,8 @@ clips/right/mcconnell/mcconnell-reaper.mp3
 clips/right/mcconnell/mcconnell-going-anywhere.mp3
 #EXTINF:-1,mcconnell — Let me finish.
 clips/right/mcconnell/mcconnell-let-me-finish.mp3
+#EXTINF:-1,mcconnell — I will not seek this honor an eighth time.
+clips/right/mcconnell/mcconnell-eighth-time.mp3
 #EXTINF:-1,rubio — Let's dispel with this fiction…
 clips/right/rubio/rubio-dispel.mp3
 #EXTINF:-1,rubio — He knows exactly what he's doing.
@@ -123,6 +177,8 @@ clips/right/cruz/cruz-coward.mp3
 clips/right/cruz/cruz-heidi.mp3
 #EXTINF:-1,cruz — Breathe, breathe, breathe.
 clips/right/cruz/cruz-breathe.mp3
+#EXTINF:-1,cruz — It was obviously a mistake.
+clips/right/cruz/cruz-cancun.mp3
 #EXTINF:-1,cruz — We will carpet bomb them into oblivion.
 clips/right/cruz/cruz-carpet-bomb.mp3
 #EXTINF:-1,cruz — Vote your conscience.
@@ -147,5 +203,7 @@ clips/right/vance/vance-boneheaded.mp3
 clips/right/desantis/desantis-woke-dies.mp3
 #EXTINF:-1,desantis — We will never, ever surrender to the woke mob.
 clips/right/desantis/desantis-never-surrender.mp3
+#EXTINF:-1,desantis — I am today suspending my campaign.
+clips/right/desantis/desantis-suspending.mp3
 #EXTINF:-1,desantis — I have only begun to fight.
 clips/right/desantis/desantis-begun-to-fight.mp3

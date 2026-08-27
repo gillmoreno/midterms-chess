@@ -1,0 +1,216 @@
+{
+  "composition": {
+    "right": {
+      "king": "trump",
+      "kingBack": "studio/capture-order/right/_king-back.jpg",
+      "board": "black-white marble",
+      "cape": "red with gold embroidery"
+    },
+    "left": {
+      "king": "newsom",
+      "kingBack": "studio/capture-order/left/_king-back.jpg",
+      "board": "black-white marble",
+      "cape": "teal with gold embroidery"
+    }
+  },
+  "beds": [
+    {
+      "id": "maga",
+      "side": "right",
+      "type": "p",
+      "portrait": "assets/portraits/pawn-right.jpg",
+      "still": "studio/capture-order/right/maga.jpg",
+      "mute": "studio/capture-order/right/maga-mute.mp4",
+      "gag": "Grinning MAGA pawn in red cap, navy hoodie, gold chain, blue jeans, white sneakers, rifle across the chest, eager to take the order.",
+      "motion": "The MAGA pawn nods hard once and pumps the rifle a little, still grinning.",
+      "status": "mute"
+    },
+    {
+      "id": "melania",
+      "side": "right",
+      "type": "q",
+      "portrait": "assets/portraits/melania.jpg",
+      "still": "studio/capture-order/right/melania.jpg",
+      "mute": "studio/capture-order/right/melania-mute.mp4",
+      "gag": "Melania in the ivory gold-embroidered gown and gold crown, icy, barely acknowledging the king, one eyebrow, statue-still.",
+      "motion": "Melania gives the tiniest bored nod, otherwise frozen.",
+      "status": "mute"
+    },
+    {
+      "id": "leavitt",
+      "side": "right",
+      "type": "q",
+      "portrait": "assets/portraits/leavitt.jpg",
+      "still": "studio/capture-order/right/leavitt.jpg",
+      "mute": "studio/capture-order/right/leavitt-mute.mp4",
+      "gag": "Karoline in a pink blazer and skirt, gold crown, gold cross necklace, listening to the king, mouth closed, hands at her sides.",
+      "motion": "She listens while the king raises the pointer, then near the end she raises her right index finger and opens her mouth into a briefing-talk expression and holds it.",
+      "status": "mute"
+    },
+    {
+      "id": "mcconnell",
+      "side": "right",
+      "type": "r",
+      "portrait": "assets/portraits/mcconnell.jpg",
+      "still": "studio/capture-order/right/mcconnell.jpg",
+      "mute": "studio/capture-order/right/mcconnell-mute.mp4",
+      "gag": "Mitch as a grey stone chess rook tower on a square, turtle head and grey suit popping out the battlements, sleepy half-smile, slow nod.",
+      "motion": "Mitch's head slowly dips once, turtle-slow, then holds.",
+      "status": "mute"
+    },
+    {
+      "id": "paul",
+      "side": "right",
+      "type": "r",
+      "portrait": "assets/portraits/paul.jpg",
+      "still": "studio/capture-order/right/paul.jpg",
+      "mute": "studio/capture-order/right/paul-mute.mp4",
+      "gag": "Rand Paul as a grey stone chess rook tower, wild curly salt-and-pepper hair, thin glasses, navy suit, both hands raised in a Senate-hearing gesture, receiving the order.",
+      "motion": "Paul's raised hands bounce once as he nods, still making the point; the king raises the pointer.",
+      "status": "mute"
+    },
+    {
+      "id": "rubio",
+      "side": "right",
+      "type": "r",
+      "portrait": "assets/portraits/rubio.jpg",
+      "still": "studio/capture-order/right/rubio.jpg",
+      "mute": "studio/capture-order/right/rubio-mute.mp4",
+      "gag": "Marco as a grey stone chess rook tower, navy suit and blue tie, leaning over the battlements toward the king, too-eager grin.",
+      "motion": "Marco leans farther over the tower and nods too fast.",
+      "status": "mute"
+    },
+    {
+      "id": "cruz",
+      "side": "right",
+      "type": "b",
+      "portrait": "assets/portraits/cruz.jpg",
+      "still": "studio/capture-order/right/cruz.jpg",
+      "mute": "studio/capture-order/right/cruz-mute.mp4",
+      "gag": "Cancun Cruz: grey polo, jeans, grey sneakers, Texas-flag mask, white-gold mitre, gold crozier, black rolling suitcase, ready to bolt.",
+      "motion": "Ted nods once, mitre dipping; the suitcase wobbles on its wheels.",
+      "status": "mute"
+    },
+    {
+      "id": "rfk",
+      "side": "right",
+      "type": "b",
+      "portrait": "assets/portraits/rfk.jpg",
+      "still": "studio/capture-order/right/rfk.jpg",
+      "mute": "studio/capture-order/right/rfk-mute.mp4",
+      "gag": "RFK Jr. shirtless in jeans and work boots, white-gold mitre, on a miniature incline bench on his square, bar at his chest, deadpan, getting ready for the job. No crozier.",
+      "motion": "RFK pumps four continuous incline-bench reps, bar to chest and back up, staring at the king.",
+      "status": "mute"
+    },
+    {
+      "id": "vance",
+      "side": "right",
+      "type": "n",
+      "portrait": "assets/portraits/vance.jpg",
+      "still": "studio/capture-order/right/vance.jpg",
+      "mute": "studio/capture-order/right/vance-mute.mp4",
+      "gag": "JD on the white horse in a navy-blue suit and red tie, curly meme hair, wooden lance in his right hand, rainbow swirl lollipop in his left, holding it near his mouth.",
+      "motion": "JD licks the rainbow swirl lollipop slowly while listening; the lance stays in his right hand. The king raises the pointer.",
+      "status": "mute"
+    },
+    {
+      "id": "desantis",
+      "side": "right",
+      "type": "n",
+      "portrait": "assets/portraits/desantis.jpg",
+      "still": "studio/capture-order/right/desantis.jpg",
+      "mute": "studio/capture-order/right/desantis-mute.mp4",
+      "gag": "Ron on the white horse in a navy-blue suit and light-blue open-collar shirt, no helmet, frowning, ramrod-straight, over-formal lance salute.",
+      "motion": "DeSantis snaps a stiff lance salute and holds it, still frowning.",
+      "status": "mute"
+    },
+    {
+      "id": "activist",
+      "side": "left",
+      "type": "p",
+      "portrait": "assets/portraits/pawn-left.jpg",
+      "still": "studio/capture-order/left/activist.jpg",
+      "mute": "studio/capture-order/left/activist-mute.mp4",
+      "gag": "Blue-hair riflewoman in teal beanie, denim jacket, grey jeans, scoped rifle, sly smile, ready to take the order.",
+      "motion": "She nods once and shifts the rifle, still smirking.",
+      "status": "mute"
+    },
+    {
+      "id": "aoc",
+      "side": "left",
+      "type": "q",
+      "portrait": "assets/portraits/aoc.jpg",
+      "still": "studio/capture-order/left/aoc.jpg",
+      "mute": "studio/capture-order/left/aoc-mute.mp4",
+      "gag": "AOC as queen in the white off-the-shoulder TAX THE RICH gown and red-gold crown, back toward the king so the red lettering is readable, looking over her left shoulder at him. Feet on the chessboard, no display base.",
+      "motion": "She glances back over her left shoulder at the king; TAX THE RICH stays on the dress. The king raises the pointer.",
+      "status": "mute"
+    },
+    {
+      "id": "sanders",
+      "side": "left",
+      "type": "r",
+      "portrait": "assets/portraits/sanders.jpg",
+      "still": "studio/capture-order/left/sanders.jpg",
+      "mute": "studio/capture-order/left/sanders-mute.mp4",
+      "gag": "Bernie as a grey stone chess rook tower, wild white hair, glasses, navy suit, pointing back at the king from the battlements, reluctantly taking the order.",
+      "motion": "Bernie jabs a finger at the king, then a grudging nod.",
+      "status": "mute"
+    },
+    {
+      "id": "schumer",
+      "side": "left",
+      "type": "b",
+      "portrait": "assets/portraits/schumer.jpg",
+      "still": "studio/capture-order/left/schumer.jpg",
+      "mute": "studio/capture-order/left/schumer-mute.mp4",
+      "gag": "Cryin' Chuck as a chess bishop: charcoal suit, yellow tie, glasses, tears, small white-gold mitre, gold crozier in his left hand, white handkerchief in his right, nodding through it.",
+      "motion": "A tear rolls; he dabs the handkerchief once and nods yes anyway; the crozier dips.",
+      "status": "mute"
+    },
+    {
+      "id": "harris",
+      "side": "left",
+      "type": "b",
+      "portrait": "assets/portraits/harris.jpg",
+      "still": "studio/capture-order/left/harris.jpg",
+      "mute": "studio/capture-order/left/harris-mute.mp4",
+      "gag": "Kamala in an olive Zhongshan Mao suit, red neckerchief, white-gold bishop mitre with a red star, gold crozier, blessing finger up, already laughing hard with her mouth wide open.",
+      "motion": "She laughs the whole time like crazy, shoulders shaking, mitre wobbling, finger still up; the king raises the pointer.",
+      "status": "mute"
+    },
+    {
+      "id": "warren",
+      "side": "left",
+      "type": "r",
+      "portrait": "assets/portraits/warren.jpg",
+      "still": "studio/capture-order/left/warren.jpg",
+      "mute": "studio/capture-order/left/warren-mute.mp4",
+      "gag": "Pocahontas Warren popping from a painted-hide tent chess rook with wooden battlements, red-turquoise feather headdress, blonde braids, glasses, purple Senate blazer, facing the camera. She starts with both hands on the battlements, then does the cartoon war-whoop: open palm quickly over her mouth, trying too hard to look Native American.",
+      "motion": "She lifts her right hand and pats an open palm over her mouth in a cartoon war-whoop, then holds it; left hand stays on the wooden battlement. The king slightly raises the gold pointer.",
+      "status": "mute"
+    },
+    {
+      "id": "buttigieg",
+      "side": "left",
+      "type": "n",
+      "portrait": "assets/portraits/buttigieg.jpg",
+      "still": "studio/capture-order/left/buttigieg.jpg",
+      "mute": "studio/capture-order/left/buttigieg-mute.mp4",
+      "gag": "Pete on the white horse in yellow hard hat and orange DOT vest, holding the red STOP sign. The horse's hooves stand directly on the chessboard square, no round display base.",
+      "motion": "He nods once, STOP sign stays in his hand; the horse taps a hoof. The king raises the pointer.",
+      "status": "mute"
+    },
+    {
+      "id": "mamdani",
+      "side": "left",
+      "type": "n",
+      "portrait": "assets/portraits/mamdani.jpg",
+      "still": "studio/capture-order/left/mamdani.jpg",
+      "mute": "studio/capture-order/left/mamdani-mute.mp4",
+      "gag": "Zohran on the white horse in black-white keffiyeh, cream robe, rainbow pin, black gold cape, lance up in a bright smiling salute.",
+      "motion": "He grins bigger and lifts the lance in salute; the horse nods.",
+      "status": "mute"
+    }
+  ]
+}

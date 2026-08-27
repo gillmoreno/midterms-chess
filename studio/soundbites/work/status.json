@@ -133,11 +133,12 @@
   },
   "trump-fired": {
     "ok": true,
-    "path": "/Users/gilbertomorenocruz/Downloads/chess-soundbites/clips/right/trump/trump-fired.mp3",
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-fired.mp3",
     "url": "https://www.youtube.com/watch?v=8TBkt7os9EY",
     "title": "'Comrade Kamala Harris, You're Fired!': Trump Lambasts VP On Day 1 Of Democratic National Convention",
     "start": 164.6,
-    "end": 169.87
+    "end": 169.87,
+    "skipped": true
   },
   "rogan-bananas": {
     "ok": true,
@@ -686,11 +687,12 @@
     "has_subs": true
   },
   "rubio-yoga": {
-    "ok": false,
-    "error": "quote not found in captions/audio",
-    "url": "https://www.youtube.com/watch?v=CR0k5xdUxBs",
-    "title": "Donald Trump vs. Marco Rubio - Debate Highlights",
-    "has_subs": true
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/rubio/rubio-yoga.mp3",
+    "url": "https://www.youtube.com/watch?v=zCKvd0ozx84",
+    "title": "Yoga on the debate stage? Rubio: Trump is very flexible",
+    "start": 8.56,
+    "end": 10.72
   },
   "trump-alone-fix": {
     "ok": true,
@@ -779,5 +781,325 @@
     "title": "JD Vance at Atlanta rally: 'Citizens of this country, they are not garbage'",
     "start": 24.08,
     "end": 25.34
+  },
+  "aoc-bartender": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/aoc/aoc-bartender.mp3",
+    "url": "https://www.youtube.com/watch?v=43sh0TySHHE",
+    "title": "Ocasio-Cortez: \"I'm proud to be a bartender. Ain't nothing wrong with that\"",
+    "start": 3.68,
+    "end": 6.35
+  },
+  "bernie-once-again": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/bernie/bernie-once-again.mp3",
+    "url": "https://www.youtube.com/watch?v=c_OfMjvQ2-M",
+    "title": "Bernie Sanders \u2018begs for donations\u2019 while \u2018crying about Trump and Musk\u2019",
+    "start": 2.68,
+    "end": 5.03
+  },
+  "newsom-bad-mistake": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/newsom/newsom-bad-mistake.mp3",
+    "url": "https://www.youtube.com/watch?v=Ox-X2Mfy5aY",
+    "title": "Governor Newsom apologizes for attending large gathering in Napa",
+    "start": 47.03,
+    "end": 53.44
+  },
+  "cruz-cancun": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/cruz/cruz-cancun.mp3",
+    "url": "https://www.youtube.com/watch?v=RjOwFadA6wg",
+    "title": "Texas Sen. Ted Cruz Says Cancun Trip 'Was Obviously a Mistake'",
+    "start": 7.11,
+    "end": 9.19
+  },
+  "desantis-suspending": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/desantis/desantis-suspending.mp3",
+    "url": "https://www.youtube.com/watch?v=MHhoX8kMH1o",
+    "title": "Ron DeSantis ends presidential campaign",
+    "start": 30.74,
+    "end": 35.88
+  },
+  "mcconnell-eighth-time": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/mcconnell/mcconnell-eighth-time.mp3",
+    "url": "https://www.youtube.com/watch?v=lw0s3AT6zjE",
+    "title": "Senate Majority Leader Mitch McConnell says he won't seek reelection",
+    "start": 44.19,
+    "end": 51.77
+  },
+  "trump-no-responsibility": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-no-responsibility.mp3",
+    "url": "https://www.youtube.com/watch?v=5Cs_1iYWIhI",
+    "title": "President Trump says he doesn't take responsibility for coronavirus testing lag",
+    "start": 15.95,
+    "end": 18.26
+  },
+  "kamala-unburdened": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-unburdened.mp3",
+    "url": "https://www.youtube.com/watch?v=x3fCeabLoO4",
+    "title": "Unburdened",
+    "start": 24.63,
+    "end": 30.97
+  },
+  "mamdani-no-apology": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/mamdani/mamdani-no-apology.mp3",
+    "url": "https://www.youtube.com/watch?v=hFH2dYwH3rI",
+    "title": "\u201cTrump, Turn the Volume Up!\u201d \u2014 Zohran Mamdani\u2019s Fiery Victory Speech Rocks NYC | AC1G",
+    "start": 1250.63,
+    "end": 1255.65
+  },
+  "schumer-wrong-words": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/schumer/schumer-wrong-words.mp3",
+    "url": "https://www.youtube.com/watch?v=M_iz56p8eP0",
+    "title": "Can Somebody Check On Tom Cotton? He Looks Awful (Tom Cotton Reads Chuck Schumer's Words Verbatim)",
+    "start": 0.0,
+    "end": 15.0
+  },
+  "kamala-doac-troubling": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-doac-troubling.mp3",
+    "url": "https://www.youtube.com/watch?v=D3lhrrXb4WI",
+    "title": "Kamala Harris \u2014 Diary of a CEO",
+    "start": 143.15,
+    "end": 146.05
+  },
+  "kamala-doac-worse": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-doac-worse.mp3",
+    "url": "https://www.youtube.com/watch?v=D3lhrrXb4WI",
+    "title": "Kamala Harris \u2014 Diary of a CEO",
+    "start": 187.45,
+    "end": 190.0
+  },
+  "kamala-doac-different": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-doac-different.mp3",
+    "url": "https://www.youtube.com/watch?v=D3lhrrXb4WI",
+    "title": "Kamala Harris \u2014 Diary of a CEO",
+    "start": 246.1,
+    "end": 250.4
+  },
+  "kamala-doac-shock": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-doac-shock.mp3",
+    "url": "https://www.youtube.com/watch?v=D3lhrrXb4WI",
+    "title": "Kamala Harris \u2014 Diary of a CEO",
+    "start": 61.28,
+    "end": 62.75
+  },
+  "kamala-doac-my-god": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-doac-my-god.mp3",
+    "url": "https://www.youtube.com/watch?v=D3lhrrXb4WI",
+    "title": "Kamala Harris \u2014 Diary of a CEO",
+    "start": 4363.35,
+    "end": 4365.45
+  },
+  "kamala-doac-more-time": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/kamala/kamala-doac-more-time.mp3",
+    "url": "https://www.youtube.com/watch?v=D3lhrrXb4WI",
+    "title": "Kamala Harris \u2014 Diary of a CEO",
+    "start": 5376.5,
+    "end": 5382.7
+  },
+  "trump-vs-warren-pocahontas": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-warren-pocahontas.mp3",
+    "url": "https://www.youtube.com/watch?v=YAP9vWl0mAk",
+    "title": "Trump makes Pocahontas crack at Navajo code talkers event",
+    "start": 8.27,
+    "end": 17.82
+  },
+  "newsom-vs-desantis-outtrump": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/newsom/newsom-vs-desantis-outtrump.mp3",
+    "url": "https://www.youtube.com/watch?v=EEI6YTu_YeU",
+    "title": "The DeSantis and Newsom debate on Fox News, in less than 60 seconds",
+    "start": 16.31,
+    "end": 22.23
+  },
+  "newsom-vs-vance-phonies": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/newsom/newsom-vs-vance-phonies.mp3",
+    "url": "https://www.youtube.com/watch?v=J-lGBaOj5m0",
+    "title": "Scarier than Trump? Gavin Newsom on why JD Vance is so DANGEROUS",
+    "start": 110.71,
+    "end": 112.8
+  },
+  "trump-vs-harris-comrade": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-harris-comrade.mp3",
+    "url": "https://www.youtube.com/watch?v=JWOmA_SoyZA",
+    "title": "Trump Rails Against \u2018Comrade\u2019 Kamala\u2019s Debate Performance During NV Rally: \u2018Showed Up Spewing Lies\u2019",
+    "start": 44.67,
+    "end": 50.11
+  },
+  "trump-vs-mamdani-communist": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-mamdani-communist.mp3",
+    "url": "https://www.youtube.com/watch?v=Pxw8TdxleDk",
+    "title": "\"Trump RAGES at Zohran Mamdani, NYC Mayor Candidate: 'He's a Communist!'\"",
+    "start": 102.55,
+    "end": 108.0
+  },
+  "trump-vs-sanders-crazy": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-sanders-crazy.mp3",
+    "url": "https://www.youtube.com/watch?v=7dqootql9t8",
+    "title": "Trump Castigates 'Radical Left Person From San Francisco' Harris At Madison Square Garden Rally",
+    "start": 9.5,
+    "end": 16.0
+  },
+  "trump-vs-schumer-cryin": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-schumer-cryin.mp3",
+    "url": "https://www.youtube.com/watch?v=TiHBXhFSX1U",
+    "title": "Trump Unloads On Senator Schumer; \u2018HIS FAKE TEARS CAN\u2019T\u2026\u2019: WH Correspondent's Dinner Drama",
+    "start": 8.88,
+    "end": 12.5
+  },
+  "newsom-vs-maga-knee": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/newsom/newsom-vs-maga-knee.mp3",
+    "url": "https://www.youtube.com/watch?v=kCvVOOHaJKg",
+    "title": "Governor Newsom hosts press event to discuss the economic advancement of California communities",
+    "start": 1444.24,
+    "end": 1458.47
+  },
+  "newsom-vs-rubio-phonies": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/newsom/newsom-vs-rubio-phonies.mp3",
+    "url": "https://www.youtube.com/watch?v=J-lGBaOj5m0",
+    "title": "Scarier than Trump? Gavin Newsom on why JD Vance is so DANGEROUS",
+    "start": 97.06,
+    "end": 112.5
+  },
+  "trump-vs-activist-lunatics": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-activist-lunatics.mp3",
+    "url": "https://www.youtube.com/watch?v=7dqootql9t8",
+    "title": "Trump Castigates 'Radical Left Person From San Francisco' Harris At Madison Square Garden Rally",
+    "start": 101.5,
+    "end": 107.0
+  },
+  "trump-vs-aoc-stupid": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-aoc-stupid.mp3",
+    "url": "https://www.youtube.com/watch?v=XpaQrcl4D-Y",
+    "title": "Trump Slams 'AOC Plus 3' At Michigan Rally",
+    "start": 67.0,
+    "end": 73.0
+  },
+  "trump-vs-harris-lyin": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-harris-lyin.mp3",
+    "url": "https://www.youtube.com/watch?v=7m4VNYxjNV0",
+    "title": "\u2018Worst U.S. President Defeated\u2019: #Trump Boasts At Rally, Jabs \u2018LYIN\u2019 #kamalaharris",
+    "start": 48.0,
+    "end": 57.0
+  },
+  "trump-vs-pete-alfred": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-vs-pete-alfred.mp3",
+    "url": "https://www.youtube.com/watch?v=ZsyCQTX0UfE",
+    "title": "Trump ridicules Democrat opponents at Vegas rally",
+    "start": 154.55,
+    "end": 161.0
+  },
+  "trump-obliterated": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/trump/trump-obliterated.mp3",
+    "url": "https://www.youtube.com/watch?v=J0gAcGoyJ5Y",
+    "title": "Air Force Is Gone, The Navy Is Gone: Trump Says Iranian Military Literally Obliterated",
+    "start": 26.6,
+    "end": 32.6
+  },
+  "rubio-flexible": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/rubio/rubio-flexible.mp3",
+    "url": "https://www.youtube.com/watch?v=zCKvd0ozx84",
+    "title": "Yoga on the debate stage? Rubio: Trump is very flexible",
+    "start": 17.2,
+    "end": 20.9
+  },
+  "rfk-adhd-focus": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/rfk/rfk-adhd-focus.mp3",
+    "url": "https://www.youtube.com/watch?v=wk7DQom821s",
+    "title": "Joe Rogan Experience #2461 - Robert F. Kennedy, Jr.",
+    "start": 33.65,
+    "end": 41.35
+  },
+  "rfk-falconry": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/rfk/rfk-falconry.mp3",
+    "url": "https://www.youtube.com/watch?v=wk7DQom821s",
+    "title": "Joe Rogan Experience #2461 - Robert F. Kennedy, Jr.",
+    "start": 743.05,
+    "end": 748.55
+  },
+  "rfk-cyanide": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/rfk/rfk-cyanide.mp3",
+    "url": "https://www.youtube.com/watch?v=wk7DQom821s",
+    "title": "Joe Rogan Experience #2461 - Robert F. Kennedy, Jr.",
+    "start": 2338.0,
+    "end": 2342.65
+  },
+  "paul-deserve-apology": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/paul/paul-deserve-apology.mp3",
+    "url": "https://www.youtube.com/watch?v=4bC-rF2ymK0",
+    "title": "WATCH: Sen. Paul makes opening statement in Fauci hearing",
+    "start": 42.16,
+    "end": 46.04
+  },
+  "leavitt-stupid-question": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/leavitt/leavitt-stupid-question.mp3",
+    "url": "https://www.youtube.com/watch?v=YlgLM_ggoio",
+    "title": "Karoline Leavitt's 10 most BIZARRE moments as White House press secretary",
+    "start": 5.28,
+    "end": 8.56
+  },
+  "rubio-diplomacy": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/right/rubio/rubio-diplomacy.mp3",
+    "url": "https://www.youtube.com/watch?v=mV5cXhdNw3U",
+    "title": "Marco Rubio's HEATED moments with Senate on Iran, outbreaks, missing funds | MS NOW Highlights",
+    "start": 1262.28,
+    "end": 1266.6
+  },
+  "newsom-knee-pads-leaders": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/newsom/newsom-knee-pads-leaders.mp3",
+    "url": "https://www.youtube.com/watch?v=DcESKAYTzng",
+    "title": "Newsom says he should have brought 'knee pads' to Davos over leaders' 'pathetic' response to Trump",
+    "start": 49.0,
+    "end": 52.5
+  },
+  "newsom-trex": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/newsom/newsom-trex.mp3",
+    "url": "https://www.youtube.com/watch?v=DcESKAYTzng",
+    "title": "Newsom says he should have brought 'knee pads' to Davos over leaders' 'pathetic' response to Trump",
+    "start": 90.0,
+    "end": 95.0
+  },
+  "newsom-not-diplomacy": {
+    "ok": true,
+    "path": "/Users/gilbertomorenocruz/Desktop/games/3d_chess/studio/soundbites/clips/left/newsom/newsom-not-diplomacy.mp3",
+    "url": "https://www.youtube.com/watch?v=DcESKAYTzng",
+    "title": "Newsom says he should have brought 'knee pads' to Davos over leaders' 'pathetic' response to Trump",
+    "start": 186.0,
+    "end": 188.5
   }
 }

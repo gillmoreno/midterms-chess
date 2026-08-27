@@ -25,6 +25,14 @@ const FILMED_SRC = {
     src: "assets/cinematics/left-kills.mp4",
     poster: "assets/cinematics/left-kills.jpg",
   },
+  "aoc:maga": {
+    src: "assets/cinematics/left-queen-kills.mp4",
+    poster: "assets/cinematics/left-queen-kills.jpg",
+  },
+  "rfk:activist": {
+    src: "assets/cinematics/rfk-kills.mp4",
+    poster: "assets/cinematics/rfk-kills.jpg",
+  },
 };
 
 const entries = Roster.allEntries();
