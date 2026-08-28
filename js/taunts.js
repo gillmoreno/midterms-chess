@@ -14,11 +14,7 @@ export const TAUNTS = {
       djt("djt-poker.mp3", "This is not exactly a poker player, folks."),
       djt("djt-one-percent.mp3", "You do have your 1%."),
     ],
-    b: {
-      src: "assets/sfx/check-b.mp3",
-      line: "That's a check. You're welcome.",
-      who: "Newscum",
-    },
+    b: [],
   },
   mate: {
     w: [
@@ -32,11 +28,7 @@ export const TAUNTS = {
         "I would crawl quietly out. I'd probably tweet. I've decided to get out of the race."
       ),
     ],
-    b: {
-      src: "assets/sfx/mate-b.mp3",
-      line: "The session is adjourned. Forever.",
-      who: "Newscum",
-    },
+    b: [],
   },
   capture: {
     w: [

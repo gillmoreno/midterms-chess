@@ -54,11 +54,11 @@ test("every assigned bark file is on disk", () => {
 });
 
 test("linesFor is empty for a character with no click bark", () => {
-  assert.deepEqual(linesFor("warren"), []);
   assert.deepEqual(linesFor("mcconnell"), []);
   assert.deepEqual(linesFor("nobody"), []);
   assert.ok(linesFor("aoc").length >= 1);
   assert.ok(linesFor("leavitt").length >= 1);
+  assert.ok(linesFor("warren").length >= 1);
 });
 
 test("The Peacemaker has an Iran-obliterated click bark on disk", () => {
