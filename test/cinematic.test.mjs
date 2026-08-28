@@ -27,23 +27,21 @@ test("pawn-on-pawn and left-queen-on-right-pawn get kill reels", () => {
   assert.equal(clipFor({ t: "p", c: "w" }, null), null);
 });
 
-test("MAGA pawn capturing Comrade Kamala plays the order-then-lose reel", () => {
-  const harris = clipFor(
-    { t: "p", c: "w", id: "maga" },
-    { t: "b", c: "b", id: "harris" }
+test("named-piece captures are not kill reels — defeated beds live on the victim", () => {
+  assert.equal(
+    clipFor({ t: "p", c: "w", id: "maga" }, { t: "b", c: "b", id: "harris" }),
+    null
   );
-  assert.ok(harris);
-  assert.equal(harris.src, "assets/cinematics/pawn-captures-harris.mp4");
-  assert.equal(harris.poster, "assets/cinematics/pawn-captures-harris.jpg");
-  assert.equal(harris.line, "You're fired. Get out.");
-  assert.equal(harris.stamp, "Taken");
-  assert.equal(harris.lines[1].text, "I do think about how different it could have been.");
   assert.equal(
     clipFor({ t: "r", c: "w", id: "mcconnell" }, { t: "b", c: "b", id: "harris" }),
     null
   );
   assert.equal(
     clipFor({ t: "p", c: "w", id: "maga" }, { t: "r", c: "b", id: "warren" }),
+    null
+  );
+  assert.equal(
+    clipFor({ t: "n", c: "w", id: "vance" }, { t: "q", c: "b", id: "aoc" }),
     null
   );
 });
@@ -58,8 +56,6 @@ test("kill reels and posters are on disk", () => {
     "left-queen-kills.jpg",
     "rfk-kills.mp4",
     "rfk-kills.jpg",
-    "pawn-captures-harris.mp4",
-    "pawn-captures-harris.jpg",
   ].forEach((name) => {
     const p = path.join(root, "assets", "cinematics", name);
     assert.ok(fs.existsSync(p), name);

@@ -50,10 +50,9 @@ test("studio cards assign Click / Captured / Order, not Keep / Skip", () => {
   assert.match(html, /\/api\/use/);
 });
 
-test("capture playback can overlay an assigned order line", () => {
+test("the floor does not play king orders on a capture", () => {
   const main = fs.readFileSync(path.join(root, "js", "main.js"), "utf8");
-  const cine = fs.readFileSync(path.join(root, "js", "cinematic.js"), "utf8");
-  assert.match(main, /orderFor/);
-  assert.match(main, /audio: order\.src/);
-  assert.match(cine, /clip\.audio/);
+  assert.doesNotMatch(main, /orderFor/);
+  assert.doesNotMatch(main, /kingOrderFor/);
+  assert.doesNotMatch(main, /audio: order\.src/);
 });

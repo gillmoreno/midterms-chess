@@ -1,4 +1,4 @@
-/** Kill reels and capture reels. Overlay only — the board camera never moves. */
+/** Pawn kill reels. Named-piece deaths use defeated beds in last-words.js. Overlay only — the board camera never moves. */
 
 const CLIPS = {
   w: {
@@ -27,21 +27,6 @@ const CLIPS = {
   },
 };
 
-/** Attacker type + victim id. Order bed first, then that character's lose bed. */
-const CAPTURES = {
-  "p:harris": {
-    src: "assets/cinematics/pawn-captures-harris.mp4",
-    poster: "assets/cinematics/pawn-captures-harris.jpg",
-    line: "You're fired. Get out.",
-    lines: [
-      { at: 0, text: "You're fired. Get out." },
-      { at: 5.47, text: "I do think about how different it could have been." },
-    ],
-    side: "right",
-    stamp: "Taken",
-  },
-};
-
 let active = null;
 
 export function clipFor(attacker, victim) {
@@ -52,8 +37,6 @@ export function clipFor(attacker, victim) {
   if (attacker.id === "rfk" && victim.t === "p" && victim.c === "b") {
     return CLIPS.rfk;
   }
-  const cap = CAPTURES[attacker.t + ":" + (victim.id || "")];
-  if (cap) return cap;
   if (attacker.t !== "p" || victim.t !== "p") return null;
   return CLIPS[attacker.c] || null;
 }

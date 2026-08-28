@@ -5,7 +5,6 @@ import { playClip, playBark, stopClip, isMuted, setMuted, unlockFx } from "./fx.
 import { tauntFor, tauntHoldMs } from "./taunts.js";
 import { barkFor, linesFor } from "./barks.js";
 import { lastWordFor, fateKicker, loseReelFor } from "./last-words.js";
-import { orderFor, kingOrderFor } from "./orders.js";
 
 const Chess = window.Chess;
 const Roster = window.Roster;
@@ -267,17 +266,6 @@ function boot() {
       : chosen.to;
     const victim = game.board[victimSq];
     let clip = clipFor(attacker, victim);
-    // King orders for non-pawn captures
-    const order = victim && attacker.t !== "p" ? kingOrderFor(attacker.c, victim.id) : null;
-    if (order) {
-      if (clip) {
-        clip = Object.assign({}, clip, { audio: order.src });
-        if (!clip.line) clip.line = order.line;
-      } else {
-        // Play order even without cinematic
-        playClip(order.src);
-      }
-    }
     const before = { from: chosen.from, to: chosen.to };
     const r = Chess.makeMove(game, chosen);
     if (!r.ok) return false;

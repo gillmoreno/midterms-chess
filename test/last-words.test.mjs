@@ -86,6 +86,9 @@ test("capture playback prefers the victim last word over house taunts", () => {
   assert.match(src, /announceLastWord/);
   assert.match(src, /if \(lastWord\) announceLastWord/);
   assert.match(src, /loseReelFor/);
+  assert.match(src, /if \(!clip && lose\)/);
+  assert.doesNotMatch(src, /orderFor/);
+  assert.doesNotMatch(src, /kingOrderFor/);
 });
 
 test("Kamala lose bed is mute and four last words ride it", () => {

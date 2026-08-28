@@ -30,12 +30,6 @@ export const ORDERS = {
   ],
 };
 
-// King-level fallbacks
-const KING_FALLBACKS = {
-  "w": { src: "assets/sfx/orders/trump-fired.mp3", line: "You are fired. Get out.", speaker: "trump" },
-  "b": { src: "assets/sfx/orders/newsom-not-diplomacy.mp3", line: "This is not diplomacy. This is stupidity.", speaker: "newsom" },
-};
-
 let lastSrc = "";
 
 export function pickOrder(list, previousSrc) {
@@ -50,25 +44,4 @@ export function orderFor(attackerId, victimId) {
   const { order, lastSrc: next } = pickOrder(ORDERS[attackerId + ":" + victimId], lastSrc);
   lastSrc = next;
   return order;
-}
-
-/**
- * King-based orders: the king of the attacking side speaks when a non-pawn captures.
- * @param {string} attackerColor - 'w' or 'b'
- * @param {string} victimId - victim piece ID
- * @returns {object|null} order with src, line, speaker
- */
-export function kingOrderFor(attackerColor, victimId) {
-  if (!attackerColor || !victimId) return null;
-  const kingId = attackerColor === "w" ? "trump" : "newsom";
-  const key = kingId + ":" + victimId;
-  const { order, lastSrc: next } = pickOrder(ORDERS[key], lastSrc);
-  if (order) {
-    lastSrc = next;
-    return order;
-  }
-  // Fallback to generic king order
-  const fallback = KING_FALLBACKS[attackerColor];
-  if (fallback) lastSrc = fallback.src;
-  return fallback || null;
 }
