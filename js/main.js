@@ -1,11 +1,11 @@
 import { createBoard3D } from "./board3d.js";
 import { clipFor, playCinematic, cancelCinematic, isPlaying } from "./cinematic.js";
 import { createEngine } from "./engine.js";
-import { playClip, playBark, stopClip, isMuted, setMuted } from "./fx.js";
+import { playClip, playBark, stopClip, isMuted, setMuted, unlockFx } from "./fx.js";
 import { tauntFor, tauntHoldMs } from "./taunts.js";
 import { barkFor, linesFor } from "./barks.js";
 import { lastWordFor, fateKicker, loseReelFor } from "./last-words.js";
-import { orderFor } from "./orders.js";
+import { orderFor, kingOrderFor } from "./orders.js";
 
 const Chess = window.Chess;
 const Roster = window.Roster;
@@ -116,6 +116,17 @@ function renderMini(game, selected) {
 
 function boot() {
   if (showFileHintIfNeeded()) return;
+
+  // Tap-to-enter gate for mobile audio unlock
+  const tapGate = $("tap-gate");
+  const isMobile = window.matchMedia("(max-width: 860px)").matches;
+  if (tapGate && isMobile) {
+    tapGate.hidden = false;
+    tapGate.addEventListener("click", () => {
+      unlockFx();
+      tapGate.hidden = true;
+    }, { once: true });
+  }
 
   const canvas = $("stage");
   const board = createBoard3D(canvas);
@@ -256,10 +267,16 @@ function boot() {
       : chosen.to;
     const victim = game.board[victimSq];
     let clip = clipFor(attacker, victim);
-    const order = victim ? orderFor(attacker.id, victim.id) : null;
-    if (clip && order) {
-      clip = Object.assign({}, clip, { audio: order.src });
-      if (!clip.lines) clip.line = order.line;
+    // King orders for non-pawn captures
+    const order = victim && attacker.t !== "p" ? kingOrderFor(attacker.c, victim.id) : null;
+    if (order) {
+      if (clip) {
+        clip = Object.assign({}, clip, { audio: order.src });
+        if (!clip.line) clip.line = order.line;
+      } else {
+        // Play order even without cinematic
+        playClip(order.src);
+      }
     }
     const before = { from: chosen.from, to: chosen.to };
     const r = Chess.makeMove(game, chosen);

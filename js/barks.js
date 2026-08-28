@@ -25,6 +25,9 @@ export const BARKS = {
   "buttigieg": [
     { src: "assets/sfx/barks/pete-data.mp3", line: "Do yourself a favor and look up the data." },
   ],
+  "warren": [
+    { src: "assets/sfx/barks/warren-wine-caves.mp3", line: "Billionaires in wine caves should not pick the next president." },
+  ],
   "mamdani": [
     { src: "assets/sfx/barks/mamdani-his-name.mp3", line: "Let tonight be the final time I utter his name." },
   ],
