@@ -15,13 +15,13 @@ function isMobileViewport() {
   return window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches;
 }
 
-async function createBoard(container) {
+async function createBoard(canvasOrContainer) {
   if (isMobileViewport()) {
     const { createBoard2D } = await import("./board2d.js");
-    return createBoard2D(container);
+    return createBoard2D(canvasOrContainer);
   } else {
     const { createBoard3D } = await import("./board3d.js");
-    return createBoard3D(container);
+    return createBoard3D(canvasOrContainer);
   }
 }
 
@@ -148,12 +148,13 @@ async function boot() {
     return;
   }
 
-  await initBoard();
+  // Desktop: load board immediately without gate
+  initBoard();
 }
 
 async function initBoard() {
-  const container = $("arena");
-  const board = await createBoard(container);
+  const element = isMobileViewport() ? $("arena") : $("stage");
+  const board = await createBoard(element);
   let game = Roster.stamp(Chess.createGame());
   let selected = null;
   let legal = [];
@@ -636,4 +637,5 @@ async function initBoard() {
   refreshHud(game);
 }
 
+// Initialize immediately (async for dynamic imports but non-blocking)
 boot();
