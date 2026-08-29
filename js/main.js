@@ -134,6 +134,12 @@ async function boot() {
   const chrome = $("chrome");
   if (isMobileViewport()) {
     chrome.classList.add("mobile-mode");
+    // Force-hide kill cam overlay on mobile init
+    const cine = $("cine");
+    if (cine) {
+      cine.hidden = true;
+      cine.removeAttribute("data-side");
+    }
   }
 
   // Tap-to-enter gate for mobile audio unlock

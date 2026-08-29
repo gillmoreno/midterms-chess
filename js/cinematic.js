@@ -93,6 +93,7 @@ export function playCinematic(clip) {
       root.hidden = true;
       root.removeAttribute("data-side");
       document.removeEventListener("keydown", onKey);
+      root.removeEventListener("pointerdown", onTap);
       root.removeEventListener("click", onTap);
       video.removeEventListener("timeupdate", syncLine);
       video.onended = null;
@@ -112,10 +113,8 @@ export function playCinematic(clip) {
     };
 
     const onTap = (e) => {
-      if (e.target.closest("#cine-skip") || e.target.id === "cine" || e.target.id === "cine-video") {
-        e.preventDefault();
-        finish();
-      }
+      e.preventDefault();
+      finish();
     };
 
     active = { finish, done: false };
@@ -132,12 +131,11 @@ export function playCinematic(clip) {
       if (video.currentTime > 0.25) finish();
     };
     video.onerror = () => {};
-    skipTimer = setTimeout(() => {
-      if (active && !active.done) {
-        document.addEventListener("keydown", onKey);
-        root.addEventListener("click", onTap);
-      }
-    }, 250);
+    
+    // Wire skip immediately for mobile
+    document.addEventListener("keydown", onKey);
+    root.addEventListener("pointerdown", onTap);
+    root.addEventListener("click", onTap);
 
     video.src = clip.src;
     const kick = () => {

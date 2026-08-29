@@ -1221,6 +1221,10 @@ button:hover {
     justify-content: center;
   }
 
+  #chrome.mobile-mode #cine[hidden] {
+    display: none !important;
+  }
+
   #chrome.mobile-mode #cine .cine-frame {
     width: 100%;
     max-width: 100vw;
@@ -1257,6 +1261,10 @@ button:hover {
     border-radius: 0.5rem;
   }
 
+  #chrome.mobile-mode #taunt[hidden] {
+    display: none !important;
+  }
+
   #chrome.mobile-mode #result-card {
     position: fixed;
     inset: 2rem;
@@ -1270,6 +1278,10 @@ button:hover {
     border-radius: 0.5rem;
     padding: 2rem;
     text-align: center;
+  }
+
+  #chrome.mobile-mode #result-card[hidden] {
+    display: none !important;
   }
 
   #chrome.mobile-mode #btn-again {
