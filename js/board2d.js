@@ -48,19 +48,16 @@ export function createBoard2D(container) {
           pieceWrap.dataset.side = piece.c === "w" ? "right" : "left";
           
           const img = document.createElement("img");
-          // Use mobileToken for kings if available, otherwise use portrait
-          let imgSrc = (piece.t === "k" && entry.mobileToken) ? entry.mobileToken : entry.portrait;
-          
-          // Check if king token is a stub, fall back to portrait
-          if (piece.t === "k" && entry.mobileToken) {
-            const testImg = new Image();
-            testImg.src = entry.mobileToken;
-            testImg.onerror = () => {
+          // Use mobileToken if available, fallback to portrait on error
+          if (entry.mobileToken) {
+            img.src = entry.mobileToken;
+            img.onerror = () => {
+              img.onerror = null;
               img.src = entry.portrait;
             };
+          } else {
+            img.src = entry.portrait;
           }
-          
-          img.src = imgSrc;
           img.alt = entry.name;
           img.draggable = false;
           pieceWrap.appendChild(img);
