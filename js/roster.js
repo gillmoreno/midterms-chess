@@ -21,6 +21,7 @@
         role: "King",
         model: "assets/models/right-king.glb",
         portrait: "assets/portraits/trump.jpg",
+        mobileToken: "assets/tokens/trump-king-token.png",
       },
       q: {
         id: "leavitt",
@@ -104,6 +105,7 @@
         role: "King",
         model: "assets/models/left-king.glb",
         portrait: "assets/portraits/newsom.jpg",
+        mobileToken: "assets/tokens/newsom-king-token.png",
       },
       q: {
         id: "aoc",

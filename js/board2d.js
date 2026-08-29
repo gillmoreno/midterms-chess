@@ -47,17 +47,14 @@ export function createBoard2D(container) {
           pieceWrap.className = "board2d-piece";
           
           const img = document.createElement("img");
-          img.src = entry.portrait;
+          // Use mobileToken for kings if available, otherwise use portrait
+          img.src = (piece.t === "k" && entry.mobileToken) ? entry.mobileToken : entry.portrait;
           img.alt = entry.name;
           img.draggable = false;
           pieceWrap.appendChild(img);
 
-          if (piece.t === "k") {
-            const crown = document.createElement("div");
-            crown.className = "piece-crown";
-            crown.innerHTML = "&#9819;";
-            pieceWrap.appendChild(crown);
-          } else if (piece.t !== "p") {
+          // Add role pip for non-pawns and non-kings
+          if (piece.t !== "p" && piece.t !== "k") {
             const pip = document.createElement("div");
             pip.className = "piece-pip";
             pip.textContent = piece.t.toUpperCase();
