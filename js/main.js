@@ -1,4 +1,3 @@
-import { createBoard3D } from "./board3d.js";
 import { clipFor, playCinematic, cancelCinematic, isPlaying } from "./cinematic.js";
 import { createEngine } from "./engine.js";
 import { playClip, playBark, stopClip, isMuted, setMuted, unlockFx } from "./fx.js";
@@ -9,6 +8,22 @@ import { lastWordFor, fateKicker, loseReelFor } from "./last-words.js";
 const Chess = window.Chess;
 const Roster = window.Roster;
 const $ = (id) => document.getElementById(id);
+
+const MOBILE_BREAKPOINT = 860;
+
+function isMobileViewport() {
+  return window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches;
+}
+
+async function createBoard(container) {
+  if (isMobileViewport()) {
+    const { createBoard2D } = await import("./board2d.js");
+    return createBoard2D(container);
+  } else {
+    const { createBoard3D } = await import("./board3d.js");
+    return createBoard3D(container);
+  }
+}
 
 function showFileHintIfNeeded() {
   if (location.protocol !== "file:") return false;
@@ -113,22 +128,32 @@ function renderMini(game, selected) {
   }
 }
 
-function boot() {
+async function boot() {
   if (showFileHintIfNeeded()) return;
+
+  const chrome = $("chrome");
+  if (isMobileViewport()) {
+    chrome.classList.add("mobile-mode");
+  }
 
   // Tap-to-enter gate for mobile audio unlock
   const tapGate = $("tap-gate");
-  const isMobile = window.matchMedia("(max-width: 860px)").matches;
-  if (tapGate && isMobile) {
+  if (tapGate && isMobileViewport()) {
     tapGate.hidden = false;
-    tapGate.addEventListener("click", () => {
+    tapGate.addEventListener("click", async () => {
       unlockFx();
       tapGate.hidden = true;
+      await initBoard();
     }, { once: true });
+    return;
   }
 
-  const canvas = $("stage");
-  const board = createBoard3D(canvas);
+  await initBoard();
+}
+
+async function initBoard() {
+  const container = $("arena");
+  const board = await createBoard(container);
   let game = Roster.stamp(Chess.createGame());
   let selected = null;
   let legal = [];
@@ -606,7 +631,8 @@ function boot() {
     }),
   };
 
-  board.readyPromise.then(rebuild);
+  await board.readyPromise;
+  rebuild();
   refreshHud(game);
 }
 

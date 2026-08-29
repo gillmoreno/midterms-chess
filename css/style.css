@@ -1022,4 +1022,286 @@ button:hover {
   .gate-card p {
     font-size: 0.95rem;
   }
+
+  /* ──────────────────────────────────────────────────────────────────────────
+     Mobile 2D Board
+     ────────────────────────────────────────────────────────────────────────── */
+
+  body {
+    background: var(--void);
+  }
+
+  #chrome.mobile-mode {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  #chrome.mobile-mode .mast,
+  #chrome.mobile-mode .rail,
+  #chrome.mobile-mode #miniboard-wrap,
+  #chrome.mobile-mode #hover-card,
+  #chrome.mobile-mode .dock-left .opp,
+  #chrome.mobile-mode .dock-actions .btn-link {
+    display: none !important;
+  }
+
+  #chrome.mobile-mode .dock {
+    border-top: 1px solid var(--line);
+    padding: 0.5rem 0.75rem;
+    background: var(--panel);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #chrome.mobile-mode .dock-left {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  #chrome.mobile-mode #turn-pill {
+    flex-shrink: 0;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  #chrome.mobile-mode #status-line {
+    font-size: 0.82rem;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+  }
+
+  #chrome.mobile-mode .ticker {
+    display: none;
+  }
+
+  #chrome.mobile-mode .dock-actions {
+    display: flex;
+    gap: 0.4rem;
+    justify-content: space-between;
+  }
+
+  #chrome.mobile-mode .dock-actions button {
+    flex: 1;
+    padding: 0.5rem 0.3rem;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #chrome.mobile-mode #arena {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 0;
+    padding: 0.5rem;
+  }
+
+  #chrome.mobile-mode #stage {
+    display: none;
+  }
+
+  .board2d-root {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: min(100vw - 1rem, 100vh - 10rem);
+    gap: 0;
+    border: 2px solid var(--gold);
+    background: var(--void);
+  }
+
+  .board2d-cell {
+    position: relative;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: #1b3a6b;
+    min-height: 44px;
+    min-width: 44px;
+    overflow: visible;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .board2d-cell[data-lite="1"] {
+    background: #c9a66b;
+  }
+
+  .board2d-cell[data-selected="1"] {
+    background: #f0c75e !important;
+    box-shadow: inset 0 0 0 2px var(--gold);
+  }
+
+  .board2d-cell[data-lastmove="1"] {
+    box-shadow: inset 0 0 0 2px rgba(212, 175, 55, 0.6);
+  }
+
+  .board2d-cell[data-legal="1"] {
+    background: rgba(212, 175, 55, 0.3) !important;
+  }
+
+  .board2d-piece {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .board2d-piece img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(232, 220, 196, 0.8);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .piece-crown {
+    position: absolute;
+    top: -8%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.4em;
+    color: var(--gold);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 0 1px 2px rgba(255, 215, 0, 0.6);
+    pointer-events: none;
+    z-index: 2;
+    filter: drop-shadow(0 0 2px var(--gold-2));
+  }
+
+  .piece-pip {
+    position: absolute;
+    bottom: -2%;
+    right: -2%;
+    background: var(--gold);
+    color: var(--void);
+    font-family: var(--mono);
+    font-size: 0.65em;
+    font-weight: 600;
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--void);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .legal-hint {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.7);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .legal-hint[data-capture="1"] {
+    width: 70%;
+    height: 70%;
+    background: transparent;
+    border: 3px solid var(--crimson);
+    opacity: 0.8;
+  }
+
+  #chrome.mobile-mode #cine {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(7, 9, 16, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #chrome.mobile-mode #cine .cine-frame {
+    width: 100%;
+    max-width: 100vw;
+    max-height: 80vh;
+    position: relative;
+  }
+
+  #chrome.mobile-mode #cine-video {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+  }
+
+  #chrome.mobile-mode .cine-bar {
+    position: relative;
+    padding: 1rem;
+    background: var(--panel);
+  }
+
+  #chrome.mobile-mode #cine-skip {
+    min-height: 48px;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  #chrome.mobile-mode #taunt {
+    position: fixed;
+    bottom: 6rem;
+    left: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+  }
+
+  #chrome.mobile-mode #result-card {
+    position: fixed;
+    inset: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  #chrome.mobile-mode #btn-again {
+    min-height: 48px;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  #chrome.mobile-mode #promo .modal-card {
+    max-width: 90vw;
+  }
+
+  #chrome.mobile-mode #promo-choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.5rem;
+  }
+
+  #chrome.mobile-mode #promo-choices button {
+    min-height: 48px;
+  }
 }

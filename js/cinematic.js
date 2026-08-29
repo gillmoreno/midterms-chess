@@ -93,6 +93,7 @@ export function playCinematic(clip) {
       root.hidden = true;
       root.removeAttribute("data-side");
       document.removeEventListener("keydown", onKey);
+      root.removeEventListener("click", onTap);
       video.removeEventListener("timeupdate", syncLine);
       video.onended = null;
       video.onerror = null;
@@ -105,6 +106,13 @@ export function playCinematic(clip) {
     const onKey = (e) => {
       if (e.repeat) return;
       if (e.key === "Escape" || e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+        finish();
+      }
+    };
+
+    const onTap = (e) => {
+      if (e.target.closest("#cine-skip") || e.target.id === "cine" || e.target.id === "cine-video") {
         e.preventDefault();
         finish();
       }
@@ -125,7 +133,10 @@ export function playCinematic(clip) {
     };
     video.onerror = () => {};
     skipTimer = setTimeout(() => {
-      if (active && !active.done) document.addEventListener("keydown", onKey);
+      if (active && !active.done) {
+        document.addEventListener("keydown", onKey);
+        root.addEventListener("click", onTap);
+      }
     }, 250);
 
     video.src = clip.src;
