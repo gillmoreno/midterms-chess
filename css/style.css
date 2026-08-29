@@ -1129,7 +1129,7 @@ button:hover {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background: #1b3a6b;
+    background: #2a5a9e;
     min-height: 44px;
     min-width: 44px;
     overflow: visible;
@@ -1138,7 +1138,7 @@ button:hover {
   }
 
   .board2d-cell[data-lite="1"] {
-    background: #c9a66b;
+    background: #c84545;
   }
 
   .board2d-cell[data-selected="1"] {
@@ -1163,7 +1163,26 @@ button:hover {
     justify-content: center;
   }
 
+  .board2d-piece::before {
+    content: "";
+    position: absolute;
+    width: 92%;
+    height: 92%;
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .board2d-piece[data-side="right"]::before {
+    background: linear-gradient(135deg, #d44545 0%, #a83535 100%);
+  }
+
+  .board2d-piece[data-side="left"]::before {
+    background: linear-gradient(135deg, #4a7bc8 0%, #2d5a9e 100%);
+  }
+
   .board2d-piece img {
+    position: relative;
+    z-index: 1;
     width: 90%;
     height: 90%;
     object-fit: cover;
