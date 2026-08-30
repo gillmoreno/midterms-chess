@@ -2,14 +2,14 @@
 
 const CLIPS = {
   w: {
-    src: "assets/cinematics/right-kills.mp4",
-    poster: "assets/cinematics/right-kills.jpg",
+    src: "https://assets.chess.the-idea-guy.com/cinematics/right-kills-v2.mp4",
+    poster: "https://assets.chess.the-idea-guy.com/cinematics/right-kills-v2.jpg",
     line: "You're pronouns are: You, dead!",
     side: "right",
   },
   b: {
-    src: "assets/cinematics/left-kills.mp4",
-    poster: "assets/cinematics/left-kills.jpg",
+    src: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-v2.mp4",
+    poster: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-v2.jpg",
     line: "I am aborting you now!",
     side: "left",
   },
