@@ -1,12 +1,32 @@
 /** Pawn kill reels. Named-piece deaths use defeated beds in last-words.js. Overlay only — the board camera never moves. */
 
 const CLIPS = {
-  w: {
-    src: "https://assets.chess.the-idea-guy.com/cinematics/right-kills-v3.mp4",
-    poster: "https://assets.chess.the-idea-guy.com/cinematics/right-kills-v3.jpg",
-    line: "You're pronouns are: You, dead!",
-    side: "right",
-  },
+  w: [
+    {
+      src: "https://assets.chess.the-idea-guy.com/cinematics/right-kills-v3.mp4",
+      poster: "https://assets.chess.the-idea-guy.com/cinematics/right-kills-v3.jpg",
+      line: "You're pronouns are: You, dead!",
+      side: "right",
+    },
+    {
+      src: "https://assets.chess.the-idea-guy.com/cinematics/right-kills-2.mp4",
+      poster: "https://assets.chess.the-idea-guy.com/cinematics/right-kills-2.jpg",
+      line: "You're pronouns are: You, dead!",
+      side: "right",
+    },
+    {
+      src: "https://assets.chess.the-idea-guy.com/cinematics/right-kills-3.mp4",
+      poster: "https://assets.chess.the-idea-guy.com/cinematics/right-kills-3.jpg",
+      line: "You're pronouns are: You, dead!",
+      side: "right",
+    },
+    {
+      src: "https://assets.chess.the-idea-guy.com/cinematics/right-kills-4.mp4",
+      poster: "https://assets.chess.the-idea-guy.com/cinematics/right-kills-4.jpg",
+      line: "You're pronouns are: You, dead!",
+      side: "right",
+    },
+  ],
   b: {
     src: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-v2.mp4",
     poster: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-v2.jpg",
@@ -38,7 +58,12 @@ export function clipFor(attacker, victim) {
     return CLIPS.rfk;
   }
   if (attacker.t !== "p" || victim.t !== "p") return null;
-  return CLIPS[attacker.c] || null;
+  const clip = CLIPS[attacker.c];
+  if (!clip) return null;
+  if (Array.isArray(clip)) {
+    return clip[Math.floor(Math.random() * clip.length)];
+  }
+  return clip;
 }
 
 export function isPlaying() {
