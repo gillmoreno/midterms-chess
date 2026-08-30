@@ -21,7 +21,7 @@
         role: "King",
         model: "assets/models/right-king.glb",
         portrait: "assets/portraits/trump.jpg",
-        mobileToken: "assets/tokens/trump-king.png",
+        mobileToken: "https://assets.chess.the-idea-guy.com/tokens/trump-king.png",
       },
       q: {
         id: "leavitt",
@@ -30,7 +30,7 @@
         role: "Queen",
         model: "assets/models/right-queen-leavitt.glb",
         portrait: "assets/portraits/leavitt.jpg",
-        mobileToken: "assets/tokens/leavitt-queen.png",
+        mobileToken: "https://assets.chess.the-idea-guy.com/tokens/leavitt-queen.png",
       },
       r: [
         {
@@ -40,7 +40,7 @@
           role: "Rook",
           model: "assets/models/right-rook-paul.glb",
           portrait: "assets/portraits/paul.jpg",
-          mobileToken: "assets/tokens/paul-rook.png",
+          mobileToken: "https://assets.chess.the-idea-guy.com/tokens/paul-rook.png",
         },
         {
           id: "rubio",
@@ -49,7 +49,7 @@
           role: "Rook",
           model: "assets/models/right-rook-ks.glb",
           portrait: "assets/portraits/rubio.jpg",
-          mobileToken: "assets/tokens/rubio-rook.png",
+          mobileToken: "https://assets.chess.the-idea-guy.com/tokens/rubio-rook.png",
         },
       ],
       b: [
@@ -60,7 +60,7 @@
           role: "Bishop",
           model: "assets/models/right-bishop.glb",
           portrait: "assets/portraits/cruz.jpg",
-          mobileToken: "assets/tokens/cruz-bishop.png",
+          mobileToken: "https://assets.chess.the-idea-guy.com/tokens/cruz-bishop.png",
         },
         {
           id: "rfk",
@@ -69,7 +69,7 @@
           role: "Bishop",
           model: "assets/models/right-bishop-ks.glb",
           portrait: "assets/portraits/rfk.jpg",
-          mobileToken: "assets/tokens/rfk-bishop.png",
+          mobileToken: "https://assets.chess.the-idea-guy.com/tokens/rfk-bishop.png",
         },
       ],
       n: [
@@ -80,7 +80,7 @@
           role: "Knight",
           model: "assets/models/right-knight.glb",
           portrait: "assets/portraits/vance.jpg",
-          mobileToken: "assets/tokens/vance-knight.png",
+          mobileToken: "https://assets.chess.the-idea-guy.com/tokens/vance-knight.png",
         },
         {
           id: "desantis",
@@ -89,7 +89,7 @@
           role: "Knight",
           model: "assets/models/right-knight-ks.glb",
           portrait: "assets/portraits/desantis.jpg",
-          mobileToken: "assets/tokens/desantis-knight.png",
+          mobileToken: "https://assets.chess.the-idea-guy.com/tokens/desantis-knight.png",
         },
       ],
       p: {
@@ -98,7 +98,7 @@
         role: "Pawn",
         model: "assets/models/right-pawn.glb",
         portrait: "assets/portraits/pawn-right.jpg",
-        mobileToken: "assets/tokens/maga-pawn.png",
+        mobileToken: "https://assets.chess.the-idea-guy.com/tokens/maga-pawn.png",
       },
     },
     b: {
@@ -113,7 +113,7 @@
         role: "King",
         model: "assets/models/left-king.glb",
         portrait: "assets/portraits/newsom.jpg",
-        mobileToken: "assets/tokens/newsom-king.png",
+        mobileToken: "https://assets.chess.the-idea-guy.com/tokens/newsom-king.png",
       },
       q: {
         id: "aoc",
@@ -122,7 +122,7 @@
         role: "Queen",
         model: "assets/models/left-queen.glb",
         portrait: "assets/portraits/aoc.jpg",
-        mobileToken: "assets/tokens/aoc-queen.png",
+        mobileToken: "https://assets.chess.the-idea-guy.com/tokens/aoc-queen.png",
       },
       r: [
         {
@@ -132,7 +132,7 @@
           role: "Rook",
           model: "assets/models/left-rook.glb",
           portrait: "assets/portraits/sanders.jpg",
-          mobileToken: "assets/tokens/sanders-rook.png",
+          mobileToken: "https://assets.chess.the-idea-guy.com/tokens/sanders-rook.png",
         },
         {
           id: "warren",
@@ -141,7 +141,7 @@
           role: "Rook",
           model: "assets/models/left-rook-warren.glb",
           portrait: "assets/portraits/warren.jpg",
-          mobileToken: "assets/tokens/warren-rook.png",
+          mobileToken: "https://assets.chess.the-idea-guy.com/tokens/warren-rook.png",
         },
       ],
       b: [
@@ -152,7 +152,7 @@
           role: "Bishop",
           model: "assets/models/left-bishop.glb",
           portrait: "assets/portraits/harris.jpg",
-          mobileToken: "assets/tokens/harris-bishop.png",
+          mobileToken: "https://assets.chess.the-idea-guy.com/tokens/harris-bishop.png",
         },
         {
           id: "schumer",
@@ -161,7 +161,7 @@
           role: "Bishop",
           model: "assets/models/left-bishop-schumer.glb",
           portrait: "assets/portraits/schumer.jpg",
-          mobileToken: "assets/tokens/schumer-bishop.png",
+          mobileToken: "https://assets.chess.the-idea-guy.com/tokens/schumer-bishop.png",
         },
       ],
       n: [
@@ -172,7 +172,7 @@
           role: "Knight",
           model: "assets/models/left-knight.glb",
           portrait: "assets/portraits/buttigieg.jpg",
-          mobileToken: "assets/tokens/buttigieg-knight.png",
+          mobileToken: "https://assets.chess.the-idea-guy.com/tokens/buttigieg-knight.png",
         },
         {
           id: "mamdani",
@@ -181,7 +181,7 @@
           role: "Knight",
           model: "assets/models/left-knight-ks.glb",
           portrait: "assets/portraits/mamdani.jpg",
-          mobileToken: "assets/tokens/mamdani-knight.png",
+          mobileToken: "https://assets.chess.the-idea-guy.com/tokens/mamdani-knight.png",
         },
       ],
       p: {
@@ -191,7 +191,7 @@
         role: "Pawn",
         model: "assets/models/left-pawn.glb",
         portrait: "assets/portraits/pawn-left.jpg",
-        mobileToken: "assets/tokens/activist-pawn.png",
+        mobileToken: "https://assets.chess.the-idea-guy.com/tokens/activist-pawn.png",
       },
     },
   };
