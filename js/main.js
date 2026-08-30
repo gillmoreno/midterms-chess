@@ -428,6 +428,10 @@ async function initBoard() {
     const mode = $("opp-mode").value;
     if (mode === "cpu-b") return "b";
     if (mode === "cpu-w") return "w";
+    if (mode === "cpu") {
+      // CPU plays opposite of player
+      return playerSide === "w" ? "b" : "w";
+    }
     return null;
   }
 
@@ -436,7 +440,8 @@ async function initBoard() {
   }
 
   function paintOpp() {
-    $("opp-level-wrap").hidden = !$("opp-mode").value.startsWith("cpu");
+    const mode = $("opp-mode").value;
+    $("opp-level-wrap").hidden = !(mode === "cpu" || mode.startsWith("cpu"));
   }
 
   function scheduleCpu() {
@@ -482,6 +487,7 @@ async function initBoard() {
     if (board.resetFlip) board.resetFlip();
     rebuild();
     gameStarted = false;
+    playerSide = "w"; // Reset to default
     showKickoff();
   }
 
@@ -616,63 +622,23 @@ async function initBoard() {
     });
   });
 
-  // Wire start button once
-  $("kickoff-start").addEventListener("click", () => {
-    const selectedSide = kickoffModal.querySelector(".kickoff-btn[data-side][data-selected='1']");
-    const selectedOpp = kickoffModal.querySelector(".kickoff-btn[data-opp][data-selected='1']");
-    const selectedLevel = kickoffModal.querySelector(".kickoff-level-btn[data-selected='1']");
-
-    playerSide = selectedSide ? selectedSide.dataset.side === "right" ? "w" : "b" : "w";
-    const oppMode = selectedOpp ? selectedOpp.dataset.opp : "cpu";
-    const level = selectedLevel ? Number(selectedLevel.dataset.level) : 4;
-
-    // Update hidden selects
-    if (oppMode === "cpu") {
-      $("opp-mode").value = playerSide === "w" ? "cpu-b" : "cpu-w";
-    } else {
-      $("opp-mode").value = "human";
-    }
-    $("opp-level").value = String(level);
-    paintOpp();
-
-    // Flip board if player chose Left
-    if (playerSide === "b") {
-      board.flipView();
-    }
-
-    kickoffModal.hidden = true;
-    gameStarted = true;
-    scheduleCpu();
-  });
-
-  function showKickoff() {
-    // Reset selections to defaults
-    sideBtns.forEach(b => b.dataset.selected = "0");
-    sideBtns[0].dataset.selected = "1"; // Default: The Right
-    
-    oppBtns.forEach(b => b.dataset.selected = "0");
-    oppBtns[0].dataset.selected = "1"; // Default: CPU
-    
-    levelBtns.forEach(b => b.dataset.selected = "0");
-    levelBtns[3].dataset.selected = "1"; // Default: Level 4
-    
-    $("kickoff-level-section").hidden = false; // Show level section
-    kickoffModal.hidden = false;
-    gameStarted = false;
-  }
-
-  // Mobile controls
+  // Mobile controls setup (needs to be before kickoff start handler)
+  let updateMobilePills = null;
   if (isMobileViewport()) {
     const mobileControls = document.querySelector(".mobile-controls");
     if (mobileControls) mobileControls.hidden = false;
 
-    function updateMobilePills() {
+    updateMobilePills = function() {
       const sideBtn = $("mobile-side");
       const oppBtn = $("mobile-opp");
       const levelBtn = $("mobile-level");
 
       const mode = $("opp-mode").value;
-      sideBtn.textContent = mode === "cpu-w" ? "You 🔵" : "You 🔴";
+      const sideLabel = playerSide === "w" ? "You · The Right" : "You · The Left";
+      sideBtn.textContent = sideLabel;
+      sideBtn.disabled = gameStarted;
+      sideBtn.style.cursor = gameStarted ? "default" : "pointer";
+      sideBtn.style.opacity = gameStarted ? "0.8" : "1";
       
       if (mode === "human") {
         oppBtn.textContent = "👥";
@@ -682,33 +648,20 @@ async function initBoard() {
         levelBtn.hidden = false;
         levelBtn.textContent = "Lv " + cpuLevel();
       }
-    }
+    };
 
     $("mobile-side").addEventListener("click", () => {
-      const mode = $("opp-mode").value;
-      if (mode === "cpu-b") {
-        $("opp-mode").value = "cpu-w";
-        playerSide = "b";
-        board.flipView();
-      } else if (mode === "cpu-w") {
-        $("opp-mode").value = "cpu-b";
-        playerSide = "w";
-        board.flipView();
-      } else {
-        // Two humans: just flip the view
-        board.flipView();
-      }
-      paintOpp();
-      updateMobilePills();
-      scheduleCpu();
+      // Side is locked after kickoff
+      if (gameStarted) return;
     });
 
     $("mobile-opp").addEventListener("click", () => {
       const mode = $("opp-mode").value;
       if (mode === "human") {
-        $("opp-mode").value = "cpu-b";
-        playerSide = "w";
+        // Switch to CPU, respecting locked playerSide
+        $("opp-mode").value = "cpu";
       } else {
+        // Switch to two humans
         $("opp-mode").value = "human";
       }
       paintOpp();
@@ -741,6 +694,55 @@ async function initBoard() {
     $("mobile-new").addEventListener("click", newSession);
 
     updateMobilePills();
+  }
+
+  // Wire start button once
+  $("kickoff-start").addEventListener("click", () => {
+    const selectedSide = kickoffModal.querySelector(".kickoff-btn[data-side][data-selected='1']");
+    const selectedOpp = kickoffModal.querySelector(".kickoff-btn[data-opp][data-selected='1']");
+    const selectedLevel = kickoffModal.querySelector(".kickoff-level-btn[data-selected='1']");
+
+    playerSide = selectedSide ? selectedSide.dataset.side === "right" ? "w" : "b" : "w";
+    const oppMode = selectedOpp ? selectedOpp.dataset.opp : "cpu";
+    const level = selectedLevel ? Number(selectedLevel.dataset.level) : 4;
+
+    // Update hidden selects
+    $("opp-mode").value = oppMode === "cpu" ? "cpu" : "human";
+    $("opp-level").value = String(level);
+    paintOpp();
+
+    // Flip board if player chose Left
+    if (playerSide === "b") {
+      board.flipView();
+    }
+
+    kickoffModal.hidden = true;
+    gameStarted = true;
+    
+    // Update mobile pills if on mobile
+    if (updateMobilePills) updateMobilePills();
+    
+    scheduleCpu();
+  });
+
+  function showKickoff() {
+    // Reset selections to defaults
+    sideBtns.forEach(b => b.dataset.selected = "0");
+    sideBtns[0].dataset.selected = "1"; // Default: The Right
+    
+    oppBtns.forEach(b => b.dataset.selected = "0");
+    oppBtns[0].dataset.selected = "1"; // Default: CPU
+    
+    levelBtns.forEach(b => b.dataset.selected = "0");
+    levelBtns[3].dataset.selected = "1"; // Default: Level 4
+    
+    $("kickoff-level-section").hidden = false; // Show level section
+    kickoffModal.hidden = false;
+    gameStarted = false;
+    playerSide = "w"; // Reset to default
+    
+    // Update mobile pills if on mobile
+    if (updateMobilePills) updateMobilePills();
   }
 
   // Show kickoff modal on load

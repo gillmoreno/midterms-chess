@@ -749,5 +749,8 @@ export function createBoard3D(canvas) {
       homeTarget.z *= -1;
       controls.update();
     },
+    resetFlip: () => {
+      // 3D board doesn't need reset since flipView is a toggle
+    },
   };
 }

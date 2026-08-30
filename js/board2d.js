@@ -20,7 +20,10 @@ export function createBoard2D(container) {
 
   function renderBoard() {
     root.innerHTML = "";
-    for (let rank = 7; rank >= 0; rank--) {
+    // Real board flip: reverse rank iteration when flipped
+    const ranks = flipped ? [0, 1, 2, 3, 4, 5, 6, 7] : [7, 6, 5, 4, 3, 2, 1, 0];
+    for (let i = 0; i < ranks.length; i++) {
+      const rank = ranks[i];
       for (let file = 0; file < 8; file++) {
         const sq = Chess.sq(file, rank);
         const cell = document.createElement("button");
@@ -121,31 +124,12 @@ export function createBoard2D(container) {
 
   function flipView() {
     flipped = !flipped;
-    root.style.transform = flipped ? "rotate(180deg)" : "rotate(0deg)";
-    root.style.transition = "transform 0.6s ease-in-out";
-    // Re-render to counter-rotate pieces
     renderBoard();
-    // Apply counter-rotation after a brief delay to let the board rotate
-    setTimeout(() => {
-      Array.from(root.querySelectorAll(".board2d-piece")).forEach(piece => {
-        piece.style.transform = flipped ? "rotate(180deg)" : "rotate(0deg)";
-        piece.style.transition = "transform 0.6s ease-in-out";
-      });
-    }, 50);
   }
 
   function resetFlip() {
-    if (flipped) {
-      flipped = false;
-      root.style.transform = "rotate(0deg)";
-      root.style.transition = "transform 0.6s ease-in-out";
-      renderBoard();
-      setTimeout(() => {
-        Array.from(root.querySelectorAll(".board2d-piece")).forEach(piece => {
-          piece.style.transform = "rotate(0deg)";
-        });
-      }, 50);
-    }
+    flipped = false;
+    renderBoard();
   }
 
   const ready = Promise.resolve();
