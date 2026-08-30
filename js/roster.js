@@ -98,7 +98,7 @@
         role: "Pawn",
         model: "assets/models/right-pawn.glb",
         portrait: "assets/portraits/pawn-right.jpg",
-        mobileToken: "https://assets.chess.the-idea-guy.com/tokens/maga-pawn.png",
+        mobileToken: "https://assets.chess.the-idea-guy.com/tokens/maga-pawn-v2.png",
       },
     },
     b: {
