@@ -147,11 +147,70 @@
           <a class="btn-link" href="order.html">Orders</a>
           <a class="btn-link" href="defeated.html">Defeated</a>
           <a class="btn-link" href="scripts.html">Kill scripts</a>
-          <button type="button" id="btn-sound">Sound on</button>
-          <button type="button" id="btn-flip">Spin the chamber</button>
-          <button type="button" id="btn-new">New session</button>
+          <button type="button" id="btn-sound" data-icon="🔊">Sound on</button>
+          <button type="button" id="btn-flip" data-icon="🔄">Spin the chamber</button>
+          <button type="button" id="btn-new" data-icon="🆕">New session</button>
+        </div>
+        <div class="mobile-controls" hidden>
+          <button type="button" id="mobile-side" class="mobile-pill" title="Switch side"></button>
+          <button type="button" id="mobile-opp" class="mobile-pill" title="Opponent mode"></button>
+          <button type="button" id="mobile-level" class="mobile-pill" title="CPU level"></button>
+          <button type="button" id="mobile-sound" class="mobile-pill" title="Sound">🔊</button>
+          <button type="button" id="mobile-flip" class="mobile-pill" title="Flip board">🔄</button>
+          <button type="button" id="mobile-new" class="mobile-pill" title="New session">🆕</button>
         </div>
       </footer>
+    </div>
+
+    <div id="kickoff" class="modal" hidden>
+      <div class="modal-card">
+        <h2>The Midterms</h2>
+        <p>Choose your caucus and opponent before the session begins.</p>
+        <div class="kickoff-grid">
+          <div class="kickoff-section">
+            <h3>Your Caucus</h3>
+            <div class="kickoff-buttons">
+              <button type="button" class="kickoff-btn" data-side="right" data-selected="1">
+                <span class="kickoff-icon">🔴</span>
+                <span>The Right</span>
+              </button>
+              <button type="button" class="kickoff-btn" data-side="left">
+                <span class="kickoff-icon">🔵</span>
+                <span>The Left</span>
+              </button>
+            </div>
+          </div>
+          <div class="kickoff-section">
+            <h3>Opponent</h3>
+            <div class="kickoff-buttons">
+              <button type="button" class="kickoff-btn" data-opp="cpu" data-selected="1">
+                <span class="kickoff-icon">🤖</span>
+                <span>CPU</span>
+              </button>
+              <button type="button" class="kickoff-btn" data-opp="human">
+                <span class="kickoff-icon">👥</span>
+                <span>Two Humans</span>
+              </button>
+            </div>
+          </div>
+          <div class="kickoff-section" id="kickoff-level-section">
+            <h3>CPU Level</h3>
+            <div class="kickoff-buttons kickoff-levels">
+              <button type="button" class="kickoff-level-btn" data-level="1">1</button>
+              <button type="button" class="kickoff-level-btn" data-level="2">2</button>
+              <button type="button" class="kickoff-level-btn" data-level="3">3</button>
+              <button type="button" class="kickoff-level-btn" data-level="4" data-selected="1">4</button>
+              <button type="button" class="kickoff-level-btn" data-level="5">5</button>
+              <button type="button" class="kickoff-level-btn" data-level="6">6</button>
+              <button type="button" class="kickoff-level-btn" data-level="7">7</button>
+              <button type="button" class="kickoff-level-btn" data-level="8">8</button>
+              <button type="button" class="kickoff-level-btn" data-level="9">9</button>
+              <button type="button" class="kickoff-level-btn" data-level="10">10</button>
+            </div>
+          </div>
+        </div>
+        <button type="button" id="kickoff-start" class="kickoff-start">Start Session</button>
+      </div>
     </div>
 
     <div id="promo" class="modal" hidden>

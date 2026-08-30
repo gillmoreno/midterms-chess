@@ -169,6 +169,8 @@ async function initBoard() {
   let cpuBusy = false;
   let cpuGen = 0;
   const engine = createEngine();
+  let gameStarted = false;
+  let playerSide = "w"; // Default: player is white (The Right)
 
   function decorateMoves(moves) {
     return moves.map((m) => {
@@ -374,6 +376,7 @@ async function initBoard() {
   }
 
   board.onPick((file, rank) => {
+    if (!gameStarted) return; // Block interaction until kickoff
     if (game.result || board.busy() || locked || cpuBusy || isPlaying()) return;
     if (cpuColor() && game.turn === cpuColor()) return;
     const sq = Chess.sq(file, rank);
@@ -476,8 +479,10 @@ async function initBoard() {
     engine.stop();
     $("taunt").hidden = true;
     game = Roster.stamp(Chess.createGame());
+    if (board.resetFlip) board.resetFlip();
     rebuild();
-    scheduleCpu();
+    gameStarted = false;
+    showKickoff();
   }
 
   const MINI_KEY = "floor-vote-mini-size";
@@ -523,6 +528,7 @@ async function initBoard() {
   $("miniboard").addEventListener("click", (e) => {
     const cell = e.target.closest("button");
     if (!cell || locked || cpuBusy) return;
+    if (!gameStarted) return; // Block until kickoff
     if (cpuColor() && game.turn === cpuColor()) return;
     const file = Number(cell.dataset.file);
     const rank = Number(cell.dataset.rank);
@@ -577,6 +583,171 @@ async function initBoard() {
   $("cine").addEventListener("click", (e) => {
     if (e.target.id === "cine" || e.target.id === "cine-video") cancelCinematic();
   });
+
+  // Kickoff modal logic
+  const kickoffModal = $("kickoff");
+  const sideBtns = kickoffModal.querySelectorAll(".kickoff-btn[data-side]");
+  const oppBtns = kickoffModal.querySelectorAll(".kickoff-btn[data-opp]");
+  const levelBtns = kickoffModal.querySelectorAll(".kickoff-level-btn");
+
+  // Wire side buttons once
+  sideBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      sideBtns.forEach(b => b.dataset.selected = "0");
+      btn.dataset.selected = "1";
+    });
+  });
+
+  // Wire opponent buttons once
+  oppBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      oppBtns.forEach(b => b.dataset.selected = "0");
+      btn.dataset.selected = "1";
+      const levelSection = $("kickoff-level-section");
+      levelSection.hidden = btn.dataset.opp !== "cpu";
+    });
+  });
+
+  // Wire level buttons once
+  levelBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      levelBtns.forEach(b => b.dataset.selected = "0");
+      btn.dataset.selected = "1";
+    });
+  });
+
+  // Wire start button once
+  $("kickoff-start").addEventListener("click", () => {
+    const selectedSide = kickoffModal.querySelector(".kickoff-btn[data-side][data-selected='1']");
+    const selectedOpp = kickoffModal.querySelector(".kickoff-btn[data-opp][data-selected='1']");
+    const selectedLevel = kickoffModal.querySelector(".kickoff-level-btn[data-selected='1']");
+
+    playerSide = selectedSide ? selectedSide.dataset.side === "right" ? "w" : "b" : "w";
+    const oppMode = selectedOpp ? selectedOpp.dataset.opp : "cpu";
+    const level = selectedLevel ? Number(selectedLevel.dataset.level) : 4;
+
+    // Update hidden selects
+    if (oppMode === "cpu") {
+      $("opp-mode").value = playerSide === "w" ? "cpu-b" : "cpu-w";
+    } else {
+      $("opp-mode").value = "human";
+    }
+    $("opp-level").value = String(level);
+    paintOpp();
+
+    // Flip board if player chose Left
+    if (playerSide === "b") {
+      board.flipView();
+    }
+
+    kickoffModal.hidden = true;
+    gameStarted = true;
+    scheduleCpu();
+  });
+
+  function showKickoff() {
+    // Reset selections to defaults
+    sideBtns.forEach(b => b.dataset.selected = "0");
+    sideBtns[0].dataset.selected = "1"; // Default: The Right
+    
+    oppBtns.forEach(b => b.dataset.selected = "0");
+    oppBtns[0].dataset.selected = "1"; // Default: CPU
+    
+    levelBtns.forEach(b => b.dataset.selected = "0");
+    levelBtns[3].dataset.selected = "1"; // Default: Level 4
+    
+    $("kickoff-level-section").hidden = false; // Show level section
+    kickoffModal.hidden = false;
+    gameStarted = false;
+  }
+
+  // Mobile controls
+  if (isMobileViewport()) {
+    const mobileControls = document.querySelector(".mobile-controls");
+    if (mobileControls) mobileControls.hidden = false;
+
+    function updateMobilePills() {
+      const sideBtn = $("mobile-side");
+      const oppBtn = $("mobile-opp");
+      const levelBtn = $("mobile-level");
+
+      const mode = $("opp-mode").value;
+      sideBtn.textContent = mode === "cpu-w" ? "You 🔵" : "You 🔴";
+      
+      if (mode === "human") {
+        oppBtn.textContent = "👥";
+        levelBtn.hidden = true;
+      } else {
+        oppBtn.textContent = "🤖";
+        levelBtn.hidden = false;
+        levelBtn.textContent = "Lv " + cpuLevel();
+      }
+    }
+
+    $("mobile-side").addEventListener("click", () => {
+      const mode = $("opp-mode").value;
+      if (mode === "cpu-b") {
+        $("opp-mode").value = "cpu-w";
+        playerSide = "b";
+        board.flipView();
+      } else if (mode === "cpu-w") {
+        $("opp-mode").value = "cpu-b";
+        playerSide = "w";
+        board.flipView();
+      } else {
+        // Two humans: just flip the view
+        board.flipView();
+      }
+      paintOpp();
+      updateMobilePills();
+      scheduleCpu();
+    });
+
+    $("mobile-opp").addEventListener("click", () => {
+      const mode = $("opp-mode").value;
+      if (mode === "human") {
+        $("opp-mode").value = "cpu-b";
+        playerSide = "w";
+      } else {
+        $("opp-mode").value = "human";
+      }
+      paintOpp();
+      updateMobilePills();
+      scheduleCpu();
+    });
+
+    $("mobile-level").addEventListener("click", () => {
+      const current = cpuLevel();
+      const next = current >= 10 ? 1 : current + 1;
+      $("opp-level").value = String(next);
+      updateMobilePills();
+      if (cpuBusy) {
+        cpuGen += 1;
+        engine.stop();
+        cpuBusy = false;
+      }
+      scheduleCpu();
+    });
+
+    $("mobile-sound").addEventListener("click", () => {
+      setMuted(!isMuted());
+      $("mobile-sound").textContent = isMuted() ? "🔇" : "🔊";
+    });
+
+    $("mobile-flip").addEventListener("click", () => {
+      board.flipView();
+    });
+
+    $("mobile-new").addEventListener("click", newSession);
+
+    updateMobilePills();
+  }
+
+  // Show kickoff modal on load
+  await board.readyPromise;
+  rebuild();
+  refreshHud(game);
+  showKickoff();
 
   window.__floor = {
     play: (a, b, promo) => {
@@ -637,10 +808,6 @@ async function initBoard() {
       btn: $("hover-size").textContent,
     }),
   };
-
-  await board.readyPromise;
-  rebuild();
-  refreshHud(game);
 }
 
 // Initialize immediately (async for dynamic imports but non-blocking)

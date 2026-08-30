@@ -77,6 +77,8 @@ export function createEngine() {
   async function go(fen, level) {
     await ready();
     const spec = LEVELS[Math.max(0, Math.min(9, (level | 0) - 1))];
+    const startTime = Date.now();
+    const minThinkMs = 600 + Math.random() * 300; // 600-900ms human-feel delay
     send("stop");
     send("ucinewgame");
     send("setoption name Skill Level value " + spec.skill);
@@ -86,6 +88,11 @@ export function createEngine() {
     if (spec.depth) send("go depth " + spec.depth + " movetime " + spec.movetime);
     else send("go movetime " + spec.movetime);
     const line = await until((l) => /\bbestmove\b/.test(l), spec.movetime + 8000);
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, minThinkMs - elapsed);
+    if (remaining > 0) {
+      await new Promise(res => setTimeout(res, remaining));
+    }
     return parseBest(line);
   }
 

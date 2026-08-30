@@ -16,6 +16,7 @@ export function createBoard2D(container) {
   let legalMoves = [];
   let lastMove = null;
   let inspectMode = false;
+  let flipped = false;
 
   function renderBoard() {
     root.innerHTML = "";
@@ -115,7 +116,36 @@ export function createBoard2D(container) {
     setTimeout(() => {
       animating = false;
       if (onDone) onDone();
-    }, 300);
+    }, 400);
+  }
+
+  function flipView() {
+    flipped = !flipped;
+    root.style.transform = flipped ? "rotate(180deg)" : "rotate(0deg)";
+    root.style.transition = "transform 0.6s ease-in-out";
+    // Re-render to counter-rotate pieces
+    renderBoard();
+    // Apply counter-rotation after a brief delay to let the board rotate
+    setTimeout(() => {
+      Array.from(root.querySelectorAll(".board2d-piece")).forEach(piece => {
+        piece.style.transform = flipped ? "rotate(180deg)" : "rotate(0deg)";
+        piece.style.transition = "transform 0.6s ease-in-out";
+      });
+    }, 50);
+  }
+
+  function resetFlip() {
+    if (flipped) {
+      flipped = false;
+      root.style.transform = "rotate(0deg)";
+      root.style.transition = "transform 0.6s ease-in-out";
+      renderBoard();
+      setTimeout(() => {
+        Array.from(root.querySelectorAll(".board2d-piece")).forEach(piece => {
+          piece.style.transform = "rotate(0deg)";
+        });
+      }, 50);
+    }
   }
 
   const ready = Promise.resolve();
@@ -135,6 +165,7 @@ export function createBoard2D(container) {
     busy: () => animating,
     cameraPos: () => ({ x: 0, y: 5, z: 0 }),
     focusOn: () => {},
-    flipView: () => {},
+    flipView,
+    resetFlip,
   };
 }

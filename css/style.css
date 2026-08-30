@@ -665,6 +665,117 @@ button:hover {
   font-size: 0.65rem;
 }
 
+.kickoff-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.kickoff-section h3 {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  margin: 0 0 0.7rem;
+  color: var(--gold-2);
+}
+
+.kickoff-buttons {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.kickoff-btn {
+  flex: 1;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.9rem 1rem;
+  border: 2px solid var(--line);
+  background: rgba(20, 25, 35, 0.8);
+  transition: all 0.2s;
+}
+
+.kickoff-btn[data-selected="1"] {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--gold-2);
+}
+
+.kickoff-btn:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.kickoff-icon {
+  font-size: 2rem;
+}
+
+.kickoff-levels {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.4rem;
+}
+
+.kickoff-level-btn {
+  padding: 0.6rem;
+  border: 2px solid var(--line);
+  background: rgba(20, 25, 35, 0.8);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.kickoff-level-btn[data-selected="1"] {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--gold-2);
+}
+
+.kickoff-level-btn:hover {
+  border-color: var(--gold);
+}
+
+.kickoff-start {
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 2px solid var(--gold);
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--gold-2);
+}
+
+.kickoff-start:hover {
+  background: rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
+}
+
+.mobile-controls {
+  display: none;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.5rem 0;
+}
+
+.mobile-pill {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.75rem;
+  border: 1px solid var(--line);
+  background: rgba(20, 25, 35, 0.9);
+  border-radius: 1rem;
+  white-space: nowrap;
+  min-height: 36px;
+}
+
+.mobile-pill:active {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--gold);
+}
+
 #file-hint {
   position: fixed;
   inset: 0;
@@ -1043,8 +1154,12 @@ button:hover {
   #chrome.mobile-mode #miniboard-wrap,
   #chrome.mobile-mode #hover-card,
   #chrome.mobile-mode .dock-left .opp,
-  #chrome.mobile-mode .dock-actions .btn-link {
+  #chrome.mobile-mode .dock-actions {
     display: none !important;
+  }
+
+  #chrome.mobile-mode .mobile-controls {
+    display: flex !important;
   }
 
   #chrome.mobile-mode .dock {
@@ -1077,22 +1192,12 @@ button:hover {
   }
 
   #chrome.mobile-mode .ticker {
-    display: none;
-  }
-
-  #chrome.mobile-mode .dock-actions {
-    display: flex;
-    gap: 0.4rem;
-    justify-content: space-between;
-  }
-
-  #chrome.mobile-mode .dock-actions button {
-    flex: 1;
-    padding: 0.5rem 0.3rem;
-    font-size: 0.78rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: block !important;
+    font-size: 0.68rem;
+    padding: 0.4rem 0.5rem;
+    background: rgba(20, 25, 35, 0.6);
+    border-radius: 0.25rem;
+    order: 2;
   }
 
   #chrome.mobile-mode #arena {
@@ -1103,10 +1208,15 @@ button:hover {
     position: relative;
     min-height: 0;
     padding: 0.5rem;
+    overflow: hidden;
   }
 
   #chrome.mobile-mode #stage {
     display: none;
+  }
+
+  #chrome.mobile-mode .board2d-root {
+    max-width: min(96vw, 100vh - 16rem);
   }
 
   .board2d-root {
@@ -1119,6 +1229,7 @@ button:hover {
     gap: 0;
     border: 2px solid var(--gold);
     background: var(--void);
+    transition: transform 0.6s ease-in-out;
   }
 
   .board2d-cell {
@@ -1135,6 +1246,7 @@ button:hover {
     overflow: visible;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    transition: transform 0.6s ease-in-out;
   }
 
   .board2d-cell[data-lite="1"] {
@@ -1321,5 +1433,41 @@ button:hover {
 
   #chrome.mobile-mode #promo-choices button {
     min-height: 48px;
+  }
+
+  /* Kickoff modal mobile styles */
+  @media (max-width: 860px) {
+    .kickoff-grid {
+      gap: 1rem;
+    }
+
+    .kickoff-section h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .kickoff-btn {
+      min-width: 120px;
+      padding: 0.7rem 0.8rem;
+    }
+
+    .kickoff-icon {
+      font-size: 1.8rem;
+    }
+
+    .kickoff-levels {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.3rem;
+    }
+
+    .kickoff-level-btn {
+      padding: 0.5rem 0.3rem;
+      font-size: 0.8rem;
+    }
+
+    .kickoff-start {
+      padding: 0.8rem 1.2rem;
+      font-size: 0.85rem;
+    }
   }
 }
