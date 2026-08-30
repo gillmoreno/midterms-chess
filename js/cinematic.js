@@ -27,12 +27,32 @@ const CLIPS = {
       side: "right",
     },
   ],
-  b: {
-    src: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-v2.mp4",
-    poster: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-v2.jpg",
-    line: "I am aborting you now!",
-    side: "left",
-  },
+  b: [
+    {
+      src: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-1.mp4",
+      poster: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-1.jpg",
+      line: "I am aborting you now!",
+      side: "left",
+    },
+    {
+      src: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-2.mp4",
+      poster: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-2.jpg",
+      line: "I am aborting you now!",
+      side: "left",
+    },
+    {
+      src: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-3.mp4",
+      poster: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-3.jpg",
+      line: "I am aborting you now!",
+      side: "left",
+    },
+    {
+      src: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-4.mp4",
+      poster: "https://assets.chess.the-idea-guy.com/cinematics/left-kills-4.jpg",
+      line: "I am aborting you now!",
+      side: "left",
+    },
+  ],
   leftQueen: {
     src: "assets/cinematics/left-queen-kills.mp4",
     poster: "assets/cinematics/left-queen-kills.jpg",
