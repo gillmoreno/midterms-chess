@@ -4,6 +4,9 @@
  *
  * Generated from studio/soundbites/last-words.json — edit there, or
  * hit Captured on a card in the studio player.
+ *
+ * LOSE REELS: See .grok/skills/STYLE-GUIDE.md for visual consistency
+ * (face/sculpt must match the desktop GLB, not a new super-caricature look).
  */
 
 export const LAST_WORDS = {

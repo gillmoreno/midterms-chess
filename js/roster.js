@@ -2,6 +2,8 @@
  * Political houses mapped onto chess roles.
  * White = the Right. Black = the Left.
  * Rooks/bishops/knights have a queenside and kingside character.
+ *
+ * VISUAL STYLE: See .grok/skills/STYLE-GUIDE.md for 2D/3D/cinematic consistency.
  */
 (function (root) {
   "use strict";
