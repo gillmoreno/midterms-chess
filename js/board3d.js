@@ -539,6 +539,12 @@ export function createBoard3D(canvas) {
         flash: null,
         tracer: null,
         onDone,
+        // Scaled timing for ~3s total duration
+        aimDur: 0.5,
+        shootStart: 0.5,
+        shootEnd: 1.8,
+        slideStart: 1.3,
+        totalDur: 3.0,
       });
       fromMesh.userData.square = to;
       return;
@@ -551,7 +557,7 @@ export function createBoard3D(canvas) {
       start: fromMesh.position.clone(),
       dest: destPos,
       t: 0,
-      dur: hop ? 0.38 : 0.28,
+      dur: 2.0,
       hop,
       capture: !!victim,
       landed: false,
@@ -631,12 +637,28 @@ export function createBoard3D(canvas) {
 
   function tickPawnKill(a) {
     const t = a.t;
-    if (t < 0.22) {
-      const u = ease(t / 0.22);
+    const aimDur = a.aimDur || 0.22;
+    const shootStart = a.shootStart || 0.22;
+    const shootEnd = a.shootEnd || 0.68;
+    const slideStart = a.slideStart || 0.55;
+    const totalDur = a.totalDur || 1.05;
+    
+    if (t < aimDur) {
+      const u = ease(t / aimDur);
       a.shooter.rotation.y = a.restYaw + (a.aimYaw - a.restYaw) * u;
       return;
     }
-    const burst = [0.22, 0.3, 0.38, 0.47, 0.56];
+    
+    // Scale burst timing proportionally
+    const burstSpacing = (shootEnd - shootStart) / 5;
+    const burst = [
+      shootStart,
+      shootStart + burstSpacing,
+      shootStart + burstSpacing * 2,
+      shootStart + burstSpacing * 3,
+      shootStart + burstSpacing * 4
+    ];
+    
     if (a.shots < burst.length && t >= burst[a.shots]) {
       a.shots += 1;
       clearMuzzle(a.fx);
@@ -646,8 +668,9 @@ export function createBoard3D(canvas) {
       clearMuzzle(a.fx);
       a.fx = null;
     }
-    if (t >= 0.22 && t < 0.68) {
-      const u = ease((t - 0.22) / 0.46);
+    
+    if (t >= shootStart && t < shootEnd) {
+      const u = ease((t - shootStart) / (shootEnd - shootStart));
       if (!a.dropped && u > 0.35) {
         a.dropped = true;
       }
@@ -658,8 +681,10 @@ export function createBoard3D(canvas) {
       a.victim.rotation.x = u * 1.35;
       a.victim.rotation.z = u * 0.35;
     }
-    if (t >= 0.55) {
-      const u = ease(Math.min(1, (t - 0.55) / 0.42));
+    
+    if (t >= slideStart) {
+      const slideDur = totalDur - slideStart;
+      const u = ease(Math.min(1, (t - slideStart) / slideDur));
       a.shooter.position.x = a.start.x + (a.dest.x - a.start.x) * u;
       a.shooter.position.z = a.start.z + (a.dest.z - a.start.z) * u;
       a.shooter.rotation.y = a.aimYaw + (a.restYaw - a.aimYaw) * u;
@@ -672,7 +697,8 @@ export function createBoard3D(canvas) {
       a.t += dt;
       if (a.kind === "pawnKill") {
         tickPawnKill(a);
-        if (a.t < 1.05) left.push(a);
+        const totalDur = a.totalDur || 1.05;
+        if (a.t < totalDur) left.push(a);
         else {
           clearMuzzle(a.fx);
           if (a.onDone) a.onDone();
@@ -685,7 +711,7 @@ export function createBoard3D(canvas) {
       a.mesh.position.z = a.start.z + (a.dest.z - a.start.z) * e;
       const hop = a.hop ? Math.sin(u * Math.PI) * 0.55 : 0;
       a.mesh.position.y = 0.21 + hop;
-      if (!a.landed && u >= 0.88) {
+      if (!a.landed && u >= 0.85) {
         a.landed = true;
         if (a.capture) playCapture();
         else playMove();

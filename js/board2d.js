@@ -111,15 +111,94 @@ export function createBoard2D(container) {
 
   function animateMove({ from, to, captureSquare }, onDone) {
     animating = true;
+    
+    // Find the piece to animate
+    const fromFile = Chess.fileOf(from);
+    const fromRank = Chess.rankOf(from);
+    const toFile = Chess.fileOf(to);
+    const toRank = Chess.rankOf(to);
+    
+    // Get the cells
+    const fromCell = root.querySelector(`[data-file="${fromFile}"][data-rank="${fromRank}"]`);
+    const toCell = root.querySelector(`[data-file="${toFile}"][data-rank="${toRank}"]`);
+    
+    if (!fromCell || !toCell) {
+      // Fallback if cells not found
+      if (captureSquare != null) {
+        playCapture();
+      } else {
+        playMove();
+      }
+      setTimeout(() => {
+        animating = false;
+        if (onDone) onDone();
+      }, 400);
+      return;
+    }
+    
+    const pieceWrap = fromCell.querySelector('.board2d-piece');
+    if (!pieceWrap) {
+      // No piece to animate
+      if (captureSquare != null) {
+        playCapture();
+      } else {
+        playMove();
+      }
+      setTimeout(() => {
+        animating = false;
+        if (onDone) onDone();
+      }, 400);
+      return;
+    }
+    
+    // Create a flying clone
+    const flyingPiece = pieceWrap.cloneNode(true);
+    flyingPiece.style.position = 'absolute';
+    flyingPiece.style.pointerEvents = 'none';
+    flyingPiece.style.zIndex = '1000';
+    
+    // Get positions
+    const fromRect = fromCell.getBoundingClientRect();
+    const toRect = toCell.getBoundingClientRect();
+    const rootRect = root.getBoundingClientRect();
+    
+    // Set initial position relative to board
+    flyingPiece.style.left = (fromRect.left - rootRect.left) + 'px';
+    flyingPiece.style.top = (fromRect.top - rootRect.top) + 'px';
+    flyingPiece.style.width = fromRect.width + 'px';
+    flyingPiece.style.height = fromRect.height + 'px';
+    flyingPiece.style.transition = 'left 2s ease-in-out, top 2s ease-in-out';
+    
+    // Hide original piece
+    pieceWrap.style.opacity = '0';
+    
+    // Add flying piece to board
+    root.appendChild(flyingPiece);
+    
+    // Play sound immediately
     if (captureSquare != null) {
       playCapture();
     } else {
       playMove();
     }
+    
+    // Trigger animation on next frame
+    requestAnimationFrame(() => {
+      flyingPiece.style.left = (toRect.left - rootRect.left) + 'px';
+      flyingPiece.style.top = (toRect.top - rootRect.top) + 'px';
+    });
+    
+    // Clean up after animation
     setTimeout(() => {
+      if (flyingPiece.parentNode) {
+        flyingPiece.remove();
+      }
+      if (pieceWrap) {
+        pieceWrap.style.opacity = '';
+      }
       animating = false;
       if (onDone) onDone();
-    }, 400);
+    }, 2000);
   }
 
   function flipView() {
