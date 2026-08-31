@@ -96,7 +96,7 @@
       ],
       p: {
         id: "maga",
-        name: "Open-carry MAGA",
+        name: "MAGA",
         role: "Pawn",
         model: "https://assets.chess.the-idea-guy.com/models/right-pawn-v2.glb",
         portrait: "https://assets.chess.the-idea-guy.com/portraits/pawn-right-v2.jpg",
@@ -188,8 +188,8 @@
       ],
       p: {
         id: "activist",
-        name: "They/Them Rifle",
-        aka: "Blue-hair riflewoman",
+        name: "They/Them Activist",
+        aka: "Blue-hair",
         role: "Pawn",
         model: "https://assets.chess.the-idea-guy.com/models/left-pawn-v2.glb",
         portrait: "https://assets.chess.the-idea-guy.com/portraits/pawn-left-v2.jpg",

@@ -44,7 +44,7 @@ TARGET_NAME = {
     "warren": "Warren",
     "buttigieg": "Mayor Pete",
     "mamdani": "Mamdani",
-    "activist": "They/Them Rifle",
+    "activist": "They/Them Activist",
     "maga": "MAGA pawn",
     "melania": "Melania",
     "leavitt": "Karoline Leavitt",

@@ -4101,7 +4101,7 @@ window.CLIPS = [
     "padAfter": 15.027,
     "pieceId": "trump",
     "target": "activist",
-    "targetName": "They/Them Rifle",
+    "targetName": "They/Them Activist",
     "bark": false,
     "lastWord": false,
     "order": false,
